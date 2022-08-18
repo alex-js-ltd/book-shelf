@@ -31,7 +31,7 @@ const Modal = (props: any) => {
 const ModalDismissButton: FC<{ children: ReactElement }> = ({
   children: child,
 }) => {
-  const [isOpen, setIsOpen] = useContext(ModalContext);
+  const [, setIsOpen] = useContext(ModalContext);
 
   if (!setIsOpen) {
     return null;
@@ -45,7 +45,7 @@ const ModalDismissButton: FC<{ children: ReactElement }> = ({
 const ModalOpenButton: FC<{ children: ReactElement }> = ({
   children: child,
 }) => {
-  const [isOpen, setIsOpen] = useContext(ModalContext);
+  const [, setIsOpen] = useContext(ModalContext);
 
   if (!setIsOpen) {
     return null;
