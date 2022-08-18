@@ -1,3 +1,7 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
+
 import '@reach/dialog/styles.css';
 import { FC, ReactElement, cloneElement, SyntheticEvent } from 'react';
 import { createRoot } from 'react-dom/client';
