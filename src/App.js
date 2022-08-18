@@ -1,15 +1,14 @@
+import { jsx } from '@emotion/core';
+
 import '@reach/dialog/styles.css';
-import { FC, ReactElement, cloneElement, SyntheticEvent } from 'react';
-import { createRoot } from 'react-dom/client';
+
+import * as React from 'react';
 import { Button, Input, FormGroup } from './comps/lib';
 import { Modal, ModalContents, ModalOpenButton } from './comps/modal';
 import { Logo } from './comps/logo';
 
-const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
-  onSubmit,
-  submitButton,
-}) => {
-  const handleSubmit = (event: SyntheticEvent | any) => {
+function LoginForm({ onSubmit, submitButton }) {
+  function handleSubmit(event) {
     event.preventDefault();
     const { username, password } = event.target.elements;
 
@@ -17,7 +16,7 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
       username: username.value,
       password: password.value,
     });
-  };
+  }
 
   return (
     <form
@@ -41,17 +40,17 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
         <label htmlFor='password'>Password</label>
         <Input id='password' type='password' />
       </FormGroup>
-      <div>{cloneElement(submitButton, { type: 'submit' })}</div>
+      <div>{React.cloneElement(submitButton, { type: 'submit' })} </div>
     </form>
   );
-};
+}
 
 function App() {
-  function login(formData: any) {
+  function login(formData) {
     console.log('login', formData);
   }
 
-  function register(formData: any) {
+  function register(formData) {
     console.log('register', formData);
   }
 
@@ -102,6 +101,4 @@ function App() {
   );
 }
 
-const root = createRoot(document.getElementById('root') as HTMLElement);
-root.render(<App />);
-export { root };
+export default App;
