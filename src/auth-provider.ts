@@ -45,6 +45,8 @@ async function client(endpoint, data) {
     .fetch(`${authURL}/${endpoint}`, config)
     .then(async (response) => {
       const data = await response.json();
+
+      console.log('data', data);
       if (response.ok) {
         return data;
       } else {
