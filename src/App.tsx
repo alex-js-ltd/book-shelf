@@ -9,7 +9,7 @@ const App: FC = () => {
     auth.register(form).then((u: any) => setUser(u));
 
   useEffect(() => {
-    console.log(user);
+    console.log('get token', auth.getToken());
   }, [user]);
 
   return <UnauthenticatedApp login={register} register={register} />;
