@@ -5,14 +5,12 @@ import { UnauthenticatedApp } from './unauthenticated-app';
 const App: FC = () => {
   const [user, setUser] = useState(null);
 
+  const login = (form: any) => auth.login(form).then((u: any) => setUser(u));
+
   const register = (form: any) =>
     auth.register(form).then((u: any) => setUser(u));
 
-  useEffect(() => {
-    console.log('get token', auth.getToken());
-  }, [user]);
-
-  return <UnauthenticatedApp login={register} register={register} />;
+  return <UnauthenticatedApp login={login} register={register} />;
 };
 
 export default App;
