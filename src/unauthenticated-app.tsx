@@ -49,15 +49,10 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
   );
 };
 
-function UnauthenticatedApp() {
-  function login(formData: any) {
-    console.log('login', formData);
-  }
-
-  function register(formData: any) {
-    console.log('register', formData);
-  }
-
+const UnauthenticatedApp: FC<{ login: Function; register: Function }> = ({
+  login,
+  register,
+}) => {
   return (
     <div
       css={{
@@ -103,6 +98,6 @@ function UnauthenticatedApp() {
       </div>
     </div>
   );
-}
+};
 
 export { UnauthenticatedApp };
