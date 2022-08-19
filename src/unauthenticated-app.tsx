@@ -14,10 +14,10 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
 }) => {
   const handleSubmit = (event: SyntheticEvent | any) => {
     event.preventDefault();
-    const { username, password } = event.target.elements;
+    const { email, password } = event.target.elements;
 
     onSubmit({
-      username: username.value,
+      email: email.value,
       password: password.value,
     });
   };
@@ -37,8 +37,8 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
       onSubmit={handleSubmit}
     >
       <FormGroup>
-        <label htmlFor='username'>Username</label>
-        <Input id='username' />
+        <label htmlFor='email'>Email</label>
+        <Input id='email' />
       </FormGroup>
       <FormGroup>
         <label htmlFor='password'>Password</label>
