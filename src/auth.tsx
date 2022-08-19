@@ -18,11 +18,25 @@ const register = ({ email, password }: any) => {
     .catch((error) => console.log("It's an error", error));
 };
 
-const login = ({ email, password }: any) => {
-  return auth
-    .login(email, password, true)
-    .then((response) => console.log('login success', response))
-    .catch((error) => console.log("It's an error", error));
+// const login = ({ email, password }: any) => {
+//   return auth
+//     .login(email, password, true)
+//     .then((response) => console.log('login success', response))
+//     .catch((error) => console.log("It's an error", error));
+// };
+
+const login = ({ email, password }) => {
+  return new Promise((resolve, reject) => {
+    auth
+      .login(email, password)
+      .then((response) => {
+        resolve(response);
+        console.log('res', response);
+      })
+      .catch((error) => {
+        reject(error.json);
+      });
+  });
 };
 
 export { register, login };
