@@ -3,7 +3,7 @@
 import { jsx } from '@emotion/react';
 
 import '@reach/dialog/styles.css';
-import { FC, ReactElement, cloneElement, SyntheticEvent } from 'react';
+import { FC, ReactElement, cloneElement } from 'react';
 import { Button, Input, FormGroup } from './comps/lib';
 import { Modal, ModalContents, ModalOpenButton } from './comps/modal';
 import { Logo } from './comps/logo';
@@ -12,14 +12,11 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
   onSubmit,
   submitButton,
 }) => {
-  const handleSubmit = (event: SyntheticEvent | any) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
 
-    onSubmit({
-      email: email.value,
-      password: password.value,
-    });
+    onSubmit(email.value, password.value);
   };
 
   return (
