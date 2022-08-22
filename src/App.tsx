@@ -27,8 +27,12 @@ const App: FC = () => {
     });
   }, [auth]);
 
+  useEffect(() => {
+    console.log('user', user);
+  }, [user]);
+
   return user ? (
-    <AuthenticatedApp />
+    <AuthenticatedApp user={user} />
   ) : (
     <UnauthenticatedApp
       login={signInAuthUserWithEmailAndPassword}

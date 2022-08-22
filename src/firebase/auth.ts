@@ -23,7 +23,7 @@ const signInAuthUserWithEmailAndPassword = async (
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
-const signOutUser = () => {
+const logout = () => {
   signOut(auth)
     .then(() => {
       // Sign-out successful.
@@ -36,5 +36,5 @@ const signOutUser = () => {
 export {
   createAuthUserWithEmailAndPassword,
   signInAuthUserWithEmailAndPassword,
-  signOutUser,
+  logout,
 };
