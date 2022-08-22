@@ -25,7 +25,15 @@ const signInAuthUserWithEmailAndPassword = async (
 };
 
 const getUser = async () => {
-  return await onAuthStateChanged(auth, (user) => user);
+  let user = null;
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      user = user;
+    }
+  });
+
+  return user;
 };
 
 const signOutUser = () => {
@@ -43,5 +51,4 @@ export {
   signInAuthUserWithEmailAndPassword,
   getUser,
   signOutUser,
-  auth,
 };
