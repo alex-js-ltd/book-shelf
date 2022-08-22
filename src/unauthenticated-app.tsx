@@ -16,7 +16,7 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
     event.preventDefault();
     const { email, password } = event.target.elements;
 
-    onSubmit(email.value, password.value);
+    onSubmit(email.value, password.value).then((res: any) => console.log(res));
   };
 
   return (

@@ -1,7 +1,6 @@
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
 import { auth } from './index';
@@ -24,18 +23,6 @@ const signInAuthUserWithEmailAndPassword = async (
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
-const getUser = async () => {
-  let user = null;
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      user = user;
-    }
-  });
-
-  return user;
-};
-
 const signOutUser = () => {
   signOut(auth)
     .then(() => {
@@ -49,6 +36,5 @@ const signOutUser = () => {
 export {
   createAuthUserWithEmailAndPassword,
   signInAuthUserWithEmailAndPassword,
-  getUser,
   signOutUser,
 };

@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { UnauthenticatedApp } from './unauthenticated-app';
 import { AuthenticatedApp } from './authenticated-app';
@@ -6,28 +6,26 @@ import { AuthenticatedApp } from './authenticated-app';
 import {
   signInAuthUserWithEmailAndPassword,
   createAuthUserWithEmailAndPassword,
-  getUser,
 } from './firebase/auth';
 
-import { auth } from './firebase';
-
-import { useAsync } from './utils/hooks';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const App: FC = () => {
-  const {
-    data: user,
-    error,
-    isLoading,
-    isIdle,
-    isError,
-    isSuccess,
-    run,
-    setData,
-  } = useAsync();
+  const [user, setUser] = useState<any>(null);
+
+  const auth = getAuth();
 
   useEffect(() => {
-    run(getUser());
-  }, [run, auth]);
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        // ...
+      } else {
+        // User is signed out
+        setUser(null);
+      }
+    });
+  }, [auth]);
 
   return user ? (
     <AuthenticatedApp />
