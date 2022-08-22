@@ -3,11 +3,6 @@ import React, { FC, useEffect, useState } from 'react';
 import { UnauthenticatedApp } from './unauthenticated-app';
 import { AuthenticatedApp } from './authenticated-app';
 
-import {
-  signInAuthUserWithEmailAndPassword,
-  createAuthUserWithEmailAndPassword,
-} from './firebase/auth';
-
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const App: FC = () => {
@@ -27,14 +22,7 @@ const App: FC = () => {
     });
   }, [auth]);
 
-  return user ? (
-    <AuthenticatedApp user={user} />
-  ) : (
-    <UnauthenticatedApp
-      login={signInAuthUserWithEmailAndPassword}
-      register={createAuthUserWithEmailAndPassword}
-    />
-  );
+  return user ? <AuthenticatedApp user={user} /> : <UnauthenticatedApp />;
 };
 
 export default App;

@@ -8,6 +8,8 @@ import { Button, Input, FormGroup } from './comps/lib';
 import { Modal, ModalContents, ModalOpenButton } from './comps/modal';
 import { Logo } from './comps/logo';
 
+import * as auth from './firebase/auth';
+
 const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
   onSubmit,
   submitButton,
@@ -46,10 +48,7 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
   );
 };
 
-const UnauthenticatedApp: FC<{ login: Function; register: Function }> = ({
-  login,
-  register,
-}) => {
+const UnauthenticatedApp: FC = () => {
   return (
     <div
       css={{
@@ -76,7 +75,7 @@ const UnauthenticatedApp: FC<{ login: Function; register: Function }> = ({
           </ModalOpenButton>
           <ModalContents aria-label='Login form' title='Login'>
             <LoginForm
-              onSubmit={login}
+              onSubmit={auth.login}
               submitButton={<Button variant='primary'>Login</Button>}
             />
           </ModalContents>
@@ -87,7 +86,7 @@ const UnauthenticatedApp: FC<{ login: Function; register: Function }> = ({
           </ModalOpenButton>
           <ModalContents aria-label='Registration form' title='Register'>
             <LoginForm
-              onSubmit={register}
+              onSubmit={auth.register}
               submitButton={<Button variant='secondary'>Register</Button>}
             />
           </ModalContents>
