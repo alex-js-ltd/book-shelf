@@ -27,10 +27,6 @@ const App: FC = () => {
     });
   }, [auth]);
 
-  useEffect(() => {
-    console.log('user', user);
-  }, [user]);
-
   return user ? (
     <AuthenticatedApp user={user} />
   ) : (
