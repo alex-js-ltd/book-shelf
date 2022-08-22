@@ -10,6 +10,9 @@ import {
 
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
+import { db } from './firebase';
+import { collection, addDoc } from 'firebase/firestore';
+
 const App: FC = () => {
   const [user, setUser] = useState<any>(null);
 
@@ -26,6 +29,21 @@ const App: FC = () => {
       }
     });
   }, [auth]);
+
+  const test = async () => {
+    try {
+      const docRef = await addDoc(collection(db, 'books'), {
+        first: 'Ada',
+        last: 'Lovelace',
+        born: 1815,
+      });
+      console.log('Document written with ID: ', docRef.id);
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
+  };
+
+  useEffect(() => {}, []);
 
   return user ? (
     <AuthenticatedApp user={user} />
