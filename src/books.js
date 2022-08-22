@@ -112,3 +112,27 @@ export const data = {
     },
   ],
 };
+
+const addBook = async (item: any) => {
+  try {
+    const docRef = await addDoc(collection(db, 'books'), {
+      title: item?.title,
+      coverImageUrl: item?.coverImageUrl,
+      pageCount: item?.pageCount,
+      publisher: item?.publisher,
+      synopsis: item?.synopsis,
+    });
+    console.log('Document written with ID: ', docRef.id);
+  } catch (e) {
+    console.error('Error adding document: ', e);
+  }
+};
+
+async function doSomething() {
+  const { books } = data;
+
+  books?.forEach(async (item) => {
+    const res = await addBook(item);
+    console.log(res);
+  });
+}
