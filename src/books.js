@@ -1,4 +1,7 @@
-export const data = {
+import { doc, setDoc, collection, addDoc } from 'firebase/firestore';
+import { db } from './firebase';
+
+const data = {
   books: [
     {
       title: 'Voice of War',
@@ -113,7 +116,7 @@ export const data = {
   ],
 };
 
-const addBook = async (item: any) => {
+const addBook = async (item) => {
   try {
     const docRef = await addDoc(collection(db, 'books'), {
       title: item?.title,
@@ -128,7 +131,7 @@ const addBook = async (item: any) => {
   }
 };
 
-async function doSomething() {
+async function upload() {
   const { books } = data;
 
   books?.forEach(async (item) => {
@@ -136,3 +139,5 @@ async function doSomething() {
     console.log(res);
   });
 }
+
+export { upload };
