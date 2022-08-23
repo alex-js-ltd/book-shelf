@@ -6,6 +6,8 @@ import { Button } from './comps/lib';
 
 import { logout } from './firebase/auth';
 
+import { DiscoverBooksScreen } from './discover';
+
 const AuthenticatedApp: React.FC<{ user: any }> = ({ user }) => {
   return (
     <React.Fragment>
@@ -42,7 +44,9 @@ const AuthenticatedApp: React.FC<{ user: any }> = ({ user }) => {
           //   width: '100%',
           // },
         }}
-      ></div>
+      >
+        <DiscoverBooksScreen />
+      </div>
     </React.Fragment>
   );
 };
