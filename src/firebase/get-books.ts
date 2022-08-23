@@ -1,5 +1,4 @@
 import { collection, query, getDocs } from 'firebase/firestore';
-import { idText } from 'typescript';
 import { db } from '../firebase';
 
 const getBooks = async (): Promise<any[]> => {

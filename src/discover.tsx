@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Tooltip from '@reach/tooltip';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { Input, BookListUL, Spinner } from './comps/lib';
@@ -12,6 +12,7 @@ import { useAsync } from './utils/hooks';
 
 const DiscoverBooksScreen: FC = () => {
   const { data, error, run, isLoading, isError, isSuccess } = useAsync();
+  const [query, setQuery] = useState();
 
   useEffect(() => {
     run(getBooks());
@@ -29,8 +30,9 @@ const DiscoverBooksScreen: FC = () => {
     console.log('isSuccess', isSuccess);
   }, [isLoading, isError, isSuccess]);
 
-  const handleSearchSubmit = () => {
-    return null;
+  const handleSearchSubmit = (event: any) => {
+    event.preventDefault();
+    setQuery(event.target.elements.search.value);
   };
 
   return (
