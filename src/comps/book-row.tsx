@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import * as mq from '../styles/media-queries';
 import * as colors from '../styles/colors';
 
-const BookRow: FC = ({ book }: any) => {
+const BookRow: FC<{ book: any }> = ({ book }) => {
   const { title, author, coverImageUrl } = book;
   const id = `book-row-book-${book.id}`;
 

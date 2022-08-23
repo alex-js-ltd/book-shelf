@@ -29,7 +29,65 @@ const DiscoverBooksScreen: FC = () => {
     console.log('isSuccess', isSuccess);
   }, [isLoading, isError, isSuccess]);
 
-  return <div>DiscoverBooksScreen</div>;
+  const handleSearchSubmit = () => {
+    return null;
+  };
+
+  return (
+    <div
+      css={{ maxWidth: 800, margin: 'auto', width: '90vw', padding: '40px 0' }}
+    >
+      <form onSubmit={handleSearchSubmit}>
+        <Input
+          placeholder='Search books...'
+          id='search'
+          css={{ width: '100%' }}
+        />
+        <Tooltip label='Search Books'>
+          <label htmlFor='search'>
+            <button
+              type='submit'
+              css={{
+                border: '0',
+                position: 'relative',
+                marginLeft: '-35px',
+                background: 'transparent',
+              }}
+            >
+              {isLoading ? (
+                <Spinner />
+              ) : isError ? (
+                <FaTimes aria-label='error' css={{ color: colors.danger }} />
+              ) : (
+                <FaSearch aria-label='search' />
+              )}
+            </button>
+          </label>
+        </Tooltip>
+      </form>
+
+      {isError ? (
+        <div css={{ color: colors.danger }}>
+          <p>There was an error:</p>
+          <pre>{error.message}</pre>
+        </div>
+      ) : null}
+
+      {isSuccess ? (
+        data?.length ? (
+          <BookListUL css={{ marginTop: 20 }}>
+            {data?.map((book: any) => (
+              <li key={book.id} aria-label={book.title}>
+                <BookRow key={book.id} book={book} />
+              </li>
+            ))}
+          </BookListUL>
+        ) : (
+          <p>No books found. Try another search.</p>
+        )
+      ) : null}
+    </div>
+  );
 };
 
 export { DiscoverBooksScreen };
