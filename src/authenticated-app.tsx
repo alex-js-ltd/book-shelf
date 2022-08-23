@@ -3,6 +3,7 @@ import { jsx } from '@emotion/react';
 
 import * as React from 'react';
 import { Button } from './comps/lib';
+import * as mq from './styles/media-queries';
 
 import { logout } from './firebase/auth';
 
@@ -38,11 +39,11 @@ const AuthenticatedApp: React.FC<{ user: any }> = ({ user }) => {
           display: 'grid',
           gridGap: '1em',
           gridTemplateColumns: '1fr 3fr',
-          // [mq.small]: {
-          //   gridTemplateColumns: '1fr',
-          //   gridTemplateRows: 'auto',
-          //   width: '100%',
-          // },
+          [mq.small]: {
+            gridTemplateColumns: '1fr',
+            gridTemplateRows: 'auto',
+            width: '100%',
+          },
         }}
       >
         <DiscoverBooksScreen />
