@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, FormEvent } from 'react';
 import Tooltip from '@reach/tooltip';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { Input, BookListUL, Spinner } from './comps/lib';
@@ -12,7 +12,7 @@ import { useAsync } from './utils/hooks';
 
 const DiscoverBooksScreen: FC = () => {
   const { data, error, run, isLoading, isError, isSuccess } = useAsync();
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState<null | string>(null);
 
   useEffect(() => {
     run(getBooks());
@@ -30,9 +30,14 @@ const DiscoverBooksScreen: FC = () => {
     console.log('isSuccess', isSuccess);
   }, [isLoading, isError, isSuccess]);
 
-  const handleSearchSubmit = (event: any) => {
+  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setQuery(event.target.elements.search.value);
+
+    const form = event.currentTarget;
+    const formElements = form.elements as typeof form.elements & {
+      search: HTMLInputElement;
+    };
+    setQuery(formElements.search.value);
   };
 
   return (

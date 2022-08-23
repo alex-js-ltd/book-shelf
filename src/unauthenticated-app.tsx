@@ -3,7 +3,7 @@
 import { jsx } from '@emotion/react';
 
 import '@reach/dialog/styles.css';
-import { FC, ReactElement, cloneElement } from 'react';
+import { FC, ReactElement, cloneElement, FormEvent } from 'react';
 import { Button, Input, FormGroup } from './comps/lib';
 import { Modal, ModalContents, ModalOpenButton } from './comps/modal';
 import { Logo } from './comps/logo';
@@ -14,11 +14,16 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
   onSubmit,
   submitButton,
 }) => {
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const { email, password } = event.target.elements;
+    const form = event.currentTarget;
 
-    onSubmit(email.value, password.value).then((res: any) => console.log(res));
+    const formElements = form.elements as typeof form.elements & {
+      email: HTMLInputElement;
+      password: HTMLInputElement;
+    };
+
+    onSubmit(formElements.email.value, formElements.password.value);
   };
 
   return (
