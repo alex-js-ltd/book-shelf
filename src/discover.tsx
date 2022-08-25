@@ -1,4 +1,3 @@
-// @ts-nocheck
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
@@ -16,7 +15,8 @@ import algoliasearch from 'algoliasearch';
 const YOUR_APP_ID = process.env.REACT_APP_YOUR_APP_ID;
 const YOUR_SEARCH_KEY = process.env.REACT_APP_YOUR_SEARCH_KEY;
 
-const client = algoliasearch(YOUR_APP_ID, YOUR_SEARCH_KEY);
+const client: any =
+  YOUR_APP_ID && YOUR_SEARCH_KEY && algoliasearch(YOUR_APP_ID, YOUR_SEARCH_KEY);
 const index = client.initIndex('books');
 
 const DiscoverBooksScreen: FC = () => {
