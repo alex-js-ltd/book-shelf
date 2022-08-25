@@ -8,7 +8,6 @@ import * as mq from './styles/media-queries';
 import { logout } from './firebase/auth';
 
 import { DiscoverBooksScreen } from './discover';
-import Find from './find';
 
 const AuthenticatedApp: React.FC<{ user: any }> = ({ user }) => {
   return (
@@ -48,7 +47,6 @@ const AuthenticatedApp: React.FC<{ user: any }> = ({ user }) => {
         }}
       >
         <DiscoverBooksScreen />
-        <Find />
       </div>
     </React.Fragment>
   );

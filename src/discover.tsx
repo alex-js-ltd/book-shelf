@@ -1,3 +1,4 @@
+// @ts-nocheck
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
@@ -6,17 +7,25 @@ import Tooltip from '@reach/tooltip';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { Input, BookListUL, Spinner } from './comps/lib';
 import { BookRow } from './comps/book-row';
-import { getBooks } from './firebase/get-books';
+
 import * as colors from './styles/colors';
 import { useAsync } from './utils/hooks';
+
+import algoliasearch from 'algoliasearch';
+
+const YOUR_APP_ID = process.env.REACT_APP_YOUR_APP_ID;
+const YOUR_SEARCH_KEY = process.env.REACT_APP_YOUR_SEARCH_KEY;
+
+const client = algoliasearch(YOUR_APP_ID, YOUR_SEARCH_KEY);
+const index = client.initIndex('books');
 
 const DiscoverBooksScreen: FC = () => {
   const { data, error, run, isLoading, isError, isSuccess } = useAsync();
   const [query, setQuery] = useState<null | string>(null);
 
   useEffect(() => {
-    run(getBooks());
-  }, [run]);
+    run(index.search(query));
+  }, [run, query]);
 
   useEffect(() => {
     console.log('data', data);
@@ -79,9 +88,9 @@ const DiscoverBooksScreen: FC = () => {
       ) : null}
 
       {isSuccess ? (
-        data?.length ? (
+        data?.hits.length ? (
           <BookListUL css={{ marginTop: 20 }}>
-            {data?.map((book: any) => (
+            {data?.hits.map((book: any) => (
               <li key={book.id} aria-label={book.title}>
                 <BookRow key={book.id} book={book} />
               </li>
