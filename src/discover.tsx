@@ -10,22 +10,9 @@ import { getBooks } from './firebase/get-books';
 import * as colors from './styles/colors';
 import { useAsync } from './utils/hooks';
 
-import algoliasearch from 'algoliasearch/lite';
-
-const YOUR_APP_ID = process.env.REACT_APP_YOUR_APP_ID;
-const YOUR_SEARCH_KEY = process.env.REACT_APP_YOUR_SEARCH_KEY;
-
-console.log('YOUR_APP_ID', YOUR_APP_ID);
-console.log('YOUR_SEARCH_KEY', YOUR_SEARCH_KEY);
-
 const DiscoverBooksScreen: FC = () => {
   const { data, error, run, isLoading, isError, isSuccess } = useAsync();
   const [query, setQuery] = useState<null | string>(null);
-
-  const searchClient =
-    YOUR_APP_ID &&
-    YOUR_SEARCH_KEY &&
-    algoliasearch(YOUR_APP_ID, YOUR_SEARCH_KEY);
 
   useEffect(() => {
     run(getBooks());
@@ -40,10 +27,6 @@ const DiscoverBooksScreen: FC = () => {
     console.log('isError', isError);
     console.log('isSuccess', isSuccess);
   }, [isLoading, isError, isSuccess]);
-
-  useEffect(() => {
-    console.log('search client', searchClient);
-  }, [searchClient]);
 
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
