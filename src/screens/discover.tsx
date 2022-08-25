@@ -22,10 +22,14 @@ const index = client.initIndex('books');
 const DiscoverBooksScreen: FC = () => {
   const { data, error, run, isLoading, isError, isSuccess } = useAsync();
   const [query, setQuery] = useState<null | string>(null);
+  const [queried, setQueried] = useState<boolean>(false);
 
   useEffect(() => {
+    if (!queried) {
+      return;
+    }
     run(index.search(query));
-  }, [run, query]);
+  }, [query, queried, run]);
 
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,6 +38,7 @@ const DiscoverBooksScreen: FC = () => {
     const formElements = form.elements as typeof form.elements & {
       search: HTMLInputElement;
     };
+    setQueried(true);
     setQuery(formElements.search.value);
   };
 
