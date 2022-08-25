@@ -1,5 +1,5 @@
 import { collection, query, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db } from 'fire';
 
 const getBooks = async (): Promise<any[]> => {
   const collectionRef = collection(db, 'books');

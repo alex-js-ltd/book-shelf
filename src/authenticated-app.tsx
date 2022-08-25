@@ -2,12 +2,12 @@
 import { jsx } from '@emotion/react';
 
 import * as React from 'react';
-import { Button } from './comps/lib';
-import * as mq from './styles/media-queries';
+import { Button } from 'comps/lib';
+import * as mq from 'styles/media-queries';
 
-import { logout } from './firebase/auth';
+import { logout } from 'fire/auth';
 
-import { DiscoverBooksScreen } from './discover';
+import { DiscoverBooksScreen } from 'screens/discover';
 
 const AuthenticatedApp: React.FC<{ user: any }> = ({ user }) => {
   return (

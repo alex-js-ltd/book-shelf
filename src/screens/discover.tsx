@@ -2,13 +2,13 @@
 import { jsx } from '@emotion/react';
 
 import React, { FC, useEffect, useState, FormEvent } from 'react';
-import Tooltip from '@reach/tooltip';
-import { FaSearch, FaTimes } from 'react-icons/fa';
-import { Input, BookListUL, Spinner } from './comps/lib';
-import { BookRow } from './comps/book-row';
 
-import * as colors from './styles/colors';
-import { useAsync } from './utils/hooks';
+import { FaSearch, FaTimes } from 'react-icons/fa';
+import { Input, BookListUL, Spinner } from 'comps/lib';
+import { BookRow } from 'comps/book-row';
+
+import * as colors from 'styles/colors';
+import { useAsync } from 'utils/hooks';
 
 import algoliasearch from 'algoliasearch';
 
@@ -26,16 +26,6 @@ const DiscoverBooksScreen: FC = () => {
   useEffect(() => {
     run(index.search(query));
   }, [run, query]);
-
-  useEffect(() => {
-    console.log('data', data);
-  }, [data]);
-
-  useEffect(() => {
-    console.log('isLoading', isLoading);
-    console.log('isError', isError);
-    console.log('isSuccess', isSuccess);
-  }, [isLoading, isError, isSuccess]);
 
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -57,27 +47,26 @@ const DiscoverBooksScreen: FC = () => {
           id='search'
           css={{ width: '100%' }}
         />
-        <Tooltip label='Search Books'>
-          <label htmlFor='search'>
-            <button
-              type='submit'
-              css={{
-                border: '0',
-                position: 'relative',
-                marginLeft: '-35px',
-                background: 'transparent',
-              }}
-            >
-              {isLoading ? (
-                <Spinner />
-              ) : isError ? (
-                <FaTimes aria-label='error' css={{ color: colors.danger }} />
-              ) : (
-                <FaSearch aria-label='search' />
-              )}
-            </button>
-          </label>
-        </Tooltip>
+
+        <label htmlFor='search'>
+          <button
+            type='submit'
+            css={{
+              border: '0',
+              position: 'relative',
+              marginLeft: '-35px',
+              background: 'transparent',
+            }}
+          >
+            {isLoading ? (
+              <Spinner />
+            ) : isError ? (
+              <FaTimes aria-label='error' css={{ color: colors.danger }} />
+            ) : (
+              <FaSearch aria-label='search' />
+            )}
+          </button>
+        </label>
       </form>
 
       {isError ? (
