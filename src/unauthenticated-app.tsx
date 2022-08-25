@@ -4,9 +4,9 @@ import { jsx } from '@emotion/react';
 
 import '@reach/dialog/styles.css';
 import { FC, ReactElement, cloneElement, FormEvent } from 'react';
-import { Button, Input, FormGroup } from './comps/lib';
-import { Modal, ModalContents, ModalOpenButton } from './comps/modal';
-import { Logo } from './comps/logo';
+import { Button, Input, FormGroup } from 'comps/lib';
+import { Modal, ModalContents, ModalOpenButton } from 'comps/modal';
+import { Logo } from 'comps/logo';
 
 import * as auth from 'fire/auth';
 

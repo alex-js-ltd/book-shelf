@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import React, { FC } from 'react';
-import * as mq from '../styles/media-queries';
-import * as colors from '../styles/colors';
+import * as mq from 'styles/media-queries';
+import * as colors from 'styles/colors';
 
 const BookRow: FC<{ book: any }> = ({ book }) => {
   const { title, author, coverImageUrl } = book;

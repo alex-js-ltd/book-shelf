@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 
-import { UnauthenticatedApp } from './unauthenticated-app';
-import { AuthenticatedApp } from './authenticated-app';
+import { UnauthenticatedApp } from 'unauthenticated-app';
+import { AuthenticatedApp } from 'authenticated-app';
 
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
