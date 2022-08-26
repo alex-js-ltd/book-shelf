@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 import { UnauthenticatedApp } from 'unauthenticated-app';
 import { AuthenticatedApp } from 'authenticated-app';
 
@@ -22,7 +22,13 @@ const App: FC = () => {
     });
   }, [auth]);
 
-  return user ? <AuthenticatedApp user={user} /> : <UnauthenticatedApp />;
+  return user ? (
+    <Router>
+      <AuthenticatedApp user={user} />
+    </Router>
+  ) : (
+    <UnauthenticatedApp />
+  );
 };
 
 export default App;

@@ -1,38 +1,15 @@
 import React, { FC } from 'react';
-import styled from '@emotion/styled';
-import { Dialog as ReachDialog } from '@reach/dialog';
+import { Link as RouterLink } from 'react-router-dom';
+import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react';
-import { FaSpinner } from 'react-icons/fa';
-
 import * as colors from 'styles/colors';
 import * as mq from 'styles/media-queries';
+import { Dialog as ReachDialog } from '@reach/dialog';
+import { FaSpinner } from 'react-icons/fa';
 
-const buttonVariants: any = {
-  primary: {
-    background: '#3f51b5',
-    color: 'white',
-  },
-  secondary: {
-    background: '#f1f2f7',
-    color: '#434449',
-  },
-};
-
-const Button = styled.button<{ variant: string }>(
-  {
-    padding: '10px 15px',
-    border: '0',
-    lineHeight: '1',
-    borderRadius: '3px',
-  },
-  ({ variant = 'primary' }) => buttonVariants[variant]
-);
-
-const Input = styled.input({
-  borderRadius: '3px',
-  border: '1px solid #f1f1f4',
-  background: '#f1f2f7',
-  padding: '8px 12px',
+const spin = keyframes({
+  '0%': { transform: 'rotate(0deg)' },
+  '100%': { transform: 'rotate(360deg)' },
 });
 
 const CircleButton = styled.button({
@@ -44,27 +21,10 @@ const CircleButton = styled.button({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  background: 'white',
-  color: '#434449',
-  border: `1px solid #f1f1f4`,
+  background: colors.base,
+  color: colors.text,
+  border: `1px solid ${colors.gray10}`,
   cursor: 'pointer',
-});
-
-const Dialog = styled(ReachDialog)({
-  maxWidth: '450px',
-  borderRadius: '3px',
-  paddingBottom: '3.5em',
-  boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.2)',
-  margin: '20vh auto',
-  '@media (max-width: 991px)': {
-    width: '100%',
-    margin: '10vh auto',
-  },
-});
-
-const FormGroup = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
 });
 
 const BookListUL = styled.ul({
@@ -75,18 +35,81 @@ const BookListUL = styled.ul({
   gridGap: '1em',
 });
 
-const spin = keyframes({
-  '0%': { transform: 'rotate(0deg)' },
-  '100%': { transform: 'rotate(360deg)' },
-});
-
 const Spinner = styled(FaSpinner)({
   animation: `${spin} 1s linear infinite`,
 });
-
 Spinner.defaultProps = {
   'aria-label': 'loading',
 };
+
+const buttonVariants: any = {
+  primary: {
+    background: colors.indigo,
+    color: colors.base,
+  },
+  secondary: {
+    background: colors.gray,
+    color: colors.text,
+  },
+};
+const Button = styled.button<{ variant: string }>(
+  {
+    padding: '10px 15px',
+    border: '0',
+    lineHeight: '1',
+    borderRadius: '3px',
+  },
+  ({ variant = 'primary' }) => buttonVariants[variant]
+);
+
+const inputStyles = {
+  border: '1px solid #f1f1f4',
+  background: '#f1f2f7',
+  padding: '8px 12px',
+};
+
+const Input = styled.input({ borderRadius: '3px' }, inputStyles);
+const Textarea = styled.textarea(inputStyles);
+
+const Dialog = styled(ReachDialog)({
+  maxWidth: '450px',
+  borderRadius: '3px',
+  paddingBottom: '3.5em',
+  boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.2)',
+  margin: '20vh auto',
+  [mq.small]: {
+    width: '100%',
+    margin: '10vh auto',
+  },
+});
+
+const FormGroup = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+});
+
+const FullPageSpinner = () => (
+  <div
+    css={{
+      fontSize: '4em',
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <Spinner />
+  </div>
+);
+
+const Link = styled(RouterLink)({
+  color: colors.indigo,
+  ':hover': {
+    color: colors.indigoDarken10,
+    textDecoration: 'underline',
+  },
+});
 
 const errorMessageVariants: any = {
   stacked: { display: 'block' },
@@ -97,33 +120,52 @@ const ErrorMessage: FC<{ error?: Error; variant?: string; props?: any }> = ({
   error,
   variant = 'stacked',
   ...props
-}) => {
-  return (
-    <div
-      role='alert'
-      css={[{ color: colors.danger }, errorMessageVariants[variant]]}
-      {...props}
+}) => (
+  <div
+    role='alert'
+    css={[{ color: colors.danger }, errorMessageVariants[variant]]}
+    {...props}
+  >
+    <span>There was an error: </span>
+    <pre
+      css={[
+        { whiteSpace: 'break-spaces', margin: '0', marginBottom: -5 },
+        errorMessageVariants[variant],
+      ]}
     >
-      <span>There was an error: </span>
-      <pre
-        css={[
-          { whiteSpace: 'break-spaces', margin: '0', marginBottom: -5 },
-          errorMessageVariants[variant],
-        ]}
-      >
-        {error?.message}
-      </pre>
-    </div>
-  );
-};
+      {error?.message}
+    </pre>
+  </div>
+);
+
+const FullPageErrorFallback: FC<{ error?: Error }> = ({ error }) => (
+  <div
+    role='alert'
+    css={{
+      color: colors.danger,
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <p>Uh oh... There's a problem. Try refreshing the app.</p>
+    <pre>{error?.message}</pre>
+  </div>
+);
 
 export {
+  FullPageErrorFallback,
+  ErrorMessage,
+  CircleButton,
+  BookListUL,
+  Spinner,
   Button,
   Input,
-  CircleButton,
+  Textarea,
   Dialog,
   FormGroup,
-  Spinner,
-  BookListUL,
-  ErrorMessage,
+  FullPageSpinner,
+  Link,
 };
