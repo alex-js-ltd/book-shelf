@@ -22,6 +22,7 @@ const BookScreen: React.FC<{ user?: any }> = ({ user }) => {
   const { data, run } = useAsync();
 
   React.useEffect(() => {
+    console.log('bookId', bookId);
     //run(client(`books/${bookId}`, {token: user.token}))
   }, [run, bookId, user]);
 

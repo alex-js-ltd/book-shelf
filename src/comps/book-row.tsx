@@ -1,12 +1,23 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import React, { FC } from 'react';
+
+import { Link } from 'react-router-dom';
 import * as mq from 'styles/media-queries';
 import * as colors from 'styles/colors';
 
-const BookRow: FC<{ book: any }> = ({ book }) => {
+interface Book {
+  title: string;
+  author: string;
+  coverImageUrl: string;
+  publisher: string;
+  synopsis: string;
+  objectID: string;
+}
+
+const BookRow: FC<{ book: Book }> = ({ book }) => {
   const { title, author, coverImageUrl } = book;
-  const id = `book-row-book-${book.id}`;
+  const id = `book-row-book-${book?.objectID}`;
 
   return (
     <div
@@ -17,9 +28,9 @@ const BookRow: FC<{ book: any }> = ({ book }) => {
         position: 'relative',
       }}
     >
-      <div
+      <Link
         aria-labelledby={id}
-        // to={`/book/${book.id}`}
+        to={`/book/${book?.objectID}`}
         css={{
           minHeight: 270,
           flexGrow: 2,
@@ -82,7 +93,7 @@ const BookRow: FC<{ book: any }> = ({ book }) => {
             {book.synopsis.substring(0, 500)}...
           </small>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
