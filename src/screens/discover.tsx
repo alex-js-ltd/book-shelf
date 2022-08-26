@@ -85,8 +85,8 @@ const DiscoverBooksScreen: FC = () => {
         data?.hits.length ? (
           <BookListUL css={{ marginTop: 20 }}>
             {data?.hits.map((book: any) => (
-              <li key={book.id} aria-label={book.title}>
-                <BookRow key={book.id} book={book} />
+              <li key={book.objectID} aria-label={book.title}>
+                <BookRow key={book.objectID} book={book} />
               </li>
             ))}
           </BookListUL>
