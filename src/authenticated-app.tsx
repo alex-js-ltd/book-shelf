@@ -114,6 +114,12 @@ const Nav = () => (
       }}
     >
       <li>
+        <NavLink to='/list'>Reading List</NavLink>
+      </li>
+      <li>
+        <NavLink to='/finished'>Finished Books</NavLink>
+      </li>
+      <li>
         <NavLink to='/discover'>Discover</NavLink>
       </li>
     </ul>
