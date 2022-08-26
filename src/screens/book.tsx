@@ -4,6 +4,7 @@ import { jsx } from '@emotion/react';
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
 //import { client } from 'utils/api-client';
+import { getBook } from 'fire/get-book';
 import * as mq from 'styles/media-queries';
 import { useAsync } from 'utils/hooks';
 import bookPlaceholderSvg from 'assets/book-placeholder.svg';
@@ -22,12 +23,14 @@ const BookScreen: React.FC<{ user?: any }> = ({ user }) => {
   const { data, run } = useAsync();
 
   React.useEffect(() => {
-    console.log('bookId', bookId);
-    //run(client(`books/${bookId}`, {token: user.token}))
+    if (!bookId) {
+      return;
+    }
+    run(getBook(bookId));
   }, [run, bookId, user]);
 
   const { title, author, coverImageUrl, publisher, synopsis } =
-    data?.book ?? loadingBook;
+    data ?? loadingBook;
 
   return (
     <div>
