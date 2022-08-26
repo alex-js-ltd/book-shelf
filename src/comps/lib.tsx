@@ -1,7 +1,11 @@
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { Dialog as ReachDialog } from '@reach/dialog';
 import { keyframes } from '@emotion/react';
 import { FaSpinner } from 'react-icons/fa';
+
+import * as colors from 'styles/colors';
+import * as mq from 'styles/media-queries';
 
 const buttonVariants: any = {
   primary: {
@@ -79,8 +83,47 @@ const spin = keyframes({
 const Spinner = styled(FaSpinner)({
   animation: `${spin} 1s linear infinite`,
 });
+
 Spinner.defaultProps = {
   'aria-label': 'loading',
 };
 
-export { Button, Input, CircleButton, Dialog, FormGroup, Spinner, BookListUL };
+const errorMessageVariants: any = {
+  stacked: { display: 'block' },
+  inline: { display: 'inline-block' },
+};
+
+const ErrorMessage: FC<{ error?: Error; variant?: string; props?: any }> = ({
+  error,
+  variant = 'stacked',
+  ...props
+}) => {
+  return (
+    <div
+      role='alert'
+      css={[{ color: colors.danger }, errorMessageVariants[variant]]}
+      {...props}
+    >
+      <span>There was an error: </span>
+      <pre
+        css={[
+          { whiteSpace: 'break-spaces', margin: '0', marginBottom: -5 },
+          errorMessageVariants[variant],
+        ]}
+      >
+        {error?.message}
+      </pre>
+    </div>
+  );
+};
+
+export {
+  Button,
+  Input,
+  CircleButton,
+  Dialog,
+  FormGroup,
+  Spinner,
+  BookListUL,
+  ErrorMessage,
+};

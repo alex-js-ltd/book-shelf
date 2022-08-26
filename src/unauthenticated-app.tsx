@@ -4,16 +4,18 @@ import { jsx } from '@emotion/react';
 
 import '@reach/dialog/styles.css';
 import { FC, ReactElement, cloneElement, FormEvent } from 'react';
-import { Button, Input, FormGroup } from 'comps/lib';
+import { Button, Input, FormGroup, Spinner, ErrorMessage } from 'comps/lib';
 import { Modal, ModalContents, ModalOpenButton } from 'comps/modal';
 import { Logo } from 'comps/logo';
-
+import { useAsync } from './utils/hooks';
 import * as auth from 'fire/auth';
 
 const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
   onSubmit,
   submitButton,
 }) => {
+  const { isLoading, isError, error, run } = useAsync();
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -23,11 +25,12 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
       password: HTMLInputElement;
     };
 
-    onSubmit(formElements.email.value, formElements.password.value);
+    run(onSubmit(formElements.email.value, formElements.password.value));
   };
 
   return (
     <form
+      onSubmit={handleSubmit}
       css={{
         display: 'flex',
         flexDirection: 'column',
@@ -38,7 +41,6 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
           maxWidth: '300px',
         },
       }}
-      onSubmit={handleSubmit}
     >
       <FormGroup>
         <label htmlFor='email'>Email</label>
@@ -48,7 +50,17 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
         <label htmlFor='password'>Password</label>
         <Input id='password' type='password' />
       </FormGroup>
-      <div>{cloneElement(submitButton, { type: 'submit' })}</div>
+      <div>
+        {cloneElement(
+          submitButton,
+          { type: 'submit' },
+          ...(Array.isArray(submitButton.props.children)
+            ? submitButton.props.children
+            : [submitButton.props.children]),
+          isLoading ? <Spinner css={{ marginLeft: 5 }} /> : null
+        )}
+      </div>
+      {isError ? <ErrorMessage error={error} /> : null}
     </form>
   );
 };
