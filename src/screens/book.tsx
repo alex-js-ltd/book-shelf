@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react';
 
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery, useMutation } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { getBook } from 'fire/get-book';
 import * as mq from 'styles/media-queries';
 import * as colors from 'styles/colors';

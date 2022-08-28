@@ -3,13 +3,19 @@ import { User } from 'firebase/auth';
 import { db } from './index';
 
 const addToList = async ({ user, book }: { user: User; book: any }) => {
-  if (!user || !book) return;
+  //if (!user || !book) return;
+
+  console.log('user', user);
+  console.log('book', book);
 
   const userRef = doc(db, 'users', user.uid);
+  console.log('userRf', userRef);
 
   const docSnap = await getDoc(userRef);
+  console.log('docSnap', docSnap);
 
   const data = docSnap.data();
+  console.log('data', data);
 
   const returnList = (list: any[], book: any) => {
     if (Array.isArray(list)) {
@@ -17,7 +23,7 @@ const addToList = async ({ user, book }: { user: User; book: any }) => {
     } else return [book];
   };
 
-  return updateDoc(userRef, {
+  return await updateDoc(userRef, {
     list: returnList(data?.list, book),
   });
 };

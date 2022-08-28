@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import {
   FaCheckCircle,
   FaPlusCircle,
@@ -11,7 +11,7 @@ import {
   FaTimesCircle,
 } from 'react-icons/fa';
 import Tooltip from '@reach/tooltip';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 // 🐨 you'll also need client from 'utils/api-client'
 import { useAsync } from 'utils/hooks';
 import * as colors from 'styles/colors';
@@ -34,15 +34,15 @@ const TooltipButton: React.FC<T> = ({
   icon,
   ...rest
 }) => {
-  const { isLoading, isError, error, run } = useAsync();
+  const { isLoading, isError, error, run, reset } = useAsync();
 
-  const handleClick = () => {
-    if (!onClick) {
-      return;
+  function handleClick() {
+    if (isError) {
+      reset();
+    } else {
+      run(onClick());
     }
-    run(onClick());
-  };
-
+  }
   return (
     <Tooltip label={isError ? error.message : label}>
       <CircleButton
@@ -73,48 +73,29 @@ const StatusButtons: React.FC<{ user?: any; book?: any }> = ({
 }) => {
   const listItem: any = null;
 
-  // const [create] = useMutation(({ user, book }) =>
-  //   addToList({ user: user, book: book })
-  // );
+  const mutation = useMutation(addToList, {
+    onSuccess: () => {
+      // Invalidate and refetch
+      console.log('success');
+    },
+  });
+
+  useEffect(() => {
+    console.log('user', user);
+  }, [user]);
+
+  useEffect(() => {
+    console.log('book', book);
+  }, [book]);
 
   return (
     <React.Fragment>
-      {listItem ? (
-        Boolean(listItem?.finishDate) ? (
-          <TooltipButton
-            label='Unmark as read'
-            highlight={colors.yellow}
-            // 🐨 add an onClick here that calls update with the data we want to update
-            // 💰 to mark a list item as unread, set the finishDate to null
-            // {id: listItem.id, finishDate: null}
-            icon={<FaBook />}
-          />
-        ) : (
-          <TooltipButton
-            label='Mark as read'
-            highlight={colors.green}
-            // 🐨 add an onClick here that calls update with the data we want to update
-            // 💰 to mark a list item as read, set the finishDate
-            // {id: listItem.id, finishDate: Date.now()}
-            icon={<FaCheckCircle />}
-          />
-        )
-      ) : null}
-      {listItem ? (
-        <TooltipButton
-          label='Remove from list'
-          highlight={colors.danger}
-          // 🐨 add an onClick here that calls remove
-          icon={<FaMinusCircle />}
-        />
-      ) : (
-        <TooltipButton
-          label='Add to list'
-          highlight={colors.indigo}
-          onClick={() => addToList({ user: user, book: book })}
-          icon={<FaPlusCircle />}
-        />
-      )}
+      <TooltipButton
+        label='Add to list'
+        highlight={colors.indigo}
+        onClick={() => mutation.mutateAsync({ user: user, book: book })}
+        icon={<FaPlusCircle />}
+      />
     </React.Fragment>
   );
 };
