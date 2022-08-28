@@ -3,10 +3,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { UnauthenticatedApp } from 'unauthenticated-app';
 import { AuthenticatedApp } from 'authenticated-app';
 
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 
 const App: FC = () => {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   const auth = getAuth();
 
@@ -21,6 +21,10 @@ const App: FC = () => {
       }
     });
   }, [auth]);
+
+  useEffect(() => {
+    console.log('user', user);
+  }, [user]);
 
   return user ? (
     <Router>
