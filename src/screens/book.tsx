@@ -22,10 +22,14 @@ const loadingBook = {
 
 const BookScreen: React.FC<{ user?: any }> = ({ user }) => {
   const { bookId } = useParams();
+
   const { data: book = loadingBook } = useQuery({
     queryKey: ['book', { bookId }],
     queryFn: () => (bookId ? getBook(bookId) : null),
   });
+
+  const { coverImageUrl, title, author, publisher, synopsis } =
+    book ?? loadingBook;
 
   return (
     <div>
@@ -42,18 +46,18 @@ const BookScreen: React.FC<{ user?: any }> = ({ user }) => {
         }}
       >
         <img
-          src={book?.coverImageUrl}
-          alt={`${book?.title} book cover`}
+          src={coverImageUrl}
+          alt={`${title} book cover`}
           css={{ width: '100%', maxWidth: '14rem' }}
         />
         <div>
           <div css={{ display: 'flex', position: 'relative' }}>
             <div css={{ flex: 1, justifyContent: 'space-between' }}>
-              <h1>{book?.title}</h1>
+              <h1>{title}</h1>
               <div>
-                <i>{book?.author}</i>
+                <i>{author}</i>
                 <span css={{ marginRight: 6, marginLeft: 6 }}>|</span>
-                <i>{book?.publisher}</i>
+                <i>{publisher}</i>
               </div>
             </div>
             <div
@@ -78,7 +82,7 @@ const BookScreen: React.FC<{ user?: any }> = ({ user }) => {
             {listItem ? <ListItemTimeframe listItem={listItem} /> : null}
           </div> */}
           <br />
-          <p>{book?.synopsis}</p>
+          <p>{synopsis}</p>
         </div>
       </div>
       {/* {!book.loadingBook && listItem ? (
