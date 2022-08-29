@@ -21,6 +21,7 @@ exports.createUserRecord = functions.auth.user().onCreate((user, context) => {
 
   return userRef.set({
     email: user.email,
+    uid: user.uid,
     createdAt: context.timestamp,
   });
 });
