@@ -2,14 +2,12 @@
 import { jsx } from '@emotion/react';
 
 import { FC } from 'react';
-import { useAuth } from 'context/auth-context';
 import { useListItems } from 'utils/list-items';
 import { BookListUL } from './lib';
 import { BookRow } from './book-row';
 
 const ListItemList: FC<{ noListItems: any }> = ({ noListItems }) => {
-  const { user } = useAuth();
-  const listItems = useListItems(user?.uid);
+  const listItems = useListItems();
 
   if (!listItems.length) {
     return (
