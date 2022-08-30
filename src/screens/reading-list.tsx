@@ -1,7 +1,15 @@
 import React, { FC, useEffect } from 'react';
+import { getReadingList } from 'fire/get-reading-list';
+import { useAuth } from 'context/auth-context';
 
 const ReadingListScreen: FC = () => {
-  useEffect(() => {}, []);
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (user?.uid) {
+      getReadingList(user.uid);
+    }
+  }, [user]);
 
   return <div>ReadingList</div>;
 };
