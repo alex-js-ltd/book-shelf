@@ -8,29 +8,12 @@ import { Input, BookListUL, Spinner } from 'comps/lib';
 import { BookRow } from 'comps/book-row';
 
 import * as colors from 'styles/colors';
-import { useAsync } from 'utils/hooks';
-
-import algoliasearch from 'algoliasearch';
-
-const YOUR_APP_ID = process.env.REACT_APP_YOUR_APP_ID;
-const YOUR_SEARCH_KEY = process.env.REACT_APP_YOUR_SEARCH_KEY;
-
-const client: any =
-  YOUR_APP_ID && YOUR_SEARCH_KEY && algoliasearch(YOUR_APP_ID, YOUR_SEARCH_KEY);
-const index = client.initIndex('books');
+import { useBookSearch } from 'utils/books';
 
 const DiscoverBooksScreen: FC = () => {
-  const { data, error, run, isLoading, isError, isSuccess } = useAsync();
-  const [query, setQuery] = useState<null | string>(null);
+  const [query, setQuery] = useState<string>('harry');
   const [queried, setQueried] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (!queried) {
-      return;
-    }
-    run(index.search(query));
-  }, [query, queried, run]);
-
+  const { books, error, isLoading, isError, isSuccess } = useBookSearch(query);
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -41,6 +24,10 @@ const DiscoverBooksScreen: FC = () => {
     setQueried(true);
     setQuery(formElements.search.value);
   };
+
+  useEffect(() => {
+    console.log('books', books);
+  }, [books]);
 
   return (
     <div
@@ -77,22 +64,18 @@ const DiscoverBooksScreen: FC = () => {
       {isError ? (
         <div css={{ color: colors.danger }}>
           <p>There was an error:</p>
-          <pre>{error.message}</pre>
+          {/* <pre>{error.message}</pre> */}
         </div>
       ) : null}
 
       {isSuccess ? (
-        data?.hits.length ? (
-          <BookListUL css={{ marginTop: 20 }}>
-            {data?.hits.map((book: any) => (
-              <li key={book.objectID} aria-label={book.title}>
-                <BookRow key={book.objectID} book={book} />
-              </li>
-            ))}
-          </BookListUL>
-        ) : (
-          <p>No books found. Try another search.</p>
-        )
+        <BookListUL css={{ marginTop: 20 }}>
+          {books?.map((book: any) => (
+            <li key={book.objectID} aria-label={book.title}>
+              <BookRow key={book.objectID} book={book} />
+            </li>
+          ))}
+        </BookListUL>
       ) : null}
     </div>
   );
