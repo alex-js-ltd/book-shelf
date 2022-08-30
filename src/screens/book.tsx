@@ -4,7 +4,7 @@ import { jsx } from '@emotion/react';
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { getBook } from 'utils/fire/get-book';
+import { getBook } from 'utils/firebase/get-book';
 import * as mq from 'styles/media-queries';
 import * as colors from 'styles/colors';
 import { StatusButtons } from 'comps/status-buttons';

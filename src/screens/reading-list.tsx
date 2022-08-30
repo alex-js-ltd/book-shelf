@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import { getReadingList } from 'utils/fire/get-reading-list';
+import { getReadingList } from 'utils/firebase/get-reading-list';
 import { useAuth } from 'context/auth-context';
 
 const ReadingListScreen: FC = () => {
