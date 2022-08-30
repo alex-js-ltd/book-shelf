@@ -1,9 +1,8 @@
 // @ts-nocheck
 import React from 'react';
 import algoliasearch from 'algoliasearch';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import bookPlaceholderSvg from 'assets/book-placeholder.svg';
-import { connectFirestoreEmulator } from 'firebase/firestore';
 
 const YOUR_APP_ID = process.env.REACT_APP_YOUR_APP_ID;
 const YOUR_SEARCH_KEY = process.env.REACT_APP_YOUR_SEARCH_KEY;
@@ -26,13 +25,19 @@ const loadingBooks = Array.from({ length: 10 }, (v, index) => ({
   ...loadingBook,
 }));
 
-const useBookSearch = (query: string) => {
+const useBookSearch = (query: string | null) => {
   const { data, error, isLoading, isError, isSuccess } = useQuery({
     queryKey: ['bookSearch', { query }],
-    queryFn: () => (query ? index.search(query) : null),
+    queryFn: () => index.search(query),
   });
 
-  return { books: data?.hits, error, isLoading, isError, isSuccess };
+  return {
+    books: data?.hits ?? loadingBooks,
+    error,
+    isLoading,
+    isError,
+    isSuccess,
+  };
 };
 
 export { useBookSearch };

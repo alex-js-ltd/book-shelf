@@ -11,7 +11,7 @@ import * as colors from 'styles/colors';
 import { useBookSearch } from 'utils/books';
 
 const DiscoverBooksScreen: FC = () => {
-  const [query, setQuery] = useState<string>('harry');
+  const [query, setQuery] = useState<string>('');
   const [queried, setQueried] = useState<boolean>(false);
   const { books, error, isLoading, isError, isSuccess } = useBookSearch(query);
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
