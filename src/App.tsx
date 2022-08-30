@@ -7,10 +7,6 @@ import { useAuth } from 'context/auth-context';
 const App: FC = () => {
   const { user } = useAuth();
 
-  useEffect(() => {
-    console.log('user', user);
-  }, [user]);
-
   return user ? (
     <Router>
       <AuthenticatedApp />
