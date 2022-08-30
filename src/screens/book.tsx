@@ -3,32 +3,18 @@ import { jsx } from '@emotion/react';
 
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import { getBook } from 'utils/firebase/get-book';
 import * as mq from 'styles/media-queries';
 import * as colors from 'styles/colors';
 import { StatusButtons } from 'comps/status-buttons';
-import bookPlaceholderSvg from 'assets/book-placeholder.svg';
 
-const loadingBook = {
-  title: 'Loading...',
-  author: 'loading...',
-  coverImageUrl: bookPlaceholderSvg,
-  publisher: 'Loading Publishing',
-  synopsis: 'Loading...',
-  loadingBook: true,
-};
+import { useBook } from 'utils/books';
 
 const BookScreen: React.FC = () => {
   const { bookId } = useParams();
 
-  const { data: book = loadingBook } = useQuery({
-    queryKey: ['book', { bookId }],
-    queryFn: () => (bookId ? getBook(bookId) : null),
-  });
+  const book = useBook(bookId);
 
-  const { coverImageUrl, title, author, publisher, synopsis } =
-    book ?? loadingBook;
+  const { coverImageUrl, title, author, publisher, synopsis } = book;
 
   return (
     <div>
@@ -69,7 +55,7 @@ const BookScreen: React.FC = () => {
                 minHeight: 100,
               }}
             >
-              {book !== loadingBook && <StatusButtons book={book} />}
+              {book.loadingBook ? null : <StatusButtons book={book} />}
             </div>
           </div>
           {/* <div css={{ marginTop: 10, height: 46 }}>

@@ -1,7 +1,7 @@
-// @ts-nocheck
 import React from 'react';
 import algoliasearch from 'algoliasearch';
 import { useQuery } from '@tanstack/react-query';
+import { getBook } from 'utils/firebase/get-book';
 import bookPlaceholderSvg from 'assets/book-placeholder.svg';
 
 const YOUR_APP_ID = process.env.REACT_APP_YOUR_APP_ID;
@@ -40,4 +40,12 @@ const useBookSearch = (query: string | null) => {
   };
 };
 
-export { useBookSearch };
+const useBook = (bookId: string | undefined): any => {
+  const { data: book = loadingBook } = useQuery({
+    queryKey: ['book', { bookId }],
+    queryFn: () => (bookId ? getBook(bookId) : null),
+  });
+  return book ?? loadingBook;
+};
+
+export { useBookSearch, useBook };
