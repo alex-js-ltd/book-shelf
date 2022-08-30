@@ -7,11 +7,14 @@ import { Routes, Route, Link, useMatch } from 'react-router-dom';
 import { Button } from 'comps/lib';
 import * as mq from 'styles/media-queries';
 import * as colors from 'styles/colors';
+
+import { ReadingListScreen } from './screens/reading-list';
 import { DiscoverBooksScreen } from 'screens/discover';
 import { BookScreen } from 'screens/book';
-import { logout } from 'fire/auth';
 
 import { useAuth } from 'context/auth-context';
+
+import { logout } from 'fire/auth';
 
 const AuthenticatedApp: React.FC = () => {
   const { user } = useAuth();
@@ -132,13 +135,12 @@ const Nav = () => (
   </nav>
 );
 
-const AppRoutes: React.FC = () => {
-  return (
-    <Routes>
-      <Route path='/discover' element={<DiscoverBooksScreen />} />
-      <Route path='/book/:bookId' element={<BookScreen />} />
-    </Routes>
-  );
-};
+const AppRoutes: React.FC = () => (
+  <Routes>
+    <Route path='/list' element={<ReadingListScreen />} />
+    <Route path='/discover' element={<DiscoverBooksScreen />} />
+    <Route path='/book/:bookId' element={<BookScreen />} />
+  </Routes>
+);
 
 export { AuthenticatedApp };
