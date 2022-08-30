@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useId } from 'react';
 import {
   FaCheckCircle,
   FaPlusCircle,
@@ -19,6 +19,7 @@ import { CircleButton, Spinner } from './lib';
 
 import { addToList } from 'utils/fire/add-to-list';
 import { useAuth } from 'context/auth-context';
+import { useCreateListItem } from 'utils/list-items';
 
 interface T {
   label?: string;
@@ -41,7 +42,7 @@ const TooltipButton: React.FC<T> = ({
     if (isError) {
       reset();
     } else {
-      //run(onClick());
+      run(onClick());
     }
   }
   return (
@@ -71,12 +72,14 @@ const TooltipButton: React.FC<T> = ({
 const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
   const listItem: any = null;
 
+  const mutation = useCreateListItem();
+
   return (
     <React.Fragment>
       <TooltipButton
         label='Add to list'
         highlight={colors.indigo}
-        //onClick={() => mutation.mutateAsync({ user: user, book: book })}
+        onClick={() => mutation.mutateAsync({ book })}
         icon={<FaPlusCircle />}
       />
     </React.Fragment>

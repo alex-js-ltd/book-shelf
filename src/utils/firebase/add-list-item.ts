@@ -1,11 +1,16 @@
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import { User } from 'firebase/auth';
 import { db } from './index';
 
-const addToList = async ({ user, book }: { user: User; book: any }) => {
-  if (!user || !book) return;
+const addListItem = async ({
+  uid,
+  book,
+}: {
+  uid: string | undefined;
+  book: any;
+}) => {
+  if (!uid || !book) return;
 
-  const userRef = doc(db, 'users', user.uid);
+  const userRef = doc(db, 'users', uid);
 
   const docSnap = await getDoc(userRef);
 
@@ -22,4 +27,4 @@ const addToList = async ({ user, book }: { user: User; book: any }) => {
   });
 };
 
-export { addToList };
+export { addListItem };
