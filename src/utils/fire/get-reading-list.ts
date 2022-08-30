@@ -1,5 +1,5 @@
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from 'fire';
+import { db } from './index';
 
 const getReadingList = async (uid: string): Promise<any[]> => {
   const docRef = doc(db, 'users', uid);

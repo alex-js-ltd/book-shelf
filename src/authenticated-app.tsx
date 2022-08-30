@@ -14,7 +14,7 @@ import { BookScreen } from 'screens/book';
 
 import { useAuth } from 'context/auth-context';
 
-import { logout } from 'fire/auth';
+import { logout } from 'utils/fire/auth';
 
 const AuthenticatedApp: React.FC = () => {
   const { user } = useAuth();

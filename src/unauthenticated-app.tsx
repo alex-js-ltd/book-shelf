@@ -8,7 +8,7 @@ import { Button, Input, FormGroup, Spinner, ErrorMessage } from 'comps/lib';
 import { Modal, ModalContents, ModalOpenButton } from 'comps/modal';
 import { Logo } from 'comps/logo';
 import { useAsync } from './utils/hooks';
-import * as auth from 'fire/auth';
+import * as auth from 'utils/fire/auth';
 
 const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
   onSubmit,

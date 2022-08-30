@@ -17,7 +17,7 @@ import { useAsync } from 'utils/hooks';
 import * as colors from 'styles/colors';
 import { CircleButton, Spinner } from './lib';
 
-import { addToList } from 'fire/add-to-list';
+import { addToList } from 'utils/fire/add-to-list';
 import { useAuth } from 'context/auth-context';
 
 interface T {
