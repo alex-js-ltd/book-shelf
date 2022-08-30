@@ -11,15 +11,10 @@ import {
   FaTimesCircle,
 } from 'react-icons/fa';
 import Tooltip from '@reach/tooltip';
-import { useMutation } from '@tanstack/react-query';
-// 🐨 you'll also need client from 'utils/api-client'
 import { useAsync } from 'utils/hooks';
 import * as colors from 'styles/colors';
 import { CircleButton, Spinner } from './lib';
-
-import { addToList } from 'utils/fire/add-to-list';
-import { useAuth } from 'context/auth-context';
-import { useCreateListItem } from 'utils/list-items';
+import { useCreateListItem, useListItem } from 'utils/list-items';
 
 interface T {
   label?: string;
@@ -70,18 +65,20 @@ const TooltipButton: React.FC<T> = ({
 };
 
 const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
-  const listItem: any = null;
+  const mutation = useCreateListItem(book);
 
-  const mutation = useCreateListItem();
+  const listItem = useListItem(book?.id);
 
   return (
     <React.Fragment>
-      <TooltipButton
-        label='Add to list'
-        highlight={colors.indigo}
-        onClick={() => mutation.mutateAsync({ book })}
-        icon={<FaPlusCircle />}
-      />
+      {listItem ? null : (
+        <TooltipButton
+          label='Add to list'
+          highlight={colors.indigo}
+          onClick={() => mutation.mutateAsync()}
+          icon={<FaPlusCircle />}
+        />
+      )}
     </React.Fragment>
   );
 };

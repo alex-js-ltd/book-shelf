@@ -1,9 +1,8 @@
 // @ts-nocheck
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getListItems } from 'utils/firebase/get-list-items';
 import { addListItem } from './firebase/add-list-item';
 import { useAuth } from 'context/auth-context';
-import { useEffect } from 'react';
 
 const useListItems = () => {
   const { user } = useAuth();
@@ -23,11 +22,21 @@ const useListItems = () => {
   return listItems ?? [];
 };
 
-const useCreateListItem = () => {
+const useCreateListItem = (book: any) => {
   const { user } = useAuth();
 
   const uid = user?.uid;
-  return useMutation(({ book }) => addListItem({ uid: uid, book: book }));
+
+  const queryClient = useQueryClient();
+
+  return useMutation(() => addListItem({ uid: uid, book: book }), {
+    onSettled: () => queryClient.invalidateQueries('list-items'),
+  });
 };
 
-export { useListItems, useCreateListItem };
+const useListItem = (bookId: string) => {
+  const listItems = useListItems();
+  return listItems?.find((li) => li.id === bookId) ?? null;
+};
+
+export { useListItems, useCreateListItem, useListItem };
