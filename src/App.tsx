@@ -1,26 +1,11 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { UnauthenticatedApp } from 'unauthenticated-app';
 import { AuthenticatedApp } from 'authenticated-app';
-
-import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
+import { useAuth } from 'context/auth-context';
 
 const App: FC = () => {
-  const [user, setUser] = useState<User | null>(null);
-
-  const auth = getAuth();
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        // ...
-      } else {
-        // User is signed out
-        setUser(null);
-      }
-    });
-  }, [auth]);
+  const { user } = useAuth();
 
   useEffect(() => {
     console.log('user', user);
@@ -28,7 +13,7 @@ const App: FC = () => {
 
   return user ? (
     <Router>
-      <AuthenticatedApp user={user} />
+      <AuthenticatedApp />
     </Router>
   ) : (
     <UnauthenticatedApp />

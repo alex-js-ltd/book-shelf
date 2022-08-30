@@ -7,7 +7,6 @@ import { useQuery } from '@tanstack/react-query';
 import { getBook } from 'fire/get-book';
 import * as mq from 'styles/media-queries';
 import * as colors from 'styles/colors';
-import { useAsync } from 'utils/hooks';
 import { StatusButtons } from 'comps/status-buttons';
 import bookPlaceholderSvg from 'assets/book-placeholder.svg';
 
@@ -20,7 +19,7 @@ const loadingBook = {
   loadingBook: true,
 };
 
-const BookScreen: React.FC<{ user?: any }> = ({ user }) => {
+const BookScreen: React.FC = () => {
   const { bookId } = useParams();
 
   const { data: book = loadingBook } = useQuery({
@@ -70,9 +69,7 @@ const BookScreen: React.FC<{ user?: any }> = ({ user }) => {
                 minHeight: 100,
               }}
             >
-              {book !== loadingBook && (
-                <StatusButtons user={user} book={book} />
-              )}
+              {book !== loadingBook && <StatusButtons book={book} />}
             </div>
           </div>
           {/* <div css={{ marginTop: 10, height: 46 }}>

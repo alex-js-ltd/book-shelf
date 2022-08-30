@@ -18,6 +18,7 @@ import * as colors from 'styles/colors';
 import { CircleButton, Spinner } from './lib';
 
 import { addToList } from 'fire/add-to-list';
+import { useAuth } from 'context/auth-context';
 
 interface T {
   label?: string;
@@ -40,7 +41,7 @@ const TooltipButton: React.FC<T> = ({
     if (isError) {
       reset();
     } else {
-      run(onClick());
+      //run(onClick());
     }
   }
   return (
@@ -67,33 +68,15 @@ const TooltipButton: React.FC<T> = ({
   );
 };
 
-const StatusButtons: React.FC<{ user?: any; book?: any }> = ({
-  user,
-  book,
-}) => {
+const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
   const listItem: any = null;
-
-  const mutation = useMutation(addToList, {
-    onSuccess: () => {
-      // Invalidate and refetch
-      console.log('success');
-    },
-  });
-
-  useEffect(() => {
-    console.log('user', user);
-  }, [user]);
-
-  useEffect(() => {
-    console.log('book', book);
-  }, [book]);
 
   return (
     <React.Fragment>
       <TooltipButton
         label='Add to list'
         highlight={colors.indigo}
-        onClick={() => mutation.mutateAsync({ user: user, book: book })}
+        //onClick={() => mutation.mutateAsync({ user: user, book: book })}
         icon={<FaPlusCircle />}
       />
     </React.Fragment>

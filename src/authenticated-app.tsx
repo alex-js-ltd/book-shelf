@@ -1,3 +1,4 @@
+// @ts-nocheck
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
@@ -10,7 +11,11 @@ import { DiscoverBooksScreen } from 'screens/discover';
 import { BookScreen } from 'screens/book';
 import { logout } from 'fire/auth';
 
-const AuthenticatedApp: React.FC<{ user: any }> = ({ user }) => {
+import { useAuth } from 'context/auth-context';
+
+const AuthenticatedApp: React.FC = () => {
+  const { user } = useAuth();
+
   return (
     <React.Fragment>
       <div
@@ -51,7 +56,7 @@ const AuthenticatedApp: React.FC<{ user: any }> = ({ user }) => {
           <Nav />
         </div>
         <main css={{ width: '100%' }}>
-          <AppRoutes user={user} />
+          <AppRoutes />
         </main>
       </div>
     </React.Fragment>
@@ -60,6 +65,7 @@ const AuthenticatedApp: React.FC<{ user: any }> = ({ user }) => {
 
 const NavLink = (props: any) => {
   const match = useMatch(props.to);
+
   return (
     <Link
       css={[
@@ -126,11 +132,11 @@ const Nav = () => (
   </nav>
 );
 
-const AppRoutes: React.FC<{ user?: any }> = ({ user }) => {
+const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path='/discover' element={<DiscoverBooksScreen />} />
-      <Route path='/book/:bookId' element={<BookScreen user={user} />} />
+      <Route path='/book/:bookId' element={<BookScreen />} />
     </Routes>
   );
 };
