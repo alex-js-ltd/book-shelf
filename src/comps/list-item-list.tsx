@@ -15,11 +15,18 @@ const ListItemList: FC<{ noListItems: any }> = ({ noListItems }) => {
     );
   }
 
+  const Li = (li: any) => {
+    return {
+      ...li,
+      objectID: li.id,
+    };
+  };
+
   return (
     <BookListUL>
       {listItems?.map((listItem) => (
         <li key={listItem?.id}>
-          <BookRow book={listItem} />
+          <BookRow book={Li(listItem)} />
         </li>
       ))}
     </BookListUL>
