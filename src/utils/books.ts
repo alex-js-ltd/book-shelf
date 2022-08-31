@@ -26,18 +26,12 @@ const loadingBooks = Array.from({ length: 10 }, (v, index) => ({
 }));
 
 const useBookSearch = (query: string | null) => {
-  const { data, error, isLoading, isError, isSuccess } = useQuery({
+  const result = useQuery<any, Error>({
     queryKey: ['bookSearch', { query }],
     queryFn: () => index.search(query),
   });
 
-  return {
-    books: data?.hits ?? loadingBooks,
-    error,
-    isLoading,
-    isError,
-    isSuccess,
-  };
+  return { ...result, books: result.data?.hits ?? loadingBooks };
 };
 
 const useBook = (bookId: string | undefined): any => {

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import React, { FC, useEffect, useState, FormEvent } from 'react';
+import React, { FC, useState, FormEvent } from 'react';
 
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { Input, BookListUL, Spinner } from 'comps/lib';
@@ -60,7 +60,7 @@ const DiscoverBooksScreen: FC = () => {
       {isError ? (
         <div css={{ color: colors.danger }}>
           <p>There was an error:</p>
-          {/* <pre>{error.message}</pre> */}
+          <pre>{error.message}</pre>
         </div>
       ) : null}
 
