@@ -11,6 +11,7 @@ import * as colors from 'styles/colors';
 import { ReadingListScreen } from './screens/reading-list';
 import { DiscoverBooksScreen } from 'screens/discover';
 import { BookScreen } from 'screens/book';
+import { FinishedScreen } from 'screens/finished';
 
 import { useAuth } from 'context/auth-context';
 
@@ -138,6 +139,7 @@ const Nav = () => (
 const AppRoutes: React.FC = () => (
   <Routes>
     <Route path='/list' element={<ReadingListScreen />} />
+    <Route path='/finished' element={<FinishedScreen />} />
     <Route path='/discover' element={<DiscoverBooksScreen />} />
     <Route path='/book/:bookId' element={<BookScreen />} />
   </Routes>
