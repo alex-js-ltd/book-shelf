@@ -2,6 +2,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getListItems } from 'utils/firebase/get-list-items';
 import { addListItem } from './firebase/add-list-item';
+import { deleteListItem } from './firebase/delete-list-item';
 import { useAuth } from 'context/auth-context';
 
 const useListItems = () => {
@@ -39,4 +40,16 @@ const useListItem = (bookId: string) => {
   return listItems?.find((li) => li.id === bookId) ?? null;
 };
 
-export { useListItems, useCreateListItem, useListItem };
+const useRemoveListItem = (book: any) => {
+  const { user } = useAuth();
+
+  const uid = user?.uid;
+
+  const queryClient = useQueryClient();
+
+  return useMutation(() => deleteListItem({ uid: uid, book: book }), {
+    onSettled: () => queryClient.invalidateQueries('list-items'),
+  });
+};
+
+export { useListItems, useCreateListItem, useListItem, useRemoveListItem };
