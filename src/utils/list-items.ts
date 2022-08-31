@@ -38,7 +38,9 @@ const useCreateListItem = (book: any) => {
 
 const useListItem = (bookId: string) => {
   const listItems = useListItems();
-  return listItems?.find((li) => li.id === bookId) ?? null;
+
+  console.log('use list items', listItems);
+  return listItems?.find((li) => li.objectID === bookId) ?? null;
 };
 
 const useRemoveListItem = (book: any) => {

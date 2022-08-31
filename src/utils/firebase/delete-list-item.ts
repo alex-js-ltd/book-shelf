@@ -18,7 +18,7 @@ const deleteListItem = async ({
 
   const readingList = data?.readingList;
 
-  let filter = readingList?.filter((li: any) => li.id !== book.id);
+  let filter = readingList?.filter((li: any) => li.objectID !== book.objectID);
 
   if (!filter) return;
 
