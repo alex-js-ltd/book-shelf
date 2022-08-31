@@ -23,6 +23,8 @@ exports.createUserRecord = functions.auth.user().onCreate((user, context) => {
     email: user.email,
     uid: user.uid,
     createdAt: context.timestamp,
+    readingList: [],
+    finishedBooks: [],
   });
 });
 

@@ -16,14 +16,14 @@ const deleteListItem = async ({
 
   const data = docSnap.data();
 
-  const list = data?.list;
+  const readingList = data?.readingList;
 
-  let filter = list?.filter((li: any) => li.id !== book.id);
+  let filter = readingList?.filter((li: any) => li.id !== book.id);
 
   if (!filter) return;
 
   return await updateDoc(userRef, {
-    list: filter,
+    readingList: filter,
   });
 };
 
