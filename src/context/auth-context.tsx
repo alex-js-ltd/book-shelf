@@ -1,11 +1,19 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from 'react';
 import { User, getAuth, onAuthStateChanged } from 'firebase/auth';
+
+type AuthProviderProps = { children: ReactNode };
 
 const AuthContext = createContext<{ user: User | null }>({ user: null });
 AuthContext.displayName = 'AuthContext';
 
-const AuthProvider = (props: any) => {
-  const [user, setUser] = useState<any>(null);
+const AuthProvider = ({ children }: AuthProviderProps) => {
+  const [user, setUser] = useState<User | null>(null);
 
   const auth = getAuth();
 
@@ -23,7 +31,7 @@ const AuthProvider = (props: any) => {
 
   const value = { user };
 
-  return <AuthContext.Provider value={value} {...props} />;
+  return <AuthContext.Provider value={value}>{children} </AuthContext.Provider>;
 };
 
 const useAuth = () => {
