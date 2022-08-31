@@ -4,9 +4,11 @@ import { db } from './index';
 const updateListItem = async ({
   uid,
   book,
+  finishDate,
 }: {
   uid: string | undefined;
   book: any;
+  finishDate: any;
 }) => {
   if (!uid || !book) return;
 
@@ -28,9 +30,13 @@ const updateListItem = async ({
     } else return [book];
   };
 
+  let newBook = { ...book };
+
+  newBook.finishDate = finishDate;
+
   return await updateDoc(userRef, {
     readingList: filter,
-    finishedBooks: returnFinishedBooks(data?.finishedBooks, book),
+    finishedBooks: returnFinishedBooks(data?.finishedBooks, newBook),
   });
 };
 

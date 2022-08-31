@@ -60,9 +60,13 @@ const useUpdateListItem = (book: any) => {
 
   const queryClient = useQueryClient();
 
-  return useMutation(() => updateListItem({ uid: uid, book: book }), {
-    onSettled: () => queryClient.invalidateQueries('list-items'),
-  });
+  return useMutation(
+    ({ finishDate }) =>
+      updateListItem({ uid: uid, book: book, finishDate: finishDate }),
+    {
+      onSettled: () => queryClient.invalidateQueries('list-items'),
+    }
+  );
 };
 
 export {
