@@ -1,8 +1,6 @@
-/** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import '@reach/dialog/styles.css';
 import { FC, ReactElement, cloneElement, FormEvent } from 'react';
 import { Button, Input, FormGroup, Spinner, ErrorMessage } from 'comps/lib';
 import { Modal, ModalContents, ModalOpenButton } from 'comps/modal';
