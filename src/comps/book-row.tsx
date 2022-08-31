@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import React, { FC } from 'react';
-
 import { Link } from 'react-router-dom';
 import * as mq from 'styles/media-queries';
 import * as colors from 'styles/colors';
+import { StatusButtons } from './status-buttons';
 
 interface Book {
   title: string;
@@ -30,7 +30,7 @@ const BookRow: FC<{ book: Book }> = ({ book }) => {
     >
       <Link
         aria-labelledby={id}
-        to={`/book/${book?.objectID}`}
+        to={`/book/${book.objectID}`}
         css={{
           minHeight: 270,
           flexGrow: 2,
@@ -94,6 +94,20 @@ const BookRow: FC<{ book: Book }> = ({ book }) => {
           </small>
         </div>
       </Link>
+      <div
+        css={{
+          marginLeft: '20px',
+          position: 'absolute',
+          right: -20,
+          color: colors.gray80,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-around',
+          height: '100%',
+        }}
+      >
+        <StatusButtons book={book} />
+      </div>
     </div>
   );
 };

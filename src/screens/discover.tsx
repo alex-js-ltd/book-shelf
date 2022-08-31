@@ -25,10 +25,6 @@ const DiscoverBooksScreen: FC = () => {
     setQuery(formElements.search.value);
   };
 
-  useEffect(() => {
-    console.log('books', books);
-  }, [books]);
-
   return (
     <div
       css={{ maxWidth: 800, margin: 'auto', width: '90vw', padding: '40px 0' }}
