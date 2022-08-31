@@ -64,7 +64,7 @@ const DiscoverBooksScreen: FC = () => {
         </div>
       ) : null}
 
-      {isSuccess ? (
+      {isSuccess && (
         <BookListUL css={{ marginTop: 20 }}>
           {books?.map((book: any) => (
             <li key={book.objectID} aria-label={book.title}>
@@ -72,7 +72,7 @@ const DiscoverBooksScreen: FC = () => {
             </li>
           ))}
         </BookListUL>
-      ) : null}
+      )}
     </div>
   );
 };

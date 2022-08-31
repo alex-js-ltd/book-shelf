@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'comps/lib';
 import { ListItemList } from 'comps/list-item-list';
 
-const ReadingListScreen = () => (
+const ReadingListScreen: React.FC = () => (
   <ListItemList
     filterListItems={(li: any) => !li.finishDate}
     noListItems={

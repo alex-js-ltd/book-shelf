@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { useListItems } from 'utils/list-items';
 import { BookListUL } from './lib';
 import { BookRow } from './book-row';

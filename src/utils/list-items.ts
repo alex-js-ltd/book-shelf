@@ -39,7 +39,6 @@ const useCreateListItem = (book: any) => {
 const useListItem = (bookId: string) => {
   const listItems = useListItems();
 
-  console.log('use list items', listItems);
   return listItems?.find((li) => li.objectID === bookId) ?? null;
 };
 

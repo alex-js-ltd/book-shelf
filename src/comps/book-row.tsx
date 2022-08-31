@@ -16,7 +16,7 @@ interface Book {
 }
 
 const BookRow: FC<{ book: Book }> = ({ book }) => {
-  const { title, author, coverImageUrl } = book;
+  const { title, author, coverImageUrl, objectID } = book;
   const id = `book-row-book-${book?.objectID}`;
 
   return (
@@ -30,7 +30,7 @@ const BookRow: FC<{ book: Book }> = ({ book }) => {
     >
       <Link
         aria-labelledby={id}
-        to={`/book/${book.objectID}`}
+        to={`/book/${objectID}`}
         css={{
           minHeight: 270,
           flexGrow: 2,

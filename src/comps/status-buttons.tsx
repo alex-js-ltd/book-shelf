@@ -75,10 +75,6 @@ const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
   const remove = useRemoveListItem(book);
   const update = useUpdateListItem(book);
 
-  useEffect(() => {
-    console.log('listItem', listItem);
-  }, [listItem]);
-
   return (
     <React.Fragment>
       {listItem && listItem?.finishDate && (

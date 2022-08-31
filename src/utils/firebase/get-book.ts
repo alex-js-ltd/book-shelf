@@ -7,8 +7,7 @@ interface Book {
   coverImageUrl?: string;
   publisher?: string;
   synopsis?: string;
-  pageCount?: number;
-  id: string;
+  objectID: string;
 }
 
 const getBook = async (id: string): Promise<Book> => {
@@ -19,7 +18,7 @@ const getBook = async (id: string): Promise<Book> => {
   const data = docSnap.data();
 
   return {
-    id: id,
+    objectID: docSnap.id,
     ...data,
   };
 };

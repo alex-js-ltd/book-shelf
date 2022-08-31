@@ -9,7 +9,6 @@ const getListItems = async (uid: string | undefined): Promise<any[] | void> => {
 
   const data = docSnap.data();
 
-  console.log('data', data);
   return data?.readingList;
 };
 
