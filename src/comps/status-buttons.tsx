@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import React, { useEffect, useId } from 'react';
+import React, { useEffect } from 'react';
 import {
   FaCheckCircle,
   FaPlusCircle,
