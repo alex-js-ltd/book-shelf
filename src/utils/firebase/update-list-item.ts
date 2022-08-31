@@ -20,7 +20,9 @@ const updateListItem = async ({
 
   const readingList = data?.readingList;
 
-  const index = readingList.findIndex((item: any) => item.id === book.id);
+  const index = readingList.findIndex(
+    (item: any) => item.objectID === book.objectID
+  );
 
   let newReadingList = [...readingList];
 
