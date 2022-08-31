@@ -18,6 +18,7 @@ import {
   useCreateListItem,
   useRemoveListItem,
   useListItem,
+  useUpdateListItem,
 } from 'utils/list-items';
 
 interface T {
@@ -72,9 +73,19 @@ const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
   const listItem = useListItem(book?.id);
   const create = useCreateListItem(book);
   const remove = useRemoveListItem(book);
+  const update = useUpdateListItem(book);
 
   return (
     <React.Fragment>
+      {listItem && (
+        <TooltipButton
+          label='Mark as read'
+          highlight={colors.green}
+          onClick={() => update.mutateAsync()}
+          icon={<FaCheckCircle />}
+        />
+      )}
+
       {!listItem && (
         <TooltipButton
           label='Add to list'
