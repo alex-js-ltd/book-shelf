@@ -6,8 +6,13 @@ import { useListItems } from 'utils/list-items';
 import { BookListUL } from './lib';
 import { BookRow } from './book-row';
 
-const ListItemList: FC<{ noListItems: any }> = ({ noListItems }) => {
+const ListItemList: FC<{ noListItems: any; filterListItems: any }> = ({
+  noListItems,
+  filterListItems,
+}) => {
   const listItems = useListItems();
+
+  const filteredListItems = listItems?.filter(filterListItems);
 
   if (!listItems.length) {
     return (
@@ -24,7 +29,7 @@ const ListItemList: FC<{ noListItems: any }> = ({ noListItems }) => {
 
   return (
     <BookListUL>
-      {listItems?.map((listItem) => (
+      {filteredListItems?.map((listItem) => (
         <li key={listItem?.id}>
           <BookRow book={Li(listItem)} />
         </li>

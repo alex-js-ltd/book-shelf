@@ -20,23 +20,18 @@ const updateListItem = async ({
 
   const readingList = data?.readingList;
 
-  let filter = readingList?.filter((li: any) => li.id !== book.id);
+  const index = readingList.findIndex((item: any) => item.id === book.id);
 
-  if (!filter) return;
+  let newReadingList = [...readingList];
 
-  const returnFinishedBooks = (finishedBooks: any[], book: any) => {
-    if (finishedBooks.length) {
-      return [...finishedBooks, book];
-    } else return [book];
-  };
+  let newItem = { ...newReadingList[index] };
 
-  let newBook = { ...book };
+  newItem.finishDate = finishDate;
 
-  newBook.finishDate = finishDate;
+  newReadingList[index] = newItem;
 
   return await updateDoc(userRef, {
-    readingList: filter,
-    finishedBooks: returnFinishedBooks(data?.finishedBooks, newBook),
+    readingList: newReadingList,
   });
 };
 

@@ -24,7 +24,6 @@ exports.createUserRecord = functions.auth.user().onCreate((user, context) => {
     uid: user.uid,
     createdAt: context.timestamp,
     readingList: [],
-    finishedBooks: [],
   });
 });
 

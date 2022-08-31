@@ -5,6 +5,7 @@ import { ListItemList } from 'comps/list-item-list';
 const ReadingListScreen = () => {
   return (
     <ListItemList
+      filterListItems={(li: any) => !li.finishDate}
       noListItems={
         <p>
           Hey there! Welcome to your bookshelf reading list. Get started by

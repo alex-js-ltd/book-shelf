@@ -16,14 +16,8 @@ const addListItem = async ({
 
   const data = docSnap.data();
 
-  const returnList = (readingList: any[], book: any) => {
-    if (readingList.length) {
-      return [...readingList, book];
-    } else return [book];
-  };
-
   return await updateDoc(userRef, {
-    readingList: returnList(data?.readingList, book),
+    readingList: [...data?.readingList, book],
   });
 };
 
