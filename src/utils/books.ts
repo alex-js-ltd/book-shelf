@@ -1,4 +1,3 @@
-import React from 'react';
 import algoliasearch from 'algoliasearch';
 import { useQuery } from '@tanstack/react-query';
 import { getBook } from 'utils/firebase/get-book';
