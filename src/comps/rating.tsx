@@ -1,4 +1,3 @@
-// @ts-nocheck
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
@@ -8,7 +7,7 @@ import { FaStar } from 'react-icons/fa';
 import * as colors from 'styles/colors';
 import { ErrorMessage } from 'comps/lib';
 
-const visuallyHiddenCSS = {
+const visuallyHiddenCSS: any = {
   border: '0',
   clip: 'rect(0 0 0 0)',
   height: '1px',
@@ -17,7 +16,6 @@ const visuallyHiddenCSS = {
   padding: '0',
   position: 'absolute',
   width: '1px',
-  border: '1px solid red',
 };
 
 const Rating = ({ listItem }: any) => {
