@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as mq from 'styles/media-queries';
 import * as colors from 'styles/colors';
@@ -16,8 +16,12 @@ interface Book {
 }
 
 const BookRow: FC<{ book: Book }> = ({ book }) => {
-  const { title, author, coverImageUrl, objectID } = book;
+  const { title, author, coverImageUrl, synopsis, publisher, objectID } = book;
   const id = `book-row-book-${book?.objectID}`;
+
+  useEffect(() => {
+    console.log('book', book);
+  }, [book]);
 
   return (
     <div
@@ -86,11 +90,11 @@ const BookRow: FC<{ book: Book }> = ({ book }) => {
               >
                 {author}
               </div>
-              <small>{book.publisher}</small>
+              <small>{publisher}</small>
             </div>
           </div>
           <small css={{ whiteSpace: 'break-spaces', display: 'block' }}>
-            {book.synopsis.substring(0, 500)}...
+            {synopsis.substring(0, 500)}...
           </small>
         </div>
       </Link>

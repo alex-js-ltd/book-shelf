@@ -31,7 +31,18 @@ const useBookSearch = (query: string | null) => {
     queryFn: () => index.search(query),
   });
 
-  return { ...result, books: result.data?.hits ?? loadingBooks };
+  let map = result.data?.hits.map((b: any) => {
+    return {
+      objectID: b.objectID,
+      coverImageUrl: b?.coverImageUrl,
+      pageCount: b?.pageCount,
+      publisher: b?.publisher,
+      synopsis: b?.synopsis,
+      title: b?.title,
+    };
+  });
+
+  return { ...result, books: map ?? loadingBooks };
 };
 
 const useBook = (bookId: string | undefined): any => {

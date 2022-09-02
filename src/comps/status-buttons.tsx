@@ -38,13 +38,13 @@ const TooltipButton: React.FC<T> = ({
 }) => {
   const { isLoading, isError, error, run, reset } = useAsync();
 
-  function handleClick() {
+  const handleClick = () => {
     if (isError) {
       reset();
     } else {
       run(onClick());
     }
-  }
+  };
   return (
     <Tooltip label={isError ? error.message : label}>
       <CircleButton
