@@ -21,24 +21,12 @@ const visuallyHiddenCSS = {
 };
 
 const Rating = ({ listItem }: any) => {
-  const [isTabbing, setIsTabbing] = React.useState(false);
-
   const update = useUpdateListItem(listItem);
 
-  React.useEffect(() => {
-    function handleKeyDown(event) {
-      if (event.key === 'Tab') {
-        setIsTabbing(true);
-      }
-    }
-    document.addEventListener('keydown', handleKeyDown, { once: true });
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  const rootClassName = `list-item-${listItem.id}`;
+  const rootClassName = `list-item-${listItem.objectID}`;
 
   const stars = Array.from({ length: 5 }).map((x, i) => {
-    const ratingId = `rating-${listItem.id}-${i}`;
+    const ratingId = `rating-${listItem.objectID}-${i}`;
     const ratingValue = i + 1;
     return (
       <React.Fragment key={i}>
@@ -70,9 +58,7 @@ const Rating = ({ listItem }: any) => {
                 color: 'orange !important',
               },
               [`.${rootClassName} &:focus + label svg`]: {
-                outline: isTabbing
-                  ? ['1px solid orange', '-webkit-focus-ring-color auto 5px']
-                  : 'initial',
+                outline: 'initial',
               },
             },
           ]}
