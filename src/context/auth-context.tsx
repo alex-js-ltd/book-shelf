@@ -22,10 +22,26 @@ const AuthContext = createContext<
 
 AuthContext.displayName = 'AuthContext';
 
+const auth = getAuth(app);
+
+const register = async (email: string, password: string) => {
+  if (!email || !password) return;
+
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+const login = async (email: string, password: string) => {
+  if (!email || !password) return;
+
+  return await signInWithEmailAndPassword(auth, email, password);
+};
+
+const logout = async () => {
+  return await signOut(auth);
+};
+
 const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
-
-  const auth = getAuth(app);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -37,23 +53,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         setUser(null);
       }
     });
-  }, [auth]);
-
-  const register = async (email: string, password: string) => {
-    if (!email || !password) return;
-
-    return await createUserWithEmailAndPassword(auth, email, password);
-  };
-
-  const login = async (email: string, password: string) => {
-    if (!email || !password) return;
-
-    return await signInWithEmailAndPassword(auth, email, password);
-  };
-
-  const logout = async () => {
-    return await signOut(auth);
-  };
+  }, []);
 
   const value = { user, register, login, logout };
 
