@@ -20,7 +20,7 @@ const visuallyHiddenCSS = {
   border: '1px solid red',
 };
 
-function Rating({ listItem }) {
+const Rating = ({ listItem }: any) => {
   const [isTabbing, setIsTabbing] = React.useState(false);
 
   const update = useUpdateListItem(listItem);
@@ -81,7 +81,7 @@ function Rating({ listItem }) {
           htmlFor={ratingId}
           css={{
             cursor: 'pointer',
-            color: listItem.rating < 0 ? colors.gray20 : colors.orange,
+            color: listItem.rating <= 0 ? colors.gray20 : colors.orange,
             margin: 0,
           }}
         >
@@ -115,6 +115,6 @@ function Rating({ listItem }) {
       ) : null} */}
     </div>
   );
-}
+};
 
 export { Rating };
