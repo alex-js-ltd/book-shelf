@@ -116,11 +116,7 @@ const errorMessageVariants: any = {
   inline: { display: 'inline-block' },
 };
 
-const ErrorMessage: FC<{ error?: Error; variant?: string; props?: any }> = ({
-  error,
-  variant = 'stacked',
-  ...props
-}) => (
+const ErrorMessage = ({ error, variant = 'stacked', ...props }: any) => (
   <div
     role='alert'
     css={[{ color: colors.danger }, errorMessageVariants[variant]]}
@@ -133,7 +129,7 @@ const ErrorMessage: FC<{ error?: Error; variant?: string; props?: any }> = ({
         errorMessageVariants[variant],
       ]}
     >
-      {error?.message}
+      {error.message}
     </pre>
   </div>
 );

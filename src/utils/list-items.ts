@@ -54,7 +54,7 @@ const useRemoveListItem = (book: any) => {
   });
 };
 
-const useUpdateListItem = (book: any) => {
+const useUpdateListItem = (book: any): any | Error => {
   const { user } = useAuth();
 
   const uid = user?.uid;
