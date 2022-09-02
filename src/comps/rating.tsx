@@ -33,10 +33,14 @@ const Rating = ({ listItem }: any) => {
   //     return () => document.removeEventListener('keydown', handleKeyDown);
   //   }, []);
 
-  const rootClassName = `list-item-${listItem.id}`;
+  useEffect(() => {
+    console.log('listItem', listItem);
+  }, [listItem]);
+
+  const rootClassName = `list-item-${listItem.objectID}`;
 
   const stars = Array.from({ length: 5 }).map((x, i) => {
-    const ratingId = `rating-${listItem.id}-${i}`;
+    const ratingId = `rating-${listItem.objectID}-${i}`;
     const ratingValue = i + 1;
     return (
       <React.Fragment key={i}>
@@ -45,10 +49,8 @@ const Rating = ({ listItem }: any) => {
           type='radio'
           id={ratingId}
           value={ratingValue}
-          checked={ratingValue === listItem.rating}
-          //   onChange={() => {
-          //     update({ id: listItem.id, rating: ratingValue });
-          //   }}
+          checked={ratingValue === listItem?.rating}
+          onChange={() => console.log('update function')}
           css={[
             visuallyHiddenCSS,
             {
@@ -76,7 +78,7 @@ const Rating = ({ listItem }: any) => {
           htmlFor={ratingId}
           css={{
             cursor: 'pointer',
-            color: listItem.rating < 0 ? colors.gray20 : 'orange',
+            color: listItem?.rating < 0 ? colors.gray20 : 'orange',
             margin: 0,
           }}
         >
