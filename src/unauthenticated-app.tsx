@@ -111,4 +111,4 @@ const UnauthenticatedApp: FC = () => {
   );
 };
 
-export { UnauthenticatedApp };
+export default UnauthenticatedApp;

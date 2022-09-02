@@ -145,4 +145,4 @@ const AppRoutes: React.FC = () => (
   </Routes>
 );
 
-export { AuthenticatedApp };
+export default AuthenticatedApp;
