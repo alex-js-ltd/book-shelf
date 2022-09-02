@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useAuth } from './context/auth-context';
 
-import UnauthenticatedApp from './unauthenticated-app';
-import AuthenticatedApp from './authenticated-app';
+const AuthenticatedApp = React.lazy(() => import('./authenticated-app'));
+const UnauthenticatedApp = React.lazy(() => import('./unauthenticated-app'));
 
 const App: React.FC = () => {
   const { user } = useAuth();

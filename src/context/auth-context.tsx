@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, {
   createContext,
   useContext,
@@ -6,6 +7,7 @@ import React, {
   ReactNode,
 } from 'react';
 import { User, getAuth, onAuthStateChanged } from 'firebase/auth';
+import { app } from 'utils/firebase/index';
 
 type AuthProviderProps = { children: ReactNode };
 
@@ -15,7 +17,7 @@ AuthContext.displayName = 'AuthContext';
 const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
 
-  const auth = getAuth();
+  const auth = getAuth(app);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
