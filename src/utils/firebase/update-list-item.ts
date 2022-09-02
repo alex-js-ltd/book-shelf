@@ -9,8 +9,8 @@ const updateListItem = async ({
 }: {
   uid: string | undefined;
   book: any;
-  finishDate?: any;
-  rating?: any;
+  finishDate: any;
+  rating: any;
 }) => {
   if (!uid || !book) return;
 

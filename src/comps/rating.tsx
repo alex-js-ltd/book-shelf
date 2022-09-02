@@ -2,11 +2,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import React, { useEffect } from 'react';
-//import { useUpdateListItem } from 'utils/list-items';
+import * as React from 'react';
+import { useUpdateListItem } from 'utils/list-items';
 import { FaStar } from 'react-icons/fa';
 import * as colors from 'styles/colors';
-//import { ErrorMessage } from 'comps/lib';
+import { ErrorMessage } from 'comps/lib';
 
 const visuallyHiddenCSS = {
   border: '0',
@@ -17,30 +17,28 @@ const visuallyHiddenCSS = {
   padding: '0',
   position: 'absolute',
   width: '1px',
+  border: '1px solid red',
 };
 
-const Rating = ({ listItem }: any) => {
+function Rating({ listItem }) {
   const [isTabbing, setIsTabbing] = React.useState(false);
-  //const [update, { error, isError }] = useUpdateListItem();
 
-  //   useEffect(() => {
-  //     function handleKeyDown(event) {
-  //       if (event.key === 'Tab') {
-  //         setIsTabbing(true);
-  //       }
-  //     }
-  //     document.addEventListener('keydown', handleKeyDown, { once: true });
-  //     return () => document.removeEventListener('keydown', handleKeyDown);
-  //   }, []);
+  const update = useUpdateListItem(listItem);
 
-  useEffect(() => {
-    console.log('listItem', listItem);
-  }, [listItem]);
+  React.useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === 'Tab') {
+        setIsTabbing(true);
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown, { once: true });
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
-  const rootClassName = `list-item-${listItem.objectID}`;
+  const rootClassName = `list-item-${listItem.id}`;
 
   const stars = Array.from({ length: 5 }).map((x, i) => {
-    const ratingId = `rating-${listItem.objectID}-${i}`;
+    const ratingId = `rating-${listItem.id}-${i}`;
     const ratingValue = i + 1;
     return (
       <React.Fragment key={i}>
@@ -49,13 +47,18 @@ const Rating = ({ listItem }: any) => {
           type='radio'
           id={ratingId}
           value={ratingValue}
-          checked={ratingValue === listItem?.rating}
-          onChange={() => console.log('update function')}
+          checked={ratingValue === listItem.rating}
+          onChange={() => {
+            update.mutateAsync({
+              finishDate: listItem.finishDate,
+              rating: ratingValue,
+            });
+          }}
           css={[
             visuallyHiddenCSS,
             {
               [`.${rootClassName} &:checked ~ label`]: { color: colors.gray20 },
-              [`.${rootClassName} &:checked + label`]: { color: 'orange' },
+              [`.${rootClassName} &:checked + label`]: { color: colors.orange },
               // !important is here because we're doing special non-css-in-js things
               // and so we have to deal with specificity and cascade. But, I promise
               // this is better than trying to make this work with JavaScript.
@@ -78,7 +81,7 @@ const Rating = ({ listItem }: any) => {
           htmlFor={ratingId}
           css={{
             cursor: 'pointer',
-            color: listItem?.rating < 0 ? colors.gray20 : 'orange',
+            color: listItem.rating < 0 ? colors.gray20 : colors.orange,
             margin: 0,
           }}
         >
@@ -98,7 +101,7 @@ const Rating = ({ listItem }: any) => {
         display: 'inline-flex',
         alignItems: 'center',
         [`&.${rootClassName}:hover input + label`]: {
-          color: 'orange',
+          color: colors.orange,
         },
       }}
     >
@@ -112,6 +115,6 @@ const Rating = ({ listItem }: any) => {
       ) : null} */}
     </div>
   );
-};
+}
 
 export { Rating };

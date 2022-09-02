@@ -81,7 +81,7 @@ const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
         <TooltipButton
           label='Mark as unread'
           highlight={colors.yellow}
-          onClick={() => update.mutateAsync({ finishDate: null, rating: null })}
+          onClick={() => update.mutateAsync({ finishDate: null, rating: 0 })}
           icon={<FaBook />}
         />
       )}
@@ -91,7 +91,7 @@ const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
           label='Mark as read'
           highlight={colors.green}
           onClick={() =>
-            update.mutateAsync({ finishDate: Date.now(), rating: null })
+            update.mutateAsync({ finishDate: Date.now(), rating: 0 })
           }
           icon={<FaCheckCircle />}
         />
