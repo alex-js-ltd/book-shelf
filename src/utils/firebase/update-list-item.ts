@@ -5,10 +5,12 @@ const updateListItem = async ({
   uid,
   book,
   finishDate,
+  rating,
 }: {
   uid: string | undefined;
   book: any;
-  finishDate: any;
+  finishDate?: any;
+  rating?: any;
 }) => {
   if (!uid || !book) return;
 
@@ -29,6 +31,8 @@ const updateListItem = async ({
   let newItem = { ...newReadingList[index] };
 
   newItem.finishDate = finishDate;
+
+  newItem.rating = rating;
 
   newReadingList[index] = newItem;
 

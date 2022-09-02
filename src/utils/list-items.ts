@@ -62,8 +62,13 @@ const useUpdateListItem = (book: any) => {
   const queryClient = useQueryClient();
 
   return useMutation(
-    ({ finishDate }) =>
-      updateListItem({ uid: uid, book: book, finishDate: finishDate }),
+    ({ finishDate, rating }) =>
+      updateListItem({
+        uid: uid,
+        book: book,
+        finishDate: finishDate,
+        rating: rating,
+      }),
     {
       onSettled: () => queryClient.invalidateQueries('list-items'),
     }
