@@ -6,13 +6,16 @@ import { useParams } from 'react-router-dom';
 import * as mq from 'styles/media-queries';
 import * as colors from 'styles/colors';
 import { StatusButtons } from 'comps/status-buttons';
+import { Rating } from 'comps/rating';
 
 import { useBook } from 'utils/books';
+import { useListItem } from 'utils/list-items';
 
 const BookScreen: React.FC = () => {
   const { bookId } = useParams();
 
   const book = useBook(bookId);
+  const listItem = useListItem(bookId);
 
   const { coverImageUrl, title, author, publisher, synopsis } = book;
 
@@ -58,12 +61,10 @@ const BookScreen: React.FC = () => {
               {book.loadingBook ? null : <StatusButtons book={book} />}
             </div>
           </div>
-          {/* <div css={{ marginTop: 10, height: 46 }}>
-            {listItem?.finishDate ? (
-              <Rating user={user} listItem={listItem} />
-            ) : null}
-            {listItem ? <ListItemTimeframe listItem={listItem} /> : null}
-          </div> */}
+          <div css={{ marginTop: 10, height: 46 }}>
+            {listItem?.finishDate ? <Rating listItem={listItem} /> : null}
+            {/* {listItem ? <ListItemTimeframe listItem={listItem} /> : null} */}
+          </div>
           <br />
           <p>{synopsis}</p>
         </div>
