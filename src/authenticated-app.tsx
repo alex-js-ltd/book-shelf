@@ -15,10 +15,8 @@ import { FinishedScreen } from 'screens/finished';
 
 import { useAuth } from 'context/auth-context';
 
-import { logout } from 'utils/firebase/auth';
-
 const AuthenticatedApp: React.FC = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   return (
     <React.Fragment>

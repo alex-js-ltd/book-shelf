@@ -6,7 +6,7 @@ import { Button, Input, FormGroup, Spinner, ErrorMessage } from 'comps/lib';
 import { Modal, ModalContents, ModalOpenButton } from 'comps/modal';
 import { Logo } from 'comps/logo';
 import { useAsync } from './utils/hooks';
-import * as auth from 'utils/firebase/auth';
+import { useAuth } from 'context/auth-context';
 
 const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
   onSubmit,
@@ -64,6 +64,7 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
 };
 
 const UnauthenticatedApp: FC = () => {
+  const { login, register } = useAuth();
   return (
     <div
       css={{
@@ -90,7 +91,7 @@ const UnauthenticatedApp: FC = () => {
           </ModalOpenButton>
           <ModalContents aria-label='Login form' title='Login'>
             <LoginForm
-              onSubmit={auth.login}
+              onSubmit={login}
               submitButton={<Button variant='primary'>Login</Button>}
             />
           </ModalContents>
@@ -101,7 +102,7 @@ const UnauthenticatedApp: FC = () => {
           </ModalOpenButton>
           <ModalContents aria-label='Registration form' title='Register'>
             <LoginForm
-              onSubmit={auth.register}
+              onSubmit={register}
               submitButton={<Button variant='secondary'>Register</Button>}
             />
           </ModalContents>

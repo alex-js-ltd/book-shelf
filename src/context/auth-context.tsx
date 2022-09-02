@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, {
   createContext,
   useContext,
@@ -7,11 +6,20 @@ import React, {
   ReactNode,
 } from 'react';
 import { User, getAuth, onAuthStateChanged } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from 'firebase/auth';
 import { app } from 'utils/firebase/index';
 
 type AuthProviderProps = { children: ReactNode };
 
-const AuthContext = createContext<{ user: User | null }>({ user: null });
+const AuthContext = createContext<
+  | { user: User | null; login: Function; register: Function; logout: Function }
+  | undefined
+>(undefined);
+
 AuthContext.displayName = 'AuthContext';
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
@@ -31,7 +39,23 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     });
   }, [auth]);
 
-  const value = { user };
+  const register = async (email: string, password: string) => {
+    if (!email || !password) return;
+
+    return await createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const login = async (email: string, password: string) => {
+    if (!email || !password) return;
+
+    return await signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logout = async () => {
+    return await signOut(auth);
+  };
+
+  const value = { user, register, login, logout };
 
   return <AuthContext.Provider value={value}>{children} </AuthContext.Provider>;
 };
