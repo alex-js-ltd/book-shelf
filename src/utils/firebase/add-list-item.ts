@@ -16,8 +16,12 @@ const addListItem = async ({
 
   const data = docSnap.data();
 
+  const newBook = { ...book };
+
+  newBook.startDate = Date.now();
+
   return await updateDoc(userRef, {
-    readingList: [...data?.readingList, book],
+    readingList: [...data?.readingList, newBook],
   });
 };
 
