@@ -44,15 +44,14 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        // ...
-      } else {
-        // User is signed out
-        setUser(null);
-      }
+    // Auth listener
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      user ? setUser(user) : setUser(null);
     });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   const value = { user, register, login, logout };
