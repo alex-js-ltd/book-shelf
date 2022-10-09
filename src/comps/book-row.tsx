@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import React, { FC } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import * as mq from 'styles/media-queries';
 import * as colors from 'styles/colors';
@@ -15,7 +15,7 @@ interface Book {
   objectID: string;
 }
 
-const BookRow: FC<{ book: Book }> = ({ book }) => {
+const BookRow = ({ book }: { book: Book }) => {
   const { title, author, coverImageUrl, synopsis, publisher, objectID } = book;
   const id = `book-row-book-${book?.objectID}`;
 

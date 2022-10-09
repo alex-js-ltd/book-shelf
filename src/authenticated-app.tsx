@@ -15,7 +15,7 @@ import { FinishedScreen } from 'screens/finished';
 
 import { useAuth } from 'context/auth-context';
 
-const AuthenticatedApp: React.FC = () => {
+const AuthenticatedApp = () => {
   const { user, logout } = useAuth();
 
   return (
@@ -134,7 +134,7 @@ const Nav = () => (
   </nav>
 );
 
-const AppRoutes: React.FC = () => (
+const AppRoutes = () => (
   <Routes>
     <Route path='/list' element={<ReadingListScreen />} />
     <Route path='/finished' element={<FinishedScreen />} />

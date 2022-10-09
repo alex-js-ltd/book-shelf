@@ -134,7 +134,7 @@ const ErrorMessage = ({ error, variant = 'stacked', ...props }: any) => (
   </div>
 );
 
-const FullPageErrorFallback: FC<{ error?: Error }> = ({ error }) => (
+const FullPageErrorFallback = ({ error }: { error?: Error }) => (
   <div
     role='alert'
     css={{
