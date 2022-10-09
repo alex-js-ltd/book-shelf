@@ -23,7 +23,12 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
       password: HTMLInputElement;
     };
 
-    run(onSubmit(formElements.email.value, formElements.password.value));
+    run(
+      onSubmit({
+        email: formElements.email.value,
+        password: formElements.password.value,
+      })
+    );
   };
 
   return (
@@ -64,7 +69,7 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
 };
 
 const UnauthenticatedApp: FC = () => {
-  const { login, register } = useAuth();
+  const { login } = useAuth();
   return (
     <div
       css={{
@@ -96,7 +101,7 @@ const UnauthenticatedApp: FC = () => {
             />
           </ModalContents>
         </Modal>
-        <Modal>
+        {/* <Modal>
           <ModalOpenButton>
             <Button variant='secondary'>Register</Button>
           </ModalOpenButton>
@@ -106,7 +111,7 @@ const UnauthenticatedApp: FC = () => {
               submitButton={<Button variant='secondary'>Register</Button>}
             />
           </ModalContents>
-        </Modal>
+        </Modal> */}
       </div>
     </div>
   );

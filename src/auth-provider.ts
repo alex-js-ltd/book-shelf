@@ -1,5 +1,4 @@
-// pretend this is firebase, netlify, or auth0's code.
-// you shouldn't have to implement something like this in your own app
+const signinURL = process.env.REACT_APP_SIGN_IN_URL;
 
 const localStorageKey = '__auth_provider_token__';
 
@@ -10,13 +9,15 @@ async function getToken() {
   return window.localStorage.getItem(localStorageKey);
 }
 
-function handleUserResponse({ user }: { user: any }) {
-  window.localStorage.setItem(localStorageKey, user.token);
+function handleUserResponse(user: any) {
+  window.localStorage.setItem(localStorageKey, user.idToken);
   return user;
 }
 
 function login({ email, password }: { email: string; password: string }) {
-  return client('login', { email, password }).then(handleUserResponse);
+  return client(signinURL, { email, password, returnSecureToken: true }).then(
+    handleUserResponse
+  );
 }
 
 function register({ email, password }: { email: string; password: string }) {
@@ -27,11 +28,7 @@ async function logout() {
   window.localStorage.removeItem(localStorageKey);
 }
 
-// an auth provider wouldn't use your client, they'd have their own
-// so that's why we're not just re-using the client
-const authURL = process.env.REACT_APP_SIGN_IN_URL;
-
-async function client(endpoint: string, data: any) {
+async function client(endpoint: string | undefined, data: any) {
   const config = {
     method: 'POST',
     body: JSON.stringify(data),

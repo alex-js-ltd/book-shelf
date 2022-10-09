@@ -9,7 +9,7 @@ const App = () => {
   const { user } = useAuth();
   return (
     <React.Suspense fallback={<FullPageSpinner />}>
-      {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
+      {user ? <h1>hello</h1> : <UnauthenticatedApp />}
     </React.Suspense>
   );
 };
