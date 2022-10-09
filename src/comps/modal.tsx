@@ -1,8 +1,6 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import {
+import React, {
   createContext,
   FC,
   cloneElement,
@@ -18,24 +16,32 @@ const callAll =
   (...args: any) =>
     fns.forEach((fn: any) => fn && fn(...args));
 
-const ModalContext = createContext<[isOpen: boolean, setIsOpen: Function] | []>(
-  []
-);
+const ModalContext = createContext<
+  { isOpen: boolean; setIsOpen: Function } | undefined
+>(undefined);
 
-const Modal = (props: any) => {
+const Modal = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  return <ModalContext.Provider value={[isOpen, setIsOpen]} {...props} />;
+  const value = { isOpen, setIsOpen };
+
+  return (
+    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
+  );
+};
+
+const useModal = () => {
+  const context = useContext(ModalContext);
+  if (context === undefined) {
+    throw new Error(`useModal must be used within a ModalContext provider`);
+  }
+  return context;
 };
 
 const ModalDismissButton: FC<{ children: ReactElement }> = ({
   children: child,
 }) => {
-  const [, setIsOpen] = useContext(ModalContext);
-
-  if (!setIsOpen) {
-    return null;
-  }
+  const { setIsOpen } = useModal();
 
   return cloneElement(child, {
     onClick: callAll(() => setIsOpen(false), child.props.onClick),
@@ -45,11 +51,7 @@ const ModalDismissButton: FC<{ children: ReactElement }> = ({
 const ModalOpenButton: FC<{ children: ReactElement }> = ({
   children: child,
 }) => {
-  const [, setIsOpen] = useContext(ModalContext);
-
-  if (!setIsOpen) {
-    return null;
-  }
+  const { setIsOpen } = useModal();
 
   return cloneElement(child, {
     onClick: callAll(() => setIsOpen(true), child.props.onClick),
@@ -57,11 +59,7 @@ const ModalOpenButton: FC<{ children: ReactElement }> = ({
 };
 
 const ModalContentsBase = (props: any) => {
-  const [isOpen, setIsOpen] = useContext(ModalContext);
-
-  if (!setIsOpen) {
-    return null;
-  }
+  const { isOpen, setIsOpen } = useModal();
 
   return (
     <Dialog isOpen={isOpen} onDismiss={() => setIsOpen(false)} {...props} />
