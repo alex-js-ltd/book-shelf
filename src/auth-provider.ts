@@ -1,4 +1,5 @@
-const signinURL = process.env.REACT_APP_SIGN_IN_URL;
+const loginURL = process.env.REACT_APP_SIGN_IN_URL;
+const registerURL = process.env.REACT_APP_SIGN_UP_URL;
 
 const localStorageKey = '__auth_provider_token__';
 
@@ -15,13 +16,15 @@ function handleUserResponse(user: any) {
 }
 
 function login({ email, password }: { email: string; password: string }) {
-  return client(signinURL, { email, password, returnSecureToken: true }).then(
+  return client(loginURL, { email, password, returnSecureToken: true }).then(
     handleUserResponse
   );
 }
 
 function register({ email, password }: { email: string; password: string }) {
-  return client('register', { email, password }).then(handleUserResponse);
+  return client(registerURL, { email, password, returnSecureToken: true }).then(
+    handleUserResponse
+  );
 }
 
 async function logout() {

@@ -1,16 +1,19 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import { FC, ReactElement, cloneElement, FormEvent } from 'react';
+import { ReactElement, cloneElement, FormEvent } from 'react';
 import { Button, Input, FormGroup, Spinner, ErrorMessage } from 'comps/lib';
 import { Modal, ModalContents, ModalOpenButton } from 'comps/modal';
 import { Logo } from 'comps/logo';
 import { useAsync } from './utils/hooks';
 import { useAuth } from 'context/auth-context';
 
-const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
+const LoginForm = ({
   onSubmit,
   submitButton,
+}: {
+  onSubmit: Function;
+  submitButton: ReactElement;
 }) => {
   const { isLoading, isError, error, run } = useAsync();
 
@@ -68,8 +71,8 @@ const LoginForm: FC<{ onSubmit: Function; submitButton: ReactElement }> = ({
   );
 };
 
-const UnauthenticatedApp: FC = () => {
-  const { login } = useAuth();
+const UnauthenticatedApp = () => {
+  const { login, register } = useAuth();
   return (
     <div
       css={{
@@ -101,7 +104,7 @@ const UnauthenticatedApp: FC = () => {
             />
           </ModalContents>
         </Modal>
-        {/* <Modal>
+        <Modal>
           <ModalOpenButton>
             <Button variant='secondary'>Register</Button>
           </ModalOpenButton>
@@ -111,7 +114,7 @@ const UnauthenticatedApp: FC = () => {
               submitButton={<Button variant='secondary'>Register</Button>}
             />
           </ModalContents>
-        </Modal> */}
+        </Modal>
       </div>
     </div>
   );

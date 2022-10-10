@@ -11,9 +11,9 @@ import { useAsync } from 'utils/hooks';
 
 type AuthProviderProps = { children: ReactNode };
 
-const AuthContext = createContext<{ user: any; login: Function } | undefined>(
-  undefined
-);
+const AuthContext = createContext<
+  { user: any; login: Function; register: Function } | undefined
+>(undefined);
 
 AuthContext.displayName = 'AuthContext';
 
@@ -35,15 +35,12 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     [setData]
   );
 
-  useEffect(() => {
-    console.log('user', user);
-  }, [user]);
+  const register = React.useCallback(
+    (form: any) => auth.register(form).then((user) => setData(user)),
+    [setData]
+  );
 
-  useEffect(() => {
-    console.log('login', login);
-  }, [login]);
-
-  const value = { user, login };
+  const value = { user, login, register };
 
   return <AuthContext.Provider value={value}>{children} </AuthContext.Provider>;
 };
