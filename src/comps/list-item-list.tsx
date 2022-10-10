@@ -1,18 +1,21 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useCallback } from 'react';
 import { useListItems } from 'utils/list-items';
 import { BookListUL } from './lib';
 import { BookRow } from './book-row';
 
-const ListItemList: FC<{ noListItems: any; filterListItems: any }> = ({
+const ListItemList = ({
   noListItems,
   filterListItems,
+}: {
+  noListItems: any;
+  filterListItems: any;
 }) => {
   const { listItems } = useListItems();
 
-  const filteredListItems = listItems?.filter(filterListItems);
+  const filteredListItems = listItems.filter(filterListItems);
 
   useEffect(() => {
     console.log('listItems', listItems);
@@ -30,7 +33,7 @@ const ListItemList: FC<{ noListItems: any; filterListItems: any }> = ({
 
   return (
     <BookListUL>
-      {filteredListItems?.map((listItem: any) => (
+      {listItems?.map((listItem: any) => (
         <li key={listItem?.objectID}>
           <BookRow book={listItem} />
         </li>
