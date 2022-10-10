@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  ReactNode,
+  useCallback,
+} from 'react';
 import { queryClient } from 'context';
 import * as auth from 'auth-provider';
 import { client } from 'utils/api-client';
@@ -26,21 +32,25 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     setData,
   } = useAsync();
 
-  const login = React.useCallback(
+  const login = useCallback(
     (form: any) => auth.login(form).then((user) => setData(user)),
     [setData]
   );
 
-  const register = React.useCallback(
+  const register = useCallback(
     (form: any) => auth.register(form).then((user) => setData(user)),
     [setData]
   );
 
-  const logout = React.useCallback(() => {
+  const logout = useCallback(() => {
     auth.logout();
     queryClient.clear();
     setData(null);
   }, [setData]);
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   const value = { user, login, register, logout };
 
@@ -55,4 +65,13 @@ const useAuth = () => {
   return context;
 };
 
-export { AuthProvider, useAuth };
+const useClient = () => {
+  const { user } = useAuth();
+  const token = user?.idToken;
+  return useCallback(
+    (endpoint: string, config: any) => client(endpoint, { ...config, token }),
+    [token]
+  );
+};
+
+export { AuthProvider, useAuth, useClient };
