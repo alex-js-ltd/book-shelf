@@ -1,10 +1,5 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode,
-} from 'react';
+import React, { createContext, useContext, useEffect, ReactNode } from 'react';
+import { queryClient } from 'context';
 import * as auth from 'auth-provider';
 import { client } from 'utils/api-client';
 import { useAsync } from 'utils/hooks';
@@ -12,7 +7,8 @@ import { useAsync } from 'utils/hooks';
 type AuthProviderProps = { children: ReactNode };
 
 const AuthContext = createContext<
-  { user: any; login: Function; register: Function } | undefined
+  | { user: any; login: Function; register: Function; logout: Function }
+  | undefined
 >(undefined);
 
 AuthContext.displayName = 'AuthContext';
@@ -40,7 +36,13 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     [setData]
   );
 
-  const value = { user, login, register };
+  const logout = React.useCallback(() => {
+    auth.logout();
+    queryClient.clear();
+    setData(null);
+  }, [setData]);
+
+  const value = { user, login, register, logout };
 
   return <AuthContext.Provider value={value}>{children} </AuthContext.Provider>;
 };

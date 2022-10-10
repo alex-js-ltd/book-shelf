@@ -15,4 +15,4 @@ const AppProviders: FC<{ children: ReactNode }> = ({ children }) => (
   </QueryClientProvider>
 );
 
-export { AppProviders };
+export { AppProviders, queryClient };
