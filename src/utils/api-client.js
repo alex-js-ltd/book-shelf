@@ -1,5 +1,6 @@
-import { queryCache } from 'react-query';
+import { queryClient } from 'context';
 import * as auth from 'auth-provider';
+const apiURL = process.env.REACT_APP_USERS_URL;
 
 async function client(
   endpoint,
@@ -16,21 +17,23 @@ async function client(
     ...customConfig,
   };
 
-  return window.fetch(`${endpoint}`, config).then(async (response) => {
-    if (response.status === 401) {
-      queryCache.clear();
-      await auth.logout();
-      // refresh the page for them
-      window.location.assign(window.location);
-      return Promise.reject({ message: 'Please re-authenticate.' });
-    }
-    const data = await response.json();
-    if (response.ok) {
-      return data;
-    } else {
-      return Promise.reject(data);
-    }
-  });
+  return window
+    .fetch(`${apiURL}/${endpoint}`, config)
+    .then(async (response) => {
+      if (response.status === 401) {
+        queryClient.clear();
+        await auth.logout();
+        // refresh the page for them
+        window.location.assign(window.location);
+        return Promise.reject({ message: 'Please re-authenticate.' });
+      }
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        return Promise.reject(data);
+      }
+    });
 }
 
 export { client };
