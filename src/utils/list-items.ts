@@ -1,7 +1,5 @@
 // @ts-nocheck
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getListItems } from 'utils/firebase/get-list-items';
-import { addListItem } from './firebase/add-list-item';
 import { deleteListItem } from './firebase/delete-list-item';
 import { updateListItem } from './firebase/update-list-item';
 import { useAuth, useClient } from 'context/auth-context';
@@ -57,6 +55,34 @@ const useCreateListItem = (book: any) => {
       client(localId).then((data) => data.fields.readingList.arrayValue.values),
   });
 
+  let newBook = {
+    mapValue: {
+      fields: {
+        coverImageUrl: {
+          stringValue: book.coverImageUrl,
+        },
+        objectID: {
+          stringValue: book.objectID,
+        },
+        pageCount: {
+          integerValue: book.pageCount,
+        },
+        publisher: {
+          stringValue: book.publisher,
+        },
+        startDate: {
+          integerValue: Date.now(),
+        },
+        synopsis: {
+          stringValue: book.synopsis,
+        },
+        title: {
+          stringValue: book.title,
+        },
+      },
+    },
+  };
+
   return useMutation(
     () =>
       client(`${localId}?updateMask.fieldPaths=readingList`, {
@@ -64,36 +90,7 @@ const useCreateListItem = (book: any) => {
           fields: {
             readingList: {
               arrayValue: {
-                values: [
-                  ...result?.data,
-                  {
-                    mapValue: {
-                      fields: {
-                        coverImageUrl: {
-                          stringValue: book.coverImageUrl,
-                        },
-                        objectID: {
-                          stringValue: book.objectID,
-                        },
-                        pageCount: {
-                          integerValue: book.pageCount,
-                        },
-                        publisher: {
-                          stringValue: book.publisher,
-                        },
-                        startDate: {
-                          integerValue: Date.now(),
-                        },
-                        synopsis: {
-                          stringValue: book.synopsis,
-                        },
-                        title: {
-                          stringValue: book.title,
-                        },
-                      },
-                    },
-                  },
-                ],
+                values: !result.data ? [newBook] : [...result.data, newBook],
               },
             },
           },
@@ -112,15 +109,41 @@ const useListItem = (bookId: string | undefined) => {
 };
 
 const useRemoveListItem = (book: any) => {
+  const client = useClient();
   const { user } = useAuth();
-
-  const uid = user?.uid;
+  const localId = user?.localId;
 
   const queryClient = useQueryClient();
 
-  return useMutation(() => deleteListItem({ uid: uid, book: book }), {
-    onSettled: () => queryClient.invalidateQueries('list-items'),
+  const result = useQuery({
+    queryKey: ['list-items', { localId }],
+    queryFn: () =>
+      client(localId).then((data) => data.fields.readingList.arrayValue.values),
   });
+
+  let filter = result?.data?.filter(
+    ({ mapValue }) => mapValue.fields.objectID.stringValue !== book.objectID
+  );
+
+  console.log('filter', filter);
+
+  return useMutation(
+    () =>
+      client(`${localId}?updateMask.fieldPaths=readingList`, {
+        data: {
+          fields: {
+            readingList: {
+              arrayValue: {
+                values: filter ? [...filter] : [],
+              },
+            },
+          },
+        },
+      }),
+    {
+      onSettled: () => queryClient.invalidateQueries('list-items'),
+    }
+  );
 };
 
 const useUpdateListItem = (book: any): any | Error => {

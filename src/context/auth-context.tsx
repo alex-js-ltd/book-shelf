@@ -4,6 +4,7 @@ import React, {
   useEffect,
   ReactNode,
   useCallback,
+  useMemo,
 } from 'react';
 import { queryClient } from 'context';
 import * as auth from 'auth-provider';
@@ -52,7 +53,10 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     console.log(user);
   }, [user]);
 
-  const value = { user, login, register, logout };
+  const value = useMemo(
+    () => ({ user, login, logout, register }),
+    [login, logout, register, user]
+  );
 
   return <AuthContext.Provider value={value}>{children} </AuthContext.Provider>;
 };
