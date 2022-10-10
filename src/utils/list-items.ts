@@ -4,24 +4,45 @@ import { getListItems } from 'utils/firebase/get-list-items';
 import { addListItem } from './firebase/add-list-item';
 import { deleteListItem } from './firebase/delete-list-item';
 import { updateListItem } from './firebase/update-list-item';
-import { useAuth } from 'context/auth-context';
+import { useAuth, useClient } from 'context/auth-context';
 
 const useListItems = () => {
+  const client = useClient();
   const { user } = useAuth();
+  const localId = user?.localId;
 
-  const uid = user?.uid;
-  const {
-    data: listItems,
-    error,
-    isLoading,
-    isError,
-    isSuccess,
-  } = useQuery({
-    queryKey: ['list-items', { uid }],
-    queryFn: () => getListItems(uid),
+  const result = useQuery({
+    queryKey: ['list-items', { localId }],
+    queryFn: () =>
+      client(localId).then((data) => data.fields.readingList.arrayValue.values),
   });
 
-  return listItems ?? [];
+  console.log('result', result);
+
+  const map = result?.data?.map(({ mapValue }) => {
+    let fields = mapValue.fields;
+
+    console.log('fields', fields);
+    let coverImageUrl = fields.coverImageUrl.stringValue;
+    let objectID = fields.objectID.stringValue;
+    let pageCount = fields.pageCount.integerValue;
+    let publisher = fields.publisher.stringValue;
+    let startDate = fields.startDate.integerValue;
+    let synopsis = fields.synopsis.stringValue;
+    let title = fields.title.stringValue;
+
+    return {
+      coverImageUrl,
+      objectID,
+      pageCount,
+      publisher,
+      startDate,
+      synopsis,
+      title,
+    };
+  });
+
+  return { ...result, listItems: map };
 };
 
 const useCreateListItem = (book: any) => {

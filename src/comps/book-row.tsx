@@ -84,7 +84,7 @@ const BookRow = ({ book }: { book: Book }) => {
                   fontSize: '0.85em',
                 }}
               >
-                {author}
+                {/* {author} */}
               </div>
               <small>{publisher}</small>
             </div>
@@ -106,7 +106,7 @@ const BookRow = ({ book }: { book: Book }) => {
           height: '100%',
         }}
       >
-        <StatusButtons book={book} />
+        {/* <StatusButtons book={book} /> */}
       </div>
     </div>
   );
