@@ -17,13 +17,12 @@ const useListItems = () => {
       client(localId).then((data) => data.fields.readingList.arrayValue.values),
   });
 
-  console.log('result', result);
+  console.log('result', result.data);
 
   const map = result?.data?.map(({ mapValue }) => {
     let fields = mapValue.fields;
 
-    console.log('fields', fields);
-    let coverImageUrl = fields.coverImageUrl.stringValue;
+    let coverImageUrl = fields.coverImageUrl?.stringValue;
     let objectID = fields.objectID.stringValue;
     let pageCount = fields.pageCount.integerValue;
     let publisher = fields.publisher.stringValue;
@@ -46,19 +45,68 @@ const useListItems = () => {
 };
 
 const useCreateListItem = (book: any) => {
+  const client = useClient();
   const { user } = useAuth();
-
-  const uid = user?.uid;
+  const localId = user?.localId;
 
   const queryClient = useQueryClient();
 
-  return useMutation(() => addListItem({ uid: uid, book: book }), {
-    onSettled: () => queryClient.invalidateQueries('list-items'),
+  const result = useQuery({
+    queryKey: ['list-items', { localId }],
+    queryFn: () =>
+      client(localId).then((data) => data.fields.readingList.arrayValue.values),
   });
+
+  return useMutation(
+    () =>
+      client(`${localId}?updateMask.fieldPaths=readingList`, {
+        data: {
+          fields: {
+            readingList: {
+              arrayValue: {
+                values: [
+                  ...result?.data,
+                  {
+                    mapValue: {
+                      fields: {
+                        coverImageUrl: {
+                          stringValue: book.coverImageUrl,
+                        },
+                        objectID: {
+                          stringValue: book.objectID,
+                        },
+                        pageCount: {
+                          integerValue: book.pageCount,
+                        },
+                        publisher: {
+                          stringValue: book.publisher,
+                        },
+                        startDate: {
+                          integerValue: Date.now(),
+                        },
+                        synopsis: {
+                          stringValue: book.synopsis,
+                        },
+                        title: {
+                          stringValue: book.title,
+                        },
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        },
+      }),
+    {
+      onSettled: () => queryClient.invalidateQueries('list-items'),
+    }
+  );
 };
 
 const useListItem = (bookId: string | undefined) => {
-  const listItems = useListItems();
+  const { listItems } = useListItems();
 
   return listItems?.find((li) => li.objectID === bookId) ?? null;
 };
