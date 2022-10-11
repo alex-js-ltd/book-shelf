@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import { FC, useEffect, useCallback } from 'react';
-import { useListItems } from 'utils/list-items';
+import { useListItemsClient } from 'utils/list-items';
 import { BookListUL } from './lib';
 import { BookRow } from './book-row';
 
@@ -13,15 +12,11 @@ const ListItemList = ({
   noListItems: any;
   filterListItems: any;
 }) => {
-  const listItems = useListItems();
+  const list = useListItemsClient();
 
-  //const filteredListItems = listItems.filter(filterListItems);
+  const filteredList = list.filter(filterListItems);
 
-  useEffect(() => {
-    console.log('listItems', listItems);
-  }, [listItems]);
-
-  if (!listItems.length) {
+  if (!list?.length) {
     return (
       <div css={{ marginTop: '1em', fontSize: '1.2em' }}>{noListItems}</div>
     );
@@ -29,7 +24,7 @@ const ListItemList = ({
 
   return (
     <BookListUL>
-      {listItems?.map((listItem: any) => (
+      {filteredList?.map((listItem: any) => (
         <li key={listItem?.objectID}>
           <BookRow book={listItem} />
         </li>

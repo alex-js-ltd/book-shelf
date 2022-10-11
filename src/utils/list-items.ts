@@ -7,7 +7,7 @@ const useListItems = () => {
   const { user } = useAuth();
   const localId = user?.localId;
 
-  const { data } = useQuery({
+  const { data: listItems } = useQuery({
     queryKey: ['list-items', { localId }],
     queryFn: () =>
       client(localId, null).then(
@@ -15,7 +15,13 @@ const useListItems = () => {
       ),
   });
 
-  const listItems = data?.map(({ mapValue }: { mapValue: { fields: any } }) => {
+  return listItems ?? [];
+};
+
+const useListItemsClient = () => {
+  const listItems = useListItems();
+
+  const list = listItems?.map(({ mapValue }: { mapValue: { fields: any } }) => {
     const {
       coverImageUrl,
       objectID,
@@ -39,23 +45,7 @@ const useListItems = () => {
     };
   });
 
-  return listItems ?? [];
-};
-
-const useFirebaseListItems = () => {
-  const client = useClient();
-  const { user } = useAuth();
-  const localId = user?.localId;
-
-  const { data: listItems } = useQuery({
-    queryKey: ['list-items', { localId }],
-    queryFn: () =>
-      client(localId, null).then(
-        (data) => data.fields.readingList.arrayValue.values
-      ),
-  });
-
-  return listItems ?? [];
+  return listItems.length >= 1 ? list : [];
 };
 
 const useCreateListItem = (book: any) => {
@@ -65,7 +55,7 @@ const useCreateListItem = (book: any) => {
 
   const queryClient = useQueryClient();
 
-  const listItems = useFirebaseListItems();
+  const listItems = useListItems();
 
   let newBook = {
     mapValue: {
@@ -118,7 +108,7 @@ const useCreateListItem = (book: any) => {
 };
 
 const useListItem = (bookId: string | undefined) => {
-  const listItems = useListItems();
+  const listItems = useListItemsClient();
 
   return (
     listItems?.find((li: { objectID: string }) => li.objectID === bookId) ??
@@ -133,7 +123,7 @@ const useRemoveListItem = (book: any) => {
 
   const queryClient = useQueryClient();
 
-  const listItems = useFirebaseListItems();
+  const listItems = useListItems();
 
   let filter = listItems?.filter(
     ({ mapValue }: any) =>
@@ -181,9 +171,9 @@ const useUpdateListItem = (book: any): any | Error => {
 };
 
 export {
-  useListItems,
-  useCreateListItem,
+  useListItemsClient,
   useListItem,
+  useCreateListItem,
   useRemoveListItem,
   useUpdateListItem,
 };

@@ -70,7 +70,7 @@ const TooltipButton: React.FC<T> = ({
 };
 
 const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
-  const listItem = useListItem(book?.objectID);
+  const listItem = useListItem(book.objectID);
   const create = useCreateListItem(book);
   const remove = useRemoveListItem(book);
   const update = useUpdateListItem(book);
