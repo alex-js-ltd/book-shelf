@@ -1,4 +1,3 @@
-// @ts-nocheck
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
@@ -18,7 +17,6 @@ import {
   useCreateListItem,
   useRemoveListItem,
   useListItem,
-  useUpdateListItem,
 } from 'utils/list-items';
 
 interface T {
@@ -37,6 +35,10 @@ const TooltipButton: React.FC<T> = ({
   ...rest
 }) => {
   const { isLoading, isError, error, run, reset } = useAsync();
+
+  if (!onClick) {
+    return null;
+  }
 
   const handleClick = () => {
     if (isError) {
@@ -72,21 +74,20 @@ const TooltipButton: React.FC<T> = ({
 const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
   const listItem = useListItem(book.objectID);
   const create = useCreateListItem(book);
-  const remove = useRemoveListItem(book);
-  const update = useUpdateListItem(book);
+  const remove = useRemoveListItem();
 
   return (
     <React.Fragment>
-      {listItem && listItem?.finishDate && (
+      {/* {listItem && listItem?.finishDate && (
         <TooltipButton
           label='Mark as unread'
           highlight={colors.yellow}
           onClick={() => update.mutateAsync({ finishDate: null, rating: 0 })}
           icon={<FaBook />}
         />
-      )}
+      )} */}
 
-      {listItem && !listItem?.finishDate && (
+      {/* {listItem && !listItem?.finishDate && (
         <TooltipButton
           label='Mark as read'
           highlight={colors.green}
@@ -95,7 +96,7 @@ const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
           }
           icon={<FaCheckCircle />}
         />
-      )}
+      )} */}
 
       {!listItem && (
         <TooltipButton
@@ -110,7 +111,7 @@ const StatusButtons: React.FC<{ book?: any }> = ({ book }) => {
         <TooltipButton
           label='Remove from list'
           highlight={colors.danger}
-          onClick={() => remove.mutateAsync()}
+          onClick={() => remove.mutateAsync({ bookId: book.objectID })}
           icon={<FaMinusCircle />}
         />
       )}

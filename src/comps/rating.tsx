@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 
 import * as React from 'react';
-import { useUpdateListItem } from 'utils/list-items';
+
 import { FaStar } from 'react-icons/fa';
 import * as colors from 'styles/colors';
 import { ErrorMessage } from 'comps/lib';
@@ -19,7 +19,7 @@ const visuallyHiddenCSS: any = {
 };
 
 const Rating = ({ listItem }: any) => {
-  const update = useUpdateListItem(listItem);
+  //const update = useUpdateListItem(listItem);
 
   const rootClassName = `list-item-${listItem.objectID}`;
 
@@ -34,12 +34,12 @@ const Rating = ({ listItem }: any) => {
           id={ratingId}
           value={ratingValue}
           checked={ratingValue === listItem.rating}
-          onChange={() => {
-            update.mutateAsync({
-              finishDate: listItem.finishDate,
-              rating: ratingValue,
-            });
-          }}
+          // onChange={() => {
+          //   update.mutateAsync({
+          //     finishDate: listItem.finishDate,
+          //     rating: ratingValue,
+          //   });
+          // }}
           css={[
             visuallyHiddenCSS,
             {

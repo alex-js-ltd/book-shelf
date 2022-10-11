@@ -1,51 +1,55 @@
+import React from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { updateListItem } from './firebase/update-list-item';
 import { useAuth, useClient } from 'context/auth-context';
+import { connectFirestoreEmulator } from 'firebase/firestore';
 
 const useListItems = () => {
   const client = useClient();
   const { user } = useAuth();
   const localId = user?.localId;
 
-  const { data: listItems } = useQuery({
+  const { data, error } = useQuery({
     queryKey: ['list-items', { localId }],
     queryFn: () =>
-      client(localId, null).then(
-        (data) => data.fields.readingList.arrayValue.values
-      ),
+      client(localId, null).then((data) => data.fields.readingList.arrayValue),
   });
 
-  return listItems ?? [];
+  let listItems = data?.values ? data.values : [];
+
+  return listItems;
 };
 
 const useListItemsClient = () => {
   const listItems = useListItems();
 
-  const list = listItems?.map(({ mapValue }: { mapValue: { fields: any } }) => {
-    const {
-      coverImageUrl,
-      objectID,
-      pageCount,
-      publisher,
-      startDate,
-      synopsis,
-      title,
-      finishDate,
-    } = mapValue.fields;
+  const list =
+    listItems.length > 0
+      ? listItems?.map(({ mapValue }: { mapValue: { fields: any } }) => {
+          const {
+            coverImageUrl,
+            objectID,
+            pageCount,
+            publisher,
+            startDate,
+            synopsis,
+            title,
+            finishDate,
+          } = mapValue.fields;
 
-    return {
-      coverImageUrl: coverImageUrl?.stringValue,
-      objectID: objectID.stringValue,
-      pageCount: pageCount.integerValue,
-      publisher: publisher.stringValue,
-      startDate: startDate.integerValue,
-      synopsis: synopsis.stringValue,
-      title: title.stringValue,
-      finishDate: finishDate.nullValue,
-    };
-  });
+          return {
+            coverImageUrl: coverImageUrl?.stringValue,
+            objectID: objectID.stringValue,
+            pageCount: pageCount.integerValue,
+            publisher: publisher.stringValue,
+            startDate: startDate.integerValue,
+            synopsis: synopsis.stringValue,
+            title: title.stringValue,
+            finishDate: finishDate.nullValue,
+          };
+        })
+      : [];
 
-  return listItems.length >= 1 ? list : [];
+  return list;
 };
 
 const useCreateListItem = (book: any) => {
@@ -116,7 +120,7 @@ const useListItem = (bookId: string | undefined) => {
   );
 };
 
-const useRemoveListItem = (book: any) => {
+const useRemoveListItem = () => {
   const client = useClient();
   const { user } = useAuth();
   const localId = user?.localId;
@@ -125,47 +129,30 @@ const useRemoveListItem = (book: any) => {
 
   const listItems = useListItems();
 
-  let filter = listItems?.filter(
-    ({ mapValue }: any) =>
-      mapValue.fields.objectID.stringValue !== book.objectID
-  );
+  console.log('listitems', listItems);
 
+  const returnArr = (bookId: string) => {
+    return listItems?.filter(
+      ({ mapValue }: any) => mapValue.fields.objectID.stringValue !== bookId
+    );
+  };
   return useMutation(
-    () =>
+    ({ bookId }: any) =>
       client(`${localId}?updateMask.fieldPaths=readingList`, {
         data: {
           fields: {
             readingList: {
               arrayValue: {
-                values: filter,
+                values: returnArr(bookId),
               },
             },
           },
         },
       }),
     {
-      onSettled: () => queryClient.resetQueries(['list-items']),
-    }
-  );
-};
-
-const useUpdateListItem = (book: any): any | Error => {
-  const { user } = useAuth();
-
-  const uid = user?.uid;
-
-  const queryClient = useQueryClient();
-
-  return useMutation(
-    ({ finishDate, rating }: { finishDate: Date; rating: number }) =>
-      updateListItem({
-        uid: uid,
-        book: book,
-        finishDate: finishDate,
-        rating: rating,
-      }),
-    {
-      onSettled: () => queryClient.invalidateQueries(['list-items']),
+      onSettled: () => {
+        queryClient.refetchQueries(['list-items']);
+      },
     }
   );
 };
@@ -175,5 +162,4 @@ export {
   useListItem,
   useCreateListItem,
   useRemoveListItem,
-  useUpdateListItem,
 };
