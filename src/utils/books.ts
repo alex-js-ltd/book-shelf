@@ -1,6 +1,6 @@
 import algoliasearch from 'algoliasearch';
 import { useQuery } from '@tanstack/react-query';
-import { getBook } from 'utils/firebase/get-book';
+import { useAuth, useClient } from 'context/auth-context';
 import bookPlaceholderSvg from 'assets/book-placeholder.svg';
 
 const YOUR_APP_ID = process.env.REACT_APP_YOUR_APP_ID;
@@ -30,14 +30,16 @@ const useBookSearch = (query: string | null) => {
     queryFn: () => index.search(query),
   });
 
-  let map = result.data?.hits.map((b: any) => {
+  let map = result.data?.hits.map((book: any) => {
+    const { objectID, coverImageUrl, pageCount, publisher, synopsis, title } =
+      book;
     return {
-      objectID: b.objectID,
-      coverImageUrl: b?.coverImageUrl,
-      pageCount: b?.pageCount,
-      publisher: b?.publisher,
-      synopsis: b?.synopsis,
-      title: b?.title,
+      objectID,
+      coverImageUrl,
+      pageCount,
+      publisher,
+      synopsis,
+      title,
     };
   });
 
@@ -45,9 +47,11 @@ const useBookSearch = (query: string | null) => {
 };
 
 const useBook = (bookId: string | undefined): any => {
+  const client = useClient();
+
   const { data: book = loadingBook } = useQuery({
     queryKey: ['book', { bookId }],
-    queryFn: () => (bookId ? getBook(bookId) : null),
+    queryFn: () => client(`${bookId}`, null),
   });
   return book ?? loadingBook;
 };

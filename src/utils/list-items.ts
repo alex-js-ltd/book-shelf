@@ -10,7 +10,9 @@ const useListItems = () => {
   const { data, error } = useQuery({
     queryKey: ['list-items', { endpoint }],
     queryFn: () =>
-      client(endpoint, null).then((data) => data.fields.readingList.arrayValue),
+      client(`users/${endpoint}`, null).then(
+        (data) => data.fields.readingList.arrayValue
+      ),
   });
 
   let listItems = data?.values ? data.values : [];
@@ -76,14 +78,14 @@ const useCreateListItem = (book: any) => {
         publisher: {
           stringValue: book.publisher,
         },
-        startDate: {
-          integerValue: Date.now(),
-        },
         synopsis: {
           stringValue: book.synopsis,
         },
         title: {
           stringValue: book.title,
+        },
+        startDate: {
+          integerValue: Date.now(),
         },
         finishDate: {
           nullValue: null,
@@ -94,7 +96,7 @@ const useCreateListItem = (book: any) => {
 
   return useMutation(
     () =>
-      client(`${endpoint}?updateMask.fieldPaths=readingList`, {
+      client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
         data: {
           fields: {
             readingList: {
@@ -136,7 +138,7 @@ const useRemoveListItem = () => {
 
   return useMutation(
     ({ bookId }: any) =>
-      client(`${endpoint}?updateMask.fieldPaths=readingList`, {
+      client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
         data: {
           fields: {
             readingList: {

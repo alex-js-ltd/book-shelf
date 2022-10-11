@@ -1,6 +1,6 @@
 import { queryClient } from 'context';
 import * as auth from 'auth-provider';
-const apiURL = process.env.REACT_APP_USERS_URL;
+const apiURL = process.env.REACT_APP_API_URL;
 
 async function client(
   endpoint,
