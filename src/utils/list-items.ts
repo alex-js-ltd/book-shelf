@@ -1,9 +1,6 @@
-// @ts-nocheck
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { deleteListItem } from './firebase/delete-list-item';
 import { updateListItem } from './firebase/update-list-item';
 import { useAuth, useClient } from 'context/auth-context';
-import { resourceLimits } from 'worker_threads';
 
 const useListItems = () => {
   const client = useClient();
@@ -13,34 +10,38 @@ const useListItems = () => {
   const result = useQuery({
     queryKey: ['list-items', { localId }],
     queryFn: () =>
-      client(localId).then((data) => data.fields.readingList.arrayValue.values),
+      client(localId, null).then(
+        (data) => data.fields.readingList.arrayValue.values
+      ),
   });
 
-  console.log('useListItems run', result);
+  console.log('result', result);
 
-  const map = result?.data?.map(({ mapValue }) => {
-    let fields = mapValue.fields;
+  const map = result?.data?.map(
+    ({ mapValue }: { mapValue: { fields: any } }) => {
+      const {
+        coverImageUrl,
+        objectID,
+        pageCount,
+        publisher,
+        startDate,
+        synopsis,
+        title,
+        finishDate,
+      } = mapValue.fields;
 
-    let coverImageUrl = fields.coverImageUrl?.stringValue;
-    let objectID = fields.objectID.stringValue;
-    let pageCount = fields.pageCount.integerValue;
-    let publisher = fields.publisher.stringValue;
-    let startDate = fields.startDate.integerValue;
-    let synopsis = fields.synopsis.stringValue;
-    let title = fields.title.stringValue;
-    let finishDate = fields.finishDate.nullValue;
-
-    return {
-      coverImageUrl,
-      objectID,
-      pageCount,
-      publisher,
-      startDate,
-      synopsis,
-      title,
-      finishDate,
-    };
-  });
+      return {
+        coverImageUrl: coverImageUrl?.stringValue,
+        objectID: objectID.stringValue,
+        pageCount: pageCount.integerValue,
+        publisher: publisher.stringValue,
+        startDate: startDate.integerValue,
+        synopsis: synopsis.stringValue,
+        title: title.stringValue,
+        finishDate: finishDate.nullValue,
+      };
+    }
+  );
 
   return { ...result, listItems: map };
 };
@@ -99,7 +100,7 @@ const useCreateListItem = (book: any) => {
         },
       }),
     {
-      onSettled: () => queryClient.invalidateQueries('list-items'),
+      onSettled: () => queryClient.invalidateQueries(['list-items']),
     }
   );
 };
@@ -107,7 +108,10 @@ const useCreateListItem = (book: any) => {
 const useListItem = (bookId: string | undefined) => {
   const { listItems } = useListItems();
 
-  return listItems?.find((li) => li.objectID === bookId) ?? null;
+  return (
+    listItems?.find((li: { objectID: string }) => li.objectID === bookId) ??
+    null
+  );
 };
 
 const useRemoveListItem = (book: any) => {
@@ -120,11 +124,9 @@ const useRemoveListItem = (book: any) => {
   const result = useListItems();
 
   let filter = result?.data?.filter(
-    ({ mapValue }) => mapValue.fields.objectID.stringValue !== book.objectID
+    ({ mapValue }: { mapValue: { fields: any } }) =>
+      mapValue.fields.objectID.stringValue !== book.objectID
   );
-
-  console.log('result', result);
-  console.log('filter', filter);
 
   return useMutation(
     () =>
@@ -140,10 +142,7 @@ const useRemoveListItem = (book: any) => {
         },
       }),
     {
-      onSettled: () => {
-        queryClient.invalidateQueries('list-items');
-        result.refetch();
-      },
+      onSettled: () => queryClient.invalidateQueries(['list-items']),
     }
   );
 };
@@ -164,7 +163,7 @@ const useUpdateListItem = (book: any): any | Error => {
         rating: rating,
       }),
     {
-      onSettled: () => queryClient.invalidateQueries('list-items'),
+      onSettled: () => queryClient.invalidateQueries(['list-items']),
     }
   );
 };
