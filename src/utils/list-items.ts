@@ -154,7 +154,7 @@ const useRemoveListItem = (book: any) => {
         },
       }),
     {
-      onSettled: () => queryClient.invalidateQueries(['list-items']),
+      onSettled: () => queryClient.resetQueries(['list-items']),
     }
   );
 };
