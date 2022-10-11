@@ -43,7 +43,7 @@ const useListItems = () => {
     }
   );
 
-  return { ...result, listItems: map };
+  return { ...result, listItems: result?.data ? map : [] };
 };
 
 const useCreateListItem = (book: any) => {
@@ -124,7 +124,7 @@ const useRemoveListItem = (book: any) => {
   const result = useListItems();
 
   let filter = result?.data?.filter(
-    ({ mapValue }: { mapValue: { fields: any } }) =>
+    ({ mapValue }: any) =>
       mapValue.fields.objectID.stringValue !== book.objectID
   );
 
