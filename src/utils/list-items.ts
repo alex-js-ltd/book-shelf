@@ -1,17 +1,16 @@
 import React from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuth, useClient } from 'context/auth-context';
-import { connectFirestoreEmulator } from 'firebase/firestore';
 
 const useListItems = () => {
   const client = useClient();
   const { user } = useAuth();
-  const localId = user?.localId;
+  const endpoint = user?.localId;
 
   const { data, error } = useQuery({
-    queryKey: ['list-items', { localId }],
+    queryKey: ['list-items', { endpoint }],
     queryFn: () =>
-      client(localId, null).then((data) => data.fields.readingList.arrayValue),
+      client(endpoint, null).then((data) => data.fields.readingList.arrayValue),
   });
 
   let listItems = data?.values ? data.values : [];
@@ -55,7 +54,8 @@ const useListItemsClient = () => {
 const useCreateListItem = (book: any) => {
   const client = useClient();
   const { user } = useAuth();
-  const localId = user?.localId;
+
+  const endpoint = user?.localId;
 
   const queryClient = useQueryClient();
 
@@ -94,7 +94,7 @@ const useCreateListItem = (book: any) => {
 
   return useMutation(
     () =>
-      client(`${localId}?updateMask.fieldPaths=readingList`, {
+      client(`${endpoint}?updateMask.fieldPaths=readingList`, {
         data: {
           fields: {
             readingList: {
@@ -123,22 +123,20 @@ const useListItem = (bookId: string | undefined) => {
 const useRemoveListItem = () => {
   const client = useClient();
   const { user } = useAuth();
-  const localId = user?.localId;
+  const endpoint = user?.localId;
 
   const queryClient = useQueryClient();
 
   const listItems = useListItems();
 
-  console.log('listitems', listItems);
-
-  const returnArr = (bookId: string) => {
-    return listItems?.filter(
+  const returnArr = (bookId: string) =>
+    listItems?.filter(
       ({ mapValue }: any) => mapValue.fields.objectID.stringValue !== bookId
     );
-  };
+
   return useMutation(
     ({ bookId }: any) =>
-      client(`${localId}?updateMask.fieldPaths=readingList`, {
+      client(`${endpoint}?updateMask.fieldPaths=readingList`, {
         data: {
           fields: {
             readingList: {
