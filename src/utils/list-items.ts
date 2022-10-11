@@ -7,7 +7,7 @@ const useListItems = () => {
   const { user } = useAuth();
   const localId = user?.localId;
 
-  const result = useQuery({
+  const { data } = useQuery({
     queryKey: ['list-items', { localId }],
     queryFn: () =>
       client(localId, null).then(
@@ -15,35 +15,47 @@ const useListItems = () => {
       ),
   });
 
-  console.log('result', result);
+  const listItems = data?.map(({ mapValue }: { mapValue: { fields: any } }) => {
+    const {
+      coverImageUrl,
+      objectID,
+      pageCount,
+      publisher,
+      startDate,
+      synopsis,
+      title,
+      finishDate,
+    } = mapValue.fields;
 
-  const map = result?.data?.map(
-    ({ mapValue }: { mapValue: { fields: any } }) => {
-      const {
-        coverImageUrl,
-        objectID,
-        pageCount,
-        publisher,
-        startDate,
-        synopsis,
-        title,
-        finishDate,
-      } = mapValue.fields;
+    return {
+      coverImageUrl: coverImageUrl?.stringValue,
+      objectID: objectID.stringValue,
+      pageCount: pageCount.integerValue,
+      publisher: publisher.stringValue,
+      startDate: startDate.integerValue,
+      synopsis: synopsis.stringValue,
+      title: title.stringValue,
+      finishDate: finishDate.nullValue,
+    };
+  });
 
-      return {
-        coverImageUrl: coverImageUrl?.stringValue,
-        objectID: objectID.stringValue,
-        pageCount: pageCount.integerValue,
-        publisher: publisher.stringValue,
-        startDate: startDate.integerValue,
-        synopsis: synopsis.stringValue,
-        title: title.stringValue,
-        finishDate: finishDate.nullValue,
-      };
-    }
-  );
+  return listItems ?? [];
+};
 
-  return { ...result, listItems: result?.data ? map : [] };
+const useFirebaseListItems = () => {
+  const client = useClient();
+  const { user } = useAuth();
+  const localId = user?.localId;
+
+  const { data: listItems } = useQuery({
+    queryKey: ['list-items', { localId }],
+    queryFn: () =>
+      client(localId, null).then(
+        (data) => data.fields.readingList.arrayValue.values
+      ),
+  });
+
+  return listItems ?? [];
 };
 
 const useCreateListItem = (book: any) => {
@@ -53,7 +65,7 @@ const useCreateListItem = (book: any) => {
 
   const queryClient = useQueryClient();
 
-  const result = useListItems();
+  const listItems = useFirebaseListItems();
 
   let newBook = {
     mapValue: {
@@ -93,7 +105,7 @@ const useCreateListItem = (book: any) => {
           fields: {
             readingList: {
               arrayValue: {
-                values: !result.data ? [newBook] : [...result.data, newBook],
+                values: [...listItems, newBook],
               },
             },
           },
@@ -106,7 +118,7 @@ const useCreateListItem = (book: any) => {
 };
 
 const useListItem = (bookId: string | undefined) => {
-  const { listItems } = useListItems();
+  const listItems = useListItems();
 
   return (
     listItems?.find((li: { objectID: string }) => li.objectID === bookId) ??
@@ -121,9 +133,9 @@ const useRemoveListItem = (book: any) => {
 
   const queryClient = useQueryClient();
 
-  const result = useListItems();
+  const listItems = useFirebaseListItems();
 
-  let filter = result?.data?.filter(
+  let filter = listItems?.filter(
     ({ mapValue }: any) =>
       mapValue.fields.objectID.stringValue !== book.objectID
   );

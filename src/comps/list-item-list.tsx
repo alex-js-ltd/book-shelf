@@ -13,23 +13,19 @@ const ListItemList = ({
   noListItems: any;
   filterListItems: any;
 }) => {
-  const { listItems } = useListItems();
+  const listItems = useListItems();
 
-  const filteredListItems = listItems.filter(filterListItems);
+  //const filteredListItems = listItems.filter(filterListItems);
 
   useEffect(() => {
     console.log('listItems', listItems);
   }, [listItems]);
 
-  useEffect(() => {
-    console.log('filteredListItems', filteredListItems);
-  }, [filteredListItems]);
-
-  // if (!listItems.length) {
-  //   return (
-  //     <div css={{ marginTop: '1em', fontSize: '1.2em' }}>{noListItems}</div>
-  //   );
-  // }
+  if (!listItems.length) {
+    return (
+      <div css={{ marginTop: '1em', fontSize: '1.2em' }}>{noListItems}</div>
+    );
+  }
 
   return (
     <BookListUL>
