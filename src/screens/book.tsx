@@ -11,7 +11,7 @@ import { useBook } from 'utils/books';
 import { useListItem } from 'utils/list-items';
 import { ListItemTimeframe } from 'comps/list-item-time';
 
-const BookScreen: React.FC = () => {
+const BookScreen = () => {
   const { bookId } = useParams();
 
   const book = useBook(bookId);
