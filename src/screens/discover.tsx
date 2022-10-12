@@ -27,7 +27,7 @@ const DiscoverBooksScreen = () => {
 
   return (
     <div
-      css={{ maxWidth: 800, margin: 'auto', width: '90vw', padding: '40px 0' }}
+      css={{ maxWidth: 800, margin: 'auto', width: '90vw', padding: '0px 0' }}
     >
       <form onSubmit={handleSearchSubmit}>
         <Input
