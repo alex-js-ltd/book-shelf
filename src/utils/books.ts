@@ -32,8 +32,15 @@ const useBookSearch = (query: string | null) => {
   });
 
   let map = result.data?.hits.map((book: any) => {
-    const { objectID, coverImageUrl, pageCount, publisher, synopsis, title } =
-      book;
+    const {
+      objectID,
+      coverImageUrl,
+      pageCount,
+      publisher,
+      synopsis,
+      title,
+      author,
+    } = book;
     return {
       objectID,
       coverImageUrl,
@@ -41,6 +48,7 @@ const useBookSearch = (query: string | null) => {
       publisher,
       synopsis,
       title,
+      author,
     };
   });
 
@@ -55,7 +63,7 @@ const useBook = (bookId: string | undefined) => {
     queryFn: () => client(`books/${bookId}`, null).then((data) => data.fields),
   });
 
-  const { title, coverImageUrl, publisher, synopsis, pageCount } = data;
+  const { title, coverImageUrl, publisher, synopsis, pageCount, author } = data;
 
   let book: any = {};
 
@@ -64,6 +72,7 @@ const useBook = (bookId: string | undefined) => {
   book.publisher = publisher?.stringValue;
   book.synopsis = synopsis?.stringValue;
   book.pageCount = pageCount?.integerValue;
+  book.author = author?.stringValue;
 
   React.useEffect(() => {
     console.log('book data', data);
