@@ -1,6 +1,7 @@
+import React from 'react';
 import algoliasearch from 'algoliasearch';
 import { useQuery } from '@tanstack/react-query';
-import { useAuth, useClient } from 'context/auth-context';
+import { useClient } from 'context/auth-context';
 import bookPlaceholderSvg from 'assets/book-placeholder.svg';
 
 const YOUR_APP_ID = process.env.REACT_APP_YOUR_APP_ID;
@@ -46,13 +47,24 @@ const useBookSearch = (query: string | null) => {
   return { ...result, books: map ?? loadingBooks };
 };
 
-const useBook = (bookId: string | undefined): any => {
+const useBook = (bookId: string | undefined) => {
   const client = useClient();
 
-  const { data: book = loadingBook } = useQuery({
+  const { data = loadingBook, error } = useQuery({
     queryKey: ['book', { bookId }],
-    queryFn: () => client(`${bookId}`, null),
+    queryFn: () => client(`books/${bookId}`, null).then((data) => data.fields),
   });
+
+  const { title, coverImageUrl, publisher, synopsis, pageCount } = data;
+
+  let book: any = {};
+
+  book.title = title?.stringValue;
+  book.coverImageUrl = coverImageUrl?.stringValue;
+  book.publisher = publisher?.stringValue;
+  book.synopsis = synopsis?.stringValue;
+  book.pageCount = pageCount?.integerValue;
+
   return book ?? loadingBook;
 };
 
