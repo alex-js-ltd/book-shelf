@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import React, { FC, useState, FormEvent } from 'react';
+import React, { useState, FormEvent } from 'react';
 
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { Input, BookListUL, Spinner } from 'comps/lib';
@@ -10,7 +10,7 @@ import { BookRow } from 'comps/book-row';
 import * as colors from 'styles/colors';
 import { useBookSearch } from 'utils/books';
 
-const DiscoverBooksScreen: FC = () => {
+const DiscoverBooksScreen = () => {
   const [query, setQuery] = useState<string>('');
   const [queried, setQueried] = useState<boolean>(false);
   const { books, error, isLoading, isError, isSuccess } = useBookSearch(query);

@@ -168,28 +168,29 @@ const useUpdateListItem = (bookId: string) => {
 
   const listItems = useListItems();
 
-  console.log('list items', listItems);
-
   const index = listItems.findIndex(
     ({ mapValue }: any) => mapValue.fields.objectID.stringValue === bookId
   );
 
-  const values = (finishDate: number, rating: number) => {
+  const values = (finishDate: number | null, rating: number) => {
     let listItemsCopy = [...listItems];
 
     let newListItem = { ...listItems[index] };
 
-    newListItem.mapValue.fields.finishDate = { integerValue: finishDate };
+    newListItem.mapValue.fields.finishDate = finishDate
+      ? { integerValue: finishDate }
+      : { nullValue: finishDate };
+    newListItem.mapValue.fields.rating = { integerValue: rating };
 
     listItemsCopy[index] = newListItem;
+
     console.log('copy', listItemsCopy);
+
     return listItemsCopy;
   };
 
-  console.log('index', index);
-
   return useMutation(
-    ({ finishDate, rating }: { finishDate: number; rating: number }) =>
+    ({ finishDate, rating }: { finishDate: number | null; rating: number }) =>
       client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
         data: {
           fields: {

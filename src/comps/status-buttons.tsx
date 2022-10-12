@@ -80,14 +80,14 @@ const StatusButtons = ({ book }: { book: any }) => {
 
   return (
     <React.Fragment>
-      {/* {listItem && listItem?.finishDate && (
+      {listItem && listItem?.finishDate && (
         <TooltipButton
           label='Mark as unread'
           highlight={colors.yellow}
           onClick={() => update.mutateAsync({ finishDate: null, rating: 0 })}
           icon={<FaBook />}
         />
-      )} */}
+      )}
 
       {listItem && !listItem?.finishDate && (
         <TooltipButton
