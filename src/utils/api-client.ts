@@ -2,20 +2,29 @@ import { queryClient } from 'context';
 import * as auth from 'auth-provider';
 const apiURL = process.env.REACT_APP_API_URL;
 
-async function client(
-  endpoint,
-  { data, token, headers: customHeaders, ...customConfig } = {}
-) {
-  const config = {
-    method: data ? 'PATCH' : 'GET',
-    body: data ? JSON.stringify(data) : undefined,
+type Config = {
+  data: any;
+  token: string;
+};
+
+async function client(endpoint: string, { data, token }: Config) {
+  const getConfig = {
+    method: 'GET',
     headers: {
-      Authorization: token ? `Bearer ${token}` : undefined,
-      'Content-Type': data ? 'application/json' : undefined,
-      ...customHeaders,
+      Authorization: `Bearer ${token}`,
     },
-    ...customConfig,
   };
+
+  const patchConfig = {
+    method: 'PATCH',
+    body: JSON.stringify(data),
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  let config = data ? patchConfig : getConfig;
 
   return window
     .fetch(`${apiURL}/${endpoint}`, config)
@@ -24,7 +33,7 @@ async function client(
         queryClient.clear();
         await auth.logout();
         // refresh the page for them
-        window.location.assign(window.location);
+        window.location.assign(window.location.href);
         return Promise.reject({ message: 'Please re-authenticate.' });
       }
       const data = await response.json();
