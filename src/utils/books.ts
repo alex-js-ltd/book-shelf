@@ -65,6 +65,10 @@ const useBook = (bookId: string | undefined) => {
   book.synopsis = synopsis?.stringValue;
   book.pageCount = pageCount?.integerValue;
 
+  React.useEffect(() => {
+    console.log('book data', data);
+  }, [data]);
+
   return book ?? loadingBook;
 };
 
