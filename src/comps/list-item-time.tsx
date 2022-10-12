@@ -1,12 +1,16 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 import * as React from 'react';
 import Tooltip from '@reach/tooltip';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { formatDate } from 'utils/misc';
 
-const ListItemTimeframe: React.FC<{ listItem: any }> = ({ listItem }) => {
+const ListItemTimeframe = ({ listItem }: { listItem: any }) => {
   const timeframeLabel = listItem.finishDate
     ? 'Start and finish date'
     : 'Start date';
+
+  console.log('listItem time frame', listItem);
 
   return (
     <Tooltip label={timeframeLabel}>

@@ -28,13 +28,7 @@ interface T {
   rest?: any;
 }
 
-const TooltipButton: React.FC<T> = ({
-  label,
-  highlight,
-  onClick,
-  icon,
-  ...rest
-}) => {
+const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: T) => {
   const { isLoading, isError, error, run, reset } = useAsync();
 
   if (!onClick) {
