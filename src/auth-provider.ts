@@ -1,5 +1,6 @@
 const loginURL = process.env.REACT_APP_SIGN_IN_URL;
 const registerURL = process.env.REACT_APP_SIGN_UP_URL;
+const refreshURL = process.env.REACT_APP_REFRESH_URL;
 const localStorageKey = '__auth_provider_token__';
 
 type AuthData = {
@@ -32,7 +33,7 @@ async function getToken() {
 }
 
 function handleUserResponse(user: AuthData) {
-  window.localStorage.setItem(localStorageKey, user.idToken);
+  window.localStorage.setItem(localStorageKey, user.refreshToken);
   return user;
 }
 
@@ -54,7 +55,7 @@ async function logout() {
 
 async function client(
   endpoint: string | undefined,
-  data: ClientData
+  data: ClientData | RefreshToken
 ): Promise<AuthData> {
   const config = {
     method: 'POST',
@@ -65,7 +66,6 @@ async function client(
   return window.fetch(`${endpoint}`, config).then(async (response) => {
     const data = await response.json();
 
-    console.log('data', data);
     if (response.ok) {
       return data;
     } else {
@@ -74,4 +74,34 @@ async function client(
   });
 }
 
-export { getToken, login, register, logout, localStorageKey };
+type RefreshToken = {
+  refresh_token: string;
+  grant_type: 'refresh_token';
+};
+
+export type RefreshData = {
+  expires_in: string;
+  token_type: string;
+  refresh_token: string;
+  id_token: string;
+  user_id: string;
+  project_id: string;
+};
+
+const handleRefresh = (user: any) => {
+  window.localStorage.setItem(localStorageKey, user.refresh_token);
+  return { idToken: user.id_token, localId: user.user_id };
+};
+
+const getUser = async () => {
+  const token = await getToken();
+
+  return token
+    ? client(refreshURL, {
+        refresh_token: token,
+        grant_type: 'refresh_token',
+      }).then(handleRefresh)
+    : null;
+};
+
+export { getToken, login, register, logout, localStorageKey, getUser };
