@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuth, useClient } from 'context/auth-context';
+import { Rating } from 'comps/rating';
 
 const useListItems = () => {
   const client = useClient();
@@ -31,10 +32,11 @@ const useListItemsClient = () => {
             objectID,
             pageCount,
             publisher,
-            startDate,
             synopsis,
             title,
+            startDate,
             finishDate,
+            rating,
           } = mapValue.fields;
 
           return {
@@ -42,12 +44,14 @@ const useListItemsClient = () => {
             objectID: objectID.stringValue,
             pageCount: pageCount.integerValue,
             publisher: publisher.stringValue,
-            startDate: startDate.integerValue,
+
             synopsis: synopsis.stringValue,
             title: title.stringValue,
+            startDate: startDate.integerValue,
             finishDate: finishDate.integerValue
               ? finishDate.integerValue
               : finishDate.nullValue,
+            rating: rating ? rating.integerValue : 0,
           };
         })
       : [];

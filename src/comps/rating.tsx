@@ -20,13 +20,18 @@ const visuallyHiddenCSS: any = {
 };
 
 const Rating = ({ listItem }: any) => {
-  const update = useUpdateListItem(listItem);
+  const update = useUpdateListItem(listItem.objectID);
 
   const rootClassName = `list-item-${listItem.objectID}`;
+
+  React.useEffect(() => {
+    console.log('list item', listItem);
+  }, [listItem]);
 
   const stars = Array.from({ length: 5 }).map((x, i) => {
     const ratingId = `rating-${listItem.objectID}-${i}`;
     const ratingValue = i + 1;
+
     return (
       <React.Fragment key={i}>
         <input
@@ -34,13 +39,13 @@ const Rating = ({ listItem }: any) => {
           type='radio'
           id={ratingId}
           value={ratingValue}
-          checked={ratingValue === listItem.rating}
-          onChange={() => {
+          checked={ratingValue === Number(listItem.rating)}
+          onChange={() =>
             update.mutateAsync({
               finishDate: listItem.finishDate,
               rating: ratingValue,
-            });
-          }}
+            })
+          }
           css={[
             visuallyHiddenCSS,
             {

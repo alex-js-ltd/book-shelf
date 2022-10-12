@@ -7,7 +7,7 @@ type Config = {
   token: string;
 };
 
-async function client(endpoint: string, { data, token }: Config) {
+async function client(endpoint: string, { data, token }: Config): Promise<any> {
   const getConfig = {
     method: 'GET',
     headers: {
