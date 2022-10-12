@@ -49,10 +49,6 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     setData(null);
   }, [setData]);
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
   const value = useMemo(
     () => ({ user, login, logout, register }),
     [login, logout, register, user]
