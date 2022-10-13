@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuth, useClient } from 'context/auth-context';
+import { Book, MapValue } from 'types';
 
 const useListItems = () => {
   const client = useClient();
@@ -25,7 +26,7 @@ const useListItemsClient = () => {
 
   const list =
     listItems.length > 0
-      ? listItems?.map(({ mapValue }: { mapValue: { fields: any } }) => {
+      ? listItems?.map(({ mapValue }: { mapValue: MapValue }) => {
           const {
             coverImageUrl,
             objectID,
@@ -43,7 +44,6 @@ const useListItemsClient = () => {
             objectID: objectID.stringValue,
             pageCount: pageCount.integerValue,
             publisher: publisher.stringValue,
-
             synopsis: synopsis.stringValue,
             title: title.stringValue,
             startDate: startDate.integerValue,
@@ -58,7 +58,7 @@ const useListItemsClient = () => {
   return list;
 };
 
-const useCreateListItem = (book: any) => {
+const useCreateListItem = (book: Book) => {
   const client = useClient();
   const { user } = useAuth();
 
@@ -135,7 +135,8 @@ const useRemoveListItem = () => {
 
   const returnArr = (bookId: string) =>
     listItems?.filter(
-      ({ mapValue }: any) => mapValue.fields.objectID.stringValue !== bookId
+      ({ mapValue }: { mapValue: MapValue }) =>
+        mapValue.fields.objectID.stringValue !== bookId
     );
 
   return useMutation(
@@ -169,7 +170,8 @@ const useUpdateListItem = (bookId: string) => {
   const listItems = useListItems();
 
   const index = listItems.findIndex(
-    ({ mapValue }: any) => mapValue.fields.objectID.stringValue === bookId
+    ({ mapValue }: { mapValue: MapValue }) =>
+      mapValue.fields.objectID.stringValue === bookId
   );
 
   const values = (finishDate: number | null, rating: number) => {
