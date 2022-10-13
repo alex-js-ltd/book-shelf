@@ -23,17 +23,13 @@ import {
 interface T {
   label?: string;
   highlight?: string;
-  onClick?: Function;
+  onClick: Function;
   icon: React.ReactElement;
   rest?: any;
 }
 
 const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: T) => {
   const { isLoading, isError, error, run, reset } = useAsync();
-
-  if (!onClick) {
-    return null;
-  }
 
   const handleClick = () => {
     if (isError) {

@@ -17,7 +17,7 @@ interface Book {
 
 const BookRow = ({ book }: { book: Book }) => {
   const { title, author, coverImageUrl, synopsis, publisher, objectID } = book;
-  const id = `book-row-book-${book?.objectID}`;
+  const id = `book-row-book-${book.objectID}`;
 
   return (
     <div

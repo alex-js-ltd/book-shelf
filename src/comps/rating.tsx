@@ -24,10 +24,6 @@ const Rating = ({ listItem }: any) => {
 
   const rootClassName = `list-item-${listItem.objectID}`;
 
-  React.useEffect(() => {
-    console.log('list item', listItem);
-  }, [listItem]);
-
   const stars = Array.from({ length: 5 }).map((x, i) => {
     const ratingId = `rating-${listItem.objectID}-${i}`;
     const ratingValue = i + 1;

@@ -67,6 +67,7 @@ const useBook = (bookId: string | undefined) => {
 
   let book: any = {};
 
+  book.objectID = bookId;
   book.title = title?.stringValue;
   book.coverImageUrl = coverImageUrl?.stringValue;
   book.publisher = publisher?.stringValue;

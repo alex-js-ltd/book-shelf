@@ -1,7 +1,6 @@
 import React from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuth, useClient } from 'context/auth-context';
-import { Rating } from 'comps/rating';
 
 const useListItems = () => {
   const client = useClient();
@@ -122,10 +121,7 @@ const useCreateListItem = (book: any) => {
 const useListItem = (bookId: string | undefined) => {
   const listItems = useListItemsClient();
 
-  return (
-    listItems?.find((li: { objectID: string }) => li.objectID === bookId) ??
-    null
-  );
+  return listItems?.find((li: any) => li.objectID === bookId) ?? null;
 };
 
 const useRemoveListItem = () => {
@@ -187,8 +183,6 @@ const useUpdateListItem = (bookId: string) => {
     newListItem.mapValue.fields.rating = { integerValue: rating };
 
     listItemsCopy[index] = newListItem;
-
-    console.log('copy', listItemsCopy);
 
     return listItemsCopy;
   };
