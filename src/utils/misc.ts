@@ -1,4 +1,4 @@
-const formatDate = (date: Date) =>
+const formatDate = (date: number) =>
   new Intl.DateTimeFormat('en-US', {
     day: 'numeric',
     month: 'short',

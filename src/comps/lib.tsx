@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react';
@@ -134,7 +134,7 @@ const ErrorMessage = ({ error, variant = 'stacked', ...props }: any) => (
   </div>
 );
 
-const FullPageErrorFallback = ({ error }: { error?: Error }) => (
+const FullPageErrorFallback = ({ error }: { error: Error }) => (
   <div
     role='alert'
     css={{

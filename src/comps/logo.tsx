@@ -1,8 +1,11 @@
 import * as React from 'react';
 
-const Logo: React.FC<{ width: string; height: string }> = ({
+const Logo = ({
   width = '48',
   height = '48',
+}: {
+  width: string;
+  height: string;
 }) => {
   return (
     <svg

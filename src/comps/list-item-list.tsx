@@ -4,6 +4,7 @@ import { jsx } from '@emotion/react';
 import { useListItemsClient } from 'utils/list-items';
 import { BookListUL } from './lib';
 import { BookRow } from './book-row';
+import { Book } from 'types';
 
 const ListItemList = ({
   noListItems,
@@ -24,8 +25,8 @@ const ListItemList = ({
 
   return (
     <BookListUL>
-      {filteredList?.map((listItem: any) => (
-        <li key={listItem?.objectID}>
+      {filteredList?.map((listItem: Book) => (
+        <li key={listItem.objectID}>
           <BookRow book={listItem} />
         </li>
       ))}

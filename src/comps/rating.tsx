@@ -7,6 +7,7 @@ import { FaStar } from 'react-icons/fa';
 import * as colors from 'styles/colors';
 import { ErrorMessage } from 'comps/lib';
 import { useUpdateListItem } from 'utils/list-items';
+import { FinishedBook } from 'types';
 
 const visuallyHiddenCSS: any = {
   border: '0',
@@ -19,7 +20,7 @@ const visuallyHiddenCSS: any = {
   width: '1px',
 };
 
-const Rating = ({ listItem }: any) => {
+const Rating = ({ listItem }: { listItem: FinishedBook }) => {
   const update = useUpdateListItem(listItem.objectID);
 
   const rootClassName = `list-item-${listItem.objectID}`;
@@ -27,6 +28,8 @@ const Rating = ({ listItem }: any) => {
   const stars = Array.from({ length: 5 }).map((x, i) => {
     const ratingId = `rating-${listItem.objectID}-${i}`;
     const ratingValue = i + 1;
+
+    if (!listItem.finishDate) return null;
 
     return (
       <React.Fragment key={i}>
