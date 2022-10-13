@@ -75,10 +75,6 @@ const useBook = (bookId: string | undefined) => {
   book.pageCount = pageCount?.integerValue;
   book.author = author?.stringValue;
 
-  React.useEffect(() => {
-    console.log('book data', data);
-  }, [data]);
-
   return book ?? loadingBook;
 };
 

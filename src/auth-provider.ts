@@ -96,12 +96,12 @@ const handleRefresh = (user: any) => {
 const getUser = async () => {
   const token = await getToken();
 
-  return token
-    ? client(refreshURL, {
-        refresh_token: token,
-        grant_type: 'refresh_token',
-      }).then(handleRefresh)
-    : null;
+  if (!token) return null;
+
+  return client(refreshURL, {
+    refresh_token: token,
+    grant_type: 'refresh_token',
+  }).then(handleRefresh);
 };
 
 export { getToken, login, register, logout, localStorageKey, getUser };
