@@ -3,6 +3,8 @@ import algoliasearch from 'algoliasearch'
 import { useQuery } from '@tanstack/react-query'
 import { useClient } from 'context/auth-context'
 import bookPlaceholderSvg from 'assets/book-placeholder.svg'
+import { useListItemsClient } from './list-items'
+import { Book } from 'types'
 
 const YOUR_APP_ID = process.env.REACT_APP_YOUR_APP_ID
 const YOUR_SEARCH_KEY = process.env.REACT_APP_YOUR_SEARCH_KEY
@@ -31,6 +33,8 @@ const useBookSearch = (query: string | null) => {
 		queryFn: () => index.search(query),
 	})
 
+	const listItems = useListItemsClient()
+
 	let map = result.data?.hits.map((book: any) => {
 		const {
 			objectID,
@@ -41,6 +45,7 @@ const useBookSearch = (query: string | null) => {
 			title,
 			author,
 		} = book
+
 		return {
 			objectID,
 			coverImageUrl,
@@ -52,7 +57,14 @@ const useBookSearch = (query: string | null) => {
 		}
 	})
 
-	return { ...result, books: map ?? loadingBooks }
+	const filter = map?.filter(
+		(book: Book) =>
+			!listItems.find(
+				({ objectID }: { objectID: string }) => book.objectID === objectID,
+			),
+	)
+
+	return { ...result, books: filter ?? loadingBooks }
 }
 
 const useBook = (bookId: string | undefined) => {
