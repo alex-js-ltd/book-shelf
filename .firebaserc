@@ -1,5 +1,5 @@
 {
-  "projects": {
-    "default": "epic-react-app"
-  }
+	"projects": {
+		"default": "epic-react-app"
+	}
 }

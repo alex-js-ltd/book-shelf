@@ -1,37 +1,37 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react';
+import { jsx } from '@emotion/react'
 
-import { useListItemsClient } from 'utils/list-items';
-import { BookListUL } from './lib';
-import { BookRow } from './book-row';
-import { Book } from 'types';
+import { useListItemsClient } from 'utils/list-items'
+import { BookListUL } from './lib'
+import { BookRow } from './book-row'
+import { Book } from 'types'
 
 const ListItemList = ({
-  noListItems,
-  filterListItems,
+	noListItems,
+	filterListItems,
 }: {
-  noListItems: any;
-  filterListItems: any;
+	noListItems: any
+	filterListItems: any
 }) => {
-  const list = useListItemsClient();
+	const list = useListItemsClient()
 
-  const filteredList = list.filter(filterListItems);
+	const filteredList = list.filter(filterListItems)
 
-  if (!list?.length) {
-    return (
-      <div css={{ marginTop: '1em', fontSize: '1.2em' }}>{noListItems}</div>
-    );
-  }
+	if (!list?.length) {
+		return (
+			<div css={{ marginTop: '1em', fontSize: '1.2em' }}>{noListItems}</div>
+		)
+	}
 
-  return (
-    <BookListUL>
-      {filteredList?.map((listItem: Book) => (
-        <li key={listItem.objectID}>
-          <BookRow book={listItem} />
-        </li>
-      ))}
-    </BookListUL>
-  );
-};
+	return (
+		<BookListUL>
+			{filteredList?.map((listItem: Book) => (
+				<li key={listItem.objectID}>
+					<BookRow book={listItem} />
+				</li>
+			))}
+		</BookListUL>
+	)
+}
 
-export { ListItemList };
+export { ListItemList }
