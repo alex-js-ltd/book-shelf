@@ -77,7 +77,10 @@ const useClient = () => {
 	const { user } = useAuth()
 	const token = user?.idToken
 	return useCallback(
-		(endpoint: string, config: any) => client(endpoint, { ...config, token }),
+		(
+			endpoint: string,
+			config: { method: 'GET' | 'PATCH' | 'DELETE'; data?: any },
+		) => client(endpoint, { ...config, token }),
 		[token],
 	)
 }
