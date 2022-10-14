@@ -3,7 +3,7 @@ import * as auth from 'auth-provider'
 const apiURL = process.env.REACT_APP_API_URL
 
 type Config = {
-	method: 'GET' | 'PATCH' | 'DELETE'
+	method: 'GET' | 'PATCH'
 	token: string
 	data?: any
 }
