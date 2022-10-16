@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
 import { StatusButtons } from './status-buttons'
-import { Book, LoadingBook } from 'types'
+import { Book } from 'types'
 
-const BookRow = ({ book }: { book: Book | LoadingBook }) => {
+const BookRow = ({ book }: { book: Book }) => {
 	const { title, author, coverImageUrl, synopsis, publisher, objectID } = book
 	const id = `book-row-book-${book.objectID}`
 

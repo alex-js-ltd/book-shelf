@@ -9,6 +9,7 @@ type Book = {
 	startDate?: number | null
 	finishDate?: number | null
 	rating?: number
+
 	loadingBook?: boolean
 }
 
@@ -22,17 +23,6 @@ type FinishedBook = {
 	startDate: number
 	finishDate: number
 	rating: number
-}
-
-type LoadingBook = {
-	objectID: string
-	title: string
-	author: string
-	coverImageUrl: string
-	publisher: string
-	synopsis: string
-
-	loadingBook: boolean
 }
 
 interface objectID {

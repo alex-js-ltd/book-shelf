@@ -19,6 +19,7 @@ const loadingBook = {
 	coverImageUrl: bookPlaceholderSvg,
 	publisher: 'Loading Publishing',
 	synopsis: 'Loading...',
+	pageCount: 0,
 	loadingBook: true,
 }
 
@@ -64,13 +65,13 @@ const useBookSearch = (query: string | null) => {
 			),
 	)
 
-	return { ...result, books: result.isFetching ? loadingBooks : filter }
+	return { ...result, books: filter ?? loadingBooks }
 }
 
 const useBook = (bookId: string | undefined) => {
 	const client = useClient()
 
-	const { data = loadingBook, isFetching } = useQuery({
+	const { data = loadingBook } = useQuery({
 		queryKey: ['book', { bookId }],
 		queryFn: () =>
 			client(`books/${bookId}`, { method: 'GET' }).then(data => data.fields),
@@ -88,7 +89,7 @@ const useBook = (bookId: string | undefined) => {
 	book.pageCount = pageCount?.integerValue
 	book.author = author?.stringValue
 
-	return isFetching ? loadingBook : book
+	return book ?? loadingBook
 }
 
 export { useBookSearch, useBook }
