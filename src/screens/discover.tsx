@@ -66,7 +66,7 @@ const DiscoverBooksScreen = () => {
 			) : null}
 
 			<BookListUL css={{ marginTop: 20 }}>
-				{books?.map((book: Book) => (
+				{books.map((book: Book) => (
 					<li key={book.objectID} aria-label={book.title}>
 						<BookRow key={book.objectID} book={book} />
 					</li>
