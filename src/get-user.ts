@@ -7,7 +7,7 @@ type RefreshToken = {
 	grant_type: 'refresh_token'
 }
 
-export type RefreshData = {
+type RefreshData = {
 	expires_in: string
 	token_type: string
 	refresh_token: string
