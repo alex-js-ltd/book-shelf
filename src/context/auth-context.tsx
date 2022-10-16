@@ -13,6 +13,8 @@ import { useAsync } from 'utils/hooks'
 import { getUser } from 'get-user'
 import { FormData } from 'types'
 
+const userPromise = getUser()
+
 type AuthProviderProps = { children: ReactNode }
 
 const AuthContext = createContext<
@@ -36,12 +38,9 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 	} = useAsync()
 
 	useEffect(() => {
-		run(getUser())
+		console.log('useEffect')
+		run(userPromise)
 	}, [run])
-
-	useEffect(() => {
-		console.log('user', user)
-	}, [user])
 
 	const login = useCallback(
 		(form: FormData) => auth.login(form).then(user => setData(user)),

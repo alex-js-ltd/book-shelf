@@ -22,6 +22,7 @@ function handleRefresh(user: RefreshData) {
 }
 
 async function getUser() {
+	console.log('getUser')
 	const token = await auth.getToken()
 
 	if (!token) return null
