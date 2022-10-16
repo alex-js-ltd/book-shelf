@@ -81,4 +81,4 @@ type FormData = {
 	password: string
 }
 
-export { Book, FinishedBook, LoadingBook, MapValue, FormData }
+export { Book, FinishedBook, MapValue, FormData }
