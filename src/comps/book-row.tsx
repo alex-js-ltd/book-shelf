@@ -98,7 +98,7 @@ const BookRow = ({ book }: { book: Book | LoadingBook }) => {
 					height: '100%',
 				}}
 			>
-				{book && <StatusButtons book={book} />}
+				{book.loadingBook ? null : <StatusButtons book={book} />}
 			</div>
 		</div>
 	)

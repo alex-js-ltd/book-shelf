@@ -9,6 +9,7 @@ type Book = {
 	startDate?: number | null
 	finishDate?: number | null
 	rating?: number
+	loadingBook?: boolean
 }
 
 type FinishedBook = {
@@ -30,6 +31,7 @@ type LoadingBook = {
 	coverImageUrl: string
 	publisher: string
 	synopsis: string
+
 	loadingBook: boolean
 }
 
