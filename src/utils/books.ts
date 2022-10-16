@@ -23,7 +23,7 @@ const loadingBook = {
 }
 
 const loadingBooks = Array.from({ length: 10 }, (v, index) => ({
-	id: `loading-book-${index}`,
+	objectID: `loading-book-${index}`,
 	...loadingBook,
 }))
 
@@ -64,13 +64,13 @@ const useBookSearch = (query: string | null) => {
 			),
 	)
 
-	return { ...result, books: filter ?? loadingBooks }
+	return { ...result, books: result.isFetching ? loadingBooks : filter }
 }
 
 const useBook = (bookId: string | undefined) => {
 	const client = useClient()
 
-	const { data = loadingBook, error } = useQuery({
+	const { data = loadingBook, isFetching } = useQuery({
 		queryKey: ['book', { bookId }],
 		queryFn: () =>
 			client(`books/${bookId}`, { method: 'GET' }).then(data => data.fields),
@@ -88,7 +88,7 @@ const useBook = (bookId: string | undefined) => {
 	book.pageCount = pageCount?.integerValue
 	book.author = author?.stringValue
 
-	return book ?? loadingBook
+	return isFetching ? loadingBook : book
 }
 
 export { useBookSearch, useBook }

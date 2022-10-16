@@ -23,6 +23,16 @@ type FinishedBook = {
 	rating: number
 }
 
+type LoadingBook = {
+	objectID: string
+	title: string
+	author: string
+	coverImageUrl: string
+	publisher: string
+	synopsis: string
+	loadingBook: boolean
+}
+
 interface objectID {
 	stringValue: string
 }
@@ -79,4 +89,4 @@ type FormData = {
 	password: string
 }
 
-export { Book, FinishedBook, MapValue, FormData }
+export { Book, FinishedBook, LoadingBook, MapValue, FormData }

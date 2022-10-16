@@ -9,6 +9,7 @@ import { BookRow } from 'comps/book-row'
 
 import * as colors from 'styles/colors'
 import { useBookSearch } from 'utils/books'
+import { Book, LoadingBook } from 'types'
 
 const DiscoverBooksScreen = () => {
 	const [query, setQuery] = useState<string>('')
@@ -66,7 +67,7 @@ const DiscoverBooksScreen = () => {
 
 			{isSuccess && (
 				<BookListUL css={{ marginTop: 20 }}>
-					{books?.map((book: any) => (
+					{books?.map((book: Book | LoadingBook) => (
 						<li key={book.objectID} aria-label={book.title}>
 							<BookRow key={book.objectID} book={book} />
 						</li>
