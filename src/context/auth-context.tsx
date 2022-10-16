@@ -10,6 +10,8 @@ import { queryClient } from 'context'
 import * as auth from 'auth-provider'
 import { client } from 'utils/api-client'
 import { useAsync } from 'utils/hooks'
+import { getUser } from 'get-user'
+import { FormData } from 'types'
 
 type AuthProviderProps = { children: ReactNode }
 
@@ -34,7 +36,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 	} = useAsync()
 
 	useEffect(() => {
-		run(auth.getUser())
+		run(getUser())
 	}, [run])
 
 	useEffect(() => {
@@ -42,12 +44,12 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 	}, [user])
 
 	const login = useCallback(
-		(form: any) => auth.login(form).then(user => setData(user)),
+		(form: FormData) => auth.login(form).then(user => setData(user)),
 		[setData],
 	)
 
 	const register = useCallback(
-		(form: any) => auth.register(form).then(user => setData(user)),
+		(form: FormData) => auth.register(form).then(user => setData(user)),
 		[setData],
 	)
 

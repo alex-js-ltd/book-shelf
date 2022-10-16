@@ -1,77 +1,82 @@
 type Book = {
-  objectID: string;
-  title: string;
-  author: string;
-  coverImageUrl: string;
-  publisher: string;
-  synopsis: string;
-  pageCount: number;
-  startDate?: number | null;
-  finishDate?: number | null;
-  rating?: number;
-};
+	objectID: string
+	title: string
+	author: string
+	coverImageUrl: string
+	publisher: string
+	synopsis: string
+	pageCount: number
+	startDate?: number | null
+	finishDate?: number | null
+	rating?: number
+}
 
 type FinishedBook = {
-  objectID: string;
-  title: string;
-  author: string;
-  coverImageUrl: string;
-  publisher: string;
-  synopsis: string;
-  startDate: number;
-  finishDate: number;
-  rating: number;
-};
+	objectID: string
+	title: string
+	author: string
+	coverImageUrl: string
+	publisher: string
+	synopsis: string
+	startDate: number
+	finishDate: number
+	rating: number
+}
 
 interface objectID {
-  stringValue: string;
+	stringValue: string
 }
 
 interface title {
-  stringValue: string;
+	stringValue: string
 }
 
 interface author {
-  stringValue: string;
+	stringValue: string
 }
 
 interface coverImageUrl {
-  stringValue: string;
+	stringValue: string
 }
 
 interface publisher {
-  stringValue: string;
+	stringValue: string
 }
 
 interface synopsis {
-  stringValue: string;
+	stringValue: string
 }
 
 interface startDate {
-  integerValue: number;
+	integerValue: number
 }
 
 interface finishDate {
-  integerValue: number;
+	integerValue: number
 }
 
 interface rating {
-  integerValue: number;
+	integerValue: number
 }
 
 type Field =
-  | objectID
-  | title
-  | author
-  | coverImageUrl
-  | publisher
-  | synopsis
-  | startDate
-  | finishDate
-  | ratings;
+	| objectID
+	| title
+	| author
+	| coverImageUrl
+	| publisher
+	| synopsis
+	| startDate
+	| finishDate
+	| ratings
 
 type MapValue = {
-  fields: Field;
-};
+	fields: Field
+}
 
-export { Book, FinishedBook, MapValue };
+type FormData = {
+	email: string
+	password: string
+}
+
+export { Book, FinishedBook, MapValue, FormData }
