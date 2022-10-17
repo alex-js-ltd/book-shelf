@@ -1,6 +1,5 @@
 import { queryClient } from 'context'
 import * as auth from 'auth-provider'
-const apiURL = process.env.REACT_APP_API_URL
 
 type Config = {
 	method: 'GET' | 'PATCH'
@@ -21,7 +20,7 @@ async function client(
 		},
 	}
 
-	return window.fetch(`${apiURL}/${endpoint}`, config).then(async response => {
+	return window.fetch(`${endpoint}`, config).then(async response => {
 		if (response.status === 401) {
 			queryClient.clear()
 			await auth.logout()

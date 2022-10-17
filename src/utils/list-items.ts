@@ -3,6 +3,8 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAuth, useClient } from 'context/auth-context'
 import { Book, MapValue } from 'types'
 
+const apiURL = process.env.REACT_APP_API_URL
+
 const useListItems = () => {
 	const client = useClient()
 	const { user } = useAuth()
@@ -11,7 +13,7 @@ const useListItems = () => {
 	const { data, error } = useQuery({
 		queryKey: ['list-items', { endpoint }],
 		queryFn: () =>
-			client(`users/${endpoint}`, { method: 'GET' }).then(
+			client(`${apiURL}/users/${endpoint}`, { method: 'GET' }).then(
 				data => data.fields.readingList.arrayValue,
 			),
 	})
@@ -101,7 +103,7 @@ const useCreateListItem = (book: Book) => {
 
 	return useMutation(
 		() =>
-			client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
+			client(`${apiURL}/users/${endpoint}?updateMask.fieldPaths=readingList`, {
 				method: 'PATCH',
 				data: {
 					fields: {
@@ -142,7 +144,7 @@ const useRemoveListItem = () => {
 
 	return useMutation(
 		({ bookId }: { bookId: string }) =>
-			client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
+			client(`${apiURL}/users/${endpoint}?updateMask.fieldPaths=readingList`, {
 				method: 'PATCH',
 				data: {
 					fields: {
@@ -193,7 +195,7 @@ const useUpdateListItem = (bookId: string) => {
 
 	return useMutation(
 		({ finishDate, rating }: { finishDate: number | null; rating: number }) =>
-			client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
+			client(`${apiURL}/users/${endpoint}?updateMask.fieldPaths=readingList`, {
 				method: 'PATCH',
 				data: {
 					fields: {
