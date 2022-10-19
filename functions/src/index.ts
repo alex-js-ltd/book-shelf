@@ -1,12 +1,8 @@
-// @ts-nocheck
-const functions = require('firebase-functions');
-const search = require('./search');
-const user = require('./user');
-
+const search = require('./search')
+const user = require('./user')
 
 exports.addToIndex = search.addToIndex
-exports.updateIndex = search.addToIndex
-exports.deleteFromIndex= search.addToIndex
+exports.updateIndex = search.updateIndex
+exports.deleteFromIndex = search.deleteFromIndex
 
-exports.createUserRecord = user.createUserRecord;
-
+exports.createUserRecord = user.createUserRecord
