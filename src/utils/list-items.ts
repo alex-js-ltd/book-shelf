@@ -13,7 +13,7 @@ const useListItems = () => {
 	const { data, error } = useQuery({
 		queryKey: ['list-items', { endpoint }],
 		queryFn: () =>
-			client(`${apiURL}/users/${endpoint}`, { method: 'GET' }).then(
+			client(`users/${endpoint}`, { method: 'GET' }).then(
 				data => data.fields.readingList.arrayValue,
 			),
 	})
@@ -103,7 +103,7 @@ const useCreateListItem = (book: Book) => {
 
 	return useMutation(
 		() =>
-			client(`${apiURL}/users/${endpoint}?updateMask.fieldPaths=readingList`, {
+			client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
 				method: 'PATCH',
 				data: {
 					fields: {
@@ -144,7 +144,7 @@ const useRemoveListItem = () => {
 
 	return useMutation(
 		({ bookId }: { bookId: string }) =>
-			client(`${apiURL}/users/${endpoint}?updateMask.fieldPaths=readingList`, {
+			client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
 				method: 'PATCH',
 				data: {
 					fields: {
@@ -195,7 +195,7 @@ const useUpdateListItem = (bookId: string) => {
 
 	return useMutation(
 		({ finishDate, rating }: { finishDate: number | null; rating: number }) =>
-			client(`${apiURL}/users/${endpoint}?updateMask.fieldPaths=readingList`, {
+			client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
 				method: 'PATCH',
 				data: {
 					fields: {

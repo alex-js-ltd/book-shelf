@@ -13,8 +13,6 @@ const client: any =
 	YOUR_APP_ID && YOUR_SEARCH_KEY && algoliasearch(YOUR_APP_ID, YOUR_SEARCH_KEY)
 const index = client.initIndex('books')
 
-const apiURL = process.env.REACT_APP_API_URL
-
 const loadingBook = {
 	title: 'Loading...',
 	author: 'loading...',
@@ -76,9 +74,7 @@ const useBook = (bookId: string | undefined) => {
 	const { data = loadingBook } = useQuery({
 		queryKey: ['book', { bookId }],
 		queryFn: () =>
-			client(`${apiURL}/books/${bookId}`, { method: 'GET' }).then(
-				data => data.fields,
-			),
+			client(`books/${bookId}`, { method: 'GET' }).then(data => data.fields),
 	})
 
 	const { title, coverImageUrl, publisher, synopsis, pageCount, author } = data
