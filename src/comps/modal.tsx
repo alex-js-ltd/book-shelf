@@ -8,6 +8,8 @@ import React, {
 	useContext,
 	useState,
 	ReactElement,
+	HTMLAttributes,
+	ReactNode,
 } from 'react'
 import VisuallyHidden from '@reach/visually-hidden'
 import { Dialog, CircleButton } from './lib'
@@ -21,7 +23,7 @@ const ModalContext = createContext<
 	{ isOpen: boolean; setIsOpen: Function } | undefined
 >(undefined)
 
-const Modal = ({ children }: { children: React.ReactNode }) => {
+const Modal = ({ children }: { children: ReactNode }) => {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const value = { isOpen, setIsOpen }
@@ -57,7 +59,7 @@ const ModalOpenButton: FC<{ children: ReactElement }> = ({
 	})
 }
 
-const ModalContentsBase = (props: any) => {
+const ModalContentsBase = (props: HTMLAttributes<HTMLDivElement>) => {
 	const { isOpen, setIsOpen } = useModal()
 
 	return (
@@ -68,7 +70,7 @@ const ModalContentsBase = (props: any) => {
 const ModalContents: FC<{
 	title: string
 	children: ReactElement
-	props?: any
+	props?: HTMLAttributes<HTMLDivElement>
 }> = ({ title, children, ...props }) => {
 	return (
 		<ModalContentsBase {...props}>
