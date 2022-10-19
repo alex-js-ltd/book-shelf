@@ -3,8 +3,6 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAuth, useClient } from 'context/auth-context'
 import { Book, MapValue } from 'types'
 
-const apiURL = process.env.REACT_APP_API_URL
-
 const useListItems = () => {
 	const client = useClient()
 	const { user } = useAuth()
