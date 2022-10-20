@@ -6,23 +6,11 @@ type Book = {
 	publisher: string
 	synopsis: string
 	pageCount: number
-	startDate?: number | null
-	finishDate?: number | null
-	rating?: number
+	startDate: number | null
+	finishDate: number | null
+	rating: number
 
 	loadingBook?: boolean
-}
-
-type FinishedBook = {
-	objectID: string
-	title: string
-	author: string
-	coverImageUrl: string
-	publisher: string
-	synopsis: string
-	startDate: number
-	finishDate: number
-	rating: number
 }
 
 interface objectID {
@@ -81,4 +69,4 @@ type FormData = {
 	password: string
 }
 
-export { Book, FinishedBook, MapValue, FormData }
+export { Book, MapValue, FormData }

@@ -7,7 +7,7 @@ import { FaStar } from 'react-icons/fa'
 import * as colors from 'styles/colors'
 import { ErrorMessage } from 'comps/lib'
 import { useUpdateListItem } from 'utils/list-items'
-import { FinishedBook } from 'types'
+import { Book } from 'types'
 
 const visuallyHiddenCSS: any = {
 	border: '0',
@@ -20,7 +20,7 @@ const visuallyHiddenCSS: any = {
 	width: '1px',
 }
 
-const Rating = ({ listItem }: { listItem: FinishedBook }) => {
+const Rating = ({ listItem }: { listItem: Book }) => {
 	const update = useUpdateListItem(listItem.objectID)
 
 	const rootClassName = `list-item-${listItem.objectID}`
@@ -70,7 +70,10 @@ const Rating = ({ listItem }: { listItem: FinishedBook }) => {
 					htmlFor={ratingId}
 					css={{
 						cursor: 'pointer',
-						color: listItem.rating <= 0 ? colors.gray20 : colors.orange,
+						color:
+							listItem.rating && listItem.rating <= 0
+								? colors.gray20
+								: colors.orange,
 						margin: 0,
 					}}
 				>
