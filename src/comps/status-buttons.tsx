@@ -20,6 +20,8 @@ import {
 	useUpdateListItem,
 } from 'utils/list-items'
 
+import { Book } from 'types'
+
 interface T {
 	label?: string
 	highlight?: string
@@ -62,7 +64,7 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: T) => {
 	)
 }
 
-const StatusButtons = ({ book }: { book: any }) => {
+const StatusButtons = ({ book }: { book: Book }) => {
 	const listItem = useListItem(book.objectID)
 	const create = useCreateListItem(book)
 	const remove = useRemoveListItem()

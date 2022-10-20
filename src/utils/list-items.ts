@@ -95,6 +95,9 @@ const useCreateListItem = (book: Book) => {
 				finishDate: {
 					nullValue: null,
 				},
+				rating: {
+					integerValue: 0,
+				},
 			},
 		},
 	}
