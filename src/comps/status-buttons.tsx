@@ -27,7 +27,6 @@ interface T {
 	highlight?: string
 	onClick: Function
 	icon: React.ReactElement
-	rest?: any
 }
 
 const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: T) => {

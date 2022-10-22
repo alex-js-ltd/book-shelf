@@ -15,9 +15,9 @@ import VisuallyHidden from '@reach/visually-hidden'
 import { Dialog, CircleButton } from './lib'
 
 const callAll =
-	(...fns: any) =>
+	(...fns: Function[]) =>
 	(...args: any) =>
-		fns.forEach((fn: any) => fn && fn(...args))
+		fns.forEach((fn: Function) => fn && fn(...args))
 
 const ModalContext = createContext<
 	{ isOpen: boolean; setIsOpen: Function } | undefined

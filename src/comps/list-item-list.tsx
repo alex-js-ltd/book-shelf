@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
 
+import { ReactNode } from 'react'
 import { useListItemsClient } from 'utils/list-items'
 import { BookListUL } from './lib'
 import { BookRow } from './book-row'
@@ -10,8 +11,8 @@ const ListItemList = ({
 	noListItems,
 	filterListItems,
 }: {
-	noListItems: any
-	filterListItems: any
+	noListItems: ReactNode
+	filterListItems: Function
 }) => {
 	const list = useListItemsClient()
 

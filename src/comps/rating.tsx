@@ -98,13 +98,13 @@ const Rating = ({ listItem }: { listItem: Book }) => {
 			}}
 		>
 			<span css={{ display: 'flex' }}>{stars}</span>
-			{/* {isError ? (
-        <ErrorMessage
-          error={error}
-          variant='inline'
-          css={{ marginLeft: 6, fontSize: '0.7em' }}
-        />
-      ) : null} */}
+			{update.isError ? (
+				<ErrorMessage
+					error={update.error}
+					variant='inline'
+					css={{ marginLeft: 6, fontSize: '0.7em' }}
+				/>
+			) : null}
 		</div>
 	)
 }
