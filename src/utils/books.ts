@@ -36,7 +36,7 @@ const useBookSearch = (query: string | null) => {
 
 	const listItems = useListItemsClient()
 
-	let map = result.data?.hits.map((book: any) => {
+	let map = result.data?.hits.map((book: Book) => {
 		const {
 			objectID,
 			coverImageUrl,
