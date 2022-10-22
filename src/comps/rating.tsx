@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react'
+import { CSSObject, jsx } from '@emotion/react'
 
 import * as React from 'react'
 
@@ -9,7 +9,7 @@ import { ErrorMessage } from 'comps/lib'
 import { useUpdateListItem } from 'utils/list-items'
 import { Book } from 'types'
 
-const visuallyHiddenCSS: any = {
+const visuallyHiddenCSS: CSSObject = {
 	border: '0',
 	clip: 'rect(0 0 0 0)',
 	height: '1px',
