@@ -113,16 +113,12 @@ const Link = styled(RouterLink)({
 	},
 })
 
-type ErrorMessageVariants = { stacked: CSSObject; inline: CSSObject }
-
-const errorMessageVariants: ErrorMessageVariants = {
+const errorMessageVariants: any = {
 	stacked: { display: 'block' },
 	inline: { display: 'inline-block' },
 }
 
-type ErrorProps = { error: Error; variant: keyof ErrorMessageVariants }
-
-const ErrorMessage = ({ error, variant = 'stacked', ...props }: ErrorProps) => (
+const ErrorMessage = ({ error, variant = 'stacked', ...props }: any) => (
 	<div
 		role='alert'
 		css={[{ color: colors.danger }, errorMessageVariants[variant]]}
@@ -135,7 +131,7 @@ const ErrorMessage = ({ error, variant = 'stacked', ...props }: ErrorProps) => (
 				errorMessageVariants[variant],
 			]}
 		>
-			{error.message}
+			{error?.message}
 		</pre>
 	</div>
 )
@@ -153,7 +149,7 @@ const FullPageErrorFallback = ({ error }: { error: Error }) => (
 		}}
 	>
 		<p>Uh oh... There's a problem. Try refreshing the app.</p>
-		<pre>{error.message}</pre>
+		<pre>{error?.message}</pre>
 	</div>
 )
 
