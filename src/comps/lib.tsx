@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import styled from '@emotion/styled/macro'
-import { keyframes } from '@emotion/react'
+import { keyframes, CSSObject } from '@emotion/react'
 import * as colors from 'styles/colors'
 import * as mq from 'styles/media-queries'
 import { Dialog as ReachDialog } from '@reach/dialog'
@@ -42,7 +42,9 @@ Spinner.defaultProps = {
 	'aria-label': 'loading',
 }
 
-const buttonVariants: any = {
+type ButtonVariant = { primary: CSSObject; secondary: CSSObject }
+
+const buttonVariants: ButtonVariant = {
 	primary: {
 		background: colors.indigo,
 		color: colors.base,
@@ -52,7 +54,7 @@ const buttonVariants: any = {
 		color: colors.text,
 	},
 }
-const Button = styled.button<{ variant: string }>(
+const Button = styled.button<{ variant: keyof ButtonVariant }>(
 	{
 		padding: '10px 15px',
 		border: '0',
