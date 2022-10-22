@@ -66,7 +66,7 @@ const LoginForm = ({
 					isLoading ? <Spinner css={{ marginLeft: 5 }} /> : null,
 				)}
 			</div>
-			{isError ? <ErrorMessage error={error} /> : null}
+			{isError ? <ErrorMessage error={error.error} /> : null}
 		</form>
 	)
 }

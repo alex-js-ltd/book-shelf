@@ -61,7 +61,7 @@ const Button = styled.button<{ variant: keyof ButtonVariant }>(
 		lineHeight: '1',
 		borderRadius: '3px',
 	},
-	({ variant = 'primary' }) => buttonVariants[variant],
+	({ variant = 'secondary' }) => buttonVariants[variant],
 )
 
 const inputStyles = {
