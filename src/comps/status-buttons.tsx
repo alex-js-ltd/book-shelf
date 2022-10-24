@@ -22,14 +22,14 @@ import {
 
 import { Book } from 'types'
 
-interface T {
+interface Props {
 	label?: string
 	highlight?: string
 	onClick: Function
 	icon: React.ReactElement
 }
 
-const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: T) => {
+const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 	const { isLoading, isError, error, run, reset } = useAsync()
 
 	const handleClick = () => {
