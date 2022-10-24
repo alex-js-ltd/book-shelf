@@ -5,6 +5,7 @@ import React, {
 	ReactNode,
 	useCallback,
 	useMemo,
+	MouseEventHandler,
 } from 'react'
 import { queryClient } from 'context'
 import * as auth from 'auth-provider'
@@ -16,7 +17,12 @@ import { FormData } from 'types'
 type AuthProviderProps = { children: ReactNode }
 
 const AuthContext = createContext<
-	| { user: any; login: Function; register: Function; logout: Function }
+	| {
+			user: any
+			login: Function
+			register: Function
+			logout: MouseEventHandler<HTMLButtonElement>
+	  }
 	| undefined
 >(undefined)
 
