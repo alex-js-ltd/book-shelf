@@ -61,7 +61,8 @@ function useAsync() {
 	const run = useCallback(
 		(promise: Promise<any>) => {
 			dispatch({ type: 'pending' })
-			promise.then(
+
+			return promise.then(
 				data => {
 					dispatch({ type: 'resolved', data })
 				},
