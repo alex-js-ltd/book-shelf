@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
-
+import React from 'react'
 import { ReactElement, cloneElement, FormEvent } from 'react'
 import { Button, Input, FormGroup, Spinner, ErrorMessage } from 'comps/lib'
 import { Modal, ModalContents, ModalOpenButton } from 'comps/modal'
@@ -33,6 +33,10 @@ const LoginForm = ({
 			}),
 		)
 	}
+
+	React.useEffect(() => {
+		console.log('err', error)
+	}, [error])
 
 	return (
 		<form

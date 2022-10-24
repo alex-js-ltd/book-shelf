@@ -41,7 +41,7 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 	}, [isError, error])
 
 	return (
-		<Tooltip label={isError ? error.message : label}>
+		<Tooltip label={isError ? error?.message : label}>
 			<CircleButton
 				css={{
 					backgroundColor: 'white',
@@ -55,7 +55,7 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 				}}
 				disabled={isLoading}
 				onClick={handleClick}
-				aria-label={isError ? error.message : label}
+				aria-label={isError ? error?.message : label}
 				{...rest}
 			>
 				{isLoading ? <Spinner /> : isError ? <FaTimesCircle /> : icon}
