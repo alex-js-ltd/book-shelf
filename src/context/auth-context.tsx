@@ -34,12 +34,7 @@ const userPromise = getUser()
 const AuthProvider = ({ children }: AuthProviderProps) => {
 	const {
 		data: user,
-		status,
-		error,
-		isLoading,
-		isIdle,
-		isError,
-		isSuccess,
+
 		run,
 		setData,
 	} = useAsync()
