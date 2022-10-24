@@ -1,4 +1,10 @@
-import { useLayoutEffect, useRef, useReducer, useCallback } from 'react'
+import {
+	Dispatch,
+	useLayoutEffect,
+	useRef,
+	useReducer,
+	useCallback,
+} from 'react'
 
 type Action =
 	| { type: 'pending' }
@@ -14,7 +20,7 @@ type State =
 	  }
 	| {}
 
-function useSafeDispatch(dispatch: Function) {
+function useSafeDispatch(dispatch: Dispatch<Action>) {
 	const mounted = useRef(false)
 
 	useLayoutEffect(() => {
