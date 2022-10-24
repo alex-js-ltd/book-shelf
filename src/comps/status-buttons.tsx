@@ -30,14 +30,10 @@ interface Props {
 }
 
 const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
-	const { isLoading, isError, error, run, reset } = useAsync()
+	const { isLoading, isError, error, run } = useAsync()
 
 	const handleClick = () => {
-		if (isError) {
-			reset()
-		} else {
-			run(onClick())
-		}
+		run(onClick())
 	}
 
 	React.useEffect(() => {
@@ -76,41 +72,39 @@ const StatusButtons = ({ book }: { book: Book }) => {
 
 	return (
 		<React.Fragment>
-			{listItem && listItem?.finishDate && (
-				<TooltipButton
-					label='Mark as unread'
-					highlight={colors.yellow}
-					onClick={() => update.mutateAsync({ finishDate: null, rating: 0 })}
-					icon={<FaBook />}
-				/>
-			)}
+			{listItem ? (
+				Boolean(listItem.finishDate) ? (
+					<TooltipButton
+						label='Mark as unread'
+						highlight={colors.yellow}
+						onClick={() => update.mutateAsync({ finishDate: null, rating: 0 })}
+						icon={<FaBook />}
+					/>
+				) : (
+					<TooltipButton
+						label='Mark as read'
+						highlight={colors.green}
+						onClick={() =>
+							update.mutateAsync({ finishDate: Date.now(), rating: 0 })
+						}
+						icon={<FaCheckCircle />}
+					/>
+				)
+			) : null}
 
-			{listItem && !listItem?.finishDate && (
-				<TooltipButton
-					label='Mark as read'
-					highlight={colors.green}
-					onClick={() =>
-						update.mutateAsync({ finishDate: Date.now(), rating: 0 })
-					}
-					icon={<FaCheckCircle />}
-				/>
-			)}
-
-			{!listItem && (
-				<TooltipButton
-					label='Add to list'
-					highlight={colors.indigo}
-					onClick={() => create.mutateAsync()}
-					icon={<FaPlusCircle />}
-				/>
-			)}
-
-			{listItem && (
+			{listItem ? (
 				<TooltipButton
 					label='Remove from list'
 					highlight={colors.danger}
 					onClick={() => remove.mutateAsync({ bookId: book.objectID })}
 					icon={<FaMinusCircle />}
+				/>
+			) : (
+				<TooltipButton
+					label='Add to list'
+					highlight={colors.indigo}
+					onClick={() => create.mutateAsync()}
+					icon={<FaPlusCircle />}
 				/>
 			)}
 		</React.Fragment>
