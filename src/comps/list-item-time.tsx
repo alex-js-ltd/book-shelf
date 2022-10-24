@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react'
 
 import * as React from 'react'
-import Tooltip from '@reach/tooltip'
+import { Tooltip } from '@reach/tooltip'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { formatDate } from 'utils/misc'
 import { Book } from 'types'

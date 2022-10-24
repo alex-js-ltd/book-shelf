@@ -9,7 +9,7 @@ import {
 	FaBook,
 	FaTimesCircle,
 } from 'react-icons/fa'
-import Tooltip from '@reach/tooltip'
+import { Tooltip } from '@reach/tooltip'
 import { useAsync } from 'utils/hooks'
 import * as colors from 'styles/colors'
 import { CircleButton, Spinner } from './lib'
