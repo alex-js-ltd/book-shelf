@@ -36,10 +36,6 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 		run(onClick())
 	}
 
-	React.useEffect(() => {
-		console.log(isError, error)
-	}, [isError, error])
-
 	return (
 		<Tooltip label={isError ? error?.message : label}>
 			<CircleButton

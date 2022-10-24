@@ -34,10 +34,6 @@ const LoginForm = ({
 		)
 	}
 
-	React.useEffect(() => {
-		console.log('err', error)
-	}, [error])
-
 	return (
 		<form
 			onSubmit={handleSubmit}
