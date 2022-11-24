@@ -30,6 +30,7 @@ async function client(
 			return Promise.reject({ message: 'Please re-authenticate.' })
 		}
 		const data = await response.json()
+		console.log(data)
 
 		if (response.ok) {
 			return data
@@ -39,4 +40,16 @@ async function client(
 	})
 }
 
-export { client }
+function read(endpoint: string, token: string): Promise<any> {
+	return client(endpoint, { method: 'GET', token })
+}
+
+function create(endpoint: string, data: any, token: string): Promise<any> {
+	return client(endpoint, { method: 'PATCH', data, token })
+}
+
+function remove(endpoint: string, data: any, token: string): Promise<void> {
+	return client(endpoint, { method: 'PATCH', data, token })
+}
+
+export { client, read, create, remove }

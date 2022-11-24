@@ -1,17 +1,19 @@
 import React from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { useAuth, useClient } from 'context/auth-context'
+import { useAuth } from 'context/auth-context'
 import { Book, MapValue } from 'types'
 
+import { useClient } from './use-client'
+
 const useListItems = () => {
-	const client = useClient()
+	const { read } = useClient()
 	const { user } = useAuth()
 	const endpoint = user?.localId
 
 	const { data, error } = useQuery({
 		queryKey: ['list-items', { endpoint }],
 		queryFn: () =>
-			client(`users/${endpoint}`, { method: 'GET' }).then(
+			read(`users/${endpoint}`).then(
 				data => data.fields.readingList.arrayValue,
 			),
 	})
@@ -59,10 +61,7 @@ const useListItemsClient = () => {
 }
 
 const useCreateListItem = (book: Book) => {
-	const client = useClient()
-	const { user } = useAuth()
-
-	const endpoint = user?.localId
+	const { create } = useClient()
 
 	const queryClient = useQueryClient()
 
@@ -104,14 +103,11 @@ const useCreateListItem = (book: Book) => {
 
 	return useMutation(
 		() =>
-			client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
-				method: 'PATCH',
-				data: {
-					fields: {
-						readingList: {
-							arrayValue: {
-								values: [...listItems, newBook],
-							},
+			create({
+				fields: {
+					readingList: {
+						arrayValue: {
+							values: [...listItems, newBook],
 						},
 					},
 				},
@@ -129,9 +125,7 @@ const useListItem = (bookId: string | undefined) => {
 }
 
 const useRemoveListItem = () => {
-	const client = useClient()
-	const { user } = useAuth()
-	const endpoint = user?.localId
+	const { remove } = useClient()
 
 	const queryClient = useQueryClient()
 
@@ -145,14 +139,11 @@ const useRemoveListItem = () => {
 
 	return useMutation(
 		({ bookId }: { bookId: string }) =>
-			client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
-				method: 'PATCH',
-				data: {
-					fields: {
-						readingList: {
-							arrayValue: {
-								values: returnArr(bookId),
-							},
+			remove({
+				fields: {
+					readingList: {
+						arrayValue: {
+							values: returnArr(bookId),
 						},
 					},
 				},
@@ -166,9 +157,7 @@ const useRemoveListItem = () => {
 }
 
 const useUpdateListItem = (bookId: string) => {
-	const client = useClient()
-	const { user } = useAuth()
-	const endpoint = user?.localId
+	const { create } = useClient()
 
 	const queryClient = useQueryClient()
 
@@ -196,14 +185,11 @@ const useUpdateListItem = (bookId: string) => {
 
 	return useMutation(
 		({ finishDate, rating }: { finishDate: number | null; rating: number }) =>
-			client(`users/${endpoint}?updateMask.fieldPaths=readingList`, {
-				method: 'PATCH',
-				data: {
-					fields: {
-						readingList: {
-							arrayValue: {
-								values: values(finishDate, rating),
-							},
+			create({
+				fields: {
+					readingList: {
+						arrayValue: {
+							values: values(finishDate, rating),
 						},
 					},
 				},

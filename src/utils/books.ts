@@ -1,7 +1,7 @@
 import React from 'react'
 import algoliasearch from 'algoliasearch'
 import { useQuery } from '@tanstack/react-query'
-import { useClient } from 'context/auth-context'
+import { useClient } from 'utils/use-client'
 import bookPlaceholderSvg from 'assets/book-placeholder.svg'
 import { useListItemsClient } from './list-items'
 import { Book } from 'types'
@@ -69,12 +69,11 @@ const useBookSearch = (query: string | null) => {
 }
 
 const useBook = (bookId: string | undefined) => {
-	const client = useClient()
+	const { read } = useClient()
 
 	const { data = loadingBook } = useQuery({
 		queryKey: ['book', { bookId }],
-		queryFn: () =>
-			client(`books/${bookId}`, { method: 'GET' }).then(data => data.fields),
+		queryFn: () => read(`books/${bookId}`).then(data => data.fields),
 	})
 
 	const { title, coverImageUrl, publisher, synopsis, pageCount, author } = data

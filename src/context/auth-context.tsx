@@ -9,7 +9,6 @@ import React, {
 } from 'react'
 import { queryClient } from 'context'
 import * as auth from 'auth-provider'
-import { client } from 'utils/api-client'
 import { useAsync } from 'utils/hooks'
 import { getUser } from 'get-user'
 import { FormData } from 'types'
@@ -76,14 +75,4 @@ const useAuth = () => {
 	return context
 }
 
-const useClient = () => {
-	const { user } = useAuth()
-	const token = user?.idToken
-	return useCallback(
-		(endpoint: string, config: { method: 'GET' | 'PATCH'; data?: any }) =>
-			client(endpoint, { ...config, token }),
-		[token],
-	)
-}
-
-export { AuthProvider, useAuth, useClient }
+export { AuthProvider, useAuth }
