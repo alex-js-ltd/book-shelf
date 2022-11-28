@@ -1,6 +1,7 @@
 import { queryClient } from 'context'
 import * as auth from 'auth-provider'
 import { Book } from 'types'
+import { formatBook } from './misc'
 const apiURL = process.env.REACT_APP_API_URL
 
 type Config = {
@@ -37,8 +38,12 @@ async function client(endpoint: string, { method, data, token }: Config) {
 	})
 }
 
-function readBook(endpoint: string, token: string): Promise<Book> {
-	return client(endpoint, { method: 'GET', token }).then(data => data.fields)
+async function readBook(endpoint: string, token: string): Promise<Book> {
+	const { fields } = await client(endpoint, { method: 'GET', token })
+
+	const book = formatBook(fields)
+
+	return book
 }
 
 function create(endpoint: string, data: any, token: string): Promise<any> {

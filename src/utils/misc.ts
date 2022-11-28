@@ -7,7 +7,7 @@ const formatDate = (date: number) =>
 		year: 'numeric',
 	}).format(date)
 
-const returnBook = (fields: any): Book => {
+const formatBook = (fields: any): Book => {
 	return {
 		title: fields?.title?.stringValue,
 		coverImageUrl: fields?.coverImageUrl?.stringValue,
@@ -18,4 +18,4 @@ const returnBook = (fields: any): Book => {
 	}
 }
 
-export { formatDate, returnBook }
+export { formatDate, formatBook }
