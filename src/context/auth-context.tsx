@@ -10,7 +10,6 @@ import React, {
 import { queryClient } from 'context'
 import * as auth from 'auth-provider'
 import { useAsync } from 'utils/hooks'
-import { getUser } from 'get-user'
 import { FormData } from 'types'
 
 type AuthProviderProps = { children: ReactNode }
@@ -28,7 +27,7 @@ const AuthContext = createContext<
 AuthContext.displayName = 'AuthContext'
 
 // fetch user before auth provider mounts
-const userPromise = getUser()
+const userPromise = auth.getUser()
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
 	const {

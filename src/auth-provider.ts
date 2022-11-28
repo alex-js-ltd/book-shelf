@@ -1,44 +1,38 @@
 import { FormData } from 'types'
 const loginURL = process.env.REACT_APP_SIGN_IN_URL
 const registerURL = process.env.REACT_APP_SIGN_UP_URL
+const refreshURL = process.env.REACT_APP_REFRESH_URL
 const localStorageKey = '__auth_provider_token__'
 
 type AuthData = {
-	displayName?: string
-	email: string
-	expiresIn: string
 	idToken: string
-	kind: string
 	localId: string
 	refreshToken: string
-	registered: string
-}
-
-type ClientData = {
 	email: string
-	password: string
-	returnSecureToken: boolean
+	displayName?: string
+	expiresIn?: string
+	kind?: string
+	registered?: string
 }
 
 async function getToken() {
-	// if we were a real auth provider, this is where we would make a request
-	// to retrieve the user's token. (It's a bit more complicated than that...
-	// but you're probably not an auth provider so you don't need to worry about it).
-	return window.localStorage.getItem(localStorageKey)
+	const u = window.localStorage.getItem(localStorageKey)
+
+	return u ? JSON.parse(u) : null
 }
 
 function handleUserResponse(user: AuthData) {
-	window.localStorage.setItem(localStorageKey, user.refreshToken)
+	window.localStorage.setItem(localStorageKey, JSON.stringify(user))
 	return user
 }
 
-function login({ email, password }: FormData) {
+function login({ email, password }: FormData): Promise<AuthData> {
 	return client(loginURL, { email, password, returnSecureToken: true }).then(
 		handleUserResponse,
 	)
 }
 
-function register({ email, password }: FormData) {
+function register({ email, password }: FormData): Promise<AuthData> {
 	return client(registerURL, { email, password, returnSecureToken: true }).then(
 		handleUserResponse,
 	)
@@ -48,10 +42,41 @@ async function logout() {
 	window.localStorage.removeItem(localStorageKey)
 }
 
-async function client(
-	endpoint: string | undefined,
-	data: ClientData,
-): Promise<AuthData> {
+type RefreshData = {
+	expires_in: string
+	token_type: string
+	refresh_token: string
+	id_token: string
+	user_id: string
+	project_id: string
+}
+
+function handleRefresh(refreshData: RefreshData, email: string): AuthData {
+	const user = {
+		idToken: refreshData.id_token,
+		localId: refreshData.user_id,
+		refreshToken: refreshData.refresh_token,
+		email,
+	}
+
+	window.localStorage.setItem(localStorageKey, JSON.stringify(user))
+
+	return user
+}
+
+async function getUser(): Promise<AuthData | null> {
+	console.log('getUser')
+	const user = await getToken()
+
+	if (!user) return null
+
+	return client(refreshURL, {
+		refresh_token: user.refreshToken,
+		grant_type: 'refresh_token',
+	}).then(refreshData => handleRefresh(refreshData, user.email))
+}
+
+async function client(endpoint: string | undefined, data: any) {
 	const config = {
 		method: 'POST',
 		body: JSON.stringify(data),
@@ -69,4 +94,4 @@ async function client(
 	})
 }
 
-export { getToken, login, register, logout, localStorageKey }
+export { getToken, login, register, logout, getUser, localStorageKey }
