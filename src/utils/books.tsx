@@ -23,12 +23,10 @@ const loadingBooks = Array.from({ length: 10 }, (v, index) => ({
 }))
 
 const useBookSearch = (query: string) => {
-	const result = useQuery<any, Error>({
+	const result = useQuery<Book[], Error>({
 		queryKey: ['bookSearch', { query }],
 		queryFn: () => search(query),
 	})
-
-	console.log(result.data)
 
 	//const listItems = useListItemsClient()
 
