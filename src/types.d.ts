@@ -4,7 +4,7 @@ type FormData = {
 }
 
 type Book = {
-	objectID: string
+	objectID?: string
 	title: string
 	author: string
 	coverImageUrl: string

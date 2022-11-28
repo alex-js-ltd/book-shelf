@@ -8,8 +8,8 @@ const useClient = () => {
 
 	const endpoint = user?.localId
 
-	const read = useCallback(
-		(endpoint: string) => client.read(endpoint, token),
+	const readBook = useCallback(
+		(endpoint: string) => client.readBook(endpoint, token),
 		[token],
 	)
 
@@ -33,7 +33,7 @@ const useClient = () => {
 		[token],
 	)
 
-	return { read, remove, create }
+	return { readBook, remove, create }
 }
 
 export { useClient }

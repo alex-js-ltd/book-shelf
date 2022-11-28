@@ -4,8 +4,8 @@ import { useClient } from 'utils/use-client'
 import bookPlaceholderSvg from 'assets/book-placeholder.svg'
 //import { useListItemsClient } from './list-items'
 import { Book } from 'types'
-
 import { search } from './algolia-client'
+import { returnBook } from './misc'
 
 const loadingBook = {
 	title: 'Loading...',
@@ -41,22 +41,15 @@ const useBookSearch = (query: string) => {
 }
 
 const useBook = (bookId: string | undefined) => {
-	const { read } = useClient()
+	const { readBook } = useClient()
 
 	const { data, isLoading } = useQuery({
 		queryKey: ['book', { bookId }],
-		queryFn: () => read(`books/${bookId}`).then(data => data.fields),
+		queryFn: () => readBook(`books/${bookId}`),
 	})
 
-	const book: Book = {
-		objectID: bookId || '',
-		title: data?.title?.stringValue,
-		coverImageUrl: data?.coverImageUrl?.stringValue,
-		publisher: data?.publisher?.stringValue,
-		synopsis: data?.synopsis?.stringValue,
-		pageCount: data?.pageCount?.integerValue,
-		author: data?.author?.stringValue,
-	}
+	const book = returnBook(data)
+	book.objectID = bookId
 
 	return isLoading ? loadingBook : book
 }
