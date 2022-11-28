@@ -17,7 +17,6 @@ type AuthData = {
 
 async function getToken() {
 	const u = window.localStorage.getItem(localStorageKey)
-
 	return u ? JSON.parse(u) : null
 }
 

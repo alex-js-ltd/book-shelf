@@ -3,4 +3,6 @@ type FormData = {
 	password: string
 }
 
-export { FormData }
+type Book = any
+
+export { FormData, Book }
