@@ -43,24 +43,22 @@ const useBookSearch = (query: string) => {
 const useBook = (bookId: string | undefined) => {
 	const { read } = useClient()
 
-	const { data = loadingBook } = useQuery({
+	const { data, isLoading } = useQuery({
 		queryKey: ['book', { bookId }],
 		queryFn: () => read(`books/${bookId}`).then(data => data.fields),
 	})
 
-	const { title, coverImageUrl, publisher, synopsis, pageCount, author } = data
+	const book: Book = {
+		objectID: bookId || '',
+		title: data?.title?.stringValue,
+		coverImageUrl: data?.coverImageUrl?.stringValue,
+		publisher: data?.publisher?.stringValue,
+		synopsis: data?.synopsis?.stringValue,
+		pageCount: data?.pageCount?.integerValue,
+		author: data?.author?.stringValue,
+	}
 
-	let book: any = {}
-
-	book.objectID = bookId
-	book.title = title?.stringValue
-	book.coverImageUrl = coverImageUrl?.stringValue
-	book.publisher = publisher?.stringValue
-	book.synopsis = synopsis?.stringValue
-	book.pageCount = pageCount?.integerValue
-	book.author = author?.stringValue
-
-	return book ?? loadingBook
+	return isLoading ? loadingBook : book
 }
 
 export { useBookSearch, useBook }

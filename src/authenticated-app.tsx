@@ -8,8 +8,8 @@ import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
 
 import { DiscoverBooksScreen } from 'screens/discover'
+import { BookScreen } from 'screens/book'
 //import { ReadingListScreen } from './screens/reading-list'
-// import { BookScreen } from 'screens/book'
 // import { FinishedScreen } from 'screens/finished'
 
 import { useAuth } from 'context/auth-context'
@@ -136,9 +136,9 @@ const Nav = () => (
 const AppRoutes = () => (
 	<Routes>
 		<Route path='/discover' element={<DiscoverBooksScreen />} />
+		<Route path='/book/:bookId' element={<BookScreen />} />
 		{/* <Route path='/list' element={<ReadingListScreen />} /> */}
 		{/* <Route path='/finished' element={<FinishedScreen />} /> */}
-		{/* <Route path='/book/:bookId' element={<BookScreen />} /> */}
 	</Routes>
 )
 
