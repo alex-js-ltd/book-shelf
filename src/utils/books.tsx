@@ -45,8 +45,8 @@ const useBook = (bookId: string | undefined) => {
 	const result = useQuery<Book, Error>({
 		queryKey: ['book', { bookId }],
 		queryFn: () =>
-			read(`books/${bookId}`).then(async ({ fields }) => {
-				const book = await formatBook(fields)
+			read(`books/${bookId}`).then(({ fields }) => {
+				const book = formatBook(fields)
 
 				return book
 			}),
