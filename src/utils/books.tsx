@@ -4,6 +4,7 @@ import bookPlaceholderSvg from 'assets/book-placeholder.svg'
 //import { useListItemsClient } from './list-items'
 import { Book } from 'types'
 import { search } from './algolia-client'
+import { formatBook } from './misc'
 
 const loadingBook = {
 	title: 'Loading...',
@@ -39,14 +40,19 @@ const useBookSearch = (query: string) => {
 }
 
 const useBook = (bookId: string | undefined) => {
-	const { readBook } = useClient()
+	const { read } = useClient()
 
-	const { data: book } = useQuery({
+	const result = useQuery<Book, Error>({
 		queryKey: ['book', { bookId }],
-		queryFn: () => readBook(`books/${bookId}`),
+		queryFn: () =>
+			read(`books/${bookId}`).then(async ({ fields }) => {
+				const book = await formatBook(fields)
+
+				return book
+			}),
 	})
 
-	return book ?? loadingBook
+	return result?.data ?? loadingBook
 }
 
 export { useBookSearch, useBook }

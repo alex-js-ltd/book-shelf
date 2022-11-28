@@ -38,12 +38,8 @@ async function client(endpoint: string, { method, data, token }: Config) {
 	})
 }
 
-async function readBook(endpoint: string, token: string): Promise<Book> {
-	const { fields } = await client(endpoint, { method: 'GET', token })
-
-	const book = formatBook(fields)
-
-	return book
+function read(endpoint: string, token: string): Promise<any> {
+	return client(endpoint, { method: 'GET', token })
 }
 
 function create(endpoint: string, data: any, token: string): Promise<any> {
@@ -54,4 +50,4 @@ function remove(endpoint: string, data: any, token: string): Promise<void> {
 	return client(endpoint, { method: 'PATCH', data, token })
 }
 
-export { client, readBook, create, remove }
+export { client, read, create, remove }
