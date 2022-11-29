@@ -1,8 +1,48 @@
-const search = require('./search')
-const user = require('./user')
+// @ts-nocheck
 
-exports.addToIndex = search.addToIndex
-exports.updateIndex = search.updateIndex
-exports.deleteFromIndex = search.deleteFromIndex
+import * as functions from 'firebase-functions'
+import * as admin from 'firebase-admin'
+import algoliasearch from 'algoliasearch'
 
-exports.createUserRecord = user.createUserRecord
+admin.initializeApp()
+
+const APP_ID = functions.config().algolia.app
+const ADMIN_KEY = functions.config().algolia.key
+
+const client = algoliasearch(APP_ID, ADMIN_KEY)
+const index = client.initIndex('books')
+
+// // Start writing Firebase Functions
+// // https://firebase.google.com/docs/functions/typescript
+
+exports.createUserRecord = functions.auth.user().onCreate((user, context) => {
+	const userRef = db.doc(`users/${user.uid}`)
+
+	return userRef.set({
+		email: user.email,
+		uid: user.uid,
+		createdAt: context.timestamp,
+		readingList: [],
+	})
+})
+
+exports.addToIndex = functions.firestore
+	.document('books/{bookId}')
+	.onCreate(snapshot => {
+		const data = snapshot.data()
+		const objectID = snapshot.id
+
+		return index.saveObject({ ...data, objectID })
+	})
+
+exports.updateIndex = functions.firestore
+	.document('books/{bookId}')
+	.onUpdate(change => {
+		const newData = change.after.data()
+		const objectID = change.after.id
+		return index.saveObject({ ...newData, objectID })
+	})
+
+exports.deleteFromIndex = functions.firestore
+	.document('books/{bookId}')
+	.onDelete(snapshot => index.deleteObject(snapshot.id))
