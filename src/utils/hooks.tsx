@@ -72,8 +72,8 @@ function useAsync() {
 				data => {
 					dispatch({ type: 'resolved', data })
 				},
-				(err: { error: Error }) => {
-					dispatch({ type: 'rejected', error: err.error })
+				({ error }) => {
+					dispatch({ type: 'rejected', error })
 				},
 			)
 		},
