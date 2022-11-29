@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import styled from '@emotion/styled/macro'
@@ -113,12 +114,21 @@ const Link = styled(RouterLink)({
 	},
 })
 
-const errorMessageVariants: any = {
+type ErrVariant = { stacked: CSSObject; inline: CSSObject }
+
+const errorMessageVariants: ErrVariant = {
 	stacked: { display: 'block' },
 	inline: { display: 'inline-block' },
 }
 
-const ErrorMessage = ({ error, variant = 'stacked', ...props }: any) => (
+const ErrorMessage = ({
+	error,
+	variant = 'stacked',
+	...props
+}: {
+	error: Error | null
+	variant?: keyof ErrVariant
+}) => (
 	<div
 		role='alert'
 		css={[{ color: colors.danger }, errorMessageVariants[variant]]}

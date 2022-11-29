@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react'
+/** @jsxImportSource @emotion/react */
 
 import { Link } from 'react-router-dom'
 import * as mq from 'styles/media-queries'

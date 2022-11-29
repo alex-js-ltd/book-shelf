@@ -1,7 +1,6 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react'
-import React from 'react'
-import { ReactElement, cloneElement, FormEvent } from 'react'
+/** @jsxImportSource @emotion/react */
+
+import React, { ReactElement, cloneElement, FormEvent } from 'react'
 import { Button, Input, FormGroup, Spinner, ErrorMessage } from 'comps/lib'
 import { Modal, ModalContents, ModalOpenButton } from 'comps/modal'
 import { Logo } from 'comps/logo'

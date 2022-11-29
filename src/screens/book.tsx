@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react'
+/** @jsxImportSource @emotion/react */
 
 import * as React from 'react'
 import { useParams } from 'react-router-dom'

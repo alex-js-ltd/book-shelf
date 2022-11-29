@@ -1,9 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react'
+/** @jsxImportSource @emotion/react */
 
-import React, {
+import {
 	createContext,
-	FC,
 	cloneElement,
 	useContext,
 	useState,
@@ -11,7 +9,7 @@ import React, {
 	HTMLAttributes,
 	ReactNode,
 } from 'react'
-import VisuallyHidden from '@reach/visually-hidden'
+import { VisuallyHidden } from '@reach/visually-hidden'
 import { Dialog, CircleButton } from './lib'
 
 const callAll =
@@ -39,8 +37,10 @@ const useModal = () => {
 	return context
 }
 
-const ModalDismissButton: FC<{ children: ReactElement }> = ({
+const ModalDismissButton = ({
 	children: child,
+}: {
+	children: ReactElement
 }) => {
 	const { setIsOpen } = useModal()
 
@@ -49,9 +49,7 @@ const ModalDismissButton: FC<{ children: ReactElement }> = ({
 	})
 }
 
-const ModalOpenButton: FC<{ children: ReactElement }> = ({
-	children: child,
-}) => {
+const ModalOpenButton = ({ children: child }: { children: ReactElement }) => {
 	const { setIsOpen } = useModal()
 
 	return cloneElement(child, {
@@ -63,15 +61,24 @@ const ModalContentsBase = (props: HTMLAttributes<HTMLDivElement>) => {
 	const { isOpen, setIsOpen } = useModal()
 
 	return (
-		<Dialog isOpen={isOpen} onDismiss={() => setIsOpen(false)} {...props} />
+		<Dialog
+			isOpen={isOpen}
+			onDismiss={() => setIsOpen(false)}
+			css={{ minHeight: '405px' }}
+			{...props}
+		/>
 	)
 }
 
-const ModalContents: FC<{
+const ModalContents = ({
+	title,
+	children,
+	...props
+}: {
 	title: string
 	children: ReactElement
 	props?: HTMLAttributes<HTMLDivElement>
-}> = ({ title, children, ...props }) => {
+}) => {
 	return (
 		<ModalContentsBase {...props}>
 			<div css={{ display: 'flex', justifyContent: 'flex-end' }}>

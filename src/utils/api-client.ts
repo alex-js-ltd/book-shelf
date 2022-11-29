@@ -1,7 +1,5 @@
 import { queryClient } from 'context'
 import * as auth from 'auth-provider'
-import { Book } from 'types'
-import { formatBook } from './misc'
 const apiURL = process.env.REACT_APP_API_URL
 
 type Config = {
@@ -33,7 +31,8 @@ async function client(endpoint: string, { method, data, token }: Config) {
 		if (response.ok) {
 			return data
 		} else {
-			return Promise.reject(data)
+			const error = new Error(data?.error?.message)
+			return Promise.reject(error)
 		}
 	})
 }

@@ -88,7 +88,8 @@ async function client(endpoint: string | undefined, data: any) {
 		if (response.ok) {
 			return data
 		} else {
-			return Promise.reject(data)
+			const error = new Error(data?.error?.message)
+			return Promise.reject(error)
 		}
 	})
 }
