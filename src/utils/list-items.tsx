@@ -3,20 +3,22 @@ import { useAuth } from 'context/auth-context'
 import { Book, ReadingList } from 'types'
 import { useClient } from './use-client'
 
-const useListItems = (): ReadingList => {
+const useListItems = () => {
 	const { read } = useClient()
 	const { user } = useAuth()
 	const endpoint = user?.localId
 
-	const { data } = useQuery({
+	const result = useQuery<ReadingList, Error>({
 		queryKey: ['list-items', { endpoint }],
 		queryFn: () =>
-			read(`users/${endpoint}`).then(
-				data => data.fields.readingList.arrayValue,
-			),
+			read(`users/${endpoint}`).then(({ fields }) => {
+				const readingList = fields.readingList.arrayValue?.values
+
+				return readingList
+			}),
 	})
 
-	return data?.values ? data.values : []
+	return result?.data ? result.data : []
 }
 
 const useCreateListItem = (book: Book) => {
@@ -25,8 +27,6 @@ const useCreateListItem = (book: Book) => {
 	const queryClient = useQueryClient()
 
 	const listItems = useListItems()
-
-	console.log(listItems)
 
 	const newBook = {
 		mapValue: {

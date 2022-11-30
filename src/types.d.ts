@@ -31,6 +31,6 @@ type MapValue = {
 	}
 }
 
-type ReadingList = { mapValue: MapValue }[] | []
+type ReadingList = Array<{ mapValue: MapValue }> | []
 
 export { FormData, Book, ReadingList, MapValue }
