@@ -7,8 +7,9 @@ const formatDate = (date: number) =>
 		year: 'numeric',
 	}).format(date)
 
-const formatBook = (fields: any): Book => {
+const formatBook = (fields: any, objectID: string): Book => {
 	return {
+		objectID,
 		title: fields?.title?.stringValue,
 		coverImageUrl: fields?.coverImageUrl?.stringValue,
 		publisher: fields?.publisher?.stringValue,

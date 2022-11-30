@@ -14,11 +14,11 @@ const useListItems = () => {
 			read(`users/${endpoint}`).then(({ fields }) => {
 				const readingList = fields.readingList.arrayValue?.values
 
-				return readingList
+				return readingList ?? []
 			}),
 	})
 
-	return result.data ?? []
+	return result?.data ?? []
 }
 
 const useCreateListItem = (book: Book) => {
@@ -112,4 +112,47 @@ const useFormattedListItems = () => {
 	})
 }
 
-export { useCreateListItem, useFormattedListItems }
+const useListItem = (bookId: string | undefined) => {
+	const listItems = useFormattedListItems()
+
+	return listItems?.find((li: Book) => li.objectID === bookId) ?? null
+}
+
+const useRemoveListItem = () => {
+	const { remove } = useClient()
+
+	const queryClient = useQueryClient()
+
+	const listItems = useListItems()
+
+	const returnArr = (bookId: string) =>
+		listItems?.filter(li => {
+			const fieldValues = Object.values(li.mapValue)[0]
+			return fieldValues.objectID.stringValue !== bookId
+		})
+
+	return useMutation(
+		({ bookId }: { bookId: string }) =>
+			remove({
+				fields: {
+					readingList: {
+						arrayValue: {
+							values: returnArr(bookId),
+						},
+					},
+				},
+			}),
+		{
+			onSettled: () => {
+				queryClient.refetchQueries(['list-items'])
+			},
+		},
+	)
+}
+
+export {
+	useCreateListItem,
+	useFormattedListItems,
+	useListItem,
+	useRemoveListItem,
+}

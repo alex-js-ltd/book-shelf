@@ -39,18 +39,14 @@ const useBookSearch = (query: string) => {
 	return { ...result, books: filter ?? loadingBooks }
 }
 
-const useBook = (bookId: string | undefined) => {
-	if (!bookId) {
-		throw new Error('bookId not available')
-	}
-
+const useBook = (bookId: string) => {
 	const { read } = useClient()
 
 	const result = useQuery<Book, Error>({
 		queryKey: ['book', { bookId }],
 		queryFn: () =>
 			read(`books/${bookId}`).then(({ fields }) => {
-				const book = formatBook(fields)
+				const book = formatBook(fields, bookId)
 
 				return book
 			}),

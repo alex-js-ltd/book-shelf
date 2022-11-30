@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { Link } from 'comps/lib'
 import { ListItemList } from 'comps/list-item-list'
 import { Book } from 'types'

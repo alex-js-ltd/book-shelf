@@ -12,7 +12,11 @@ import { Tooltip } from '@reach/tooltip'
 import { useAsync } from 'utils/hooks'
 import * as colors from 'styles/colors'
 import { CircleButton, Spinner } from './lib'
-import { useCreateListItem } from 'utils/list-items'
+import {
+	useCreateListItem,
+	useListItem,
+	useRemoveListItem,
+} from 'utils/list-items'
 
 import { Book } from 'types'
 
@@ -55,10 +59,9 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 }
 
 const StatusButtons = ({ book }: { book: Book }) => {
-	const listItem = null
-	// const listItem = useListItem(book.objectID)
+	const listItem = useListItem(book.objectID)
 	const create = useCreateListItem(book)
-	// const remove = useRemoveListItem()
+	const remove = useRemoveListItem()
 	// const update = useUpdateListItem(book.objectID)
 
 	return (
@@ -83,12 +86,21 @@ const StatusButtons = ({ book }: { book: Book }) => {
 				)
 			) : null} */}
 
-			<TooltipButton
-				label='Add to list'
-				highlight={colors.indigo}
-				onClick={() => create.mutateAsync()}
-				icon={<FaPlusCircle />}
-			/>
+			{listItem ? (
+				<TooltipButton
+					label='Remove from list'
+					highlight={colors.danger}
+					onClick={() => remove.mutateAsync({ bookId: book.objectID })}
+					icon={<FaMinusCircle />}
+				/>
+			) : (
+				<TooltipButton
+					label='Add to list'
+					highlight={colors.indigo}
+					onClick={() => create.mutateAsync()}
+					icon={<FaPlusCircle />}
+				/>
+			)}
 		</Fragment>
 	)
 }

@@ -15,7 +15,7 @@ const ListItemList = ({
 }) => {
 	const list = useFormattedListItems()
 
-	const filteredList = list?.filter(li => filterListItems(li))
+	const filteredList = list.filter(li => filterListItems(li))
 
 	if (!list?.length) {
 		return (

@@ -6,7 +6,7 @@ import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
 
 import { useBook } from 'utils/books'
-// import { useListItem } from 'utils/list-items'
+import { useListItem } from 'utils/list-items'
 // import { ListItemTimeframe } from 'comps/list-item-time'
 // import { StatusButtons } from 'comps/status-buttons'
 // import { Rating } from 'comps/rating'
@@ -14,8 +14,9 @@ import { useBook } from 'utils/books'
 const BookScreen = () => {
 	const { bookId } = useParams()
 
-	const book = useBook(bookId)
-	//const listItem = useListItem(bookId)
+	const objectID = bookId ? bookId : ''
+	const book = useBook(objectID)
+	const listItem = useListItem(bookId)
 
 	const { coverImageUrl, title, author, publisher, synopsis } = book
 
