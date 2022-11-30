@@ -18,7 +18,7 @@ const useListItems = () => {
 			}),
 	})
 
-	return result?.data ? result.data : []
+	return result.data ?? []
 }
 
 const useCreateListItem = (book: Book) => {
