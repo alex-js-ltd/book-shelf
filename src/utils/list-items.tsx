@@ -17,9 +17,7 @@ const useListItems = () => {
 			),
 	})
 
-	const listItems = data?.values ? data.values : []
-
-	return listItems
+	return data?.values ? data.values : []
 }
 
 const useCreateListItem = (book: Book) => {

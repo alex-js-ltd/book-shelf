@@ -37,15 +37,15 @@ async function client(endpoint: string, { method, data, token }: Config) {
 	})
 }
 
-function read(endpoint: string, token: string): Promise<any> {
+function read(endpoint: string, token: string) {
 	return client(endpoint, { method: 'GET', token })
 }
 
-function create(endpoint: string, data: any, token: string): Promise<any> {
+function create(endpoint: string, data: any, token: string) {
 	return client(endpoint, { method: 'PATCH', data, token })
 }
 
-function remove(endpoint: string, data: any, token: string): Promise<void> {
+function remove(endpoint: string, data: any, token: string) {
 	return client(endpoint, { method: 'PATCH', data, token })
 }
 

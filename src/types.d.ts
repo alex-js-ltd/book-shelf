@@ -12,8 +12,8 @@ type Book = {
 	synopsis: string
 	pageCount: number
 
-	startDate?: number | null
-	finishDate?: number | null
+	startDate?: number
+	finishDate?: number
 	rating?: number
 	loadingBook?: boolean
 }
