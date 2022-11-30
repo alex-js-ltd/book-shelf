@@ -1,7 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAuth } from 'context/auth-context'
 import { Book, ReadingList } from 'types'
-
 import { useClient } from './use-client'
 
 const useListItems = (): ReadingList => {
@@ -26,6 +25,8 @@ const useCreateListItem = (book: Book) => {
 	const queryClient = useQueryClient()
 
 	const listItems = useListItems()
+
+	console.log(listItems)
 
 	const newBook = {
 		mapValue: {

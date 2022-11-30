@@ -17,57 +17,20 @@ type Book = {
 	loadingBook?: boolean
 }
 
-type objectID = {
-	stringValue: string
-}
-
-type title = {
-	stringValue: string
-}
-
-type author = {
-	stringValue: string
-}
-
-type coverImageUrl = {
-	stringValue: string
-}
-
-type publisher = {
-	stringValue: string
-}
-
-type synopsis = {
-	stringValue: string
-}
-
-type startDate = {
-	integerValue: number
-}
-
-type finishDate = {
-	integerValue: number
-}
-
-type rating = {
-	integerValue: number
-}
-
-type Field =
-	| objectID
-	| title
-	| author
-	| coverImageUrl
-	| publisher
-	| synopsis
-	| startDate
-	| finishDate
-	| ratings
-
 type MapValue = {
-	fields: Field
+	fields: {
+		objectID: { stringValue: string }
+		title: { stringValue: string }
+		author: { stringValue: string }
+		coverImageUrl: { stringValue: string }
+		publisher: { stringValue: string }
+		synopsis: { stringValue: string }
+		startDate: { stringValue: number }
+		finishDate: { stringValue: number }
+		rating: { stringValue: number }
+	}
 }
 
 type ReadingList = { mapValue: MapValue }[] | []
 
-export { FormData, Book, ReadingList }
+export { FormData, Book, ReadingList, MapValue }
