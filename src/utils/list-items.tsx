@@ -1,10 +1,10 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAuth } from 'context/auth-context'
-import { Book } from 'types'
+import { Book, ReadingList } from 'types'
 
 import { useClient } from './use-client'
 
-const useListItems = () => {
+const useListItems = (): ReadingList => {
 	const { read } = useClient()
 	const { user } = useAuth()
 	const endpoint = user?.localId
