@@ -11,13 +11,13 @@ const ListItemList = ({
 	filterListItems,
 }: {
 	noListItems: ReactNode
-	filterListItems: Function
+	filterListItems: any
 }) => {
 	const list = useFormattedListItems()
 
-	const filteredList = list.filter(filterListItems)
+	const filteredList = list?.filter(filterListItems)
 
-	if (!filteredList?.length) {
+	if (!list.length) {
 		return (
 			<div css={{ marginTop: '1em', fontSize: '1.2em' }}>{noListItems}</div>
 		)

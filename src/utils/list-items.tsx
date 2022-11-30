@@ -190,12 +190,36 @@ const useUpdateListItem = (bookId: string) => {
 				},
 			}),
 		{
-			onSuccess(data, _variables, _context) {
-				queryClient.setQueriesData(['list-items'], () => {
-					const copyData = [...data.fields.readingList?.arrayValue?.values]
+			async onMutate(data) {
+				await queryClient.cancelQueries({ queryKey: ['list-items'] })
+				console.log(data)
 
-					return copyData ?? []
+				// Snapshot the previous value
+				const previousItems = queryClient.getQueryData(['list-items'])
+
+				// Optimistically update to the new value
+				queryClient.setQueryData(['list-items'], (old: any) => {
+					if (!old) return
+
+					const copyData = { ...old }
+
+					copyData.fields.readingList.arrayValue.values = values(
+						data.finishDate,
+						data.rating,
+					)
+
+					return copyData
 				})
+
+				return { previousItems }
+			},
+
+			onError: (err, newTodo, context) => {
+				queryClient.setQueryData(['list-items'], context?.previousItems)
+			},
+			// Always refetch after error or success:
+			onSettled: () => {
+				queryClient.invalidateQueries({ queryKey: ['list-items'] })
 			},
 		},
 	)

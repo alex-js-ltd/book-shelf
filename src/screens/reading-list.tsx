@@ -5,7 +5,7 @@ import { Started } from 'types'
 
 const ReadingListScreen = () => (
 	<ListItemList
-		filterListItems={() => (li: Started) => !li?.finishDate}
+		filterListItems={(li: Started) => !li.finishDate}
 		noListItems={
 			<p>
 				Hey there! Welcome to your bookshelf reading list. Get started by

@@ -5,7 +5,7 @@ import { Finished } from 'types'
 
 const FinishedScreen = () => (
 	<ListItemList
-		filterListItems={() => (li: Finished) => li.finishDate !== null}
+		filterListItems={(li: Finished) => Boolean(li.finishDate)}
 		noListItems={
 			<p>
 				Hey there! This is where books will go when you've finished reading
