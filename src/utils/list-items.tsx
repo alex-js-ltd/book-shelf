@@ -79,4 +79,36 @@ const useCreateListItem = (book: Book) => {
 	)
 }
 
-export { useCreateListItem }
+const useFormattedListItems = () => {
+	const listItems = useListItems()
+
+	return listItems?.map(({ mapValue }: any) => {
+		const {
+			coverImageUrl,
+			objectID,
+			pageCount,
+			publisher,
+			synopsis,
+			title,
+			startDate,
+			finishDate,
+			rating,
+		} = mapValue.fields
+
+		return {
+			coverImageUrl: coverImageUrl?.stringValue,
+			objectID: objectID.stringValue,
+			pageCount: pageCount.integerValue,
+			publisher: publisher.stringValue,
+			synopsis: synopsis.stringValue,
+			title: title.stringValue,
+			startDate: startDate.integerValue,
+			finishDate: finishDate.integerValue
+				? finishDate.integerValue
+				: finishDate.nullValue,
+			rating: rating ? rating.integerValue : 0,
+		}
+	})
+}
+
+export { useCreateListItem, useFormattedListItems }
