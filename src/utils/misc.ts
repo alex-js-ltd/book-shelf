@@ -7,7 +7,9 @@ const formatDate = (date: number) =>
 		year: 'numeric',
 	}).format(date)
 
-const formatBook = (fields: any, objectID: string): Book => {
+const formatBook = (objectID: string | undefined, fields: any): Book | null => {
+	if (!objectID) return null
+
 	return {
 		objectID,
 		title: fields?.title?.stringValue,

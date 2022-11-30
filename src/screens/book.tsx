@@ -14,11 +14,12 @@ import { useListItem } from 'utils/list-items'
 const BookScreen = () => {
 	const { bookId } = useParams()
 
-	const objectID = bookId ? bookId : ''
-	const book = useBook(objectID)
+	const book = useBook(bookId)
 	const listItem = useListItem(bookId)
 
 	const { coverImageUrl, title, author, publisher, synopsis } = book
+
+	if (!bookId) return null
 
 	return (
 		<div>
