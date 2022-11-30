@@ -7,6 +7,7 @@ import { search } from './algolia-client'
 import { formatBook } from './misc'
 
 const loadingBook = {
+	objectID: `loading-book-${0}`,
 	title: 'Loading...',
 	author: 'loading...',
 	coverImageUrl: bookPlaceholderSvg,
@@ -17,8 +18,8 @@ const loadingBook = {
 }
 
 const loadingBooks = Array.from({ length: 10 }, (v, index) => ({
-	objectID: `loading-book-${index}`,
 	...loadingBook,
+	objectID: `loading-book-${index}`,
 }))
 
 const useBookSearch = (query: string) => {

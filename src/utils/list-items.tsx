@@ -150,9 +150,57 @@ const useRemoveListItem = () => {
 	)
 }
 
+const useUpdateListItem = (bookId: string) => {
+	const { create } = useClient()
+
+	const queryClient = useQueryClient()
+
+	const listItems = useListItems()
+
+	const index = listItems.findIndex(li => {
+		const fieldValues = Object.values(li.mapValue)[0]
+		return fieldValues.objectID.stringValue === bookId
+	})
+
+	const values = (finishDate: number | null, rating: number) => {
+		const listItemsCopy = [...listItems]
+
+		const newListItem = { ...listItems[index] }
+
+		newListItem.mapValue.fields.finishDate.integerValue = finishDate
+			? finishDate
+			: undefined
+
+		newListItem.mapValue.fields.rating.integerValue = rating
+			? rating
+			: undefined
+
+		listItemsCopy[index] = newListItem
+
+		return listItemsCopy
+	}
+
+	return useMutation(
+		({ finishDate, rating }: { finishDate: number | null; rating: number }) =>
+			create({
+				fields: {
+					readingList: {
+						arrayValue: {
+							values: values(finishDate, rating),
+						},
+					},
+				},
+			}),
+		{
+			onSettled: () => queryClient.invalidateQueries(['list-items']),
+		},
+	)
+}
+
 export {
 	useCreateListItem,
 	useFormattedListItems,
 	useListItem,
 	useRemoveListItem,
+	useUpdateListItem,
 }

@@ -8,7 +8,7 @@ import * as colors from 'styles/colors'
 import { useBook } from 'utils/books'
 import { useListItem } from 'utils/list-items'
 // import { ListItemTimeframe } from 'comps/list-item-time'
-// import { StatusButtons } from 'comps/status-buttons'
+import { StatusButtons } from 'comps/status-buttons'
 // import { Rating } from 'comps/rating'
 
 const BookScreen = () => {
@@ -19,7 +19,7 @@ const BookScreen = () => {
 
 	const { coverImageUrl, title, author, publisher, synopsis } = book
 
-	if (!bookId) return null
+	if (!book) return null
 
 	return (
 		<div>
@@ -60,7 +60,7 @@ const BookScreen = () => {
 								minHeight: 100,
 							}}
 						>
-							{/* {book.loadingBook ? null : <StatusButtons book={book} />} */}
+							{book.loadingBook ? null : <StatusButtons book={book} />}
 						</div>
 					</div>
 					<div css={{ marginTop: 10, height: 46 }}>
