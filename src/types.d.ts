@@ -11,10 +11,19 @@ type Book = {
 	publisher: string
 	synopsis: string
 	pageCount: number
-	startDate?: number
-	finishDate?: number
-	rating?: number
 	loadingBook?: boolean
+}
+
+interface Started extends Book {
+	startDate: number
+	finishDate: null
+	rating: null
+}
+
+interface Finished extends Book {
+	startDate: number
+	finishDate: number
+	rating: number | null
 }
 
 type MapValue = {
@@ -27,11 +36,11 @@ type MapValue = {
 		synopsis: { stringValue: string }
 		pageCount: { integerValue: number }
 		startDate: { integerValue?: number }
-		finishDate: { integerValue?: number }
-		rating: { integerValue?: number }
+		finishDate: { integerValue?: number; nullValue?: null }
+		rating: { integerValue?: number; nullValue?: null }
 	}
 }
 
 type ReadingList = Array<{ mapValue: MapValue }> | []
 
-export { FormData, Book, ReadingList, MapValue }
+export { FormData, Book, ReadingList, MapValue, Started, Finished }

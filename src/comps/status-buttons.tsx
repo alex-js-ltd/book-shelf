@@ -16,6 +16,7 @@ import {
 	useCreateListItem,
 	useListItem,
 	useRemoveListItem,
+	useUpdateListItem,
 } from 'utils/list-items'
 
 import { Book } from 'types'
@@ -62,11 +63,11 @@ const StatusButtons = ({ book }: { book: Book }) => {
 	const listItem = useListItem(book.objectID)
 	const create = useCreateListItem(book)
 	const remove = useRemoveListItem()
-	// const update = useUpdateListItem(book.objectID)
+	const update = useUpdateListItem(book.objectID)
 
 	return (
 		<Fragment>
-			{/* {listItem ? (
+			{listItem ? (
 				Boolean(listItem.finishDate) ? (
 					<TooltipButton
 						label='Mark as unread'
@@ -84,7 +85,7 @@ const StatusButtons = ({ book }: { book: Book }) => {
 						icon={<FaCheckCircle />}
 					/>
 				)
-			) : null} */}
+			) : null}
 
 			{listItem ? (
 				<TooltipButton

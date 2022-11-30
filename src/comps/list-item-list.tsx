@@ -15,9 +15,9 @@ const ListItemList = ({
 }) => {
 	const list = useFormattedListItems()
 
-	const filteredList = list.filter(li => filterListItems(li))
+	const filteredList = list.filter(filterListItems)
 
-	if (!list?.length) {
+	if (!filteredList?.length) {
 		return (
 			<div css={{ marginTop: '1em', fontSize: '1.2em' }}>{noListItems}</div>
 		)

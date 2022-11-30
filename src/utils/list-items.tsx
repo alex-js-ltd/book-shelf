@@ -74,7 +74,7 @@ const useCreateListItem = (book: Book) => {
 				},
 			}),
 		{
-			onSettled: () => queryClient.invalidateQueries(['list-items']),
+			onSuccess: () => queryClient.refetchQueries(['list-items']),
 		},
 	)
 }
@@ -106,8 +106,8 @@ const useFormattedListItems = () => {
 			title: title.stringValue,
 			author: author?.stringValue,
 			startDate: startDate?.integerValue,
-			finishDate: finishDate?.integerValue,
-			rating: rating?.integerValue,
+			finishDate: finishDate?.integerValue ?? finishDate?.nullValue,
+			rating: rating?.integerValue ?? rating?.nullValue,
 		}
 	})
 }
@@ -143,9 +143,7 @@ const useRemoveListItem = () => {
 				},
 			}),
 		{
-			onSettled: () => {
-				queryClient.refetchQueries(['list-items'])
-			},
+			onSuccess: () => queryClient.refetchQueries(['list-items']),
 		},
 	)
 }
@@ -167,13 +165,13 @@ const useUpdateListItem = (bookId: string) => {
 
 		const newListItem = { ...listItems[index] }
 
-		newListItem.mapValue.fields.finishDate.integerValue = finishDate
-			? finishDate
-			: undefined
+		newListItem.mapValue.fields.finishDate = finishDate
+			? { integerValue: finishDate }
+			: { nullValue: null }
 
-		newListItem.mapValue.fields.rating.integerValue = rating
-			? rating
-			: undefined
+		newListItem.mapValue.fields.rating = rating
+			? { integerValue: rating }
+			: { nullValue: null }
 
 		listItemsCopy[index] = newListItem
 
@@ -192,7 +190,13 @@ const useUpdateListItem = (bookId: string) => {
 				},
 			}),
 		{
-			onSettled: () => queryClient.invalidateQueries(['list-items']),
+			onSuccess(data, _variables, _context) {
+				queryClient.setQueriesData(['list-items'], () => {
+					const copyData = [...data.fields.readingList?.arrayValue?.values]
+
+					return copyData ?? []
+				})
+			},
 		},
 	)
 }
