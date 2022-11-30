@@ -25,9 +25,10 @@ type MapValue = {
 		coverImageUrl: { stringValue: string }
 		publisher: { stringValue: string }
 		synopsis: { stringValue: string }
-		startDate: { stringValue: number }
-		finishDate: { stringValue: number }
-		rating: { stringValue: number }
+		pageCount: { integerValue: number }
+		startDate: { integerValue?: number }
+		finishDate: { integerValue?: number }
+		rating: { integerValue?: number }
 	}
 }
 

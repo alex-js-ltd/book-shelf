@@ -82,7 +82,9 @@ const useCreateListItem = (book: Book) => {
 const useFormattedListItems = () => {
 	const listItems = useListItems()
 
-	return listItems?.map(({ mapValue }: any) => {
+	return listItems?.map(li => {
+		const fieldValues = Object.values(li.mapValue)[0]
+
 		const {
 			coverImageUrl,
 			objectID,
@@ -93,20 +95,17 @@ const useFormattedListItems = () => {
 			startDate,
 			finishDate,
 			rating,
-		} = mapValue.fields
-
+		} = fieldValues
 		return {
-			coverImageUrl: coverImageUrl?.stringValue,
+			coverImageUrl: coverImageUrl.stringValue,
 			objectID: objectID.stringValue,
 			pageCount: pageCount.integerValue,
 			publisher: publisher.stringValue,
 			synopsis: synopsis.stringValue,
 			title: title.stringValue,
-			startDate: startDate.integerValue,
-			finishDate: finishDate.integerValue
-				? finishDate.integerValue
-				: finishDate.nullValue,
-			rating: rating ? rating.integerValue : 0,
+			startDate: startDate?.integerValue,
+			finishDate: finishDate?.integerValue,
+			rating: rating?.integerValue,
 		}
 	})
 }
