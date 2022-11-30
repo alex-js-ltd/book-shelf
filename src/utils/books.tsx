@@ -40,6 +40,9 @@ const useBookSearch = (query: string) => {
 }
 
 const useBook = (bookId: string | undefined) => {
+	if (!bookId) {
+		throw new Error('bookId not available')
+	}
 	const { read } = useClient()
 
 	const result = useQuery<Book, Error>({
