@@ -9,13 +9,14 @@ const useListItems = () => {
 	const endpoint = user?.localId
 
 	const result = useQuery<ReadingList, Error>({
-		queryKey: ['list-items', { endpoint }],
+		queryKey: ['list-items'],
 		queryFn: () =>
 			read(`users/${endpoint}`).then(({ fields }) => {
 				const readingList = fields.readingList.arrayValue?.values
 
 				return readingList ?? []
 			}),
+		enabled: true,
 	})
 
 	return result?.data ?? []
@@ -148,22 +149,25 @@ const useRemoveListItem = () => {
 	)
 }
 
-const useUpdateListItem = (bookId: string) => {
+const useUpdateListItem = () => {
 	const { create } = useClient()
 
 	const queryClient = useQueryClient()
 
 	const listItems = useListItems()
 
-	const index = listItems.findIndex(li => {
-		const fieldValues = Object.values(li.mapValue)[0]
-		return fieldValues.objectID.stringValue === bookId
-	})
+	const values = (newBook: Book) => {
+		const index = listItems.findIndex(li => {
+			const fieldValues = Object.values(li.mapValue)[0]
+			return fieldValues.objectID.stringValue === newBook.objectID
+		})
 
-	const values = (finishDate: number | null, rating: number) => {
 		const listItemsCopy = [...listItems]
 
 		const newListItem = { ...listItems[index] }
+
+		const finishDate = newBook.finishDate ?? null
+		const rating = newBook.rating ?? null
 
 		newListItem.mapValue.fields.finishDate = finishDate
 			? { integerValue: finishDate }
@@ -179,43 +183,47 @@ const useUpdateListItem = (bookId: string) => {
 	}
 
 	return useMutation(
-		({ finishDate, rating }: { finishDate: number | null; rating: number }) =>
+		(book: Book) =>
 			create({
 				fields: {
 					readingList: {
 						arrayValue: {
-							values: values(finishDate, rating),
+							values: values(book),
 						},
 					},
 				},
 			}),
 		{
-			async onMutate(data) {
+			onMutate: async listItem => {
+				// Cancel any outgoing refetches
+				// (so they don't overwrite our optimistic update)
 				await queryClient.cancelQueries({ queryKey: ['list-items'] })
-				console.log(data)
 
 				// Snapshot the previous value
-				const previousItems = queryClient.getQueryData(['list-items'])
+				const previousListItems = queryClient.getQueryData(['list-items'])
 
 				// Optimistically update to the new value
-				queryClient.setQueryData(['list-items'], (old: any) => {
-					if (!old) return
+				queryClient.setQueryData(['list-items'], (old: Book[] | undefined) => {
+					if (!old) return [listItem]
 
-					const copyData = { ...old }
+					const copyList = [...old]
 
-					copyData.fields.readingList.arrayValue.values = values(
-						data.finishDate,
-						data.rating,
+					const index = copyList.findIndex(
+						li => li.objectID === listItem.objectID,
 					)
 
-					return copyData
+					copyList[index] = listItem
+
+					return copyList
 				})
 
-				return { previousItems }
+				// Return a context object with the snapshotted value
+				return { previousListItems }
 			},
-
-			onError: (err, newTodo, context) => {
-				queryClient.setQueryData(['list-items'], context?.previousItems)
+			// If the mutation fails,
+			// use the context returned from onMutate to roll back
+			onError: (_err, _listItem, context) => {
+				queryClient.setQueryData(['list-items'], context?.previousListItems)
 			},
 			// Always refetch after error or success:
 			onSettled: () => {

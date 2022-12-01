@@ -12,18 +12,10 @@ type Book = {
 	synopsis: string
 	pageCount: number
 	loadingBook?: boolean
-}
 
-interface Started extends Book {
-	startDate: number
-	finishDate: null
-	rating: null
-}
-
-interface Finished extends Book {
-	startDate: number
-	finishDate: number
-	rating: number | null
+	startDate?: number
+	finishDate?: number | null
+	rating?: number | null
 }
 
 type MapValue = {
@@ -43,4 +35,4 @@ type MapValue = {
 
 type ReadingList = Array<{ mapValue: MapValue }> | []
 
-export { FormData, Book, ReadingList, MapValue, Started, Finished }
+export { FormData, Book, ReadingList, MapValue }

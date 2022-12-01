@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { Link } from 'comps/lib'
 import { ListItemList } from 'comps/list-item-list'
-import { Started } from 'types'
+import { Book } from 'types'
 
 const ReadingListScreen = () => (
 	<ListItemList
-		filterListItems={(li: Started) => !li.finishDate}
+		filterListItems={(li: Book) => !li.finishDate}
 		noListItems={
 			<p>
 				Hey there! Welcome to your bookshelf reading list. Get started by

@@ -63,7 +63,7 @@ const StatusButtons = ({ book }: { book: Book }) => {
 	const listItem = useListItem(book.objectID)
 	const create = useCreateListItem(book)
 	const remove = useRemoveListItem()
-	const update = useUpdateListItem(book.objectID)
+	const update = useUpdateListItem()
 
 	return (
 		<Fragment>
@@ -72,7 +72,9 @@ const StatusButtons = ({ book }: { book: Book }) => {
 					<TooltipButton
 						label='Mark as unread'
 						highlight={colors.yellow}
-						onClick={() => update.mutateAsync({ finishDate: null, rating: 0 })}
+						onClick={() =>
+							update.mutateAsync({ ...book, finishDate: null, rating: 0 })
+						}
 						icon={<FaBook />}
 					/>
 				) : (
@@ -80,7 +82,7 @@ const StatusButtons = ({ book }: { book: Book }) => {
 						label='Mark as read'
 						highlight={colors.green}
 						onClick={() =>
-							update.mutateAsync({ finishDate: Date.now(), rating: 0 })
+							update.mutateAsync({ ...book, finishDate: Date.now(), rating: 0 })
 						}
 						icon={<FaCheckCircle />}
 					/>
