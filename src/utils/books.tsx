@@ -36,12 +36,7 @@ const useBook = (bookId: string | undefined) => {
 
 	const result = useQuery<Book | null, Error>({
 		queryKey: ['book', bookId],
-		queryFn: () =>
-			read(`books/${bookId}`).then(({ fields }) => {
-				const book = formatBook(bookId, fields)
-
-				return book
-			}),
+		queryFn: () => read(`getBook?bookId=${bookId}`).then(data => data),
 	})
 
 	return result?.data ?? loadingBook

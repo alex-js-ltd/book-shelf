@@ -17,5 +17,7 @@ export const getBook = functions.https.onRequest(async (request, response) => {
 
 	const bookObj = { ...bookData, objectID: bookId }
 
+	response.set('Access-Control-Allow-Origin', '*')
+
 	response.send(bookObj)
 })
