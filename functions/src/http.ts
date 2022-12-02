@@ -5,7 +5,7 @@ import { getFirestore } from 'firebase-admin/firestore'
 import * as express from 'express'
 import * as cors from 'cors'
 
-import { getReadingList } from './utils'
+import { search, getReadingList } from './utils'
 
 const db = getFirestore()
 
@@ -24,8 +24,17 @@ app.get('/book', async (request, response) => {
 	const bookSnap = await bookRef.get()
 	const bookData = bookSnap.data()
 	const bookObj = { ...bookData, objectID: bookId }
-
 	response.send(bookObj)
+})
+
+app.get('/books', async (request, response) => {
+	const query = request.query.query
+
+	const hits = await search(query)
+
+	console.log(hits)
+
+	response.send(hits)
 })
 
 app.get('/reading-list', async (request, response) => {
@@ -40,7 +49,7 @@ app.get('/reading-list', async (request, response) => {
 	response.send(filter)
 })
 
-app.get('/finished', async (request, response) => {
+app.get('/finished-list', async (request, response) => {
 	const userId = request.query.userId
 
 	if (!userId) {

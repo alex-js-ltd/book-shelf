@@ -1,9 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import { useClient } from 'utils/use-client'
+import { useAuth } from 'context/auth-context'
 import bookPlaceholderSvg from 'assets/book-placeholder.svg'
-
 import { Book } from 'types'
-import { search } from './algolia-client'
 
 const loadingBook = {
 	objectID: `loading-book-${0}`,
@@ -22,9 +21,13 @@ const loadingBooks = Array.from({ length: 10 }, (v, index) => ({
 }))
 
 const useBookSearch = (query: string) => {
+	const { read } = useClient()
+	const { user } = useAuth()
+	const userId = user?.localId
+
 	const result = useQuery<Book[], Error>({
-		queryKey: ['bookSearch', query],
-		queryFn: () => search(query),
+		queryKey: ['books', query],
+		queryFn: () => read(`books?query=${encodeURIComponent(query)}`),
 	})
 
 	return { ...result, books: result?.data ?? loadingBooks }
