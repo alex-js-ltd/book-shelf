@@ -18,25 +18,23 @@ async function client(endpoint: string, { method, data, token }: Config) {
 		},
 	}
 
-	return window
-		.fetch(`${apiURL}/${endpoint}.json`, config)
-		.then(async response => {
-			if (response.status === 401) {
-				queryClient.clear()
-				await auth.logout()
-				// refresh the page for them
-				window.location.assign(window.location.href)
-				return Promise.reject({ message: 'Please re-authenticate.' })
-			}
-			const data = await response.json()
-			console.log(data)
-			if (response.ok) {
-				return data
-			} else {
-				const error = new Error(data?.error?.message)
-				return Promise.reject(error)
-			}
-		})
+	return window.fetch(`${apiURL}/${endpoint}`, config).then(async response => {
+		if (response.status === 401) {
+			queryClient.clear()
+			await auth.logout()
+			// refresh the page for them
+			window.location.assign(window.location.href)
+			return Promise.reject({ message: 'Please re-authenticate.' })
+		}
+		const data = await response.json()
+
+		if (response.ok) {
+			return data
+		} else {
+			const error = new Error(data?.error?.message)
+			return Promise.reject(error)
+		}
+	})
 }
 
 function read(endpoint: string, token: string) {
