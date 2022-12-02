@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useClient } from 'utils/use-client'
 import bookPlaceholderSvg from 'assets/book-placeholder.svg'
+import { useListItems } from './list-items'
 
 import { Book } from 'types'
 import { search } from './algolia-client'
@@ -27,7 +28,16 @@ const useBookSearch = (query: string) => {
 		queryFn: () => search(query),
 	})
 
-	return { ...result, books: result?.data ?? loadingBooks }
+	const listItems = useListItems()
+
+	const filter = result?.data?.filter(
+		(book: Book) =>
+			!listItems.find(
+				({ objectID }: { objectID: string }) => book.objectID === objectID,
+			),
+	)
+
+	return { ...result, books: filter ?? loadingBooks }
 }
 
 const useBook = (bookId: string | undefined) => {

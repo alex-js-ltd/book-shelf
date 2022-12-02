@@ -1,0 +1,66 @@
+[debug] [2022-12-02T17:06:12.663Z] ----------------------------------------------------------------------
+[debug] [2022-12-02T17:06:12.664Z] Command:       /Users/alexandergilbert/.nvm/versions/node/v16.18.1/bin/node /usr/local/bin/firebase functions:shell
+[debug] [2022-12-02T17:06:12.665Z] CLI Version:   11.10.0
+[debug] [2022-12-02T17:06:12.665Z] Platform:      darwin
+[debug] [2022-12-02T17:06:12.665Z] Node Version:  v16.18.1
+[debug] [2022-12-02T17:06:12.666Z] Time:          Fri Dec 02 2022 18:06:12 GMT+0100 (Central European Standard Time)
+[debug] [2022-12-02T17:06:12.666Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-02T17:06:12.712Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-02T17:06:12.712Z] > authorizing via signed-in user (alex.js.ltd@gmail.com)
+[debug] [2022-12-02T17:06:12.712Z] [iam] checking project epic-react-app for permissions ["firebase.projects.get"]
+[debug] [2022-12-02T17:06:12.714Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions [none]
+[debug] [2022-12-02T17:06:12.714Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-02T17:06:12.714Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-12-02T17:06:14.142Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions 200
+[debug] [2022-12-02T17:06:14.142Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-12-02T17:06:14.163Z] [functions] Using node@16 from host.
+[debug] [2022-12-02T17:06:14.165Z] defaultcredentials: writing to file /Users/alexandergilbert/.config/firebase/alex_js.ltd_gmail.com_application_default_credentials.json
+[debug] [2022-12-02T17:06:14.168Z] DEBUG: Setting GAC to /Users/alexandergilbert/.config/firebase/alex_js.ltd_gmail.com_application_default_credentials.json
+[debug] [2022-12-02T17:06:14.169Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig [none]
+[debug] [2022-12-02T17:06:14.621Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig 200
+[debug] [2022-12-02T17:06:14.621Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig {"projectId":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"}
+[debug] [2022-12-02T17:06:14.654Z] [functions] Watching "/Users/alexandergilbert/Desktop/book-shelf/functions" for Cloud Functions...
+[debug] [2022-12-02T17:06:14.661Z] Validating nodejs source
+[debug] [2022-12-02T17:06:16.125Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "algoliasearch": "^4.14.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.3.0",
+    "firebase-functions": "^4.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "private": true
+}
+[debug] [2022-12-02T17:06:16.126Z] Building nodejs source
+[debug] [2022-12-02T17:06:16.126Z] Analyzing nodejs backend spec
+[debug] [2022-12-02T17:06:16.140Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-12-02T17:06:16.325Z] Serving at port 9009
+
+[debug] [2022-12-02T17:06:16.511Z] Got response from /__/functions.yaml {"endpoints":{"createUserRecod":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","eventFilters":{"resource":"projects/epic-react-app"},"retry":false},"labels":{},"entryPoint":"createUserRecod"},"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-12-02T17:06:16.518Z] shutdown requested via /__/quitquitquit
+
+[debug] [2022-12-02T17:06:16.526Z] [functions] Loaded functions definitions from source: createUserRecod, api.
+[debug] [2022-12-02T17:06:16.527Z] addAuthTrigger {"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/epic-react-app"}}
+[debug] [2022-12-02T17:06:16.527Z] [functions[us-central1-createUserRecod]] auth function initialized.
+[debug] [2022-12-02T17:06:16.527Z] [functions[us-central1-api]] http function initialized (http://localhost:5001/epic-react-app/us-central1/api).
+[info] i  functions: Loaded functions: createUserRecod, api 
+[warn] ⚠  functions: The following emulators are not running, calls to these services will affect production: firestore, database, pubsub, storage, eventarc 
+[debug] [2022-12-02T17:06:21.765Z] [functions] Stopping Functions Emulator
