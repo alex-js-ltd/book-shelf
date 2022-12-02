@@ -5,6 +5,8 @@ import { getFirestore } from 'firebase-admin/firestore'
 import * as express from 'express'
 import * as cors from 'cors'
 
+import { getReadingList } from './utils'
+
 const db = getFirestore()
 
 // Multi Route ExpressJS HTTP Function
@@ -19,30 +21,35 @@ app.get('/book', async (request, response) => {
 	}
 
 	const bookRef = db.doc(`books/${bookId}`)
-
 	const bookSnap = await bookRef.get()
 	const bookData = bookSnap.data()
-
 	const bookObj = { ...bookData, objectID: bookId }
 
 	response.send(bookObj)
 })
 
-app.get('/users', async (request, response) => {
+app.get('/reading-list', async (request, response) => {
 	const userId = request.query.userId
 
 	if (!userId) {
 		response.status(400).send('ERROR you must supply a userId')
 	}
 
-	const userRef = db.doc(`users/${userId}`)
+	const readingList = await getReadingList(userId, db)
+	const filter = readingList.filter((li: any) => li?.finishDate === null)
+	response.send(filter)
+})
 
-	const userSnap = await userRef.get()
-	const userData = userSnap.data()
+app.get('/finished', async (request, response) => {
+	const userId = request.query.userId
 
-	const readingList = userData?.readingList
+	if (!userId) {
+		response.status(400).send('ERROR you must supply a userId')
+	}
 
-	response.send(readingList)
+	const readingList = await getReadingList(userId, db)
+	const filter = readingList.filter((li: any) => li?.finishDate !== null)
+	response.send(filter)
 })
 
 export const api = functions.https.onRequest(app)
