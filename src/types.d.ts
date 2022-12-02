@@ -3,6 +3,12 @@ type FormData = {
 	password: string
 }
 
+type Config = {
+	method: 'GET' | 'POST' | 'DELETE'
+	token: string
+	data?: any
+}
+
 type Book = {
 	objectID: string
 	title: string
@@ -18,21 +24,4 @@ type Book = {
 	rating?: number | null
 }
 
-type MapValue = {
-	fields: {
-		objectID: { stringValue: string }
-		title: { stringValue: string }
-		author: { stringValue: string }
-		coverImageUrl: { stringValue: string }
-		publisher: { stringValue: string }
-		synopsis: { stringValue: string }
-		pageCount: { integerValue: number }
-		startDate: { integerValue?: number }
-		finishDate: { integerValue?: number; nullValue?: null }
-		rating: { integerValue?: number; nullValue?: null }
-	}
-}
-
-type ReadingList = Array<{ mapValue: MapValue }> | []
-
-export { FormData, Book, ReadingList, MapValue }
+export { FormData, Config, Book }

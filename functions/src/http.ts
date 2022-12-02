@@ -28,4 +28,21 @@ app.get('/book', async (request, response) => {
 	response.send(bookObj)
 })
 
+app.get('/users', async (request, response) => {
+	const userId = request.query.userId
+
+	if (!userId) {
+		response.status(400).send('ERROR you must supply a userId')
+	}
+
+	const userRef = db.doc(`users/${userId}`)
+
+	const userSnap = await userRef.get()
+	const userData = userSnap.data()
+
+	const readingList = userData?.readingList
+
+	response.send(readingList)
+})
+
 export const api = functions.https.onRequest(app)
