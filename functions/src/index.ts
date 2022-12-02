@@ -1,3 +1,3 @@
 export { createUserRecod } from './user'
-export { getBook } from './http'
+export { api } from './http'
 // export { addToIndex, updateIndex, deleteFromIndex } from './search'

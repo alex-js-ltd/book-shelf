@@ -4,7 +4,6 @@ import bookPlaceholderSvg from 'assets/book-placeholder.svg'
 
 import { Book } from 'types'
 import { search } from './algolia-client'
-import { formatBook } from './misc'
 
 const loadingBook = {
 	objectID: `loading-book-${0}`,
@@ -36,7 +35,7 @@ const useBook = (bookId: string | undefined) => {
 
 	const result = useQuery<Book | null, Error>({
 		queryKey: ['book', bookId],
-		queryFn: () => read(`getBook?bookId=${bookId}`).then(data => data),
+		queryFn: () => read(`book?bookId=${bookId}`),
 	})
 
 	return result?.data ?? loadingBook

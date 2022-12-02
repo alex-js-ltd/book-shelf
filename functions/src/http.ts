@@ -1,9 +1,17 @@
 import * as functions from 'firebase-functions'
 import { getFirestore } from 'firebase-admin/firestore'
 
+// Express
+import * as express from 'express'
+import * as cors from 'cors'
+
 const db = getFirestore()
 
-export const getBook = functions.https.onRequest(async (request, response) => {
+// Multi Route ExpressJS HTTP Function
+const app = express()
+app.use(cors({ origin: true }))
+
+app.get('/book', async (request, response) => {
 	const bookId = request.query.bookId
 
 	if (!bookId) {
@@ -17,7 +25,7 @@ export const getBook = functions.https.onRequest(async (request, response) => {
 
 	const bookObj = { ...bookData, objectID: bookId }
 
-	response.set('Access-Control-Allow-Origin', '*')
-
 	response.send(bookObj)
 })
+
+export const api = functions.https.onRequest(app)
