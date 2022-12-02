@@ -1,9 +1,10 @@
 import * as functions from 'firebase-functions'
-import * as admin from 'firebase-admin'
+import { initializeApp } from 'firebase-admin/app'
+import { getFirestore } from 'firebase-admin/firestore'
 
-admin.initializeApp()
+initializeApp()
 
-const db = admin.firestore()
+const db = getFirestore()
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
