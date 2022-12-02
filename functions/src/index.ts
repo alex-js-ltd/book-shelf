@@ -1,9 +1,3 @@
-const { createUserRecod } = require('./user.js')
-const { addToIndex, updateIndex, deleteFromIndex } = require('./search.js')
+export { createUserRecod } from './user'
 
-module.exports = {
-	createUserRecod,
-	addToIndex,
-	updateIndex,
-	deleteFromIndex,
-}
+export { addToIndex, updateIndex, deleteFromIndex } from './search'

@@ -7,7 +7,7 @@ const ADMIN_KEY = functions.config().algolia.key
 const client = algoliasearch(APP_ID, ADMIN_KEY)
 const index = client.initIndex('books')
 
-const addToIndex = functions.firestore
+export const addToIndex = functions.firestore
 	.document('books/{bookId}')
 	.onCreate(snapshot => {
 		const data = snapshot.data()
@@ -16,7 +16,7 @@ const addToIndex = functions.firestore
 		return index.saveObject({ ...data, objectID })
 	})
 
-const updateIndex = functions.firestore
+export const updateIndex = functions.firestore
 	.document('books/{bookId}')
 	.onUpdate(change => {
 		const newData = change.after.data()
@@ -24,12 +24,6 @@ const updateIndex = functions.firestore
 		return index.saveObject({ ...newData, objectID })
 	})
 
-const deleteFromIndex = functions.firestore
+export const deleteFromIndex = functions.firestore
 	.document('books/{bookId}')
 	.onDelete(snapshot => index.deleteObject(snapshot.id))
-
-module.exports = {
-	addToIndex,
-	updateIndex,
-	deleteFromIndex,
-}
