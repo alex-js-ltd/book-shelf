@@ -14,12 +14,18 @@ const app = express()
 app.use(cors({ origin: true }))
 
 app.get('/books', async (request, response) => {
-	const search = request.query.search as string
+	const search = request.query.search
 	const userId = request.query.userId
 
-	console.log(typeof search, search)
 	if (!userId) {
 		response.status(400).send('ERROR you must supply a userId')
+	}
+
+	console.log('type', typeof search)
+
+	if (typeof search !== 'string') {
+		response.status(400).send('ERROR search must be a string')
+		return
 	}
 
 	const hits = await algoliaSearch(search)

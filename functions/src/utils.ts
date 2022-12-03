@@ -9,8 +9,6 @@ const SEARCH_KEY = process.env.YOUR_SEARCH_KEY
 export async function algoliaSearch(query: string) {
 	if (!ID || !SEARCH_KEY) return
 
-	console.log('query string', query)
-
 	const client = algoliasearch(ID, SEARCH_KEY)
 	const index = client.initIndex('books')
 

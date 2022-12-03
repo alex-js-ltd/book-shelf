@@ -1,0 +1,52 @@
+[debug] [2022-12-03T20:05:06.465Z] ----------------------------------------------------------------------
+[debug] [2022-12-03T20:05:06.467Z] Command:       /Users/alexandergilbert/.nvm/versions/node/v16.18.1/bin/node /usr/local/bin/firebase deploy --only functions
+[debug] [2022-12-03T20:05:06.467Z] CLI Version:   11.10.0
+[debug] [2022-12-03T20:05:06.467Z] Platform:      darwin
+[debug] [2022-12-03T20:05:06.468Z] Node Version:  v16.18.1
+[debug] [2022-12-03T20:05:06.468Z] Time:          Sat Dec 03 2022 21:05:06 GMT+0100 (Central European Standard Time)
+[debug] [2022-12-03T20:05:06.469Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-03T20:05:06.515Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-03T20:05:06.515Z] > authorizing via signed-in user (alex.js.ltd@gmail.com)
+[debug] [2022-12-03T20:05:06.516Z] [iam] checking project epic-react-app for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2022-12-03T20:05:06.518Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions [none]
+[debug] [2022-12-03T20:05:06.518Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-03T20:05:06.518Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-12-03T20:05:06.863Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions 200
+[debug] [2022-12-03T20:05:06.864Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-12-03T20:05:06.864Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-12-03T20:05:06.864Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-12-03T20:05:07.654Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-12-03T20:05:07.655Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'epic-react-app'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2022-12-03T20:05:19.934Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app [none]
+[debug] [2022-12-03T20:05:20.335Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app 200
+[debug] [2022-12-03T20:05:20.335Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app {"projectId":"epic-react-app","projectNumber":"1027566536348","displayName":"epic-react-app","name":"projects/epic-react-app","resources":{"hostingSite":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_746ab638-7100-4b1e-b1f0-18bd2137a92c"}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-12-03T20:05:20.338Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-12-03T20:05:20.338Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-03T20:05:20.339Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-12-03T20:05:20.339Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-03T20:05:20.340Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudbuild.googleapis.com [none]
+[debug] [2022-12-03T20:05:20.340Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudbuild.googleapis.com x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-03T20:05:20.341Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/artifactregistry.googleapis.com [none]
+[debug] [2022-12-03T20:05:20.342Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/artifactregistry.googleapis.com x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-03T20:05:21.575Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudbuild.googleapis.com 200
+[debug] [2022-12-03T20:05:21.575Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-12-03T20:05:21.576Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudfunctions.googleapis.com 200
+[debug] [2022-12-03T20:05:21.576Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-12-03T20:05:21.577Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/artifactregistry.googleapis.com 200
+[debug] [2022-12-03T20:05:21.577Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2022-12-03T20:05:21.578Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/runtimeconfig.googleapis.com 200
+[debug] [2022-12-03T20:05:21.578Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-12-03T20:05:21.578Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig [none]
