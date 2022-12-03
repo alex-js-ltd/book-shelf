@@ -18,8 +18,6 @@ app.get('/books', async (request, response) => {
 
 	const hits = await search(query)
 
-	console.log(hits)
-
 	response.send(hits)
 })
 
