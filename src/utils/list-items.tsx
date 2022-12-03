@@ -22,7 +22,7 @@ function useListItem(book: Book) {
 	return listItems?.find((li: any) => li.objectID === book.objectID) ?? null
 }
 
-function useCreateListItem() {
+function useUpdateListItem() {
 	const { update } = useClient()
 	const { user } = useAuth()
 	const userId = user?.localId
@@ -52,4 +52,4 @@ function useRemoveListItem() {
 	})
 }
 
-export { useListItems, useCreateListItem, useRemoveListItem, useListItem }
+export { useListItems, useUpdateListItem, useRemoveListItem, useListItem }

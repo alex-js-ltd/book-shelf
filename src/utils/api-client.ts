@@ -36,10 +36,6 @@ function read(endpoint: string, token: string) {
 	return client(endpoint, { method: 'GET', token })
 }
 
-function create(endpoint: string, data: any, token: string) {
-	return client(endpoint, { method: 'POST', data, token })
-}
-
 function update(endpoint: string, data: any, token: string) {
 	return client(endpoint, { method: 'PUT', data, token })
 }
@@ -48,4 +44,4 @@ function remove(endpoint: string, data: any, token: string) {
 	return client(endpoint, { method: 'DELETE', data, token })
 }
 
-export { read, create, update, remove }
+export { read, update, remove }

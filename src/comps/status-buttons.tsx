@@ -12,7 +12,7 @@ import { useAsync } from 'utils/hooks'
 import * as colors from 'styles/colors'
 import { CircleButton, Spinner } from './lib'
 import {
-	useCreateListItem,
+	useUpdateListItem,
 	useRemoveListItem,
 	useListItem,
 } from 'utils/list-items'
@@ -59,7 +59,7 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 
 const StatusButtons = ({ book }: { book: Book }) => {
 	const listItem = useListItem(book)
-	const create = useCreateListItem()
+	const update = useUpdateListItem()
 	const remove = useRemoveListItem()
 
 	return (
@@ -75,7 +75,9 @@ const StatusButtons = ({ book }: { book: Book }) => {
 				<TooltipButton
 					label='Add to list'
 					highlight={colors.indigo}
-					onClick={() => create.mutateAsync(book)}
+					onClick={() =>
+						update.mutateAsync({ ...book, startDate: Date.now(), rating: 0 })
+					}
 					icon={<FaPlusCircle />}
 				/>
 			)}

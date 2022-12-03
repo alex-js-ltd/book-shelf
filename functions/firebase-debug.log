@@ -1,31 +1,72 @@
-[debug] [2022-12-03T23:45:52.699Z] ----------------------------------------------------------------------
-[debug] [2022-12-03T23:45:52.702Z] Command:       /Users/alexandergilbert/.nvm/versions/node/v16.18.1/bin/node /usr/local/bin/firebase emulators:start --only functions
-[debug] [2022-12-03T23:45:52.702Z] CLI Version:   11.10.0
-[debug] [2022-12-03T23:45:52.702Z] Platform:      darwin
-[debug] [2022-12-03T23:45:52.703Z] Node Version:  v16.18.1
-[debug] [2022-12-03T23:45:52.704Z] Time:          Sun Dec 04 2022 00:45:52 GMT+0100 (Central European Standard Time)
-[debug] [2022-12-03T23:45:52.704Z] ----------------------------------------------------------------------
+[debug] [2022-12-03T23:48:26.787Z] ----------------------------------------------------------------------
+[debug] [2022-12-03T23:48:26.789Z] Command:       /Users/alexandergilbert/.nvm/versions/node/v16.18.1/bin/node /usr/local/bin/firebase deploy --only functions
+[debug] [2022-12-03T23:48:26.789Z] CLI Version:   11.10.0
+[debug] [2022-12-03T23:48:26.789Z] Platform:      darwin
+[debug] [2022-12-03T23:48:26.789Z] Node Version:  v16.18.1
+[debug] [2022-12-03T23:48:26.791Z] Time:          Sun Dec 04 2022 00:48:26 GMT+0100 (Central European Standard Time)
+[debug] [2022-12-03T23:48:26.791Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2022-12-03T23:45:52.775Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2022-12-03T23:45:52.775Z] > authorizing via signed-in user (alex.js.ltd@gmail.com)
-[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
-[debug] [2022-12-03T23:45:52.789Z] [hub] writing locator at /var/folders/vr/ybgly0_j0cq9hwdwrdstx7n80000gn/T/hub-epic-react-app.json
-[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage, eventarc {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage, eventarc\u001b[22m"}}
-[info] ✔  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
-[debug] [2022-12-03T23:45:52.812Z] defaultcredentials: writing to file /Users/alexandergilbert/.config/firebase/alex_js.ltd_gmail.com_application_default_credentials.json
-[debug] [2022-12-03T23:45:52.814Z] Setting GAC to /Users/alexandergilbert/.config/firebase/alex_js.ltd_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/alexandergilbert/.config/firebase/alex_js.ltd_gmail.com_application_default_credentials.json"}}
-[debug] [2022-12-03T23:45:52.817Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig [none]
-[debug] [2022-12-03T23:45:53.152Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig 200
-[debug] [2022-12-03T23:45:53.152Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig {"projectId":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"}
-[debug] [2022-12-03T23:45:53.205Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2022-12-03T23:45:53.205Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2022-12-03T23:45:53.205Z] Starting Emulator UI with command {"binary":"node","args":["/Users/alexandergilbert/.cache/firebase/emulators/ui-v1.9.0/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/alexandergilbert/.cache/firebase/emulators/ui-v1.9.0/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
-[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2022-12-03T23:45:53.335Z] Web / API server started at localhost:4000
- {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
-[info] i  functions: Watching "/Users/alexandergilbert/Desktop/book-shelf/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/alexandergilbert/Desktop/book-shelf/functions\" for Cloud Functions..."}}
-[debug] [2022-12-03T23:45:53.473Z] Validating nodejs source
-[debug] [2022-12-03T23:45:54.714Z] > [functions] package.json contents: {
+[debug] [2022-12-03T23:48:26.833Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-03T23:48:26.833Z] > authorizing via signed-in user (alex.js.ltd@gmail.com)
+[debug] [2022-12-03T23:48:26.833Z] [iam] checking project epic-react-app for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2022-12-03T23:48:26.835Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions [none]
+[debug] [2022-12-03T23:48:26.835Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-03T23:48:26.835Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-12-03T23:48:27.821Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions 200
+[debug] [2022-12-03T23:48:27.821Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-12-03T23:48:27.822Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-12-03T23:48:27.822Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-12-03T23:48:28.647Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-12-03T23:48:28.648Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'epic-react-app'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2022-12-03T23:48:40.302Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app [none]
+[debug] [2022-12-03T23:48:40.683Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app 200
+[debug] [2022-12-03T23:48:40.684Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app {"projectId":"epic-react-app","projectNumber":"1027566536348","displayName":"epic-react-app","name":"projects/epic-react-app","resources":{"hostingSite":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_746ab638-7100-4b1e-b1f0-18bd2137a92c"}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-12-03T23:48:40.686Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-12-03T23:48:40.687Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-03T23:48:40.688Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-12-03T23:48:40.688Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-03T23:48:40.689Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudbuild.googleapis.com [none]
+[debug] [2022-12-03T23:48:40.689Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudbuild.googleapis.com x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-03T23:48:40.690Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/artifactregistry.googleapis.com [none]
+[debug] [2022-12-03T23:48:40.690Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/artifactregistry.googleapis.com x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-03T23:48:41.717Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/runtimeconfig.googleapis.com 200
+[debug] [2022-12-03T23:48:41.718Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-12-03T23:48:41.719Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudbuild.googleapis.com 200
+[debug] [2022-12-03T23:48:41.719Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-12-03T23:48:41.720Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudfunctions.googleapis.com 200
+[debug] [2022-12-03T23:48:41.720Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-12-03T23:48:41.855Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/artifactregistry.googleapis.com 200
+[debug] [2022-12-03T23:48:41.856Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/epic-react-app/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2022-12-03T23:48:41.856Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig [none]
+[debug] [2022-12-03T23:48:42.259Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig 200
+[debug] [2022-12-03T23:48:42.259Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig {"projectId":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"}
+[debug] [2022-12-03T23:48:42.260Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs [none]
+[debug] [2022-12-03T23:48:42.795Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs 200
+[debug] [2022-12-03T23:48:42.795Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs {"configs":[{"name":"projects/epic-react-app/configs/algolia"}]}
+[debug] [2022-12-03T23:48:42.796Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs/algolia/variables [none]
+[debug] [2022-12-03T23:48:43.190Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs/algolia/variables 200
+[debug] [2022-12-03T23:48:43.191Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs/algolia/variables {"variables":[{"name":"projects/epic-react-app/configs/algolia/variables/key","updateTime":"2022-11-29T16:48:38.515124180Z"},{"name":"projects/epic-react-app/configs/algolia/variables/app","updateTime":"2022-11-29T16:48:38.474748116Z"}]}
+[debug] [2022-12-03T23:48:43.192Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs/algolia/variables/key [none]
+[debug] [2022-12-03T23:48:43.194Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs/algolia/variables/app [none]
+[debug] [2022-12-03T23:48:43.557Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs/algolia/variables/key 200
+[debug] [2022-12-03T23:48:43.557Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs/algolia/variables/key {"name":"projects/epic-react-app/configs/algolia/variables/key","updateTime":"2022-11-29T16:48:38.515124180Z","text":"fbef0d8428b432e5e8d9b4cdb1c9cdba"}
+[debug] [2022-12-03T23:48:43.559Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs/algolia/variables/app 200
+[debug] [2022-12-03T23:48:43.559Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/epic-react-app/configs/algolia/variables/app {"name":"projects/epic-react-app/configs/algolia/variables/app","updateTime":"2022-11-29T16:48:38.474748116Z","text":"BKP02LSSGY"}
+[info] i  functions: preparing codebase default for deployment 
+[debug] [2022-12-03T23:48:43.561Z] Validating nodejs source
+[debug] [2022-12-03T23:48:44.710Z] > [functions] package.json contents: {
   "name": "functions",
   "scripts": {
     "build": "tsc",
@@ -53,865 +94,56 @@
   },
   "private": true
 }
-[debug] [2022-12-03T23:45:54.715Z] Building nodejs source
-[debug] [2022-12-03T23:45:54.715Z] Analyzing nodejs backend spec
-[debug] [2022-12-03T23:45:54.717Z] Could not find functions.yaml. Must use http discovery
-[debug] [2022-12-03T23:45:54.868Z] Serving at port 9005
+[debug] [2022-12-03T23:48:44.710Z] Building nodejs source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2022-12-03T23:48:44.716Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-12-03T23:48:44.874Z] Serving at port 9005
 
-[debug] [2022-12-03T23:45:55.029Z] Got response from /__/functions.yaml {"endpoints":{"createUserRecord":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","eventFilters":{"resource":"projects/epic-react-app"},"retry":false},"labels":{},"entryPoint":"createUserRecord"},"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
-[debug] [2022-12-03T23:45:55.034Z] shutdown requested via /__/quitquitquit
+[debug] [2022-12-03T23:48:45.025Z] Got response from /__/functions.yaml {"endpoints":{"createUserRecord":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","eventFilters":{"resource":"projects/epic-react-app"},"retry":false},"labels":{},"entryPoint":"createUserRecord"},"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-12-03T23:48:45.030Z] shutdown requested via /__/quitquitquit
 
-[info] ✔  functions: Loaded functions definitions from source: createUserRecord, api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: createUserRecord, api."}}
-[debug] [2022-12-03T23:45:55.042Z] addAuthTrigger {"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/epic-react-app"}}
-[info] ✔  functions[us-central1-createUserRecord]: auth function initialized. {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mauth\u001b[22m function initialized."}}
-[info] ✔  functions[us-central1-api]: http function initialized (http://localhost:5001/epic-react-app/us-central1/api). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/epic-react-app/us-central1/api)."}}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /Users/alexandergilbert/Desktop/book-shelf/functions (50.41 KB) for uploading 
+[debug] [2022-12-03T23:48:45.105Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/epic-react-app/locations/-/functions [none]
+[debug] [2022-12-03T23:48:45.836Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/epic-react-app/locations/-/functions 200
+[debug] [2022-12-03T23:48:45.836Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/epic-react-app/locations/-/functions {"functions":[{"name":"projects/epic-react-app/locations/us-central1/functions/addToIndex","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.create","resource":"projects/epic-react-app/databases/(default)/documents/books/{bookId}","service":"firestore.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"addToIndex","timeout":"60s","availableMemoryMb":256,"updateTime":"2022-12-02T13:59:22.792Z","versionId":"7","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/34d7e1c6-1b13-4a46-bbd2-6b2b217ba222.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"epic-react-app\",\"storageBucket\":\"epic-react-app.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"epic-react-app"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"7c7d2746-3a28-4f97-912b-e6b3a09e1163","buildName":"projects/1027566536348/locations/us-central1/builds/7c7d2746-3a28-4f97-912b-e6b3a09e1163","dockerRegistry":"ARTIFACT_REGISTRY"},{"name":"projects/epic-react-app/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-epic-react-app.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"epic-react-app@appspot.gserviceaccount.com","updateTime":"2022-12-03T21:47:19.386Z","versionId":"30","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/508d9e70-6233-4ceb-8206-90a80acae60b.zip","environmentVariables":{"YOUR_APP_ID":"BKP02LSSGY","ADMIN_API_KEY":"fbef0d8428b432e5e8d9b4cdb1c9cdba","YOUR_SEARCH_KEY":"eeda58004ee9ab3ba82b0f9320246514","FIREBASE_CONFIG":"{\"projectId\":\"epic-react-app\",\"storageBucket\":\"epic-react-app.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"epic-react-app"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"eca8d938-8166-47b6-a59d-ae163bc136b7","buildName":"projects/1027566536348/locations/us-central1/builds/eca8d938-8166-47b6-a59d-ae163bc136b7","dockerRegistry":"ARTIFACT_REGISTRY"},{"name":"projects/epic-react-app/locations/us-central1/functions/createUserRecod","eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/epic-react-app","service":"firebaseauth.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"createUserRecod","timeout":"60s","availableMemoryMb":256,"updateTime":"2022-12-02T23:47:16.537Z","versionId":"25","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/d0d0c06a-fd4d-415b-b0cb-6c5034455b1a.zip","environmentVariables":{"REACT_APP_YOUR_APP_ID":"BKP02LSSGY","REACT_APP_ADMIN_API_KEY":"fbef0d8428b432e5e8d9b4cdb1c9cdba","REACT_APP_YOUR_SEARCH_KEY":"eeda58004ee9ab3ba82b0f9320246514","FIREBASE_CONFIG":"{\"projectId\":\"epic-react-app\",\"storageBucket\":\"epic-react-app.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"epic-react-app"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"da5d98d6-db11-4b13-aa08-a58378f9cd50","buildName":"projects/1027566536348/locations/us-central1/builds/da5d98d6-db11-4b13-aa08-a58378f9cd50","dockerRegistry":"ARTIFACT_REGISTRY"},{"name":"projects/epic-react-app/locations/us-central1/functions/createUserRecord","eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/epic-react-app","service":"firebaseauth.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"createUserRecord","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"epic-react-app@appspot.gserviceaccount.com","updateTime":"2022-12-03T21:47:15.215Z","versionId":"14","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/508d9e70-6233-4ceb-8206-90a80acae60b.zip","environmentVariables":{"YOUR_APP_ID":"BKP02LSSGY","ADMIN_API_KEY":"fbef0d8428b432e5e8d9b4cdb1c9cdba","YOUR_SEARCH_KEY":"eeda58004ee9ab3ba82b0f9320246514","FIREBASE_CONFIG":"{\"projectId\":\"epic-react-app\",\"storageBucket\":\"epic-react-app.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"epic-react-app"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"eca8d938-8166-47b6-a59d-ae163bc136b7","buildName":"projects/1027566536348/locations/us-central1/builds/eca8d938-8166-47b6-a59d-ae163bc136b7","dockerRegistry":"ARTIFACT_REGISTRY"},{"name":"projects/epic-react-app/locations/us-central1/functions/deleteFromIndex","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.delete","resource":"projects/epic-react-app/databases/(default)/documents/books/{bookId}","service":"firestore.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"deleteFromIndex","timeout":"60s","availableMemoryMb":256,"updateTime":"2022-12-02T13:59:19.546Z","versionId":"7","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/34d7e1c6-1b13-4a46-bbd2-6b2b217ba222.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"epic-react-app\",\"storageBucket\":\"epic-react-app.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"epic-react-app"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"7c7d2746-3a28-4f97-912b-e6b3a09e1163","buildName":"projects/1027566536348/locations/us-central1/builds/7c7d2746-3a28-4f97-912b-e6b3a09e1163","dockerRegistry":"ARTIFACT_REGISTRY"},{"name":"projects/epic-react-app/locations/us-central1/functions/getBook","httpsTrigger":{"url":"https://us-central1-epic-react-app.cloudfunctions.net/getBook","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"getBook","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"epic-react-app@appspot.gserviceaccount.com","updateTime":"2022-12-02T15:51:48.247Z","versionId":"4","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/bb1147d0-6c64-4d7b-9b21-ce0fb34d80d8.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"epic-react-app\",\"storageBucket\":\"epic-react-app.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"epic-react-app"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"9e010d4f-a90f-4f75-b50f-19c7bd162509","buildName":"projects/1027566536348/locations/us-central1/builds/9e010d4f-a90f-4f75-b50f-19c7bd162509","dockerRegistry":"ARTIFACT_REGISTRY"},{"name":"projects/epic-react-app/locations/us-central1/functions/updateIndex","eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.update","resource":"projects/epic-react-app/databases/(default)/documents/books/{bookId}","service":"firestore.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"updateIndex","timeout":"60s","availableMemoryMb":256,"updateTime":"2022-12-02T13:59:18.508Z","versionId":"7","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/34d7e1c6-1b13-4a46-bbd2-6b2b217ba222.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"epic-react-app\",\"storageBucket\":\"epic-react-app.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"epic-react-app"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"7c7d2746-3a28-4f97-912b-e6b3a09e1163","buildName":"projects/1027566536348/locations/us-central1/builds/7c7d2746-3a28-4f97-912b-e6b3a09e1163","dockerRegistry":"ARTIFACT_REGISTRY"}]}
+[debug] [2022-12-03T23:48:45.838Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/epic-react-app/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2022-12-03T23:48:46.945Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/epic-react-app/locations/-/functions 200
+[debug] [2022-12-03T23:48:46.945Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/epic-react-app/locations/-/functions {}
+[debug] [2022-12-03T23:48:46.952Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app [none]
+[debug] [2022-12-03T23:48:47.281Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app 200
+[debug] [2022-12-03T23:48:47.281Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app {"projectId":"epic-react-app","projectNumber":"1027566536348","displayName":"epic-react-app","name":"projects/epic-react-app","resources":{"hostingSite":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_746ab638-7100-4b1e-b1f0-18bd2137a92c"}
+[debug] [2022-12-03T23:48:47.282Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app [none]
+[debug] [2022-12-03T23:48:47.649Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app 200
+[debug] [2022-12-03T23:48:47.650Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app {"projectId":"epic-react-app","projectNumber":"1027566536348","displayName":"epic-react-app","name":"projects/epic-react-app","resources":{"hostingSite":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_746ab638-7100-4b1e-b1f0-18bd2137a92c"}
+[debug] [2022-12-03T23:48:47.650Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app [none]
+[debug] [2022-12-03T23:48:47.937Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app 200
+[debug] [2022-12-03T23:48:47.937Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app {"projectId":"epic-react-app","projectNumber":"1027566536348","displayName":"epic-react-app","name":"projects/epic-react-app","resources":{"hostingSite":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_746ab638-7100-4b1e-b1f0-18bd2137a92c"}
+[debug] [2022-12-03T23:48:47.937Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app [none]
+[debug] [2022-12-03T23:48:48.281Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app 200
+[debug] [2022-12-03T23:48:48.281Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app {"projectId":"epic-react-app","projectNumber":"1027566536348","displayName":"epic-react-app","name":"projects/epic-react-app","resources":{"hostingSite":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_746ab638-7100-4b1e-b1f0-18bd2137a92c"}
+[debug] [2022-12-03T23:48:48.281Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app [none]
+[debug] [2022-12-03T23:48:48.610Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app 200
+[debug] [2022-12-03T23:48:48.610Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app {"projectId":"epic-react-app","projectNumber":"1027566536348","displayName":"epic-react-app","name":"projects/epic-react-app","resources":{"hostingSite":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_746ab638-7100-4b1e-b1f0-18bd2137a92c"}
+[debug] [2022-12-03T23:48:48.610Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app [none]
+[debug] [2022-12-03T23:48:48.942Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app 200
+[debug] [2022-12-03T23:48:48.942Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app {"projectId":"epic-react-app","projectNumber":"1027566536348","displayName":"epic-react-app","name":"projects/epic-react-app","resources":{"hostingSite":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_746ab638-7100-4b1e-b1f0-18bd2137a92c"}
+[debug] [2022-12-03T23:48:48.944Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/epic-react-app/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2022-12-03T23:48:48.944Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/epic-react-app/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2022-12-03T23:48:49.637Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/epic-react-app/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2022-12-03T23:48:49.637Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/epic-react-app/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/845884e4-d016-4ffa-9f8c-cadf97416e61.zip?GoogleAccessId=service-1027566536348@gcf-admin-robot.iam.gserviceaccount.com&Expires=1670113129&Signature=j3PBDshJvTr%2BlyLwEKdeR7Qeb6MLYcyqPQqu77QizQx5pK%2F3hLUAWvpiYyl6dzq3COvgt6SkshM4xVawp9WIrHTmNDS9K5jj5YcyWPUQtH6%2B4EI3bs99JWVTzSmymb1%2BpMyUlPGJjubVPOUGwLJrCI6RpZtWU8VNgcQ8n2wTRyEik%2BUCtRdSoTcTXn%2BMdGzpYc%2BVjayDkzmAJyo4WhvCHDygzIlbgI60c2OaESRI4fhm%2F0qXdK%2BKjKpM80v29WrtwhPockTr91HbFP0jC%2FcJA2YZCm3Dn1RffiIHMFiXGZbrS7YC6wGk4YVe74p40hrJjht5x22LTqdXfPNVNWbfEQ%3D%3D"}
+[debug] [2022-12-03T23:48:49.638Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/845884e4-d016-4ffa-9f8c-cadf97416e61.zip GoogleAccessId=service-1027566536348%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1670113129&Signature=j3PBDshJvTr%2BlyLwEKdeR7Qeb6MLYcyqPQqu77QizQx5pK%2F3hLUAWvpiYyl6dzq3COvgt6SkshM4xVawp9WIrHTmNDS9K5jj5YcyWPUQtH6%2B4EI3bs99JWVTzSmymb1%2BpMyUlPGJjubVPOUGwLJrCI6RpZtWU8VNgcQ8n2wTRyEik%2BUCtRdSoTcTXn%2BMdGzpYc%2BVjayDkzmAJyo4WhvCHDygzIlbgI60c2OaESRI4fhm%2F0qXdK%2BKjKpM80v29WrtwhPockTr91HbFP0jC%2FcJA2YZCm3Dn1RffiIHMFiXGZbrS7YC6wGk4YVe74p40hrJjht5x22LTqdXfPNVNWbfEQ%3D%3D
+[debug] [2022-12-03T23:48:49.638Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/845884e4-d016-4ffa-9f8c-cadf97416e61.zip [stream]
+[debug] [2022-12-03T23:48:50.014Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/845884e4-d016-4ffa-9f8c-cadf97416e61.zip 200
+[debug] [2022-12-03T23:48:50.014Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-964221743034.us-central1.cloudfunctions.appspot.com/845884e4-d016-4ffa-9f8c-cadf97416e61.zip [omitted]
+[info] ✔  functions: functions folder uploaded successfully 
 [info] 
-┌─────────────────────────────────────────────────────────────┐
-│ ✔  All emulators ready! It is now safe to connect your app. │
-│ i  View Emulator UI at http://localhost:4000                │
-└─────────────────────────────────────────────────────────────┘
+The following functions are found in your project but do not exist in your local source code:
+	addToIndex(us-central1)
+	createUserRecod(us-central1)
+	deleteFromIndex(us-central1)
+	getBook(us-central1)
+	updateIndex(us-central1)
 
-┌───────────┬────────────────┬─────────────────────────────────┐
-│ Emulator  │ Host:Port      │ View in Emulator UI             │
-├───────────┼────────────────┼─────────────────────────────────┤
-│ Functions │ localhost:5001 │ http://localhost:4000/functions │
-└───────────┴────────────────┴─────────────────────────────────┘
-  Emulator Hub running at localhost:4400
-  Other reserved ports: 4500
+If you are renaming a function or changing its region, it is recommended that you create the new function first before deleting the old one to prevent event loss. For more info, visit https://firebase.google.com/docs/functions/manage-functions#modify
 
-Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
- 
-[debug] [2022-12-03T23:47:03.403Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:03.403Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:03.404Z] Accepted request OPTIONS /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:03.407Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:03.408Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2022-12-03T23:47:03.421Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
-[debug] [2022-12-03T23:47:03.422Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
-[debug] [2022-12-03T23:47:04.391Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:04.391Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:04.391Z] Accepted request OPTIONS /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:04.394Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:04.394Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:04.395Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:04.397Z] [worker-us-central1-api-1f8ccb29-077c-404b-84b2-b21f3d8e276b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-1f8ccb29-077c-404b-84b2-b21f3d8e276b]: BUSY"}}
-[debug] [2022-12-03T23:47:04.400Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:04.406Z] [worker-us-central1-api-1f8ccb29-077c-404b-84b2-b21f3d8e276b]: exited {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-1f8ccb29-077c-404b-84b2-b21f3d8e276b]: exited"}}
-[debug] [2022-12-03T23:47:04.406Z] [worker-us-central1-api-1f8ccb29-077c-404b-84b2-b21f3d8e276b]: FINISHED {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-1f8ccb29-077c-404b-84b2-b21f3d8e276b]: FINISHED"}}
-[debug] [2022-12-03T23:47:05.407Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:05.407Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:05.408Z] Accepted request OPTIONS /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:05.411Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:05.411Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:05.411Z] [worker-pool] Cleaned up workers for us-central1-api: 1 --> 0 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Cleaned up workers for us-central1-api: 1 --> 0"}}
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2022-12-03T23:47:05.418Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
-[debug] [2022-12-03T23:47:05.419Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
-[debug] [2022-12-03T23:47:06.216Z] [runtime-status] [4798] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}"}}
-[debug] [2022-12-03T23:47:06.217Z] [runtime-status] [4798] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
-[debug] [2022-12-03T23:47:06.217Z] [runtime-status] [4798] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
-[debug] [2022-12-03T23:47:06.218Z] [runtime-status] [4798] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
-[debug] [2022-12-03T23:47:06.354Z] [runtime-status] [4798] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] Checked functions.config() {\"config\":{}}"}}
-[debug] [2022-12-03T23:47:06.354Z] [runtime-status] [4798] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}}"}}
-[debug] [2022-12-03T23:47:06.355Z] [runtime-status] [4798] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
-[debug] [2022-12-03T23:47:06.356Z] [runtime-status] [4798] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}"}}
-[debug] [2022-12-03T23:47:06.359Z] [runtime-status] [4798] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
-[debug] [2022-12-03T23:47:06.359Z] [runtime-status] [4798] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
-[debug] [2022-12-03T23:47:06.428Z] [runtime-status] [4798] Functions runtime initialized. {"cwd":"/Users/alexandergilbert/Desktop/book-shelf/functions","node_version":"16.18.1"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] Functions runtime initialized. {\"cwd\":\"/Users/alexandergilbert/Desktop/book-shelf/functions\",\"node_version\":\"16.18.1\"}"}}
-[debug] [2022-12-03T23:47:06.429Z] [runtime-status] [4798] Listening to port: /var/folders/vr/ybgly0_j0cq9hwdwrdstx7n80000gn/T/fire_emu_5bbefc4a04b98e97.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [4798] Listening to port: /var/folders/vr/ybgly0_j0cq9hwdwrdstx7n80000gn/T/fire_emu_5bbefc4a04b98e97.sock"}}
-[debug] [2022-12-03T23:47:06.442Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:06.442Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:06.449Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:06.449Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 2.12616ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 2.12616ms"}}
-[debug] [2022-12-03T23:47:06.451Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:06.452Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:06.452Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:06.454Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:06.454Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:06.454Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:06.454Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[warn] ⚠  Google API requested!
-   - URL: "https://oauth2.googleapis.com/token"
-   - Be careful, this may be a production service. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Google API requested!\n   - URL: \"https://oauth2.googleapis.com/token\"\n   - Be careful, this may be a production service."}}
-[debug] [2022-12-03T23:47:07.655Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:07.655Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 1198.469573ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 1198.469573ms"}}
-[debug] [2022-12-03T23:47:11.138Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:11.138Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:11.138Z] Accepted request OPTIONS /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:11.141Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:11.141Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:11.141Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:11.142Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:11.144Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:11.144Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 0.430706ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.430706ms"}}
-[debug] [2022-12-03T23:47:11.146Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:11.146Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:11.146Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:11.148Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:11.148Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:11.148Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:11.148Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:11.257Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:11.257Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 106.717504ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 106.717504ms"}}
-[debug] [2022-12-03T23:47:11.300Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:11.300Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:11.301Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:11.302Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:11.304Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:11.304Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:11.304Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:11.420Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:11.420Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 113.320033ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 113.320033ms"}}
-[debug] [2022-12-03T23:47:12.914Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:12.914Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:12.914Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:12.916Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:12.916Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:12.916Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:12.916Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:13.009Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:13.009Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 90.893963ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 90.893963ms"}}
-[debug] [2022-12-03T23:47:14.424Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:14.424Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:14.424Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:14.426Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:14.426Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:14.426Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:14.427Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:14.525Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:14.526Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 96.744367ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 96.744367ms"}}
-[debug] [2022-12-03T23:47:15.661Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:15.661Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:15.661Z] Accepted request OPTIONS /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:15.664Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:15.664Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:15.664Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:15.664Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:15.667Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:15.667Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 0.609778ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.609778ms"}}
-[debug] [2022-12-03T23:47:15.670Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:15.670Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:15.670Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:15.672Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:15.672Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:15.672Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:15.673Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:15.965Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:15.965Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 279.414716ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 279.414716ms"}}
-[debug] [2022-12-03T23:47:15.969Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:15.969Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:15.969Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:15.971Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:15.972Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:15.972Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:15.972Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:16.085Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:16.085Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 111.307398ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 111.307398ms"}}
-[debug] [2022-12-03T23:47:17.106Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:17.106Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:17.106Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:17.108Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:17.109Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:17.109Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:17.109Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:17.357Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:17.358Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 246.440157ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 246.440157ms"}}
-[debug] [2022-12-03T23:47:17.360Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:17.361Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:17.361Z] Accepted request OPTIONS /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:17.363Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:17.363Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:17.363Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:17.363Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:17.365Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:17.365Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 0.438474ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.438474ms"}}
-[debug] [2022-12-03T23:47:17.367Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:17.367Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:17.367Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:17.369Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:17.369Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:17.369Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:17.369Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:17.462Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:17.462Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 90.625168ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 90.625168ms"}}
-[debug] [2022-12-03T23:47:18.216Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:18.216Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:18.217Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:18.219Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:18.219Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:18.219Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:18.219Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:18.403Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:18.403Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 181.545702ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 181.545702ms"}}
-[debug] [2022-12-03T23:47:18.406Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:18.406Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:18.406Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:18.409Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:18.410Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:18.410Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:18.410Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:18.509Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:18.510Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 97.685371ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 97.685371ms"}}
-[debug] [2022-12-03T23:47:19.201Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:19.201Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:19.202Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:19.204Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:19.204Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:19.204Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:19.204Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:19.399Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:19.399Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 192.39ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 192.39ms"}}
-[debug] [2022-12-03T23:47:19.402Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:19.402Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:19.402Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:19.405Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:19.405Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:19.406Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:19.406Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:19.541Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:19.541Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 131.806865ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 131.806865ms"}}
-[debug] [2022-12-03T23:47:20.211Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:20.211Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:20.211Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:20.214Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:20.214Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:20.214Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:20.214Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:20.421Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:20.421Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 205.21201ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 205.21201ms"}}
-[debug] [2022-12-03T23:47:20.424Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:20.425Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:20.425Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:20.427Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:20.427Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:20.427Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:20.428Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:20.515Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:20.516Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 85.009116ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 85.009116ms"}}
-[debug] [2022-12-03T23:47:21.679Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:21.679Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:21.679Z] Accepted request OPTIONS /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:21.682Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:21.682Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:21.682Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:21.682Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:21.684Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:21.684Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 0.402818ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.402818ms"}}
-[debug] [2022-12-03T23:47:21.685Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:21.685Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:21.685Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:21.687Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:21.688Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:21.688Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:21.688Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:21.879Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:21.879Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 188.284367ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 188.284367ms"}}
-[debug] [2022-12-03T23:47:21.882Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:21.882Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:21.883Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:21.885Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:21.885Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:21.885Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:21.885Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:21.965Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:21.965Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 77.363439ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 77.363439ms"}}
-[debug] [2022-12-03T23:47:22.820Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:22.820Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:22.821Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:22.823Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:22.823Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:22.823Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:22.823Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:23.020Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:23.020Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 193.330311ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 193.330311ms"}}
-[debug] [2022-12-03T23:47:23.022Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:23.023Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:23.023Z] Accepted request OPTIONS /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:23.025Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:23.025Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:23.025Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:23.025Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:23.028Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:23.028Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 0.445505ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.445505ms"}}
-[debug] [2022-12-03T23:47:23.029Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:23.029Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:23.029Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:23.031Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:23.031Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:23.031Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:23.031Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:23.110Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:23.110Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 76.259755ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 76.259755ms"}}
-[debug] [2022-12-03T23:47:24.001Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:24.001Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:24.002Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:24.004Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:24.004Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:24.004Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:24.004Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:24.193Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:24.194Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 186.990097ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 186.990097ms"}}
-[debug] [2022-12-03T23:47:24.196Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:24.197Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:24.197Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:24.199Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:24.199Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:24.199Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:24.199Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:24.278Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:24.278Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 76.622767ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 76.622767ms"}}
-[debug] [2022-12-03T23:47:25.119Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:25.119Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:25.120Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:25.122Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:25.122Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:25.122Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:25.122Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:25.400Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:25.400Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 275.114589ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 275.114589ms"}}
-[debug] [2022-12-03T23:47:25.403Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:25.403Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:25.403Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:25.405Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:25.406Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:25.406Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:25.406Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:25.530Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:25.530Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 121.233341ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 121.233341ms"}}
-[debug] [2022-12-03T23:47:26.309Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:26.309Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:26.309Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:26.311Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:26.311Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:26.311Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:26.311Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:26.510Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:26.511Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 196.351564ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 196.351564ms"}}
-[debug] [2022-12-03T23:47:26.514Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:26.514Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:26.514Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:26.516Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:26.517Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:26.517Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:26.517Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:26.591Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:26.591Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 72.195109ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 72.195109ms"}}
-[debug] [2022-12-03T23:47:28.108Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:28.108Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:28.108Z] Accepted request OPTIONS /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:28.110Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:28.111Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:28.111Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:28.111Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:28.113Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:28.113Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 0.341244ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.341244ms"}}
-[debug] [2022-12-03T23:47:28.114Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:28.114Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:28.114Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:28.116Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:28.116Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:28.116Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:28.116Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:28.190Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:28.190Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 71.343473ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 71.343473ms"}}
-[debug] [2022-12-03T23:47:29.122Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:29.122Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:29.122Z] Accepted request OPTIONS /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:29.124Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:29.125Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:29.125Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:29.125Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:29.127Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:29.127Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 0.410764ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.410764ms"}}
-[debug] [2022-12-03T23:47:29.128Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:29.128Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:29.128Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:29.130Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:29.130Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:29.130Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:29.130Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:29.320Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:29.322Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 188.019895ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 188.019895ms"}}
-[debug] [2022-12-03T23:47:29.350Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:29.351Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:29.351Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:29.352Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:29.353Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:29.353Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:29.353Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:29.421Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:29.422Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 65.799015ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 65.799015ms"}}
-[debug] [2022-12-03T23:47:30.964Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:30.965Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:30.965Z] Accepted request OPTIONS /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:30.967Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:30.967Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:30.967Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:30.967Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:30.970Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:30.970Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 1.116303ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 1.116303ms"}}
-[debug] [2022-12-03T23:47:30.971Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:30.971Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:30.971Z] Accepted request PUT /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:30.973Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:30.973Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:30.973Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:30.973Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:31.146Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:31.146Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 170.061992ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 170.061992ms"}}
-[debug] [2022-12-03T23:47:31.149Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:31.149Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:31.150Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:31.152Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:31.152Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:31.152Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:31.152Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:31.245Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:31.246Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 91.434098ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 91.434098ms"}}
-[debug] [2022-12-03T23:47:32.164Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:32.164Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:32.164Z] Accepted request PUT /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:32.166Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:32.166Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:32.166Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:32.167Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:32.334Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:32.334Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 164.835587ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 164.835587ms"}}
-[debug] [2022-12-03T23:47:32.337Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:32.337Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:32.337Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:32.339Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:32.339Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:32.339Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:32.339Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:32.492Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:32.492Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 150.66199ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 150.66199ms"}}
-[debug] [2022-12-03T23:47:33.234Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:33.234Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:33.234Z] Accepted request PUT /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:33.237Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:33.237Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:33.237Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:33.237Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:33.414Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:33.414Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[info] i  functions: Finished "api" in 174.332452ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 174.332452ms"}}
-[debug] [2022-12-03T23:47:33.417Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2022-12-03T23:47:33.417Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2022-12-03T23:47:33.417Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:33.420Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:33.420Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:33.420Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:33.420Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] FirebaseError: Failed to load function.
-    at Timeout._onTimeout (/Users/alexandergilbert/.config/yarn/global/node_modules/firebase-tools/lib/emulator/functionsRuntimeWorker.js:152:24)
-    at listOnTimeout (node:internal/timers:559:17)
-    at processTimers (node:internal/timers:502:7) {"metadata":{"emulator":{"name":"functions"},"message":{"name":"FirebaseError","children":[],"exit":1,"message":"Failed to load function.","status":500}}}
-[debug] [2022-12-03T23:47:33.466Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:33.596Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:33.596Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 173.621733ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 173.621733ms"}}
-[debug] [2022-12-03T23:47:34.137Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:34.137Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:34.137Z] Accepted request PUT /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:34.139Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:34.139Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:34.140Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:34.140Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:34.369Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:34.369Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 226.19733ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 226.19733ms"}}
-[debug] [2022-12-03T23:47:34.372Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:34.372Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:34.372Z] Accepted request OPTIONS /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:34.374Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:34.374Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:34.374Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:34.374Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[info] i  functions: Finished "api" in 0.293572ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.293572ms"}}
-[debug] [2022-12-03T23:47:34.376Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:34.377Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2022-12-03T23:47:34.378Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:34.378Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:34.378Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:34.380Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:34.380Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:34.380Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:34.380Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:34.500Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:34.500Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 118.383387ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 118.383387ms"}}
-[debug] [2022-12-03T23:47:35.057Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:35.058Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:35.058Z] Accepted request PUT /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:35.060Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:35.060Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:35.060Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:35.061Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:35.237Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:35.237Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 173.609731ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 173.609731ms"}}
-[debug] [2022-12-03T23:47:35.240Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:35.240Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:35.240Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:35.243Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:35.243Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:35.243Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:35.244Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:35.355Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:35.355Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 108.916537ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 108.916537ms"}}
-[debug] [2022-12-03T23:47:36.188Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:36.188Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:36.188Z] Accepted request OPTIONS /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:36.190Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:36.190Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:36.191Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:36.191Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[info] i  functions: Finished "api" in 0.432591ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.432591ms"}}
-[debug] [2022-12-03T23:47:36.193Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:36.193Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2022-12-03T23:47:36.194Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:36.194Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:36.194Z] Accepted request PUT /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:36.196Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:36.197Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:36.197Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:36.197Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:36.341Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:36.341Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 141.92584ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 141.92584ms"}}
-[debug] [2022-12-03T23:47:36.345Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:36.345Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:36.345Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:36.347Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:36.347Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:36.347Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:36.347Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:36.485Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:36.485Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 135.57157ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 135.57157ms"}}
-[debug] [2022-12-03T23:47:37.293Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:37.293Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:37.293Z] Accepted request PUT /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:37.295Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:37.296Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:37.296Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:37.296Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:37.486Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:37.486Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 187.043887ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 187.043887ms"}}
-[debug] [2022-12-03T23:47:37.488Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:37.489Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:37.489Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:37.491Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:37.491Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:37.492Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:37.492Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:37.615Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:37.615Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 121.239574ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 121.239574ms"}}
-[debug] [2022-12-03T23:47:38.330Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:38.330Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:38.331Z] Accepted request PUT /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:38.333Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:38.333Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:38.333Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:38.333Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:38.525Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:38.526Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 190.135272ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 190.135272ms"}}
-[debug] [2022-12-03T23:47:38.530Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:38.530Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:38.530Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:38.532Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:38.533Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:38.533Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:38.534Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:38.655Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:38.655Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 119.765021ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 119.765021ms"}}
-[debug] [2022-12-03T23:47:39.250Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:39.251Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:39.251Z] Accepted request PUT /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:39.254Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:39.254Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:39.254Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:39.254Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:39.414Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:39.414Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 156.886147ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 156.886147ms"}}
-[debug] [2022-12-03T23:47:39.417Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:39.417Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:39.417Z] Accepted request OPTIONS /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:39.419Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:39.419Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:39.419Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:39.419Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[info] i  functions: Finished "api" in 0.40228ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.40228ms"}}
-[debug] [2022-12-03T23:47:39.422Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:39.422Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2022-12-03T23:47:39.423Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:39.423Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:39.423Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:39.425Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:39.425Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:39.425Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:39.425Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:39.547Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:39.547Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 119.999343ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 119.999343ms"}}
-[debug] [2022-12-03T23:47:40.304Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:40.304Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:40.305Z] Accepted request PUT /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:40.308Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:40.308Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:40.308Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:40.308Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:40.449Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:40.449Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 138.143492ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 138.143492ms"}}
-[debug] [2022-12-03T23:47:40.452Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:40.452Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:40.452Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:40.454Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:40.455Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:40.455Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:40.455Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:40.581Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:40.581Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 124.243311ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 124.243311ms"}}
-[debug] [2022-12-03T23:47:41.718Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:41.718Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:41.718Z] Accepted request OPTIONS /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:41.720Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:41.720Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:41.720Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:41.720Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[info] i  functions: Finished "api" in 0.293492ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.293492ms"}}
-[debug] [2022-12-03T23:47:41.722Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:41.722Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2022-12-03T23:47:41.723Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:41.723Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:41.723Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:41.725Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:41.726Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:41.726Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:41.726Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:41.807Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:41.807Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 79.380371ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 79.380371ms"}}
-[debug] [2022-12-03T23:47:41.833Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:41.833Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:41.833Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:41.835Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:41.836Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:41.836Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:41.836Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:41.896Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:41.896Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 58.886058ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 58.886058ms"}}
-[debug] [2022-12-03T23:47:44.160Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:44.160Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:44.160Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:44.162Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:44.162Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:44.162Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:44.163Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:44.275Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:44.275Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 110.350009ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 110.350009ms"}}
-[debug] [2022-12-03T23:47:45.220Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:45.220Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:45.220Z] Accepted request OPTIONS /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:45.224Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:45.224Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:45.224Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:45.224Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[info] i  functions: Finished "api" in 0.274019ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.274019ms"}}
-[debug] [2022-12-03T23:47:45.226Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:45.226Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2022-12-03T23:47:45.227Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:45.227Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:45.227Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:45.229Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:45.229Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:45.229Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:45.229Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:45.431Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:45.431Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 199.230867ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 199.230867ms"}}
-[debug] [2022-12-03T23:47:45.434Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:45.435Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:45.435Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:45.437Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:45.437Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:45.437Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:45.437Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:45.524Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:45.524Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 84.729511ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 84.729511ms"}}
-[debug] [2022-12-03T23:47:46.274Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:46.274Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:46.274Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:46.278Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:46.278Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:46.278Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:46.278Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:46.491Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:46.492Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 211.395503ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 211.395503ms"}}
-[debug] [2022-12-03T23:47:46.495Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:46.495Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:46.495Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:46.497Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:46.498Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:46.498Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:46.498Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:46.562Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:46.562Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 62.463705ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 62.463705ms"}}
-[debug] [2022-12-03T23:47:47.230Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:47.231Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:47.231Z] Accepted request DELETE /epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:47.233Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:47.233Z] [functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/users/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/users/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:47.233Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:47.233Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:47.402Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:47.402Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 166.586132ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 166.586132ms"}}
-[debug] [2022-12-03T23:47:47.405Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:47.405Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:47.405Z] Accepted request OPTIONS /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:47.408Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:47.408Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:47.408Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:47.408Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[info] i  functions: Finished "api" in 0.327162ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.327162ms"}}
-[debug] [2022-12-03T23:47:47.412Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:47.412Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2022-12-03T23:47:47.413Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2022-12-03T23:47:47.413Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2022-12-03T23:47:47.413Z] Accepted request GET /epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
-[debug] [2022-12-03T23:47:47.415Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
-[debug] [2022-12-03T23:47:47.415Z] [functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/list-items?userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
-[debug] [2022-12-03T23:47:47.415Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
-[debug] [2022-12-03T23:47:47.416Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: BUSY"}}
-[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
-[debug] [2022-12-03T23:47:47.496Z] [worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-07a92a6e-b5e0-4fc2-877c-2fc08a28fb7b]: IDLE"}}
-[debug] [2022-12-03T23:47:47.496Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] i  functions: Finished "api" in 77.75592ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 77.75592ms"}}

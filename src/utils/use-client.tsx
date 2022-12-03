@@ -11,11 +11,6 @@ function useClient() {
 		[token],
 	)
 
-	const create = useCallback(
-		(endpoint: string, data: any) => client.create(endpoint, data, token),
-		[token],
-	)
-
 	const update = useCallback(
 		(endpoint: string, data: any) => client.update(endpoint, data, token),
 		[token],
@@ -26,7 +21,7 @@ function useClient() {
 		[token],
 	)
 
-	return { read, create, update, remove }
+	return { read, update, remove }
 }
 
 export { useClient }
