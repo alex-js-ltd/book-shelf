@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useClient } from 'utils/use-client'
 import { useAuth } from 'context/auth-context'
 import bookPlaceholderSvg from 'assets/book-placeholder.svg'
@@ -25,9 +25,19 @@ function useBookSearch(query: string) {
 	const { user } = useAuth()
 	const userId = user?.localId
 
+	const queryClient = useQueryClient()
+
 	const result = useQuery<Book[], Error>({
 		queryKey: ['books', query],
 		queryFn: () => read(`books?query=${encodeURIComponent(query)}`),
+
+		onSuccess(books: Book[] | undefined) {
+			if (!books) return
+
+			for (const book of books) {
+				queryClient.setQueryData(['book', book.objectID], book)
+			}
+		},
 	})
 
 	return { ...result, books: result?.data ?? loadingBooks }
