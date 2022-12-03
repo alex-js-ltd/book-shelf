@@ -36,4 +36,8 @@ function read(endpoint: string, token: string) {
 	return client(endpoint, { method: 'GET', token })
 }
 
-export { read }
+function create(endpoint: string, data: any, token: string) {
+	return client(endpoint, { method: 'POST', data, token })
+}
+
+export { read, create }

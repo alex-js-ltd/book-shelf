@@ -21,8 +21,6 @@ app.get('/books', async (request, response) => {
 		response.status(400).send('ERROR you must supply a userId')
 	}
 
-	console.log('type', typeof search)
-
 	if (typeof search !== 'string') {
 		response.status(400).send('ERROR search must be a string')
 		return
@@ -63,6 +61,21 @@ app.get('/list-items', async (request, response) => {
 
 	const listItems = await getReadingList(db, userId)
 	response.send(listItems)
+})
+
+app.post('/user/:userId', async (request, response) => {
+	const userId = request.params.userId
+	const body = request.body
+
+	if (!userId) {
+		response.status(400).send('ERROR you must supply a userId')
+	}
+
+	console.log(body)
+
+	console.log(userId)
+
+	response.send(null)
 })
 
 export const api = functions.https.onRequest(app)
