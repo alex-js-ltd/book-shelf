@@ -4,7 +4,7 @@ type FormData = {
 }
 
 type Config = {
-	method: 'GET' | 'POST' | 'DELETE'
+	method: 'GET' | 'POST' | 'PUT' | 'DELETE'
 	token: string
 	data?: any
 }

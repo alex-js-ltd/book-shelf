@@ -63,7 +63,7 @@ app.get('/list-items', async (request, response) => {
 	response.send(listItems)
 })
 
-app.post('/user/:userId', async (request, response) => {
+app.put('/user/:userId', async (request, response) => {
 	const userId = request.params.userId
 	const body = request.body
 
@@ -71,11 +71,20 @@ app.post('/user/:userId', async (request, response) => {
 		response.status(400).send('ERROR you must supply a userId')
 	}
 
-	console.log(body)
+	const book = { ...body }
 
-	console.log(userId)
+	delete book._highlightResult
 
-	response.send(null)
+	const userRef = db.doc(`users/${userId}`)
+	const userSnap = await userRef.get()
+	const userData = userSnap.data()
+	const copyUserData = { ...userData }
+	const copyReadingList = [...copyUserData.readingList]
+	copyUserData.readingList = [...copyReadingList, book]
+
+	await userRef.set(copyUserData)
+
+	response.send(book)
 })
 
 export const api = functions.https.onRequest(app)

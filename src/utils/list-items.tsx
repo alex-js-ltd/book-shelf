@@ -1,4 +1,4 @@
-import { useQuery, useMutation } from '@tanstack/react-query'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAuth } from 'context/auth-context'
 import { Book } from 'types'
 import { useClient } from './use-client'
@@ -17,12 +17,18 @@ function useListItems() {
 }
 
 function useCreateListItem() {
-	const { create } = useClient()
+	const { update } = useClient()
 	const { user } = useAuth()
 	const userId = user?.localId
 
+	const queryClient = useQueryClient()
+
 	return useMutation({
-		mutationFn: (book: Book) => create(`user/${userId}`, book),
+		mutationFn: (book: Book) => update(`user/${userId}`, book),
+
+		onSettled: () => {
+			queryClient.refetchQueries(['books'])
+		},
 	})
 }
 

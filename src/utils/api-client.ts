@@ -40,4 +40,8 @@ function create(endpoint: string, data: any, token: string) {
 	return client(endpoint, { method: 'POST', data, token })
 }
 
-export { read, create }
+function update(endpoint: string, data: any, token: string) {
+	return client(endpoint, { method: 'PUT', data, token })
+}
+
+export { read, create, update }
