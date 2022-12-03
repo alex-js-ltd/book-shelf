@@ -1,9 +1,9 @@
 import { Link } from 'comps/lib'
 import { ListItemList } from 'comps/list-item-list'
-import { useFinishedList } from 'utils/list-items'
+import { useListItems } from 'utils/list-items'
 
 const FinishedScreen = () => {
-	const list = useFinishedList()
+	const list = useListItems()
 
 	return (
 		<ListItemList

@@ -5,7 +5,7 @@ import { getFirestore } from 'firebase-admin/firestore'
 import * as express from 'express'
 import * as cors from 'cors'
 
-import { search, getReadingList } from './utils'
+import { search } from './utils'
 
 const db = getFirestore()
 
@@ -37,32 +37,18 @@ app.get('/book', async (request, response) => {
 	response.send(bookObj)
 })
 
-app.get('/reading-list', async (request, response) => {
+app.get('/list-items', async (request, response) => {
 	const userId = request.query.userId
 
 	if (!userId) {
 		response.status(400).send('ERROR you must supply a userId')
 	}
 
-	if (typeof userId !== 'string') return
-
-	const readingList = await getReadingList(userId, db)
-	const filter = readingList.filter((li: any) => li?.finishDate === null)
-	response.send(filter)
-})
-
-app.get('/finished-list', async (request, response) => {
-	const userId = request.query.userId
-
-	if (!userId) {
-		response.status(400).send('ERROR you must supply a userId')
-	}
-
-	if (typeof userId !== 'string') return
-
-	const readingList = await getReadingList(userId, db)
-	const filter = readingList.filter((li: any) => li?.finishDate !== null)
-	response.send(filter)
+	const userRef = db.doc(`users/${userId}`)
+	const userSnap = await userRef.get()
+	const userData = userSnap.data()
+	const listItems = userData?.readingList
+	response.send(listItems)
 })
 
 export const api = functions.https.onRequest(app)

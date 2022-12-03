@@ -1,9 +1,9 @@
 import { Link } from 'comps/lib'
 import { ListItemList } from 'comps/list-item-list'
-import { useReadingList } from 'utils/list-items'
+import { useListItems } from 'utils/list-items'
 
 const ReadingListScreen = () => {
-	const list = useReadingList()
+	const list = useListItems()
 
 	return (
 		<ListItemList
