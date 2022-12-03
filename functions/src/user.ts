@@ -9,7 +9,7 @@ const db = getFirestore()
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 
-export const createUserRecod = functions.auth
+export const createUserRecord = functions.auth
 	.user()
 	.onCreate((user, context) => {
 		const userRef = db.doc(`users/${user.uid}`)

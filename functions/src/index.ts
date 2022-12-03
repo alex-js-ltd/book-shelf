@@ -1,2 +1,2 @@
-export { createUserRecod } from './user'
+export { createUserRecord } from './user'
 export { api } from './http'
