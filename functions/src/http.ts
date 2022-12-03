@@ -13,6 +13,16 @@ const db = getFirestore()
 const app = express()
 app.use(cors({ origin: true }))
 
+app.get('/books', async (request, response) => {
+	const query = request.query.query
+
+	const hits = await search(query)
+
+	console.log(hits)
+
+	response.send(hits)
+})
+
 app.get('/book', async (request, response) => {
 	const bookId = request.query.bookId
 
@@ -25,16 +35,6 @@ app.get('/book', async (request, response) => {
 	const bookData = bookSnap.data()
 	const bookObj = { ...bookData, objectID: bookId }
 	response.send(bookObj)
-})
-
-app.get('/books', async (request, response) => {
-	const query = request.query.query
-
-	const hits = await search(query)
-
-	console.log(hits)
-
-	response.send(hits)
 })
 
 app.get('/reading-list', async (request, response) => {
