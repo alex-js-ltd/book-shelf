@@ -17,7 +17,7 @@ app.get('/books', async (request, response) => {
 	const search = request.query.search as string
 	const userId = request.query.userId
 
-	console.log(search)
+	console.log(typeof search, search)
 	if (!userId) {
 		response.status(400).send('ERROR you must supply a userId')
 	}
@@ -29,7 +29,6 @@ app.get('/books', async (request, response) => {
 		(book: any) => !listItemIds.includes(book.objectID),
 	)
 
-	console.log(hits)
 	response.send(filter)
 })
 
