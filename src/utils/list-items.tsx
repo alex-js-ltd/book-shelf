@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useAuth } from 'context/auth-context'
 import { useClient } from './use-client'
 
-const useFinishedList = () => {
+function useFinishedList() {
 	const { read } = useClient()
 	const { user } = useAuth()
 	const userId = user?.localId
@@ -16,7 +16,7 @@ const useFinishedList = () => {
 	return result?.data ?? []
 }
 
-const useReadingList = () => {
+function useReadingList() {
 	const { read } = useClient()
 	const { user } = useAuth()
 	const userId = user?.localId

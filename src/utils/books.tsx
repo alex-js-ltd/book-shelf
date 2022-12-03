@@ -20,7 +20,7 @@ const loadingBooks = Array.from({ length: 10 }, (v, index) => ({
 	objectID: `loading-book-${index}`,
 }))
 
-const useBookSearch = (query: string) => {
+function useBookSearch(query: string) {
 	const { read } = useClient()
 	const { user } = useAuth()
 	const userId = user?.localId
@@ -33,7 +33,7 @@ const useBookSearch = (query: string) => {
 	return { ...result, books: result?.data ?? loadingBooks }
 }
 
-const useBook = (bookId: string | undefined) => {
+function useBook(bookId: string | undefined) {
 	const { read } = useClient()
 
 	const result = useQuery<Book | null, Error>({

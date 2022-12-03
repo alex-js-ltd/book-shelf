@@ -1,5 +1,3 @@
-import { Book } from 'types'
-
 const formatDate = (date: number) =>
 	new Intl.DateTimeFormat('en-US', {
 		day: 'numeric',
@@ -7,18 +5,4 @@ const formatDate = (date: number) =>
 		year: 'numeric',
 	}).format(date)
 
-const formatBook = (objectID: string | undefined, fields: any): Book | null => {
-	if (!objectID) return null
-
-	return {
-		objectID,
-		title: fields?.title?.stringValue,
-		coverImageUrl: fields?.coverImageUrl?.stringValue,
-		publisher: fields?.publisher?.stringValue,
-		synopsis: fields?.synopsis?.stringValue,
-		pageCount: fields?.pageCount?.integerValue,
-		author: fields?.author?.stringValue,
-	}
-}
-
-export { formatDate, formatBook }
+export { formatDate }
