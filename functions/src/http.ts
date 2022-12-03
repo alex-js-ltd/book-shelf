@@ -16,6 +16,8 @@ app.use(cors({ origin: true }))
 app.get('/books', async (request, response) => {
 	const query = request.query.query
 
+	if (typeof query !== 'string') return
+
 	const hits = await search(query)
 
 	response.send(hits)
@@ -42,6 +44,8 @@ app.get('/reading-list', async (request, response) => {
 		response.status(400).send('ERROR you must supply a userId')
 	}
 
+	if (typeof userId !== 'string') return
+
 	const readingList = await getReadingList(userId, db)
 	const filter = readingList.filter((li: any) => li?.finishDate === null)
 	response.send(filter)
@@ -53,6 +57,8 @@ app.get('/finished-list', async (request, response) => {
 	if (!userId) {
 		response.status(400).send('ERROR you must supply a userId')
 	}
+
+	if (typeof userId !== 'string') return
 
 	const readingList = await getReadingList(userId, db)
 	const filter = readingList.filter((li: any) => li?.finishDate !== null)
