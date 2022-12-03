@@ -1,3 +1,4 @@
+import { Firestore } from 'firebase-admin/firestore'
 import algoliasearch from 'algoliasearch'
 import * as dotenv from 'dotenv'
 dotenv.config()
@@ -15,7 +16,7 @@ type SearchAttributes = {
 	author: string
 }
 
-export async function search(query: string) {
+export async function search(query: any) {
 	if (!ID || !SEARCH_KEY) return
 
 	const client = algoliasearch(ID, SEARCH_KEY)
@@ -34,4 +35,12 @@ export async function search(query: string) {
 	})
 
 	return hits
+}
+
+export async function getReadingList(db: Firestore, userId: any) {
+	const userRef = db.doc(`users/${userId}`)
+	const userSnap = await userRef.get()
+	const userData = userSnap.data()
+	const listItems = userData?.readingList
+	return listItems
 }

@@ -29,7 +29,8 @@ function useBookSearch(query: string) {
 
 	const result = useQuery<Book[], Error>({
 		queryKey: ['books', query],
-		queryFn: () => read(`books?query=${encodeURIComponent(query)}`),
+		queryFn: () =>
+			read(`books?userId=${userId}?query=${encodeURIComponent(query)}`),
 
 		onSuccess(books: Book[] | undefined) {
 			if (!books) return

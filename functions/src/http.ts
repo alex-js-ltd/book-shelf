@@ -5,7 +5,7 @@ import { getFirestore } from 'firebase-admin/firestore'
 import * as express from 'express'
 import * as cors from 'cors'
 
-import { search } from './utils'
+import { search, getReadingList } from './utils'
 
 const db = getFirestore()
 
@@ -15,12 +15,24 @@ app.use(cors({ origin: true }))
 
 app.get('/books', async (request, response) => {
 	const query = request.query.query
+	const userId = request.query.userId
 
-	if (typeof query !== 'string') return
+	if (!userId) {
+		response.status(400).send('ERROR you must supply a userId')
+		return
+	}
 
 	const hits = await search(query)
+	const listItems = await getReadingList(db, userId)
 
-	response.send(hits)
+	const filter = hits?.filter(
+		(book: any) =>
+			!listItems?.find(
+				({ objectID }: { objectID: string }) => book.objectID === objectID,
+			),
+	)
+
+	response.send(filter)
 })
 
 app.get('/book', async (request, response) => {
@@ -44,10 +56,9 @@ app.get('/list-items', async (request, response) => {
 		response.status(400).send('ERROR you must supply a userId')
 	}
 
-	const userRef = db.doc(`users/${userId}`)
-	const userSnap = await userRef.get()
-	const userData = userSnap.data()
-	const listItems = userData?.readingList
+	if (typeof userId !== 'string') return
+
+	const listItems = await getReadingList(db, userId)
 	response.send(listItems)
 })
 
