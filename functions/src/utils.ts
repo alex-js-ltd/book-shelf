@@ -11,11 +11,8 @@ export async function getReadingList(userId: any, db: Firestore) {
 	return readingList
 }
 
-const YOUR_APP_ID = process.env.REACT_APP_YOUR_APP_ID as string
-const YOUR_SEARCH_KEY = process.env.REACT_APP_YOUR_SEARCH_KEY as string
-
-const client = algoliasearch(YOUR_APP_ID, YOUR_SEARCH_KEY)
-const index = client.initIndex('books')
+const YOUR_APP_ID = process.env.YOUR_APP_ID
+const YOUR_SEARCH_KEY = process.env.YOUR_SEARCH_KEY
 
 type SearchAttributes = {
 	objectID: string
@@ -28,6 +25,11 @@ type SearchAttributes = {
 }
 
 export async function search(query: any) {
+	if (!YOUR_APP_ID || !YOUR_SEARCH_KEY) return
+
+	const client = algoliasearch(YOUR_APP_ID, YOUR_SEARCH_KEY)
+	const index = client.initIndex('books')
+
 	const { hits } = await index.search<SearchAttributes>(query, {
 		attributesToRetrieve: [
 			'objectID',
