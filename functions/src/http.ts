@@ -25,8 +25,7 @@ app.get('/books', async (request, response) => {
 	const hits = await search(query)
 	const listItems = await getReadingList(db, userId)
 	const listItemIds = listItems?.map((li: any) => li.objectID)
-
-	const filter = hits?.filter(book => listItemIds.includes(book.objectID))
+	const filter = hits?.filter(book => !listItemIds.includes(book.objectID))
 
 	console.log(filter)
 	response.send(filter)
