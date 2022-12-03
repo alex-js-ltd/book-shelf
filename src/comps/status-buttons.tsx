@@ -11,7 +11,11 @@ import { Tooltip } from '@reach/tooltip'
 import { useAsync } from 'utils/hooks'
 import * as colors from 'styles/colors'
 import { CircleButton, Spinner } from './lib'
-import { useCreateListItem } from 'utils/list-items'
+import {
+	useCreateListItem,
+	useRemoveListItem,
+	useListItem,
+} from 'utils/list-items'
 
 import { Book } from 'types'
 
@@ -54,16 +58,27 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 }
 
 const StatusButtons = ({ book }: { book: Book }) => {
+	const listItem = useListItem(book)
 	const create = useCreateListItem()
+	const remove = useRemoveListItem()
 
 	return (
 		<React.Fragment>
-			<TooltipButton
-				label='Add to list'
-				highlight={colors.indigo}
-				onClick={() => create.mutateAsync(book)}
-				icon={<FaPlusCircle />}
-			/>
+			{listItem ? (
+				<TooltipButton
+					label='Remove from list'
+					highlight={colors.danger}
+					onClick={() => remove.mutateAsync(book)}
+					icon={<FaMinusCircle />}
+				/>
+			) : (
+				<TooltipButton
+					label='Add to list'
+					highlight={colors.indigo}
+					onClick={() => create.mutateAsync(book)}
+					icon={<FaPlusCircle />}
+				/>
+			)}
 		</React.Fragment>
 	)
 }

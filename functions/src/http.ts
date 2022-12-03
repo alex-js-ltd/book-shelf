@@ -63,7 +63,7 @@ app.get('/list-items', async (request, response) => {
 	response.send(listItems)
 })
 
-app.put('/user/:userId', async (request, response) => {
+app.put('/users/:userId', async (request, response) => {
 	const userId = request.params.userId
 	const body = request.body
 
@@ -85,6 +85,32 @@ app.put('/user/:userId', async (request, response) => {
 	await userRef.set(copyUserData)
 
 	response.send(book)
+})
+
+app.delete('/users/:userId', async (request, response) => {
+	const userId = request.params.userId
+	const body = request.body
+
+	if (!userId) {
+		response.status(400).send('ERROR you must supply a userId')
+	}
+
+	const bookId = body.objectID
+
+	const userRef = db.doc(`users/${userId}`)
+	const userSnap = await userRef.get()
+	const userData = userSnap.data()
+	const copyUserData = { ...userData }
+
+	const filter = copyUserData?.readingList?.filter(
+		(li: any) => li.objectID !== bookId,
+	)
+
+	copyUserData.readingList = filter
+
+	await userRef.set(copyUserData)
+
+	response.send(null)
 })
 
 export const api = functions.https.onRequest(app)

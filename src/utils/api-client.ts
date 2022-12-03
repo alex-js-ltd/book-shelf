@@ -44,4 +44,8 @@ function update(endpoint: string, data: any, token: string) {
 	return client(endpoint, { method: 'PUT', data, token })
 }
 
-export { read, create, update }
+function remove(endpoint: string, data: any, token: string) {
+	return client(endpoint, { method: 'DELETE', data, token })
+}
+
+export { read, create, update, remove }

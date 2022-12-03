@@ -21,7 +21,12 @@ function useClient() {
 		[token],
 	)
 
-	return { read, create, update }
+	const remove = useCallback(
+		(endpoint: string, data: any) => client.remove(endpoint, data, token),
+		[token],
+	)
+
+	return { read, create, update, remove }
 }
 
 export { useClient }
