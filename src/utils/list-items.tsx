@@ -79,11 +79,10 @@ function useCreateListItem() {
 				return filter
 			})
 
-			// Return a context object with the snapshotted value
 			return { previousBooks }
 		},
 
-		onError(err, newTodo, context) {
+		onError(_err, _newBook, context) {
 			queryClient.setQueryData(['books'], context?.previousBooks)
 		},
 
