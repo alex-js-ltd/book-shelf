@@ -10,7 +10,7 @@ function useListItems() {
 
 	const result = useQuery({
 		queryKey: ['list-items', userId],
-		queryFn: () => read(`list-items?userId=${userId}`),
+		queryFn: () => read(`users/${userId}/reading-list`),
 	})
 
 	return result?.data ?? []

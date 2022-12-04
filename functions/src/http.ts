@@ -50,8 +50,8 @@ app.get('/book', async (request, response) => {
 	response.send(bookObj)
 })
 
-app.get('/list-items', async (request, response) => {
-	const userId = request.query.userId
+app.get('/users/:userId/reading-list', async (request, response) => {
+	const userId = request.params.userId
 
 	if (!userId) {
 		response.status(400).send('ERROR you must supply a userId')
