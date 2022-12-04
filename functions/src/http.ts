@@ -95,7 +95,7 @@ app.delete('/users/:userId', async (request, response) => {
 		response.status(400).send('ERROR you must supply a userId')
 	}
 
-	const bookId = body.objectID
+	const book = { ...body }
 
 	const userRef = db.doc(`users/${userId}`)
 	const userSnap = await userRef.get()
@@ -103,14 +103,14 @@ app.delete('/users/:userId', async (request, response) => {
 	const copyUserData = { ...userData }
 
 	const filter = copyUserData?.readingList?.filter(
-		(li: any) => li.objectID !== bookId,
+		(li: any) => li.objectID !== book.objectID,
 	)
 
 	copyUserData.readingList = filter
 
 	await userRef.set(copyUserData)
 
-	response.send(null)
+	response.send(book)
 })
 
 export const api = functions.https.onRequest(app)
