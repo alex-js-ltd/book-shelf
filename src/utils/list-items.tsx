@@ -32,9 +32,8 @@ function useUpdateListItem() {
 	return useMutation({
 		mutationFn: (book: Book) => update(`users/${userId}`, book),
 
-		onSettled: () => {
-			queryClient.refetchQueries(['books'])
-			queryClient.refetchQueries(['list-items'])
+		async onSettled() {
+			await queryClient.refetchQueries()
 		},
 	})
 }
@@ -49,8 +48,8 @@ function useRemoveListItem() {
 	return useMutation({
 		mutationFn: (book: Book) => remove(`users/${userId}`, book),
 
-		onSettled: () => {
-			queryClient.refetchQueries(['list-items'])
+		async onSettled() {
+			await queryClient.refetchQueries(['list-items'])
 		},
 	})
 }
