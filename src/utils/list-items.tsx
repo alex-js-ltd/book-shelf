@@ -54,4 +54,49 @@ function useRemoveListItem() {
 	})
 }
 
-export { useListItems, useUpdateListItem, useRemoveListItem, useListItem }
+function useCreateListItem() {
+	const { update } = useClient()
+	const { user } = useAuth()
+	const userId = user?.localId
+
+	const queryClient = useQueryClient()
+
+	return useMutation({
+		mutationFn: (book: Book) => update(`users/${userId}`, book),
+
+		async onMutate(newBook) {
+			await queryClient.cancelQueries({ queryKey: ['books'] })
+
+			const previousBooks = queryClient.getQueryData(['books'])
+
+			queryClient.setQueryData(['books'], (old?: Book[]) => {
+				if (!old) return
+
+				const copyData = [...old]
+
+				const filter = copyData?.filter(li => li.objectID !== newBook.objectID)
+
+				return filter
+			})
+
+			// Return a context object with the snapshotted value
+			return { previousBooks }
+		},
+
+		onError(err, newTodo, context) {
+			queryClient.setQueryData(['books'], context?.previousBooks)
+		},
+
+		async onSettled() {
+			await queryClient.refetchQueries()
+		},
+	})
+}
+
+export {
+	useListItems,
+	useUpdateListItem,
+	useRemoveListItem,
+	useListItem,
+	useCreateListItem,
+}
