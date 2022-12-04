@@ -1,13 +1,16 @@
 import { Link } from 'comps/lib'
 import { ListItemList } from 'comps/list-item-list'
 import { useListItems } from 'utils/list-items'
+import { Book } from 'types'
 
 const FinishedScreen = () => {
 	const list = useListItems()
 
+	const filter = list.filter((li: Book) => li.finishDate !== null)
+
 	return (
 		<ListItemList
-			list={list}
+			list={filter}
 			noListItems={
 				<p>
 					Hey there! Welcome to your bookshelf reading list. Get started by

@@ -79,9 +79,21 @@ app.put('/users/:userId', async (request, response) => {
 	const userSnap = await userRef.get()
 	const userData = userSnap.data()
 	const copyUserData = { ...userData }
-	const copyReadingList = [...copyUserData.readingList]
-	copyUserData.readingList = [...copyReadingList, book]
+	let copyReadingList = [...copyUserData.readingList]
 
+	const index = copyReadingList.findIndex(
+		(li: any) => li.objectID === book.objectID,
+	)
+
+	if (index !== -1) {
+		copyReadingList[index] = book
+	}
+
+	if (index === -1) {
+		copyReadingList = [...copyReadingList, book]
+	}
+
+	copyUserData.readingList = copyReadingList
 	await userRef.set(copyUserData)
 
 	response.send(book)

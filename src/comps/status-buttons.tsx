@@ -65,6 +65,26 @@ const StatusButtons = ({ book }: { book: Book }) => {
 	return (
 		<React.Fragment>
 			{listItem ? (
+				Boolean(listItem.finishDate) ? (
+					<TooltipButton
+						label='Mark as unread'
+						highlight={colors.yellow}
+						onClick={() => update.mutateAsync({ ...book, finishDate: null })}
+						icon={<FaBook />}
+					/>
+				) : (
+					<TooltipButton
+						label='Mark as read'
+						highlight={colors.green}
+						onClick={() =>
+							update.mutateAsync({ ...book, finishDate: Date.now() })
+						}
+						icon={<FaCheckCircle />}
+					/>
+				)
+			) : null}
+
+			{listItem ? (
 				<TooltipButton
 					label='Remove from list'
 					highlight={colors.danger}
@@ -76,7 +96,11 @@ const StatusButtons = ({ book }: { book: Book }) => {
 					label='Add to list'
 					highlight={colors.indigo}
 					onClick={() =>
-						update.mutateAsync({ ...book, startDate: Date.now(), rating: 0 })
+						update.mutateAsync({
+							...book,
+							startDate: Date.now(),
+							finishDate: null,
+						})
 					}
 					icon={<FaPlusCircle />}
 				/>

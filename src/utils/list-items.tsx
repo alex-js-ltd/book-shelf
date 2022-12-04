@@ -9,7 +9,7 @@ function useListItems() {
 	const userId = user?.localId
 
 	const result = useQuery({
-		queryKey: ['list-items', userId],
+		queryKey: ['list-items'],
 		queryFn: () => read(`users/${userId}/reading-list`),
 	})
 
@@ -32,7 +32,10 @@ function useUpdateListItem() {
 	return useMutation({
 		mutationFn: (book: Book) => update(`users/${userId}`, book),
 
-		onSettled: () => queryClient.refetchQueries(['books']),
+		onSettled: () => {
+			queryClient.refetchQueries(['books'])
+			queryClient.refetchQueries(['list-items'])
+		},
 	})
 }
 
