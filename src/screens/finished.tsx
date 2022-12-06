@@ -1,7 +1,7 @@
 import { Link } from 'comps/lib'
 import { ListItemList } from 'comps/list-item-list'
 import { useListItems } from 'utils/list-items'
-import { Book } from 'types'
+import { Book } from '../../types'
 
 const FinishedScreen = () => {
 	const list = useListItems()

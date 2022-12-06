@@ -1,0 +1,30 @@
+[debug] [2022-12-06T15:39:54.735Z] ----------------------------------------------------------------------
+[debug] [2022-12-06T15:39:54.737Z] Command:       /Users/alexandergilbert/.nvm/versions/node/v16.18.1/bin/node /usr/local/bin/firebase deploy --only functions
+[debug] [2022-12-06T15:39:54.737Z] CLI Version:   11.10.0
+[debug] [2022-12-06T15:39:54.737Z] Platform:      darwin
+[debug] [2022-12-06T15:39:54.738Z] Node Version:  v16.18.1
+[debug] [2022-12-06T15:39:54.738Z] Time:          Tue Dec 06 2022 16:39:54 GMT+0100 (Central European Standard Time)
+[debug] [2022-12-06T15:39:54.739Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-06T15:39:54.784Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-06T15:39:54.785Z] > authorizing via signed-in user (alex.js.ltd@gmail.com)
+[debug] [2022-12-06T15:39:54.785Z] [iam] checking project epic-react-app for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2022-12-06T15:39:54.786Z] > refreshing access token with scopes: []
+[debug] [2022-12-06T15:39:54.787Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-12-06T15:39:54.788Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-06T15:39:55.033Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-12-06T15:39:55.034Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-06T15:39:55.082Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions [none]
+[debug] [2022-12-06T15:39:55.082Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions x-goog-quota-user=projects/epic-react-app
+[debug] [2022-12-06T15:39:55.082Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-12-06T15:39:56.006Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions 200
+[debug] [2022-12-06T15:39:56.006Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-12-06T15:39:56.007Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-12-06T15:39:56.007Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-12-06T15:39:56.825Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-12-06T15:39:56.826Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'epic-react-app'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build

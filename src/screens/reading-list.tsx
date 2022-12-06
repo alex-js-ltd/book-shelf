@@ -1,7 +1,8 @@
 import { Link } from 'comps/lib'
 import { ListItemList } from 'comps/list-item-list'
-import { Book } from 'types'
 import { useListItems } from 'utils/list-items'
+
+import { Book } from '../../types'
 
 const ReadingListScreen = () => {
 	const list = useListItems()

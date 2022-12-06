@@ -15,10 +15,9 @@ import {
 	useUpdateListItem,
 	useRemoveListItem,
 	useListItem,
-	useCreateListItem,
 } from 'utils/list-items'
 
-import { Book } from 'types'
+import { Book } from '../../types'
 
 interface Props {
 	label?: string
@@ -62,7 +61,6 @@ const StatusButtons = ({ book }: { book: Book }) => {
 	const listItem = useListItem(book)
 	const update = useUpdateListItem()
 	const remove = useRemoveListItem()
-	const create = useCreateListItem()
 
 	return (
 		<React.Fragment>
@@ -98,7 +96,7 @@ const StatusButtons = ({ book }: { book: Book }) => {
 					label='Add to list'
 					highlight={colors.indigo}
 					onClick={() =>
-						create.mutateAsync({
+						update.mutateAsync({
 							...book,
 							startDate: Date.now(),
 							finishDate: null,

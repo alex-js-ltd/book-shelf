@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAuth } from 'context/auth-context'
-import { Book } from 'types'
 import { useClient } from './use-client'
+import { Book } from '../../types'
 
 function useListItems() {
 	const { read } = useClient()
@@ -30,7 +30,7 @@ function useUpdateListItem() {
 	const queryClient = useQueryClient()
 
 	return useMutation({
-		mutationFn: (book: Book) => update(`users/${userId}`, book),
+		mutationFn: (book: Book) => update(`users/${userId}/reading-list`, book),
 
 		async onMutate(newBook) {
 			await queryClient.cancelQueries({ queryKey: ['list-items'] })
@@ -67,7 +67,7 @@ function useUpdateListItem() {
 		},
 
 		async onSettled() {
-			await queryClient.refetchQueries()
+			await queryClient.invalidateQueries(['list-items'])
 		},
 	})
 }
@@ -80,7 +80,7 @@ function useRemoveListItem() {
 	const queryClient = useQueryClient()
 
 	return useMutation({
-		mutationFn: (book: Book) => remove(`users/${userId}`, book),
+		mutationFn: (book: Book) => remove(`users/${userId}/reading-list`, book),
 
 		async onMutate(newBook) {
 			await queryClient.cancelQueries({ queryKey: ['list-items'] })
@@ -101,31 +101,9 @@ function useRemoveListItem() {
 		},
 
 		async onSettled() {
-			await queryClient.refetchQueries()
+			await queryClient.invalidateQueries(['list-items'])
 		},
 	})
 }
 
-function useCreateListItem() {
-	const { update } = useClient()
-	const { user } = useAuth()
-	const userId = user?.localId
-
-	const queryClient = useQueryClient()
-
-	return useMutation({
-		mutationFn: (book: Book) => update(`users/${userId}`, book),
-
-		async onSettled() {
-			await queryClient.refetchQueries()
-		},
-	})
-}
-
-export {
-	useListItems,
-	useUpdateListItem,
-	useRemoveListItem,
-	useListItem,
-	useCreateListItem,
-}
+export { useListItems, useUpdateListItem, useRemoveListItem, useListItem }

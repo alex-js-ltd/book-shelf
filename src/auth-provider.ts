@@ -1,4 +1,4 @@
-import { FormData } from 'types'
+import { FormData } from 'client-types'
 const loginURL = process.env.REACT_APP_SIGN_IN_URL
 const registerURL = process.env.REACT_APP_SIGN_UP_URL
 const refreshURL = process.env.REACT_APP_REFRESH_URL

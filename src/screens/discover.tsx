@@ -8,7 +8,7 @@ import { BookRow } from 'comps/book-row'
 
 import * as colors from 'styles/colors'
 import { useBookSearch } from 'utils/books'
-import { Book } from 'types'
+import { Book } from '../../types'
 
 const DiscoverBooksScreen = () => {
 	const [query, setQuery] = useState<string>('')

@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 import { BookListUL } from './lib'
 import { BookRow } from './book-row'
-import { Book } from 'types'
+import { Book } from '../../types'
 
 const ListItemList = ({
 	noListItems,

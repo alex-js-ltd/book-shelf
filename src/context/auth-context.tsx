@@ -10,7 +10,7 @@ import React, {
 import { queryClient } from 'context'
 import * as auth from 'auth-provider'
 import { useAsync } from 'utils/hooks'
-import { FormData } from 'types'
+import { FormData } from 'client-types'
 
 type AuthProviderProps = { children: ReactNode }
 

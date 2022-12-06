@@ -2,7 +2,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useClient } from 'utils/use-client'
 import { useAuth } from 'context/auth-context'
 import bookPlaceholderSvg from 'assets/book-placeholder.svg'
-import { Book } from 'types'
+import { Book } from '../../types'
 
 const loadingBook = {
 	objectID: `loading-book-${0}`,

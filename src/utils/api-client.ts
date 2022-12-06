@@ -1,6 +1,6 @@
 import { queryClient } from 'context'
 import * as auth from 'auth-provider'
-import { Config } from 'types'
+import { Config } from 'client-types'
 const apiURL = process.env.REACT_APP_API_URL
 
 async function client(endpoint: string, { method, data, token }: Config) {
@@ -22,7 +22,7 @@ async function client(endpoint: string, { method, data, token }: Config) {
 			return Promise.reject({ message: 'Please re-authenticate.' })
 		}
 		const data = await response.json()
-		console.log(data)
+
 		if (response.ok) {
 			return data
 		} else {

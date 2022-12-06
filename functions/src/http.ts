@@ -7,6 +7,8 @@ import * as cors from 'cors'
 
 import { algoliaSearch, getReadingList } from './utils'
 
+import { Book } from '../../types'
+
 const db = getFirestore()
 
 // Multi Route ExpressJS HTTP Function
@@ -27,13 +29,8 @@ app.get('/books', async (request, response) => {
 	}
 
 	const hits = await algoliaSearch(search)
-	const listItems = await getReadingList(db, userId)
-	const listItemIds = listItems?.map((li: any) => li.objectID)
-	const filter = hits?.filter(
-		(book: any) => !listItemIds.includes(book.objectID),
-	)
 
-	response.send(filter)
+	response.send(hits)
 })
 
 app.get('/book', async (request, response) => {
@@ -63,7 +60,7 @@ app.get('/users/:userId/reading-list', async (request, response) => {
 	response.send(listItems)
 })
 
-app.put('/users/:userId', async (request, response) => {
+app.put('/users/:userId/reading-list', async (request, response) => {
 	const userId = request.params.userId
 	const body = request.body
 
@@ -82,7 +79,7 @@ app.put('/users/:userId', async (request, response) => {
 	let copyReadingList = [...copyUserData.readingList]
 
 	const index = copyReadingList.findIndex(
-		(li: any) => li.objectID === book.objectID,
+		(li: Book) => li.objectID === book.objectID,
 	)
 
 	if (index !== -1) {
@@ -99,7 +96,7 @@ app.put('/users/:userId', async (request, response) => {
 	response.send(book)
 })
 
-app.delete('/users/:userId', async (request, response) => {
+app.delete('/users/:userId/reading-list', async (request, response) => {
 	const userId = request.params.userId
 	const body = request.body
 
@@ -115,7 +112,7 @@ app.delete('/users/:userId', async (request, response) => {
 	const copyUserData = { ...userData }
 
 	const filter = copyUserData?.readingList?.filter(
-		(li: any) => li.objectID !== book.objectID,
+		(li: Book) => li.objectID !== book.objectID,
 	)
 
 	copyUserData.readingList = filter
