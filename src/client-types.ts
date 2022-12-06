@@ -1,4 +1,4 @@
-import { ListItem } from '../types'
+import { Book, ListItem } from '../types'
 
 type FormData = {
 	email: string
@@ -11,4 +11,8 @@ type Config = {
 	data?: ListItem
 }
 
-export { FormData, Config }
+type Loading = Book & {
+	loadingBook: boolean
+}
+
+export type { FormData, Config, Loading }

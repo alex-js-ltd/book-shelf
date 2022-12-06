@@ -1,7 +1,7 @@
 import { queryClient } from 'context'
 import * as auth from 'auth-provider'
 import { Config } from 'client-types'
-import { ListItem } from '../../types'
+import { Book, ListItem } from '../../types'
 const apiURL = process.env.REACT_APP_API_URL
 
 async function client(endpoint: string, { method, data, token }: Config) {

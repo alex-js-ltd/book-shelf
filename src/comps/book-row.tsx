@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
 import { StatusButtons } from './status-buttons'
-import { Book } from '../../types'
+import { Book, ListItem } from '../../types'
+import { Loading } from 'client-types'
 
-const BookRow = ({ book }: { book: Book }) => {
+const BookRow = ({ book }: { book: Book | ListItem | Loading }) => {
 	const { title, author, coverImageUrl, synopsis, publisher, objectID } = book
 	const id = `book-row-book-${book.objectID}`
 
@@ -97,10 +98,19 @@ const BookRow = ({ book }: { book: Book }) => {
 					height: '100%',
 				}}
 			>
-				{book.loadingBook ? null : <StatusButtons book={book} />}
+				{isLoading(book) ? null : <StatusButtons book={book} />}
 			</div>
 		</div>
 	)
 }
 
 export { BookRow }
+
+function isLoading(valueToTest: any) {
+	return (
+		valueToTest &&
+		typeof valueToTest === 'object' &&
+		'loadingBook' in valueToTest &&
+		typeof valueToTest['loadingBook'] === 'boolean'
+	)
+}

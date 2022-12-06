@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react'
+import React, { ReactElement } from 'react'
 import {
 	FaCheckCircle,
 	FaPlusCircle,
@@ -24,7 +24,7 @@ interface Props {
 	label?: string
 	highlight?: string
 	onClick: Function
-	icon: React.ReactElement
+	icon: ReactElement
 }
 
 const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
@@ -92,7 +92,7 @@ const StatusButtons = ({ book }: { book: Book }) => {
 				<TooltipButton
 					label='Remove from list'
 					highlight={colors.danger}
-					onClick={() => remove.mutateAsync(book)}
+					onClick={() => remove.mutateAsync(listItem)}
 					icon={<FaMinusCircle />}
 				/>
 			) : (

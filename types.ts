@@ -6,7 +6,6 @@ type Book = {
 	publisher: string
 	synopsis: string
 	pageCount: number
-	loadingBook?: boolean
 }
 
 type ListItem = Book & {
