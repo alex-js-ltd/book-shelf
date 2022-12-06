@@ -79,4 +79,31 @@ app.delete('/reading-list/:userId', async (request, response) => {
 	response.send(book)
 })
 
+app.post('/reading-list/:userId', async (request, response) => {
+	const userId = request.params.userId
+	const body = request.body
+
+	if (!userId) {
+		response.status(400).send('ERROR you must supply a userId')
+	}
+
+	const book = { ...body }
+
+	const { readingList, userObj, userRef } = await getUserData(db, userId)
+
+	const found = readingList?.find(element => element.objectID === book.objectID)
+
+	if (found) {
+		response.status(400).send('ERROR item already exists in reading list array')
+	}
+
+	const newReadingList = [...readingList, book]
+
+	userObj.readingList = newReadingList
+
+	await userRef.set(userObj)
+
+	response.send(book)
+})
+
 export const api = functions.https.onRequest(app)

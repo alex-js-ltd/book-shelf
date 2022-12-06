@@ -59,8 +59,9 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 
 const StatusButtons = ({ book }: { book: Book }) => {
 	const listItem = useListItem(book)
+	const create = useCreateListItem()
 	const remove = useRemoveListItem()
-	console.log(listItem)
+
 	return (
 		<React.Fragment>
 			{listItem ? (
@@ -70,7 +71,20 @@ const StatusButtons = ({ book }: { book: Book }) => {
 					onClick={() => remove.mutateAsync(book)}
 					icon={<FaMinusCircle />}
 				/>
-			) : null}
+			) : (
+				<TooltipButton
+					label='Add to list'
+					highlight={colors.indigo}
+					onClick={() =>
+						create.mutateAsync({
+							...book,
+							startDate: Date.now(),
+							finishDate: null,
+						})
+					}
+					icon={<FaPlusCircle />}
+				/>
+			)}
 		</React.Fragment>
 	)
 }

@@ -48,24 +48,6 @@ function useRemoveListItem() {
 	return useMutation({
 		mutationFn: (book: Book) => remove(`reading-list/${userId}`, book),
 
-		async onMutate(newBook) {
-			await queryClient.cancelQueries({ queryKey: ['list-items'] })
-
-			const previousListItems = queryClient.getQueryData(['list-items'])
-
-			queryClient.setQueryData(['list-items'], (old?: Book[]) => {
-				const filter = old?.filter(li => li.objectID !== newBook.objectID)
-
-				return filter
-			})
-
-			return { previousListItems }
-		},
-
-		onError(_err, _newBook, context) {
-			queryClient.setQueryData(['list-items'], context?.previousListItems)
-		},
-
 		async onSettled() {
 			await queryClient.invalidateQueries(['list-items'])
 		},
