@@ -12,7 +12,7 @@ import { useAsync } from 'utils/hooks'
 import * as colors from 'styles/colors'
 import { CircleButton, Spinner } from './lib'
 import {
-	useUpdateListItem,
+	useCreateListItem,
 	useRemoveListItem,
 	useListItem,
 } from 'utils/list-items'
@@ -59,54 +59,8 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 
 const StatusButtons = ({ book }: { book: Book }) => {
 	const listItem = useListItem(book)
-	const update = useUpdateListItem()
-	const remove = useRemoveListItem()
-
-	return (
-		<React.Fragment>
-			{listItem ? (
-				Boolean(listItem.finishDate) ? (
-					<TooltipButton
-						label='Mark as unread'
-						highlight={colors.yellow}
-						onClick={() => update.mutateAsync({ ...book, finishDate: null })}
-						icon={<FaBook />}
-					/>
-				) : (
-					<TooltipButton
-						label='Mark as read'
-						highlight={colors.green}
-						onClick={() =>
-							update.mutateAsync({ ...book, finishDate: Date.now() })
-						}
-						icon={<FaCheckCircle />}
-					/>
-				)
-			) : null}
-
-			{listItem ? (
-				<TooltipButton
-					label='Remove from list'
-					highlight={colors.danger}
-					onClick={() => remove.mutateAsync(book)}
-					icon={<FaMinusCircle />}
-				/>
-			) : (
-				<TooltipButton
-					label='Add to list'
-					highlight={colors.indigo}
-					onClick={() =>
-						update.mutateAsync({
-							...book,
-							startDate: Date.now(),
-							finishDate: null,
-						})
-					}
-					icon={<FaPlusCircle />}
-				/>
-			)}
-		</React.Fragment>
-	)
+	console.log(listItem)
+	return <React.Fragment></React.Fragment>
 }
 
 export { StatusButtons }

@@ -1,30 +1,346 @@
-[debug] [2022-12-06T15:39:54.735Z] ----------------------------------------------------------------------
-[debug] [2022-12-06T15:39:54.737Z] Command:       /Users/alexandergilbert/.nvm/versions/node/v16.18.1/bin/node /usr/local/bin/firebase deploy --only functions
-[debug] [2022-12-06T15:39:54.737Z] CLI Version:   11.10.0
-[debug] [2022-12-06T15:39:54.737Z] Platform:      darwin
-[debug] [2022-12-06T15:39:54.738Z] Node Version:  v16.18.1
-[debug] [2022-12-06T15:39:54.738Z] Time:          Tue Dec 06 2022 16:39:54 GMT+0100 (Central European Standard Time)
-[debug] [2022-12-06T15:39:54.739Z] ----------------------------------------------------------------------
+[debug] [2022-12-06T18:33:49.148Z] ----------------------------------------------------------------------
+[debug] [2022-12-06T18:33:49.150Z] Command:       /Users/alexandergilbert/.nvm/versions/node/v16.18.1/bin/node /usr/local/bin/firebase emulators:start --only functions
+[debug] [2022-12-06T18:33:49.151Z] CLI Version:   11.10.0
+[debug] [2022-12-06T18:33:49.151Z] Platform:      darwin
+[debug] [2022-12-06T18:33:49.151Z] Node Version:  v16.18.1
+[debug] [2022-12-06T18:33:49.152Z] Time:          Tue Dec 06 2022 19:33:49 GMT+0100 (Central European Standard Time)
+[debug] [2022-12-06T18:33:49.152Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2022-12-06T15:39:54.784Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2022-12-06T15:39:54.785Z] > authorizing via signed-in user (alex.js.ltd@gmail.com)
-[debug] [2022-12-06T15:39:54.785Z] [iam] checking project epic-react-app for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
-[debug] [2022-12-06T15:39:54.786Z] > refreshing access token with scopes: []
-[debug] [2022-12-06T15:39:54.787Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2022-12-06T15:39:54.788Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2022-12-06T15:39:55.033Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2022-12-06T15:39:55.034Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2022-12-06T15:39:55.082Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions [none]
-[debug] [2022-12-06T15:39:55.082Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions x-goog-quota-user=projects/epic-react-app
-[debug] [2022-12-06T15:39:55.082Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
-[debug] [2022-12-06T15:39:56.006Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions 200
-[debug] [2022-12-06T15:39:56.006Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/epic-react-app:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
-[debug] [2022-12-06T15:39:56.007Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions [none]
-[debug] [2022-12-06T15:39:56.007Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
-[debug] [2022-12-06T15:39:56.825Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions 200
-[debug] [2022-12-06T15:39:56.826Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/epic-react-app/serviceAccounts/epic-react-app@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-12-06T18:33:49.213Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-06T18:33:49.213Z] > authorizing via signed-in user (alex.js.ltd@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2022-12-06T18:33:49.225Z] [hub] writing locator at /var/folders/vr/ybgly0_j0cq9hwdwrdstx7n80000gn/T/hub-epic-react-app.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage, eventarc {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage, eventarc\u001b[22m"}}
+[info] ✔  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-12-06T18:33:49.246Z] defaultcredentials: writing to file /Users/alexandergilbert/.config/firebase/alex_js.ltd_gmail.com_application_default_credentials.json
+[debug] [2022-12-06T18:33:49.248Z] Setting GAC to /Users/alexandergilbert/.config/firebase/alex_js.ltd_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/alexandergilbert/.config/firebase/alex_js.ltd_gmail.com_application_default_credentials.json"}}
+[debug] [2022-12-06T18:33:49.250Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig [none]
+[debug] [2022-12-06T18:33:49.722Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig 200
+[debug] [2022-12-06T18:33:49.722Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/epic-react-app/adminSdkConfig {"projectId":"epic-react-app","storageBucket":"epic-react-app.appspot.com","locationId":"europe-west"}
+[debug] [2022-12-06T18:33:50.030Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-12-06T18:33:50.030Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-12-06T18:33:50.030Z] Starting Emulator UI with command {"binary":"node","args":["/Users/alexandergilbert/.cache/firebase/emulators/ui-v1.9.0/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/alexandergilbert/.cache/firebase/emulators/ui-v1.9.0/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-12-06T18:33:50.152Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] i  functions: Watching "/Users/alexandergilbert/Desktop/book-shelf/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/alexandergilbert/Desktop/book-shelf/functions\" for Cloud Functions..."}}
+[debug] [2022-12-06T18:33:50.304Z] Validating nodejs source
+[debug] [2022-12-06T18:33:51.666Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "algoliasearch": "^4.14.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.3.0",
+    "firebase-functions": "^4.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "private": true
+}
+[debug] [2022-12-06T18:33:51.667Z] Building nodejs source
+[debug] [2022-12-06T18:33:51.667Z] Analyzing nodejs backend spec
+[debug] [2022-12-06T18:33:51.671Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-12-06T18:33:51.816Z] Serving at port 9006
+
+[debug] [2022-12-06T18:33:51.967Z] Got response from /__/functions.yaml {"endpoints":{"createUserRecord":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","eventFilters":{"resource":"projects/epic-react-app"},"retry":false},"labels":{},"entryPoint":"createUserRecord"},"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-12-06T18:33:51.973Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: createUserRecord, api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: createUserRecord, api."}}
+[debug] [2022-12-06T18:33:51.980Z] addAuthTrigger {"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/epic-react-app"}}
+[info] ✔  functions[us-central1-createUserRecord]: auth function initialized. {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mauth\u001b[22m function initialized."}}
+[info] ✔  functions[us-central1-api]: http function initialized (http://localhost:5001/epic-react-app/us-central1/api). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/epic-react-app/us-central1/api)."}}
 [info] 
-[info] === Deploying to 'epic-react-app'...
-[info] 
-[info] i  deploying functions 
-[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ localhost:5001 │ http://localhost:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-12-06T18:33:57.005Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:33:57.005Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:33:57.005Z] Accepted request OPTIONS /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:33:57.008Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:33:57.009Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2022-12-06T18:33:57.021Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2022-12-06T18:33:57.022Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2022-12-06T18:33:58.009Z] [runtime-status] [10836] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-12-06T18:33:58.009Z] [runtime-status] [10836] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:33:58.023Z] [runtime-status] [10836] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-12-06T18:33:58.023Z] [runtime-status] [10836] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:33:58.152Z] [runtime-status] [10836] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-12-06T18:33:58.152Z] [runtime-status] [10836] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}}"}}
+[debug] [2022-12-06T18:33:58.153Z] [runtime-status] [10836] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:33:58.154Z] [runtime-status] [10836] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-12-06T18:33:58.156Z] [runtime-status] [10836] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:33:58.156Z] [runtime-status] [10836] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2022-12-06T18:33:58.229Z] [runtime-status] [10836] Functions runtime initialized. {"cwd":"/Users/alexandergilbert/Desktop/book-shelf/functions","node_version":"16.18.1"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] Functions runtime initialized. {\"cwd\":\"/Users/alexandergilbert/Desktop/book-shelf/functions\",\"node_version\":\"16.18.1\"}"}}
+[debug] [2022-12-06T18:33:58.229Z] [runtime-status] [10836] Listening to port: /var/folders/vr/ybgly0_j0cq9hwdwrdstx7n80000gn/T/fire_emu_8b4843422818cbdb.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10836] Listening to port: /var/folders/vr/ybgly0_j0cq9hwdwrdstx7n80000gn/T/fire_emu_8b4843422818cbdb.sock"}}
+[debug] [2022-12-06T18:33:58.245Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:33:58.245Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:33:58.256Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:33:58.257Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 1.926236ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 1.926236ms"}}
+[debug] [2022-12-06T18:34:05.631Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:05.632Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:05.632Z] Accepted request OPTIONS /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:05.635Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:05.635Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:05.635Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:05.635Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:05.638Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:05.638Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 0.673684ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.673684ms"}}
+[debug] [2022-12-06T18:34:05.640Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:05.640Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:05.640Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:05.642Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:05.643Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:05.643Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:05.643Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:06.081Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:06.081Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 435.764532ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 435.764532ms"}}
+[debug] [2022-12-06T18:34:06.314Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:06.315Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:06.315Z] Accepted request OPTIONS /epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:06.318Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:06.318Z] [functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:06.318Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:06.318Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[info] i  functions: Finished "api" in 0.514516ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.514516ms"}}
+[debug] [2022-12-06T18:34:06.322Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:06.322Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-12-06T18:34:06.324Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:06.324Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:06.324Z] Accepted request GET /epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:06.326Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:06.326Z] [functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:06.327Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:06.327Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[warn] ⚠  Google API requested!
+   - URL: "https://oauth2.googleapis.com/token"
+   - Be careful, this may be a production service. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Google API requested!\n   - URL: \"https://oauth2.googleapis.com/token\"\n   - Be careful, this may be a production service."}}
+[debug] [2022-12-06T18:34:07.191Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:07.192Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 862.256222ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 862.256222ms"}}
+[debug] [2022-12-06T18:34:15.376Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:15.376Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:15.376Z] Accepted request OPTIONS /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:15.379Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:15.379Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:15.379Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:15.379Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[debug] [2022-12-06T18:34:15.381Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2022-12-06T18:34:15.381Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2022-12-06T18:34:15.381Z] Accepted request OPTIONS /epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:15.383Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:15.384Z] [functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2022-12-06T18:34:15.393Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2022-12-06T18:34:15.394Z] [worker-pool] Adding worker with key us-central1-api, total=2 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=2"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[info] i  functions: Finished "api" in 0.691033ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.691033ms"}}
+[debug] [2022-12-06T18:34:15.400Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:15.400Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:15.402Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2022-12-06T18:34:15.402Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2022-12-06T18:34:15.402Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:15.405Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:15.405Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:15.405Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:15.405Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:15.518Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:15.519Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] i  functions: Finished "api" in 107.384851ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 107.384851ms"}}
+[debug] [2022-12-06T18:34:16.168Z] [runtime-status] [10845] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-12-06T18:34:16.169Z] [runtime-status] [10845] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:34:16.169Z] [runtime-status] [10845] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-12-06T18:34:16.170Z] [runtime-status] [10845] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:34:16.302Z] [runtime-status] [10845] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-12-06T18:34:16.302Z] [runtime-status] [10845] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}}"}}
+[debug] [2022-12-06T18:34:16.303Z] [runtime-status] [10845] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:34:16.304Z] [runtime-status] [10845] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-12-06T18:34:16.305Z] [runtime-status] [10845] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:34:16.306Z] [runtime-status] [10845] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2022-12-06T18:34:16.380Z] [runtime-status] [10845] Functions runtime initialized. {"cwd":"/Users/alexandergilbert/Desktop/book-shelf/functions","node_version":"16.18.1"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] Functions runtime initialized. {\"cwd\":\"/Users/alexandergilbert/Desktop/book-shelf/functions\",\"node_version\":\"16.18.1\"}"}}
+[debug] [2022-12-06T18:34:16.381Z] [runtime-status] [10845] Listening to port: /var/folders/vr/ybgly0_j0cq9hwdwrdstx7n80000gn/T/fire_emu_bc496e9ce6dfd8fc.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10845] Listening to port: /var/folders/vr/ybgly0_j0cq9hwdwrdstx7n80000gn/T/fire_emu_bc496e9ce6dfd8fc.sock"}}
+[debug] [2022-12-06T18:34:16.417Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:16.417Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:16.419Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:16.420Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 0.463502ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.463502ms"}}
+[debug] [2022-12-06T18:34:16.422Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:16.422Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:16.422Z] Accepted request GET /epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:16.424Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:16.424Z] [functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:16.424Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:16.425Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:16.561Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:16.561Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 134.356184ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 134.356184ms"}}
+[debug] [2022-12-06T18:34:28.896Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:28.897Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:28.897Z] Accepted request OPTIONS /epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:28.899Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:28.899Z] [functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:28.899Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:28.899Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:28.901Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:28.901Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 0.519022ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.519022ms"}}
+[debug] [2022-12-06T18:34:28.902Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:28.902Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:28.902Z] Accepted request GET /epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:28.904Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:28.904Z] [functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:28.904Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:28.904Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:29.022Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:29.022Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 114.924236ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 114.924236ms"}}
+[debug] [2022-12-06T18:34:29.031Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:29.031Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:29.031Z] Accepted request OPTIONS /epic-react-app/us-central1/api/book/NdOO5IdCiODuzmQB9BdB --> us-central1-api
+[debug] [2022-12-06T18:34:29.034Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:29.034Z] [functions] Got req.url=/epic-react-app/us-central1/api/book/NdOO5IdCiODuzmQB9BdB, mapping to path=/book/NdOO5IdCiODuzmQB9BdB {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/book/NdOO5IdCiODuzmQB9BdB, mapping to path=/book/NdOO5IdCiODuzmQB9BdB"}}
+[debug] [2022-12-06T18:34:29.034Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:29.034Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:29.038Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:29.038Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 0.488566ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.488566ms"}}
+[debug] [2022-12-06T18:34:29.039Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:29.039Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:29.039Z] Accepted request GET /epic-react-app/us-central1/api/book/NdOO5IdCiODuzmQB9BdB --> us-central1-api
+[debug] [2022-12-06T18:34:29.042Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:29.042Z] [functions] Got req.url=/epic-react-app/us-central1/api/book/NdOO5IdCiODuzmQB9BdB, mapping to path=/book/NdOO5IdCiODuzmQB9BdB {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/book/NdOO5IdCiODuzmQB9BdB, mapping to path=/book/NdOO5IdCiODuzmQB9BdB"}}
+[debug] [2022-12-06T18:34:29.042Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:29.042Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[info] >  bookId NdOO5IdCiODuzmQB9BdB {"user":"bookId NdOO5IdCiODuzmQB9BdB","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"\u001b[90m> \u001b[39m bookId NdOO5IdCiODuzmQB9BdB"}}
+[debug] [2022-12-06T18:34:29.153Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:29.153Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 108.404635ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 108.404635ms"}}
+[debug] [2022-12-06T18:34:33.465Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:33.465Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:33.465Z] Accepted request GET /epic-react-app/us-central1/api/book/NdOO5IdCiODuzmQB9BdB --> us-central1-api
+[debug] [2022-12-06T18:34:33.467Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:33.467Z] [functions] Got req.url=/epic-react-app/us-central1/api/book/NdOO5IdCiODuzmQB9BdB, mapping to path=/book/NdOO5IdCiODuzmQB9BdB {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/book/NdOO5IdCiODuzmQB9BdB, mapping to path=/book/NdOO5IdCiODuzmQB9BdB"}}
+[debug] [2022-12-06T18:34:33.467Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:33.468Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[info] >  bookId NdOO5IdCiODuzmQB9BdB {"user":"bookId NdOO5IdCiODuzmQB9BdB","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"\u001b[90m> \u001b[39m bookId NdOO5IdCiODuzmQB9BdB"}}
+[debug] [2022-12-06T18:34:33.601Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2022-12-06T18:34:33.601Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2022-12-06T18:34:33.601Z] Accepted request GET /epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:33.603Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:33.604Z] [functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/reading-list/ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:33.604Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:33.604Z] [worker-us-central1-api-78f7ea1b-3d90-4c4a-a496-a7e90af8a360]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-78f7ea1b-3d90-4c4a-a496-a7e90af8a360]: BUSY"}}
+[debug] [2022-12-06T18:34:33.606Z] [work-queue] {"queueLength":1,"workRunningCount":2}
+[debug] [2022-12-06T18:34:33.606Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[debug] [2022-12-06T18:34:33.606Z] Accepted request OPTIONS /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:33.608Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:33.609Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2022-12-06T18:34:33.616Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2022-12-06T18:34:33.618Z] [worker-pool] Adding worker with key us-central1-api, total=3 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=3"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:33.628Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:33.628Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[info] i  functions: Finished "api" in 158.591765ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 158.591765ms"}}
+[warn] ⚠  Google API requested!
+   - URL: "https://oauth2.googleapis.com/token"
+   - Be careful, this may be a production service. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Google API requested!\n   - URL: \"https://oauth2.googleapis.com/token\"\n   - Be careful, this may be a production service."}}
+[debug] [2022-12-06T18:34:34.385Z] [runtime-status] [10854] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-12-06T18:34:34.386Z] [runtime-status] [10854] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:34:34.387Z] [runtime-status] [10854] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-12-06T18:34:34.388Z] [runtime-status] [10854] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:34:34.479Z] [worker-us-central1-api-78f7ea1b-3d90-4c4a-a496-a7e90af8a360]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-78f7ea1b-3d90-4c4a-a496-a7e90af8a360]: IDLE"}}
+[debug] [2022-12-06T18:34:34.480Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] i  functions: Finished "api" in 872.160196ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 872.160196ms"}}
+[debug] [2022-12-06T18:34:34.525Z] [runtime-status] [10854] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-12-06T18:34:34.526Z] [runtime-status] [10854] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}}"}}
+[debug] [2022-12-06T18:34:34.526Z] [runtime-status] [10854] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:34:34.527Z] [runtime-status] [10854] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-12-06T18:34:34.529Z] [runtime-status] [10854] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.1.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.1.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2022-12-06T18:34:34.529Z] [runtime-status] [10854] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.3.0","resolution":"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.3.0\",\"resolution\":\"/Users/alexandergilbert/Desktop/book-shelf/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2022-12-06T18:34:34.602Z] [runtime-status] [10854] Functions runtime initialized. {"cwd":"/Users/alexandergilbert/Desktop/book-shelf/functions","node_version":"16.18.1"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] Functions runtime initialized. {\"cwd\":\"/Users/alexandergilbert/Desktop/book-shelf/functions\",\"node_version\":\"16.18.1\"}"}}
+[debug] [2022-12-06T18:34:34.602Z] [runtime-status] [10854] Listening to port: /var/folders/vr/ybgly0_j0cq9hwdwrdstx7n80000gn/T/fire_emu_5a3cc0a6f8be00fc.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [10854] Listening to port: /var/folders/vr/ybgly0_j0cq9hwdwrdstx7n80000gn/T/fire_emu_5a3cc0a6f8be00fc.sock"}}
+[debug] [2022-12-06T18:34:34.634Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:34.634Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:34.636Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:34.636Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 0.42792ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.42792ms"}}
+[debug] [2022-12-06T18:34:34.637Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:34.637Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:34.638Z] Accepted request GET /epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 --> us-central1-api
+[debug] [2022-12-06T18:34:34.640Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:34.640Z] [functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83, mapping to path=/books?search=?&userId=ExTAFFGaEQRmJSuF9viNzDrj4o83"}}
+[debug] [2022-12-06T18:34:34.640Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:34.640Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:34.772Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:34.772Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 129.078246ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 129.078246ms"}}
+[debug] [2022-12-06T18:34:35.135Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:35.135Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:35.135Z] Accepted request OPTIONS /epic-react-app/us-central1/api/book/XdpbZ0jl8qsTbUo6HKN1 --> us-central1-api
+[debug] [2022-12-06T18:34:35.138Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:35.138Z] [functions] Got req.url=/epic-react-app/us-central1/api/book/XdpbZ0jl8qsTbUo6HKN1, mapping to path=/book/XdpbZ0jl8qsTbUo6HKN1 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/book/XdpbZ0jl8qsTbUo6HKN1, mapping to path=/book/XdpbZ0jl8qsTbUo6HKN1"}}
+[debug] [2022-12-06T18:34:35.138Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:35.138Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-12-06T18:34:35.142Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:35.143Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 0.630539ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 0.630539ms"}}
+[debug] [2022-12-06T18:34:35.144Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-12-06T18:34:35.144Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-12-06T18:34:35.144Z] Accepted request GET /epic-react-app/us-central1/api/book/XdpbZ0jl8qsTbUo6HKN1 --> us-central1-api
+[debug] [2022-12-06T18:34:35.147Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-12-06T18:34:35.147Z] [functions] Got req.url=/epic-react-app/us-central1/api/book/XdpbZ0jl8qsTbUo6HKN1, mapping to path=/book/XdpbZ0jl8qsTbUo6HKN1 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/epic-react-app/us-central1/api/book/XdpbZ0jl8qsTbUo6HKN1, mapping to path=/book/XdpbZ0jl8qsTbUo6HKN1"}}
+[debug] [2022-12-06T18:34:35.147Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[debug] [2022-12-06T18:34:35.147Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: BUSY"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[info] >  bookId XdpbZ0jl8qsTbUo6HKN1 {"user":"bookId XdpbZ0jl8qsTbUo6HKN1","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"\u001b[90m> \u001b[39m bookId XdpbZ0jl8qsTbUo6HKN1"}}
+[debug] [2022-12-06T18:34:35.276Z] [worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-31a98aab-ab6f-4183-9620-8beb060602e6]: IDLE"}}
+[debug] [2022-12-06T18:34:35.276Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] i  functions: Finished "api" in 126.74702ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in 126.74702ms"}}

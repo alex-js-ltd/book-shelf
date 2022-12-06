@@ -14,7 +14,13 @@ export async function algoliaSearch(query: string) {
 
 	const { hits } = await index.search(query)
 
-	return hits
+	const map = hits?.map(function (book: any) {
+		delete book._highlightResult
+
+		return book
+	})
+
+	return map ?? []
 }
 
 export async function getReadingList(db: Firestore, userId: any) {

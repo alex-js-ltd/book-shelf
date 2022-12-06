@@ -7,8 +7,6 @@ import * as cors from 'cors'
 
 import { algoliaSearch, getReadingList } from './utils'
 
-import { Book } from '../../types'
-
 const db = getFirestore()
 
 // Multi Route ExpressJS HTTP Function
@@ -33,9 +31,10 @@ app.get('/books', async (request, response) => {
 	response.send(hits)
 })
 
-app.get('/book', async (request, response) => {
-	const bookId = request.query.bookId
+app.get('/book/:bookId', async (request, response) => {
+	const bookId = request.params.bookId
 
+	console.log('bookId', bookId)
 	if (!bookId) {
 		response.status(400).send('ERROR you must supply a bookId')
 	}
@@ -47,79 +46,16 @@ app.get('/book', async (request, response) => {
 	response.send(bookObj)
 })
 
-app.get('/users/:userId/reading-list', async (request, response) => {
+app.get('/reading-list/:userId', async (request, response) => {
 	const userId = request.params.userId
 
 	if (!userId) {
 		response.status(400).send('ERROR you must supply a userId')
 	}
-
-	if (typeof userId !== 'string') return
 
 	const listItems = await getReadingList(db, userId)
+
 	response.send(listItems)
-})
-
-app.put('/users/:userId/reading-list', async (request, response) => {
-	const userId = request.params.userId
-	const body = request.body
-
-	if (!userId) {
-		response.status(400).send('ERROR you must supply a userId')
-	}
-
-	const book = { ...body }
-
-	delete book._highlightResult
-
-	const userRef = db.doc(`users/${userId}`)
-	const userSnap = await userRef.get()
-	const userData = userSnap.data()
-	const copyUserData = { ...userData }
-	let copyReadingList = [...copyUserData.readingList]
-
-	const index = copyReadingList.findIndex(
-		(li: Book) => li.objectID === book.objectID,
-	)
-
-	if (index !== -1) {
-		copyReadingList[index] = book
-	}
-
-	if (index === -1) {
-		copyReadingList = [...copyReadingList, book]
-	}
-
-	copyUserData.readingList = copyReadingList
-	await userRef.set(copyUserData)
-
-	response.send(book)
-})
-
-app.delete('/users/:userId/reading-list', async (request, response) => {
-	const userId = request.params.userId
-	const body = request.body
-
-	if (!userId) {
-		response.status(400).send('ERROR you must supply a userId')
-	}
-
-	const book = { ...body }
-
-	const userRef = db.doc(`users/${userId}`)
-	const userSnap = await userRef.get()
-	const userData = userSnap.data()
-	const copyUserData = { ...userData }
-
-	const filter = copyUserData?.readingList?.filter(
-		(li: Book) => li.objectID !== book.objectID,
-	)
-
-	copyUserData.readingList = filter
-
-	await userRef.set(copyUserData)
-
-	response.send(book)
 })
 
 export const api = functions.https.onRequest(app)

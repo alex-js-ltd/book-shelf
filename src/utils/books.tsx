@@ -48,7 +48,7 @@ function useBook(bookId: string | undefined) {
 
 	const result = useQuery<Book | null, Error>({
 		queryKey: ['book', bookId],
-		queryFn: () => read(`book?bookId=${bookId}`),
+		queryFn: () => read(`book/${bookId}`),
 	})
 
 	return result?.data ?? loadingBook
