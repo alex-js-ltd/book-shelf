@@ -36,7 +36,6 @@ app.get('/books', async (request, response) => {
 app.get('/book/:bookId', async (request, response) => {
 	const bookId = request.params.bookId
 
-	console.log('bookId', bookId)
 	if (!bookId) {
 		response.status(400).send('ERROR you must supply a bookId')
 	}

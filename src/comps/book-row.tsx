@@ -9,7 +9,7 @@ import { Book } from '../../types'
 const BookRow = ({ book }: { book: Book }) => {
 	const { title, author, coverImageUrl, synopsis, publisher, objectID } = book
 	const id = `book-row-book-${book.objectID}`
-	console.log(book)
+
 	return (
 		<div
 			css={{
