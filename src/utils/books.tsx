@@ -28,7 +28,7 @@ function useBookSearch(query: string) {
 	const queryClient = useQueryClient()
 
 	const result = useQuery<Book[], Error>({
-		queryKey: ['books'],
+		queryKey: ['books', query],
 		queryFn: () => read(`books?search=${query}?&userId=${userId}`),
 
 		onSuccess(books: Book[] | undefined) {
