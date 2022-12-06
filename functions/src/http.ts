@@ -7,6 +7,8 @@ import * as cors from 'cors'
 
 import { algoliaSearch, getUserData } from './utils'
 
+import { Book } from '../../types'
+
 const db = getFirestore()
 
 // Multi Route ExpressJS HTTP Function
@@ -70,7 +72,9 @@ app.delete('/reading-list/:userId', async (request, response) => {
 
 	const { readingList, userObj, userRef } = await getUserData(db, userId)
 
-	const filter = readingList?.filter((li: any) => li.objectID !== book.objectID)
+	const filter = readingList?.filter(
+		(li: Book) => li.objectID !== book.objectID,
+	)
 
 	userObj.readingList = filter
 
