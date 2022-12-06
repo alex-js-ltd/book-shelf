@@ -7,10 +7,12 @@ type Book = {
 	synopsis: string
 	pageCount: number
 	loadingBook?: boolean
+}
 
+type ListItem = Book & {
 	startDate?: number
 	finishDate?: number | null
 	rating?: number | null
 }
 
-export type { Book }
+export type { Book, ListItem }

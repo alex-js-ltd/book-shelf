@@ -1,14 +1,14 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAuth } from 'context/auth-context'
 import { useClient } from './use-client'
-import { Book } from '../../types'
+import { ListItem } from '../../types'
 
 function useListItems() {
 	const { read } = useClient()
 	const { user } = useAuth()
 	const userId = user?.localId
 
-	const result = useQuery({
+	const result = useQuery<ListItem[], Error>({
 		queryKey: ['list-items'],
 		queryFn: () => read(`reading-list/${userId}`),
 	})
@@ -16,10 +16,12 @@ function useListItems() {
 	return result?.data ?? []
 }
 
-function useListItem(book: Book) {
+function useListItem(listItem: ListItem) {
 	const listItems = useListItems()
 
-	return listItems?.find((li: any) => li.objectID === book.objectID) ?? null
+	return (
+		listItems?.find((li: ListItem) => li.objectID === listItem.objectID) ?? null
+	)
 }
 
 function useCreateListItem() {
@@ -30,7 +32,8 @@ function useCreateListItem() {
 	const queryClient = useQueryClient()
 
 	return useMutation({
-		mutationFn: (book: Book) => create(`reading-list/${userId}`, book),
+		mutationFn: (listItem: ListItem) =>
+			create(`reading-list/${userId}`, listItem),
 
 		async onSettled() {
 			await queryClient.invalidateQueries(['list-items'])
@@ -46,7 +49,8 @@ function useUpdateListItem() {
 	const queryClient = useQueryClient()
 
 	return useMutation({
-		mutationFn: (book: Book) => update(`reading-list/${userId}`, book),
+		mutationFn: (listItem: ListItem) =>
+			update(`reading-list/${userId}`, listItem),
 
 		async onSettled() {
 			await queryClient.invalidateQueries(['list-items'])
@@ -62,7 +66,8 @@ function useRemoveListItem() {
 	const queryClient = useQueryClient()
 
 	return useMutation({
-		mutationFn: (book: Book) => remove(`reading-list/${userId}`, book),
+		mutationFn: (listItem: ListItem) =>
+			remove(`reading-list/${userId}`, listItem),
 
 		async onSettled() {
 			await queryClient.invalidateQueries(['list-items'])

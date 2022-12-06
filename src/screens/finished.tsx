@@ -1,12 +1,12 @@
 import { Link } from 'comps/lib'
 import { ListItemList } from 'comps/list-item-list'
 import { useListItems } from 'utils/list-items'
-import { Book } from '../../types'
+import { ListItem } from '../../types'
 
 const FinishedScreen = () => {
 	const list = useListItems()
 
-	const filter = list.filter((li: Book) => li.finishDate !== null)
+	const filter = list.filter((li: ListItem) => li.finishDate !== null)
 
 	return (
 		<ListItemList
