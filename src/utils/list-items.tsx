@@ -46,7 +46,7 @@ function useRemoveListItem() {
 	const queryClient = useQueryClient()
 
 	return useMutation({
-		mutationFn: (book: Book) => remove(`users/${userId}/reading-list`, book),
+		mutationFn: (book: Book) => remove(`reading-list/${userId}`, book),
 
 		async onMutate(newBook) {
 			await queryClient.cancelQueries({ queryKey: ['list-items'] })

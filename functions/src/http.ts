@@ -5,7 +5,7 @@ import { getFirestore } from 'firebase-admin/firestore'
 import * as express from 'express'
 import * as cors from 'cors'
 
-import { algoliaSearch, getReadingList } from './utils'
+import { algoliaSearch, getUserData } from './utils'
 
 const db = getFirestore()
 
@@ -53,9 +53,30 @@ app.get('/reading-list/:userId', async (request, response) => {
 		response.status(400).send('ERROR you must supply a userId')
 	}
 
-	const listItems = await getReadingList(db, userId)
+	const { readingList } = await getUserData(db, userId)
 
-	response.send(listItems)
+	response.send(readingList)
+})
+
+app.delete('/reading-list/:userId', async (request, response) => {
+	const userId = request.params.userId
+	const body = request.body
+
+	if (!userId) {
+		response.status(400).send('ERROR you must supply a userId')
+	}
+
+	const book = { ...body }
+
+	const { readingList, userObj, userRef } = await getUserData(db, userId)
+
+	const filter = readingList?.filter((li: any) => li.objectID !== book.objectID)
+
+	userObj.readingList = filter
+
+	await userRef.set(userObj)
+
+	response.send(book)
 })
 
 export const api = functions.https.onRequest(app)

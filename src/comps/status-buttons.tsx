@@ -59,8 +59,20 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 
 const StatusButtons = ({ book }: { book: Book }) => {
 	const listItem = useListItem(book)
+	const remove = useRemoveListItem()
 	console.log(listItem)
-	return <React.Fragment></React.Fragment>
+	return (
+		<React.Fragment>
+			{listItem ? (
+				<TooltipButton
+					label='Remove from list'
+					highlight={colors.danger}
+					onClick={() => remove.mutateAsync(book)}
+					icon={<FaMinusCircle />}
+				/>
+			) : null}
+		</React.Fragment>
+	)
 }
 
 export { StatusButtons }
