@@ -32,6 +32,40 @@ function useUpdateListItem() {
 	return useMutation({
 		mutationFn: (book: Book) => update(`users/${userId}`, book),
 
+		async onMutate(newBook) {
+			await queryClient.cancelQueries({ queryKey: ['list-items'] })
+
+			const previousListItems = queryClient.getQueryData(['list-items'])
+
+			queryClient.setQueryData(['list-items'], (old?: Book[]) => {
+				if (!old) {
+					return [newBook]
+				}
+
+				let copyData = [...old]
+
+				const index = copyData?.findIndex(
+					li => li.objectID === newBook.objectID,
+				)
+
+				if (index !== -1) {
+					copyData[index] = newBook
+				}
+
+				if (index === -1) {
+					copyData = [...old, newBook]
+				}
+
+				return copyData
+			})
+
+			return { previousListItems }
+		},
+
+		onError(_err, _newBook, context) {
+			queryClient.setQueryData(['list-items'], context?.previousListItems)
+		},
+
 		async onSettled() {
 			await queryClient.refetchQueries()
 		},
@@ -63,28 +97,6 @@ function useCreateListItem() {
 
 	return useMutation({
 		mutationFn: (book: Book) => update(`users/${userId}`, book),
-
-		async onMutate(newBook) {
-			await queryClient.cancelQueries({ queryKey: ['books'] })
-
-			const previousBooks = queryClient.getQueryData(['books'])
-
-			queryClient.setQueryData(['books'], (old?: Book[]) => {
-				if (!old) return
-
-				const copyData = [...old]
-
-				const filter = copyData?.filter(li => li.objectID !== newBook.objectID)
-
-				return filter
-			})
-
-			return { previousBooks }
-		},
-
-		onError(_err, _newBook, context) {
-			queryClient.setQueryData(['books'], context?.previousBooks)
-		},
 
 		async onSettled() {
 			await queryClient.refetchQueries()
