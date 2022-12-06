@@ -1,7 +1,7 @@
 import { queryClient } from 'context'
 import * as auth from 'auth-provider'
 import { Config } from 'client-types'
-import { Book } from '../../types'
+import { ListItem } from '../../types'
 const apiURL = process.env.REACT_APP_API_URL
 
 async function client(endpoint: string, { method, data, token }: Config) {
@@ -37,15 +37,15 @@ function read(endpoint: string, token: string) {
 	return client(endpoint, { method: 'GET', token })
 }
 
-function create(endpoint: string, data: Book, token: string) {
+function create(endpoint: string, data: ListItem, token: string) {
 	return client(endpoint, { method: 'POST', data, token })
 }
 
-function update(endpoint: string, data: Book, token: string) {
+function update(endpoint: string, data: ListItem, token: string) {
 	return client(endpoint, { method: 'PUT', data, token })
 }
 
-function remove(endpoint: string, data: Book, token: string) {
+function remove(endpoint: string, data: ListItem, token: string) {
 	return client(endpoint, { method: 'DELETE', data, token })
 }
 

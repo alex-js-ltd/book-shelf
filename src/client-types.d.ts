@@ -1,3 +1,5 @@
+import { ListItem } from '../types'
+
 type FormData = {
 	email: string
 	password: string
@@ -6,7 +8,7 @@ type FormData = {
 type Config = {
 	method: 'GET' | 'POST' | 'PUT' | 'DELETE'
 	token: string
-	data?: any
+	data?: ListItem
 }
 
 export { FormData, Config }
