@@ -15,4 +15,14 @@ type Loading = Book & {
 	loadingBook: boolean
 }
 
+function isLoading(valueToTest: any) {
+	return (
+		valueToTest &&
+		typeof valueToTest === 'object' &&
+		'loadingBook' in valueToTest &&
+		typeof valueToTest['loadingBook'] === 'boolean'
+	)
+}
+export { isLoading }
+
 export type { FormData, Config, Loading }

@@ -5,7 +5,7 @@ import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
 import { StatusButtons } from './status-buttons'
 import { Book, ListItem } from '../../types'
-import { Loading } from 'client-types'
+import { Loading, isLoading } from 'client-types'
 
 function BookRow({ book }: { book: Book | ListItem | Loading }) {
 	const { title, author, coverImageUrl, synopsis, publisher, objectID } = book
@@ -106,12 +106,3 @@ function BookRow({ book }: { book: Book | ListItem | Loading }) {
 }
 
 export { BookRow }
-
-function isLoading(valueToTest: any) {
-	return (
-		valueToTest &&
-		typeof valueToTest === 'object' &&
-		'loadingBook' in valueToTest &&
-		typeof valueToTest['loadingBook'] === 'boolean'
-	)
-}

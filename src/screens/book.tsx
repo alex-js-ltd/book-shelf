@@ -6,20 +6,19 @@ import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
 
 import { useBook } from 'utils/books'
-//import { useListItem } from 'utils/list-items'
+import { useListItem } from 'utils/list-items'
 // import { ListItemTimeframe } from 'comps/list-item-time'
-//import { StatusButtons } from 'comps/status-buttons'
 // import { Rating } from 'comps/rating'
+import { StatusButtons } from 'comps/status-buttons'
+import { isLoading } from 'client-types'
 
 const BookScreen = () => {
 	const { bookId } = useParams()
 
 	const book = useBook(bookId)
-	//const listItem = useListItem(bookId)
+	const listItem = useListItem(book)
 
 	const { coverImageUrl, title, author, publisher, synopsis } = book
-
-	if (!book) return null
 
 	return (
 		<div>
@@ -60,7 +59,7 @@ const BookScreen = () => {
 								minHeight: 100,
 							}}
 						>
-							{/* {book.loadingBook ? null : <StatusButtons book={book} />} */}
+							{isLoading(book) ? null : <StatusButtons book={book} />}
 						</div>
 					</div>
 					<div css={{ marginTop: 10, height: 46 }}>

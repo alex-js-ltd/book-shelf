@@ -3,9 +3,10 @@ import { useClient } from 'utils/use-client'
 import { useAuth } from 'context/auth-context'
 import bookPlaceholderSvg from 'assets/book-placeholder.svg'
 import { Book } from '../../types'
+import { Loading } from 'client-types'
 
-const loadingBook = {
-	objectID: `loading-book-${0}`,
+const loadingBook: Loading = {
+	objectID: `loading-book`,
 	title: 'Loading...',
 	author: 'loading...',
 	coverImageUrl: bookPlaceholderSvg,
