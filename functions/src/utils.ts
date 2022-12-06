@@ -23,17 +23,17 @@ export async function algoliaSearch(query: string) {
 	return map ?? []
 }
 
-export async function getUserData(db: Firestore, userId: any) {
+export async function getUserData(db: Firestore, userId: string) {
 	const userRef = db.doc(`users/${userId}`)
 	const userSnap = await userRef.get()
 	const userData = userSnap.data()
 	const listItems = userData?.readingList
-	const copyUserData = { ...userData }
-	const copyListItems = [...listItems]
+	const userObj = { ...userData }
+	const readingList = [...listItems]
 
 	return {
 		userRef,
-		userObj: copyUserData,
-		readingList: copyListItems,
+		userObj,
+		readingList,
 	}
 }
