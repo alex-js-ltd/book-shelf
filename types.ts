@@ -13,4 +13,4 @@ type Book = {
 	rating?: number | null
 }
 
-export { Book }
+export type { Book }
