@@ -7,8 +7,9 @@ import { StatusButtons } from './status-buttons'
 import { Book, ListItem } from '../../types'
 import { Loading } from 'client-types'
 
-const BookRow = ({ book }: { book: Book | ListItem | Loading }) => {
+function BookRow({ book }: { book: Book | ListItem | Loading }) {
 	const { title, author, coverImageUrl, synopsis, publisher, objectID } = book
+
 	const id = `book-row-book-${book.objectID}`
 
 	return (
