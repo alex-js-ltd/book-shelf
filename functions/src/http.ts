@@ -106,4 +106,31 @@ app.post('/reading-list/:userId', async (request, response) => {
 	response.send(book)
 })
 
+app.put('/reading-list/:userId', async (request, response) => {
+	const userId = request.params.userId
+	const body = request.body
+
+	if (!userId) {
+		response.status(400).send('ERROR you must supply a userId')
+	}
+
+	const book = { ...body }
+
+	const { readingList, userObj, userRef } = await getUserData(db, userId)
+
+	const index = readingList?.findIndex(li => li.objectID === book.objectID)
+
+	if (index === -1) {
+		response.status(400).send(`can't change this item 😸`)
+	}
+
+	readingList[index] = { ...book }
+
+	userObj.readingList = readingList
+
+	await userRef.set(userObj)
+
+	response.send(book)
+})
+
 export const api = functions.https.onRequest(app)

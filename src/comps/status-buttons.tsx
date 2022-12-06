@@ -13,6 +13,7 @@ import * as colors from 'styles/colors'
 import { CircleButton, Spinner } from './lib'
 import {
 	useCreateListItem,
+	useUpdateListItem,
 	useRemoveListItem,
 	useListItem,
 } from 'utils/list-items'
@@ -59,11 +60,34 @@ const TooltipButton = ({ label, highlight, onClick, icon, ...rest }: Props) => {
 
 const StatusButtons = ({ book }: { book: Book }) => {
 	const listItem = useListItem(book)
+	const update = useUpdateListItem()
 	const create = useCreateListItem()
 	const remove = useRemoveListItem()
 
 	return (
 		<React.Fragment>
+			{listItem ? (
+				Boolean(listItem.finishDate) ? (
+					<TooltipButton
+						label='Mark as unread'
+						highlight={colors.yellow}
+						onClick={() =>
+							update.mutateAsync({ ...listItem, finishDate: null })
+						}
+						icon={<FaBook />}
+					/>
+				) : (
+					<TooltipButton
+						label='Mark as read'
+						highlight={colors.green}
+						onClick={() =>
+							update.mutateAsync({ ...listItem, finishDate: Date.now() })
+						}
+						icon={<FaCheckCircle />}
+					/>
+				)
+			) : null}
+
 			{listItem ? (
 				<TooltipButton
 					label='Remove from list'

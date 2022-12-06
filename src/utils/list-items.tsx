@@ -38,6 +38,22 @@ function useCreateListItem() {
 	})
 }
 
+function useUpdateListItem() {
+	const { update } = useClient()
+	const { user } = useAuth()
+	const userId = user?.localId
+
+	const queryClient = useQueryClient()
+
+	return useMutation({
+		mutationFn: (book: Book) => update(`reading-list/${userId}`, book),
+
+		async onSettled() {
+			await queryClient.invalidateQueries(['list-items'])
+		},
+	})
+}
+
 function useRemoveListItem() {
 	const { remove } = useClient()
 	const { user } = useAuth()
@@ -54,4 +70,10 @@ function useRemoveListItem() {
 	})
 }
 
-export { useListItems, useCreateListItem, useRemoveListItem, useListItem }
+export {
+	useListItems,
+	useCreateListItem,
+	useUpdateListItem,
+	useRemoveListItem,
+	useListItem,
+}
