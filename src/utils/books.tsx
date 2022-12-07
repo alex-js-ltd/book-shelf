@@ -6,53 +6,53 @@ import { Book } from '../../types'
 import { Loading } from 'client-types'
 
 const loadingBook: Loading = {
-	objectID: `loading-book`,
-	title: 'Loading...',
-	author: 'loading...',
-	coverImageUrl: bookPlaceholderSvg,
-	publisher: 'Loading Publishing',
-	synopsis: 'Loading...',
-	pageCount: 0,
-	loadingBook: true,
+  objectID: `loading-book`,
+  title: 'Loading...',
+  author: 'loading...',
+  coverImageUrl: bookPlaceholderSvg,
+  publisher: 'Loading Publishing',
+  synopsis: 'Loading...',
+  pageCount: 0,
+  loadingBook: true,
 }
 
 const loadingBooks = Array.from({ length: 10 }, (v, index) => ({
-	...loadingBook,
-	objectID: `loading-book-${index}`,
+  ...loadingBook,
+  objectID: `loading-book-${index}`,
 }))
 
 function useBookSearch(query: string) {
-	const { read } = useClient()
-	const { user } = useAuth()
-	const userId = user?.localId
+  const { read } = useClient()
+  const { user } = useAuth()
+  const userId = user?.localId
 
-	const queryClient = useQueryClient()
+  const queryClient = useQueryClient()
 
-	const result = useQuery<Book[], Error>({
-		queryKey: ['books', query],
-		queryFn: () => read(`books?search=${query}?&userId=${userId}`),
+  const result = useQuery<Book[], Error>({
+    queryKey: ['books', query],
+    queryFn: () => read(`books?search=${query}?&userId=${userId}`),
 
-		onSuccess(books: Book[] | undefined) {
-			if (!books) return
+    onSuccess(books: Book[] | undefined) {
+      if (!books) return
 
-			for (const book of books) {
-				queryClient.setQueryData(['book', book.objectID], book)
-			}
-		},
-	})
+      for (const book of books) {
+        queryClient.setQueryData(['book', book.objectID], book)
+      }
+    },
+  })
 
-	return { ...result, books: result?.data ?? loadingBooks }
+  return { ...result, books: result?.data ?? loadingBooks }
 }
 
 function useBook(bookId: string | undefined) {
-	const { read } = useClient()
+  const { read } = useClient()
 
-	const result = useQuery<Book | null, Error>({
-		queryKey: ['book', bookId],
-		queryFn: () => read(`book/${bookId}`),
-	})
+  const result = useQuery<Book | null, Error>({
+    queryKey: ['book', bookId],
+    queryFn: () => read(`books/${bookId}`),
+  })
 
-	return result?.data ?? loadingBook
+  return result?.data ?? loadingBook
 }
 
 export { useBookSearch, useBook }
