@@ -6,7 +6,7 @@ import { ListItem } from '../../types'
 
 const ReadingListScreen = () => {
 	const list = useListItems()
-	console.log(list)
+
 	const filter = list.filter((li: ListItem) => li.finishDate === null)
 
 	return (
