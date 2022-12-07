@@ -18,14 +18,6 @@ app.use(validateFirebaseIdToken)
 app.use('/', getRoutes())
 app.use(errorMiddleware)
 
-function isError(error: unknown) {
-  let message = 'Unknown Error'
-  if (error instanceof Error) {
-    message = error.message
-    return { message, stack: error.stack }
-  } else return { message }
-}
-
 function errorMiddleware(
   error: unknown,
   _req: Request,
@@ -46,6 +38,14 @@ function errorMiddleware(
       ...(process.env.NODE_ENV === 'production' ? null : { stack }),
     })
   }
+}
+
+function isError(error: unknown) {
+  let message = 'Unknown Error'
+  if (error instanceof Error) {
+    message = error.message
+    return { message, stack: error.stack }
+  } else return { message, stack: null }
 }
 
 export const api = https.onRequest(app)
