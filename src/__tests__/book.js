@@ -15,11 +15,10 @@ afterEach(() => server.resetHandlers())
 test(`render book screen with mock data`, async () => {
   render(<DiscoverBooksScreen />)
 
-  await userEvent.click(screen.getByRole('button'))
-
   await waitFor(() => {
-    expect(screen.getByText(books[0].title)).toBeInTheDocument()
+    for (const book of books) {
+      expect(screen.getByText(book.title)).toBeInTheDocument()
+      expect(screen.getAllByText(book.author)[0]).toBeInTheDocument()
+    }
   })
-
-  screen.debug()
 })
