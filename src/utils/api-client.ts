@@ -2,7 +2,9 @@ import { queryClient } from 'context'
 import * as auth from 'auth-provider'
 import { Config } from 'client-types'
 import { ListItem } from '../../types'
-const apiURL = process.env.REACT_APP_API_URL
+import { getEnv } from './env'
+
+const { API_URL } = getEnv()
 
 async function client(endpoint: string, { method, data, token }: Config) {
   const config = {
@@ -14,7 +16,7 @@ async function client(endpoint: string, { method, data, token }: Config) {
     },
   }
 
-  return window.fetch(`${apiURL}/${endpoint}`, config).then(async response => {
+  return window.fetch(`${API_URL}/${endpoint}`, config).then(async response => {
     if (response.status === 401) {
       queryClient.clear()
       await auth.logout()

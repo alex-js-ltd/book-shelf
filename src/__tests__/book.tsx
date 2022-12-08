@@ -3,7 +3,6 @@ import { render, screen, waitFor } from 'test/test-utils'
 import { setupServer } from 'msw/node'
 import { handlers } from 'test/server-handlers'
 import { books } from 'test/mock-data'
-import userEvent from '@testing-library/user-event'
 import { DiscoverBooksScreen } from 'screens/discover'
 
 const server = setupServer(...handlers)
