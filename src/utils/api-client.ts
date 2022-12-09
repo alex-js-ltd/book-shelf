@@ -25,7 +25,7 @@ async function client(endpoint: string, { method, data, token }: Config) {
       return Promise.reject({ message: 'Please re-authenticate.' })
     }
     const data = await response.json()
-
+    console.log(data)
     if (response.ok) {
       return data
     } else {

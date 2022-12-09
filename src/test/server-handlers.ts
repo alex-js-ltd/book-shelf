@@ -1,5 +1,5 @@
 import { rest } from 'msw'
-import { books } from 'test/mock-data'
+import { books, readingList } from 'test/mock-data'
 import { getEnv } from 'utils/env'
 
 const { API_URL } = getEnv()
@@ -10,7 +10,7 @@ const handlers = [
   }),
 
   rest.get(`${API_URL}/reading-list/:userId`, (_req, res, ctx) => {
-    return res(ctx.json(books))
+    return res(ctx.json(readingList))
   }),
 ]
 

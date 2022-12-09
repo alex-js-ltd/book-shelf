@@ -110,4 +110,20 @@ const books = [
     objectID: 'AVKZkjNfMg0h1VzJP2fl',
   },
 ]
-export { books }
+
+const readingList = [
+  {
+    title: 'Harry Potter and the Order of the Phoenix',
+    coverImageUrl:
+      'https://images-na.ssl-images-amazon.com/images/I/51SfTd37PaL._SX415_BO1,204,203,200_.jpg',
+    publisher: 'Scholastic',
+    synopsis:
+      "In his fifth year at Hogwart's, Harry faces challenges at every turn, from the dark threat of He-Who-Must-Not-Be-Named and the unreliability of the government of the magical world to the rise of Ron Weasley as the keeper of the Gryffindor Quidditch Team. Along the way he learns about the strength of his friends, the fierceness of his enemies, and the meaning of sacrifice",
+    finishDate: null,
+    startDate: 1670585293630,
+    objectID: 'jcxZeQ6z19LHlYp5BdHC',
+    pageCount: 896,
+    author: 'J. K. Rowling',
+  },
+]
+export { books, readingList }
