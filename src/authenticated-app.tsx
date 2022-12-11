@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import * as React from 'react'
+import React, { Fragment } from 'react'
 import { Routes, Route, NavLink } from 'react-router-dom'
 import { Button } from 'comps/lib'
 import * as mq from 'styles/media-queries'
@@ -17,7 +17,7 @@ const AuthenticatedApp = () => {
   const { user, logout } = useAuth()
 
   return (
-    <React.Fragment>
+    <Fragment>
       <div
         css={{
           display: 'flex',
@@ -59,42 +59,40 @@ const AuthenticatedApp = () => {
           <AppRoutes />
         </main>
       </div>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
-const Link = ({ to, children }: { to: string; children: string }) => {
-  return (
-    <NavLink
-      to={to}
-      css={{
-        display: 'block',
-        padding: '8px 15px 8px 10px',
-        margin: '5px 0',
-        width: '100%',
-        height: '100%',
-        color: colors.text,
-        borderRadius: '2px',
-        borderLeft: '5px solid transparent',
-        ':hover,:focus': {
-          color: colors.indigo,
-          textDecoration: 'none',
-          background: colors.gray10,
-        },
-      }}
-      style={({ isActive }) =>
-        isActive
-          ? {
-              borderLeft: `5px solid ${colors.indigo}`,
-              background: colors.gray10,
-            }
-          : {}
-      }
-    >
-      {children}
-    </NavLink>
-  )
-}
+const Link = ({ to, children }: { to: string; children: string }) => (
+  <NavLink
+    to={to}
+    css={{
+      display: 'block',
+      padding: '8px 15px 8px 10px',
+      margin: '5px 0',
+      width: '100%',
+      height: '100%',
+      color: colors.text,
+      borderRadius: '2px',
+      borderLeft: '5px solid transparent',
+      ':hover,:focus': {
+        color: colors.indigo,
+        textDecoration: 'none',
+        background: colors.gray10,
+      },
+    }}
+    style={({ isActive }) =>
+      isActive
+        ? {
+            borderLeft: `5px solid ${colors.indigo}`,
+            background: colors.gray10,
+          }
+        : {}
+    }
+  >
+    {children}
+  </NavLink>
+)
 
 const Nav = () => (
   <nav
