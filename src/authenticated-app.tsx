@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import * as React from 'react'
-import { Routes, Route, Link, useMatch } from 'react-router-dom'
+import { Routes, Route, NavLink } from 'react-router-dom'
 import { Button } from 'comps/lib'
 import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
@@ -63,39 +63,36 @@ const AuthenticatedApp = () => {
   )
 }
 
-const NavLink = (props: any) => {
-  const match = useMatch(props.to)
-
+const Link = ({ to, children }: { to: string; children: string }) => {
   return (
-    <Link
-      css={[
-        {
-          display: 'block',
-          padding: '8px 15px 8px 10px',
-          margin: '5px 0',
-          width: '100%',
-          height: '100%',
-          color: colors.text,
-          borderRadius: '2px',
-          borderLeft: '5px solid transparent',
-          ':hover': {
-            color: colors.indigo,
-            textDecoration: 'none',
-            background: colors.gray10,
-          },
+    <NavLink
+      to={to}
+      css={{
+        display: 'block',
+        padding: '8px 15px 8px 10px',
+        margin: '5px 0',
+        width: '100%',
+        height: '100%',
+        color: colors.text,
+        borderRadius: '2px',
+        borderLeft: '5px solid transparent',
+        ':hover,:focus': {
+          color: colors.indigo,
+          textDecoration: 'none',
+          background: colors.gray10,
         },
-        match
+      }}
+      style={({ isActive }) =>
+        isActive
           ? {
               borderLeft: `5px solid ${colors.indigo}`,
               background: colors.gray10,
-              ':hover': {
-                background: colors.gray10,
-              },
             }
-          : null,
-      ]}
-      {...props}
-    />
+          : {}
+      }
+    >
+      {children}
+    </NavLink>
   )
 }
 
@@ -120,13 +117,13 @@ const Nav = () => (
       }}
     >
       <li>
-        <NavLink to="/list">Reading List</NavLink>
+        <Link to="/list">Reading List</Link>
       </li>
       <li>
-        <NavLink to="/finished">Finished Books</NavLink>
+        <Link to="/finished">Finished Books</Link>
       </li>
       <li>
-        <NavLink to="/">Discover</NavLink>
+        <Link to="/">Discover</Link>
       </li>
     </ul>
   </nav>
