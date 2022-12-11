@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import React, { Fragment } from 'react'
-import { Routes, Route, NavLink } from 'react-router-dom'
+import { Routes, Route, NavLink, NavLinkProps } from 'react-router-dom'
 import { Button } from 'comps/lib'
 import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
@@ -63,9 +63,9 @@ const AuthenticatedApp = () => {
   )
 }
 
-const Link = ({ to, children }: { to: string; children: string }) => (
+const Link = ({ ...props }: NavLinkProps) => (
   <NavLink
-    to={to}
+    to={props.to}
     css={{
       display: 'block',
       padding: '8px 15px 8px 10px',
@@ -90,7 +90,7 @@ const Link = ({ to, children }: { to: string; children: string }) => (
         : {}
     }
   >
-    {children}
+    {props.children}
   </NavLink>
 )
 
