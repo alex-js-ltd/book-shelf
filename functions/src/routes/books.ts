@@ -45,8 +45,8 @@ async function book(req: Request, res: Response) {
   res.send(bookObj)
 }
 
-const ID = process.env.YOUR_APP_ID
-const SEARCH_KEY = process.env.YOUR_SEARCH_KEY
+const ID = process.env.APP_ID
+const SEARCH_KEY = process.env.SEARCH_KEY
 
 export async function algoliaSearch(query: string) {
   if (!ID || !SEARCH_KEY) return
