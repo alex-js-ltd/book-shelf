@@ -8,7 +8,13 @@ import { Rating } from './rating'
 import { Book, ListItem } from '../../types'
 import { Loading, isLoading, isListItem } from 'client-types'
 
-function BookRow({ book }: { book: Book | ListItem | Loading }) {
+type BookRowProps<T> = {
+  book: T
+}
+
+type Generic = Book | ListItem | Loading
+
+function BookRow({ book }: BookRowProps<Generic>) {
   const { title, author, coverImageUrl, synopsis, publisher, objectID } = book
 
   const id = `book-row-book-${book.objectID}`
