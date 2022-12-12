@@ -1,8 +1,10 @@
-import { config, firestore } from 'firebase-functions'
+import { firestore } from 'firebase-functions'
 import algoliasearch from 'algoliasearch'
+import dotenv from 'dotenv'
+dotenv.config()
 
-const APP_ID = config().algolia.app
-const ADMIN_KEY = config().algolia.key
+const APP_ID = process.env.APP_ID as string
+const ADMIN_KEY = process.env.ADMIN_KEY as string
 
 const client = algoliasearch(APP_ID, ADMIN_KEY)
 const index = client.initIndex('books')

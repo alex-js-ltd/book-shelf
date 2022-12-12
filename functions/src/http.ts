@@ -1,5 +1,4 @@
 import { https } from 'firebase-functions'
-import { initializeApp } from 'firebase-admin/app'
 
 // Express
 import express, { Request, Response, NextFunction } from 'express'
@@ -9,8 +8,6 @@ import logger from 'loglevel'
 
 import { getRoutes } from './routes'
 import { validateFirebaseIdToken } from './validate-firebase-tokenId'
-
-initializeApp()
 
 const app = express()
 app.use(cors({ origin: true }))
