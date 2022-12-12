@@ -12,6 +12,7 @@ type ListItem = Book & {
   startDate?: number
   finishDate?: number | null
   rating?: number | null
+  notes?: string
 }
 
 export type { Book, ListItem }

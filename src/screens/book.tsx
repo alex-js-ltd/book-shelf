@@ -1,16 +1,22 @@
 /** @jsxImportSource @emotion/react */
 
-import * as React from 'react'
+import React, { Fragment, useMemo, SyntheticEvent, FormEvent } from 'react'
 import { useParams } from 'react-router-dom'
 import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
 
 import { useBook } from 'utils/books'
-import { useListItem } from 'utils/list-items'
-// import { ListItemTimeframe } from 'comps/list-item-time'
+import { useListItem, useUpdateListItem } from 'utils/list-items'
+
 import { Rating } from 'comps/rating'
 import { StatusButtons } from 'comps/status-buttons'
 import { isLoading, isFinished } from 'client-types'
+import { FaRegCalendarAlt } from 'react-icons/fa'
+import { Tooltip } from '@reach/tooltip'
+import { formatDate } from 'utils/misc'
+import { Textarea, Spinner, ErrorMessage } from 'comps/lib'
+import debounceFn from 'debounce-fn'
+import { ListItem } from '../../types'
 
 const BookScreen = () => {
   const { bookId } = useParams()
@@ -66,16 +72,80 @@ const BookScreen = () => {
             {listItem && isFinished(listItem) ? (
               <Rating listItem={listItem} />
             ) : null}
-            {/* {listItem ? <ListItemTimeframe listItem={listItem} /> : null} */}
+            {listItem ? <ListItemTimeframe listItem={listItem} /> : null}
           </div>
           <br />
           <p>{synopsis}</p>
         </div>
       </div>
-      {/* {!book.loadingBook && listItem ? (
-        <NotesTextarea user={user} listItem={listItem} />
-      ) : null} */}
+      {!isLoading(book) && listItem ? (
+        <NotesTextarea listItem={listItem} />
+      ) : null}
     </div>
+  )
+}
+
+function ListItemTimeframe({ listItem }: { listItem: ListItem }) {
+  const timeframeLabel = listItem.finishDate
+    ? 'Start and finish date'
+    : 'Start date'
+
+  return (
+    <Tooltip label={timeframeLabel}>
+      <div aria-label={timeframeLabel} css={{ marginTop: 6 }}>
+        <FaRegCalendarAlt css={{ marginTop: -2, marginRight: 5 }} />
+        <span>
+          {listItem.startDate ? formatDate(listItem.startDate) : null}
+          {listItem.finishDate ? `— ${formatDate(listItem.finishDate)}` : null}
+        </span>
+      </div>
+    </Tooltip>
+  )
+}
+
+function NotesTextarea({ listItem }: { listItem: ListItem }) {
+  const { mutateAsync, isError, error, isLoading } = useUpdateListItem()
+
+  const debouncedMutate = useMemo(
+    () => debounceFn(mutateAsync, { wait: 300 }),
+    [mutateAsync],
+  )
+
+  function handleNotesChange(e: SyntheticEvent<HTMLTextAreaElement>) {
+    debouncedMutate({ ...listItem, notes: e.currentTarget.value })
+  }
+
+  return (
+    <Fragment>
+      <div>
+        <label
+          htmlFor="notes"
+          css={{
+            display: 'inline-block',
+            marginRight: 10,
+            marginTop: '0',
+            marginBottom: '0.5rem',
+            fontWeight: 'bold',
+          }}
+        >
+          Notes
+        </label>
+        {isError ? (
+          <ErrorMessage
+            variant="inline"
+            error={error}
+            //css={{ fontSize: '0.7em' }}
+          />
+        ) : null}
+        {isLoading ? <Spinner /> : null}
+      </div>
+      <Textarea
+        id="notes"
+        defaultValue={listItem?.notes}
+        onChange={handleNotesChange}
+        css={{ width: '100%', minHeight: 300 }}
+      />
+    </Fragment>
   )
 }
 
