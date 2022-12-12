@@ -1,28 +1,38 @@
 import { Book, ListItem } from '../types'
 
 type FormData = {
-	email: string
-	password: string
+  email: string
+  password: string
 }
 
 type Config = {
-	method: 'GET' | 'POST' | 'PUT' | 'DELETE'
-	token: string
-	data?: ListItem
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE'
+  token: string
+  data?: ListItem
 }
 
 type Loading = Book & {
-	loadingBook: boolean
+  loadingBook: boolean
 }
 
 function isLoading(valueToTest: any) {
-	return (
-		valueToTest &&
-		typeof valueToTest === 'object' &&
-		'loadingBook' in valueToTest &&
-		typeof valueToTest['loadingBook'] === 'boolean'
-	)
+  return (
+    valueToTest &&
+    typeof valueToTest === 'object' &&
+    'loadingBook' in valueToTest &&
+    typeof valueToTest['loadingBook'] === 'boolean'
+  )
 }
-export { isLoading }
+
+function isListItem(valueToTest: any) {
+  return (
+    valueToTest &&
+    typeof valueToTest === 'object' &&
+    'finishDate' in valueToTest &&
+    typeof valueToTest['finishDate'] === 'number'
+  )
+}
+
+export { isLoading, isListItem }
 
 export type { FormData, Config, Loading }
