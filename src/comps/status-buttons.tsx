@@ -20,7 +20,7 @@ import {
 
 import { Book } from '../../types'
 
-interface Props {
+type Props = {
   label?: string
   highlight?: string
   onClick: Function
