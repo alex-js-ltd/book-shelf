@@ -1,14 +1,14 @@
 import { ReactNode } from 'react'
 import { BookListUL } from './lib'
 import { BookRow } from './book-row'
-import { Book } from '../../types'
+import { ListItem } from '../../types'
 
 function ListItemList({
   noListItems,
   list,
 }: {
   noListItems: ReactNode
-  list: Book[]
+  list: ListItem[]
 }) {
   if (!list?.length) {
     return (
@@ -18,9 +18,9 @@ function ListItemList({
 
   return (
     <BookListUL>
-      {list?.map((listItem: Book) => (
+      {list?.map((listItem: ListItem) => (
         <li key={listItem.objectID}>
-          <BookRow book={listItem} />
+          <BookRow<ListItem> book={listItem} />
         </li>
       ))}
     </BookListUL>
