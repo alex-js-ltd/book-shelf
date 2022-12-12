@@ -130,13 +130,7 @@ function NotesTextarea({ listItem }: { listItem: ListItem }) {
         >
           Notes
         </label>
-        {isError ? (
-          <ErrorMessage
-            variant="inline"
-            error={error}
-            //css={{ fontSize: '0.7em' }}
-          />
-        ) : null}
+        {isError ? <ErrorMessage variant="inline" error={error} /> : null}
         {isLoading ? <Spinner /> : null}
       </div>
       <Textarea

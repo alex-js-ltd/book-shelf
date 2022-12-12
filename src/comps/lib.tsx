@@ -114,7 +114,7 @@ const Link = styled(RouterLink)({
   },
 })
 
-type ErrVariant = { stacked: CSSObject; inline: CSSObject }
+type ErrVariant = { stacked: CSSObject; inline: CSSObject } | CSSObject
 
 const errorMessageVariants: ErrVariant = {
   stacked: { display: 'block' },
