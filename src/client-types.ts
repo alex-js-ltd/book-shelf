@@ -24,7 +24,7 @@ function isLoading(valueToTest: any) {
   )
 }
 
-function isListItem(valueToTest: any) {
+function isFinished(valueToTest: any) {
   return (
     valueToTest &&
     typeof valueToTest === 'object' &&
@@ -33,6 +33,6 @@ function isListItem(valueToTest: any) {
   )
 }
 
-export { isLoading, isListItem }
+export { isLoading, isFinished }
 
 export type { FormData, Config, Loading }

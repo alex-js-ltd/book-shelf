@@ -28,8 +28,6 @@ function Rating({ listItem }: Props) {
 
   const rootClassName = `list-item-${listItem.objectID}`
 
-  if (!listItem) return null
-
   const stars = Array.from({ length: 5 }).map((x, i) => {
     const ratingId = `rating-${listItem.objectID}-${i}`
     const ratingValue = i + 1

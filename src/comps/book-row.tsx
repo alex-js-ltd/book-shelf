@@ -6,7 +6,7 @@ import * as colors from 'styles/colors'
 import { StatusButtons } from './status-buttons'
 import { Rating } from './rating'
 import { Book } from '../../types'
-import { isLoading, isListItem } from 'client-types'
+import { isLoading, isFinished } from 'client-types'
 
 type BookRowProps<T> = {
   book: T
@@ -73,7 +73,7 @@ const BookRow = <T extends Book>({ book }: BookRowProps<T>) => {
               >
                 {title}
               </h2>
-              {isListItem(book) ? <Rating listItem={book} /> : null}
+              {isFinished(book) ? <Rating listItem={book} /> : null}
             </div>
             <div css={{ marginLeft: 10 }}>
               <div

@@ -16,7 +16,7 @@ function useListItems() {
   return result?.data ?? []
 }
 
-function useListItem(listItem: ListItem): ListItem | null {
+function useListItem(listItem: ListItem) {
   const listItems = useListItems()
 
   return (
