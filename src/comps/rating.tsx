@@ -98,7 +98,7 @@ function Rating({ listItem }: Props) {
         <ErrorMessage
           error={update.error}
           variant="inline"
-          //css={{ marginLeft: 6, fontSize: '0.7em' }}
+          // css={{ marginLeft: 6, fontSize: '0.7em' }}
         />
       ) : null}
     </div>
