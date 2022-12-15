@@ -1,9 +1,9 @@
 import { logger } from 'firebase-functions'
-import { Response, NextFunction } from 'express'
+import type { Request as Req, Response, NextFunction } from 'express'
 import { auth } from 'firebase-admin'
 
 const validateFirebaseIdToken = async (
-  req: any,
+  req: Request,
   res: Response,
   next: NextFunction,
 ) => {
@@ -56,3 +56,7 @@ const validateFirebaseIdToken = async (
 }
 
 export { validateFirebaseIdToken }
+
+type Request = Req & {
+  user?: any
+}
