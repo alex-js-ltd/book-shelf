@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 
-import React, { Fragment } from 'react'
 import { Routes, Route, NavLink, NavLinkProps } from 'react-router-dom'
-import { Button } from 'comps/lib'
+import { ErrorBoundary } from 'react-error-boundary'
+import { Button, FullPageErrorFallback, ErrorMessage } from 'comps/lib'
 import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
 
@@ -13,11 +13,15 @@ import { FinishedScreen } from 'screens/finished'
 
 import { useAuth } from 'context/auth-context'
 
+function ErrorFallback({ error }: { error: Error }) {
+  return <ErrorMessage error={error} />
+}
+
 const AuthenticatedApp = () => {
   const { user, logout } = useAuth()
 
   return (
-    <Fragment>
+    <ErrorBoundary FallbackComponent={FullPageErrorFallback}>
       <div
         css={{
           display: 'flex',
@@ -56,10 +60,12 @@ const AuthenticatedApp = () => {
           <Nav />
         </div>
         <main css={{ width: '100%' }}>
-          <AppRoutes />
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <AppRoutes />
+          </ErrorBoundary>
         </main>
       </div>
-    </Fragment>
+    </ErrorBoundary>
   )
 }
 

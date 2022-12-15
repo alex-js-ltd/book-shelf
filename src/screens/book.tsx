@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import React, { Fragment, useMemo, SyntheticEvent, FormEvent } from 'react'
+import React, { Fragment, useMemo, SyntheticEvent } from 'react'
 import { useParams } from 'react-router-dom'
 import * as mq from 'styles/media-queries'
 import * as colors from 'styles/colors'
